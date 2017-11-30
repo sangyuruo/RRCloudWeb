@@ -133,6 +133,16 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
+    {
+        title: 'Tables1',
+        icon: 'nb-tables',
+        children: [
+            {
+                title: 'Smart Table',
+                link: '/pages/tables1/smart-table',
+            },
+        ],
+    },
   {
     title: 'Auth',
     icon: 'nb-locked',

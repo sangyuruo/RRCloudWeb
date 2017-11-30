@@ -13,31 +13,35 @@ const routes: Routes = [{
   }, {
     path: 'ui-features',
     loadChildren: () => new Promise(resolve => {
-      (require as any).ensure([], require => {resolve(require('./ui-features/ui-features.module').UiFeaturesModule); })  }) 
+      (require as any).ensure([], require => {resolve(require('./ui-features/ui-features.module').UiFeaturesModule); })  })
   }, {
     path: 'components',
     loadChildren: () => new Promise(resolve => {
-      (require as any).ensure([], require => {resolve(require('./components/components.module').ComponentsModule); })  }) 
+      (require as any).ensure([], require => {resolve(require('./components/components.module').ComponentsModule); })  })
   }, {
     path: 'maps',
     loadChildren: () => new Promise(resolve => {
-      (require as any).ensure([], require => {resolve(require('./maps/maps.module').MapsModule); })  }) 
+      (require as any).ensure([], require => {resolve(require('./maps/maps.module').MapsModule); })  })
   }, {
     path: 'charts',
     loadChildren: () => new Promise(resolve => {
-      (require as any).ensure([], require => {resolve(require('./charts/charts.module').ChartsModule); })  }) 
+      (require as any).ensure([], require => {resolve(require('./charts/charts.module').ChartsModule); })  })
   }, {
     path: 'editors',
     loadChildren: () => new Promise(resolve => {
-      (require as any).ensure([], require => {resolve(require('./editors/editors.module').EditorsModule); })  }) 
+      (require as any).ensure([], require => {resolve(require('./editors/editors.module').EditorsModule); })  })
   }, {
     path: 'forms',
     loadChildren: () => new Promise(resolve => {
-      (require as any).ensure([], require => {resolve(require('./forms/forms.module').FormsModule); })  }) 
+      (require as any).ensure([], require => {resolve(require('./forms/forms.module').FormsModule); })  })
   }, {
     path: 'tables',
     loadChildren: () => new Promise(resolve => {
-      (require as any).ensure([], require => {resolve(require('./tables/tables.module').TablesModule); })  }) 
+      (require as any).ensure([], require => {resolve(require('./tables/tables.module').TablesModule); })  })
+  },{
+      path: 'tables1',
+      loadChildren: () => new Promise(resolve => {
+          (require as any).ensure([], require => {resolve(require('./tables1/tables.module').TablesModule); })  })
   }, {
     path: '',
     redirectTo: 'dashboard',
