@@ -54,6 +54,10 @@ const formSetting: any = {
                       login: {
                           endpoint: '/auth/login',
                           method: 'post',
+                          redirect: {
+                              success: '/pages',
+                              failure: null,
+                          },
                       },
                       register: {
                           endpoint: '/api/auth/register',
