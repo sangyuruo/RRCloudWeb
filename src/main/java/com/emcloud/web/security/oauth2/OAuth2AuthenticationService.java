@@ -62,7 +62,7 @@ public class OAuth2AuthenticationService {
     public ResponseEntity<OAuth2AccessToken> authenticate(HttpServletRequest request, HttpServletResponse response,
                                                           Map<String, String> params) {
         try {
-            String username = params.get("username");
+            String username = params.get("email");
             String password = params.get("password");
             boolean rememberMe = Boolean.valueOf(params.get("rememberMe"));
             OAuth2AccessToken accessToken = authorizationClient.sendPasswordGrant(username, password);

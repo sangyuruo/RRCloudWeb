@@ -3,6 +3,11 @@
 // @nebular out of the box themes
 @import '~@nebular/theme/styles/themes';
 
+
+//添加
+/*@import '~@nebular/auth/styles/all';*/ // or @import '~@nebular/auth/styles/{theme-name}';
+
+
 // which themes you what to enable (empty to enable all)
 $nb-enabled-themes: (default, cosmic);
 
@@ -25,3 +30,10 @@ $nb-themes: nb-register-theme((
   font-main: Roboto,
   font-secondary: Exo,
 ), cosmic, cosmic);
+
+// ...
+
+/*@include nb-install() {
+    @include nb-theme-global();
+    @include nb-auth-global(); // append the install mixin inside of the nb-install
+};*/

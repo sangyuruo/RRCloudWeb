@@ -18,6 +18,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { ThemeModule } from './@theme/theme.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+
+
+//添加
+import { NB_AUTH_TOKEN_WRAPPER_TOKEN, NbAuthJWTToken } from '@nebular/auth';
+//添加
+import { NbEmailPassAuthProvider, NbAuthModule } from '@nebular/auth';
+//添加
+const formSetting: any = {
+    redirectDelay: 0,
+    showMessages: {
+        success: true,
+    },
+};
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -29,10 +43,53 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
     CoreModule.forRoot(),
+
+      //添加
+      NbAuthModule.forRoot({
+          providers: {
+              email: {
+                  service: NbEmailPassAuthProvider,
+                  config: {
+                      baseEndpoint: '',
+                      login: {
+                          endpoint: '/auth/login',
+                          method: 'post',
+                      },
+                      register: {
+                          endpoint: '/api/auth/register',
+                          method: 'post',
+                      },
+                      logout: {
+                          endpoint: '/api/auth/logout',
+                          method: 'post',
+                      },
+                      requestPass: {
+                          endpoint: '/api/auth/request-pass',
+                          method: 'post',
+                      },
+                      resetPass: {
+                          endpoint: '/api/auth/reset-pass',
+                          method: 'post',
+                      },
+                  },
+              },
+          },
+          forms: {
+              login: formSetting,
+              register: formSetting,
+              requestPassword: formSetting,
+              resetPassword: formSetting,
+              logout: {
+                  redirectDelay: 0,
+              },
+          },
+      }),
   ],
   bootstrap: [AppComponent],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
+      //添加
+      { provide: NB_AUTH_TOKEN_WRAPPER_TOKEN, useClass: NbAuthJWTToken },
   ],
 })
 export class EmCloudWebNgxAppModule {
