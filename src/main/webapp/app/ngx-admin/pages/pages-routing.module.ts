@@ -43,6 +43,10 @@ const routes: Routes = [{
       loadChildren: () => new Promise(resolve => {
           (require as any).ensure([], require => {resolve(require('./tables1/tables.module').TablesModule); })  })
   }, {
+      path: 'entities',
+      loadChildren: () => new Promise(resolve => {
+          (require as any).ensure([], require => {resolve(require('../../entities/entity.module').EmCloudWebEntityModule); })  })
+  },{
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',

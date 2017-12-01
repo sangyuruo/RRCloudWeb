@@ -143,9 +143,10 @@ export class SmartTableComponent {
               private http:Http) {
     //const data = this.service.getData();
     //this.source.load(data);
-      this.http.get('/emcloudou/api/companies')
+      /*this.http.get('/emcloudou/api/companies')
           .map(res => res.json())
-          .subscribe(data => (this.source.load(data)) )
+          .subscribe(data => (this.source.load(data)) )*/
+      this.service.getData1().subscribe(data => (this.source.load(data)))
   }
 
   onDeleteConfirm(event): void {

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {Http} from "@angular/http";
 
 @Injectable()
 export class SmartTableService {
@@ -424,8 +425,12 @@ export class SmartTableService {
     'email': 'lousanchez@comtours.com',
     'age': 16,
   }];
-
+  constructor(private http:Http){}
   getData() {
     return this.data;
+  }
+  getData1(){
+      return this.http.get('/emcloudou/api/companies')
+          .map(res => res.json())
   }
 }
