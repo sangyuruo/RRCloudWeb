@@ -143,16 +143,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
             },
         ],
     },
-    {
-        title: 'entities',
-        icon: 'nb-tables',
-        children: [
-            {
-                title: 'companys',
-                link: '/pages/entities/company',
-            },
-        ],
-    },  //新增
+
   {
     title: 'Auth',
     icon: 'nb-locked',
