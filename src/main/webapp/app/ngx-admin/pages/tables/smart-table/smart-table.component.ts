@@ -71,4 +71,6 @@ export class SmartTableComponent {
       event.confirm.reject();
     }
   }
+
+
 }

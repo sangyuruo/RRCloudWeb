@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Http,Response} from "@angular/http";
 import { Observable } from 'rxjs/Rx';
-import 'rxjs/add/operator/toPromise';
+
 
 @Injectable()
 export class SmartTableService {
@@ -428,7 +428,7 @@ export class SmartTableService {
     'age': 16,
   }];
 
-  constructor(private http:Http){}
+  constructor(private http: Http){}
   getData() {
     return this.data;
   }
@@ -440,4 +440,31 @@ export class SmartTableService {
         return this.http.delete(`${'/emcloudou/api/companies'}/${id}`);
     }
 
+    private resourceUrl = '/emcloudou/api/companies';
+
+
+
+    create(data): Observable<Response> {
+        console.log(data);
+        try{
+            return this.http.post('/emcloudou/api/companies', data).map( res => res.json() );
+        }catch(ex) {
+            console.log(ex);
+        }
+
+    }
+
+    update(data): Observable<Response> {
+        return this.http.put('/emcloudou/api/companies', data).map( res => res.json() );
+    }
+
+
+
+
+
+
+
+
 }
+
+

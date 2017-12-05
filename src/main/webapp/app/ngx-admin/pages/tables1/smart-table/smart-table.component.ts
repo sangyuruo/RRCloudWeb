@@ -1,9 +1,14 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 
 import { SmartTableService } from '../../../@core/data/smart-table.service';
-import {Http} from "@angular/http";
+import {Http,Headers} from "@angular/http";
 import {JhiEventManager} from "ng-jhipster";
+
+import 'rxjs/Rx';
+import {Observer, Observable} from "rxjs/Rx"
+
+
 
 @Component({
     selector: 'ngx-smart-table',
@@ -14,18 +19,20 @@ import {JhiEventManager} from "ng-jhipster";
         }
     `],
 })
-export class SmartTableComponent {
+export class SmartTableComponent implements OnInit {
 
     settings = {
         add: {
             addButtonContent: '<i class="nb-plus"></i>',
             createButtonContent: '<i class="nb-checkmark"></i>',
             cancelButtonContent: '<i class="nb-close"></i>',
+            confirmCreate: true,
         },
         edit: {
             editButtonContent: '<i class="nb-edit"></i>',
             saveButtonContent: '<i class="nb-checkmark"></i>',
             cancelButtonContent: '<i class="nb-close"></i>',
+            confirmSave: true,
         },
         delete: {
             deleteButtonContent: '<i class="nb-trash"></i>',
@@ -58,26 +65,34 @@ export class SmartTableComponent {
           },
         },*/
         columns: {
-            /* id: {
-                 title: 'ID',
-                 type: 'number',
-             },*/
-            companyLongName: {
+            /*id: {
+                title: 'ID',
+                type: 'number',
+            },*/
+            /*companyLongName: {
                 title: 'Company Long Name',
                 type: 'string',
-            },
-            /*/companyName: {
+            },*/
+            companyName: {
                 title: 'Company Name',
                 type: 'string',
-            },*/
+            },
             parentCompanyName: {
                 title: 'Parent CompanyName',
                 type: 'string',
             },
-            /*companyCode: {
+            companyCode: {
                 title: 'Company Code',
                 type: 'string',
-            },*/
+            },
+            countryCode: {
+                title: 'country Code',
+                type: 'string',
+            },
+            cityCode: {
+                title: 'city Code',
+                type: 'string',
+            },
             /*addressCode: {
                 title: 'Address Code',
                 type: 'number',
@@ -86,10 +101,10 @@ export class SmartTableComponent {
                 title: 'Address Name',
                 type: 'number',
             },
-            telephone: {
+            /*telephone: {
                 title: 'Telephone',
                 type: 'number',
-            },
+            },*/
             /*legalPerson: {
                 title: 'Legal Person',
                 type: 'number',
@@ -98,10 +113,10 @@ export class SmartTableComponent {
                 title: 'Parent CompanyCode',
                 type: 'number',
             },*/
-            levelId: {
+            /*levelId: {
                 title: 'Level Id',
                 type: 'number',
-            },
+            },*/
             /*remark: {
                 title: 'Remark',
                 type: 'number',
@@ -110,18 +125,18 @@ export class SmartTableComponent {
                 title: 'Attachs Num',
                 type: 'number',
             },*/
-            /* seqNo: {
+             /*seqNo: {
                  title: 'seq No',
                  type: 'number',
              },*/
-            /* enable: {
+             enable: {
                  title: 'Enable',
                  type: 'number',
-             },*/
-            createdBy: {
+             },
+            /*createdBy: {
                 title: 'Created By',
                 type: 'number',
-            },
+            },*/
             /*createTime: {
                 title: 'create Time',
                 type: 'number',
@@ -129,30 +144,43 @@ export class SmartTableComponent {
             /*updatedBy: {
                 title: 'Updated By',
                 type: 'number',
-            },*/
-            updateTime: {
+            },*?
+            /*pdateTime: {
                 title: 'update Time',
                 type: 'number',
-            },
+            },*/
 
         },
     };
 
     source: LocalDataSource = new LocalDataSource();
 
+
+
+
+
     constructor(private service: SmartTableService,
-                private http:Http,
-                private eventManager:JhiEventManager) {
+                private http: Http,
+                private eventManager: JhiEventManager,
+                ) {
         //const data = this.service.getData();
         //this.source.load(data);
         /*this.http.get('/emcloudou/api/companies')
             .map(res => res.json())
             .subscribe(data => (this.source.load(data)) )*/
-        this.service.getData1().subscribe(data => (this.source.load(data)))
+        //this.service.getData1().subscribe(data => (this.source.load(data)))
+
+    }
+
+    ngOnInit() {
+        this.service.getData1().subscribe(data => (this.source.load(data)));
+
 
     }
 
     onDeleteConfirm(event): void {
+
+        console.log(event.data.id)
         if (window.confirm('Are you sure you want to delete?')) {
             event.confirm.resolve();
             this.service.delete(event.data.id).subscribe((response) => {
@@ -167,4 +195,35 @@ export class SmartTableComponent {
             event.confirm.reject();
         }
     }
+
+
+    onSaveConfirm(event) {
+        if (window.confirm('Are you sure you want to save?')) {
+            this.service.update(event.newData).subscribe((response) => {
+                this.eventManager.broadcast({
+                    name: 'companyListModification',
+                    content: 'Deleted a company'
+                });
+                event.confirm.resolve(event.newData);
+            });
+        } else {
+            event.confirm.reject();
+        }
+    }
+
+    onCreateConfirm(event) {
+        if (window.confirm('Are you sure you want to create?')) {
+            this.service.create(event.newData).subscribe((response) => {
+                this.eventManager.broadcast({
+                    name: 'companyListModification',
+                    content: 'Deleted a company'
+                });
+                event.confirm.resolve(event.newData);
+            });
+        } else {
+            event.confirm.reject();
+        }
+    }
+
+
 }
