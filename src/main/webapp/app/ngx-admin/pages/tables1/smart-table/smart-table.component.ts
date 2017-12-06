@@ -64,10 +64,10 @@ export class SmartTableComponent implements OnInit {
           },
         },*/
         columns: {
-            /*id: {
+            id: {
                 title: 'ID',
                 type: 'number',
-            },*/
+            },
             /*companyLongName: {
                 title: 'Company Long Name',
                 type: 'string',
@@ -177,8 +177,10 @@ export class SmartTableComponent implements OnInit {
 
         console.log(event.data.id)
         if (window.confirm('Are you sure you want to delete?')) {
-            event.confirm.resolve();
-            this.service.delete(event.data.id).subscribe()
+            this.service.delete(event.data.id).subscribe((response) => {
+                event.confirm.resolve(response)
+                console.log( response )
+            })
         } else {
             event.confirm.reject();
         }
