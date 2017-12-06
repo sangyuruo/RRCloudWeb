@@ -183,14 +183,7 @@ export class SmartTableComponent implements OnInit {
         console.log(event.data.id)
         if (window.confirm('Are you sure you want to delete?')) {
             event.confirm.resolve();
-            this.service.delete(event.data.id).subscribe((response) => {
-                this.eventManager.broadcast({
-                    name: 'companyListModification',
-                    content: 'Deleted a company'
-                });
-
-            });
-
+            this.service.delete(event.data.id).subscribe()
         } else {
             event.confirm.reject();
         }
@@ -199,13 +192,8 @@ export class SmartTableComponent implements OnInit {
 
     onSaveConfirm(event) {
         if (window.confirm('Are you sure you want to save?')) {
-            this.service.update(event.newData).subscribe((response) => {
-                this.eventManager.broadcast({
-                    name: 'companyListModification',
-                    content: 'Deleted a company'
-                });
-                event.confirm.resolve(event.newData);
-            });
+            event.confirm.resolve(event.newData);
+            this.service.update(event.newData).subscribe();
         } else {
             event.confirm.reject();
         }
@@ -213,13 +201,8 @@ export class SmartTableComponent implements OnInit {
 
     onCreateConfirm(event) {
         if (window.confirm('Are you sure you want to create?')) {
-            this.service.create(event.newData).subscribe((response) => {
-                this.eventManager.broadcast({
-                    name: 'companyListModification',
-                    content: 'Deleted a company'
-                });
-                event.confirm.resolve(event.newData);
-            });
+            event.confirm.resolve(event.newData);
+            this.service.create(event.newData).subscribe()
         } else {
             event.confirm.reject();
         }

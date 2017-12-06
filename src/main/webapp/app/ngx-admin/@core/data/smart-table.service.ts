@@ -440,18 +440,18 @@ export class SmartTableService {
         return this.http.delete(`${'/emcloudou/api/companies'}/${id}`);
     }
 
-    private resourceUrl = '/emcloudou/api/companies';
 
 
 
-    create(data): Observable<Response> {
-        console.log(data);
-        try{
+
+    create(data){
+
+        /*try{
             return this.http.post('/emcloudou/api/companies', data).map( res => res.json() );
         }catch(ex) {
             console.log(ex);
-        }
-
+        }*/
+        return this.http.post('/emcloudou/api/companies', data).map( res => res.json() );
     }
 
     update(data): Observable<Response> {
