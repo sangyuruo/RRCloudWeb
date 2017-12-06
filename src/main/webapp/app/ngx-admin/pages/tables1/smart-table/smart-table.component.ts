@@ -1,13 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
+import {LocalDataSource} from 'ng2-smart-table';
 
-import { SmartTableService } from '../../../@core/data/smart-table.service';
-import {Http,Headers} from "@angular/http";
+import {SmartTableService} from '../../../@core/data/smart-table.service';
+import {Http, Headers} from "@angular/http";
 import {JhiEventManager} from "ng-jhipster";
 
 import 'rxjs/Rx';
 import {Observer, Observable} from "rxjs/Rx"
-
 
 
 @Component({
@@ -125,14 +124,14 @@ export class SmartTableComponent implements OnInit {
                 title: 'Attachs Num',
                 type: 'number',
             },*/
-             /*seqNo: {
-                 title: 'seq No',
-                 type: 'number',
-             },*/
-             enable: {
-                 title: 'Enable',
-                 type: 'number',
-             },
+            /*seqNo: {
+                title: 'seq No',
+                type: 'number',
+            },*/
+            enable: {
+                title: 'Enable',
+                type: 'number',
+            },
             /*createdBy: {
                 title: 'Created By',
                 type: 'number',
@@ -156,13 +155,9 @@ export class SmartTableComponent implements OnInit {
     source: LocalDataSource = new LocalDataSource();
 
 
-
-
-
     constructor(private service: SmartTableService,
                 private http: Http,
-                private eventManager: JhiEventManager,
-                ) {
+                private eventManager: JhiEventManager,) {
         //const data = this.service.getData();
         //this.source.load(data);
         /*this.http.get('/emcloudou/api/companies')
@@ -192,8 +187,10 @@ export class SmartTableComponent implements OnInit {
 
     onSaveConfirm(event) {
         if (window.confirm('Are you sure you want to save?')) {
-            event.confirm.resolve(event.newData);
-            this.service.update(event.newData).subscribe();
+            this.service.update(event.newData).subscribe((response) => {
+                event.confirm.resolve(response)
+                console.log( response )
+            })
         } else {
             event.confirm.reject();
         }
@@ -201,8 +198,10 @@ export class SmartTableComponent implements OnInit {
 
     onCreateConfirm(event) {
         if (window.confirm('Are you sure you want to create?')) {
-            event.confirm.resolve(event.newData);
-            this.service.create(event.newData).subscribe()
+            this.service.create(event.newData).subscribe((response) => {
+                event.confirm.resolve(response)
+                console.log( response )
+            })
         } else {
             event.confirm.reject();
         }
