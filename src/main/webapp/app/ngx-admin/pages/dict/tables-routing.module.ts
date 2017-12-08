@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { TablesComponent } from './tables.component';
-import {DictionaryComponent} from "./dictionary/smart-table.component";
-import {DictionaryClassifyComponent} from "./dictionaryClassify/smart-table.component";
+import {DictionaryComponent} from "./dictionary/dictionary.component";
+import {DictionaryClassifyComponent} from "./dictionaryClassify/dictionaryClassify.component";
 
 const routes: Routes = [{
   path: '',
