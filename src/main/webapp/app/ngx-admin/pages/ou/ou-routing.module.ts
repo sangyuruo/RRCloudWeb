@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { TablesComponent } from './tables.component';
+import { TablesComponent } from './ou.component';
 
-import { SmartTableComponent } from './company/smart-table.component';
-import {Organizationtable} from "./organization/smart-table.component";
+import { SmartTableComponent } from './company/company.component';
+import {Organizationtable} from "./organization/organization.component";
 
 
 

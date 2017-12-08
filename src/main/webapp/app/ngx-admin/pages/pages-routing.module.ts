@@ -41,7 +41,7 @@ const routes: Routes = [{
   },{
       path: 'ou',
       loadChildren: () => new Promise(resolve => {
-          (require as any).ensure([], require => {resolve(require('./ou/tables.module').TablesModule); })  })
+          (require as any).ensure([], require => {resolve(require('./ou/ou.module').TablesModule); })  })
 
   },{
       path: 'dict',
@@ -72,7 +72,7 @@ const routes: Routes = [{
   },{
           path: 'nfs',
           loadChildren: () => new Promise(resolve => {
-              (require as any).ensure([], require => {resolve(require('./nfs/tables.module').TablesModule); })  })
+              (require as any).ensure([], require => {resolve(require('./nfs/nfs.module').TablesModule); })  })
       }, {
     path: '',
     redirectTo: 'dashboard',

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {LocalDataSource} from 'ng2-smart-table';
 
-import {SmartTableService} from '../../../@core/data/smart-table.service';
+import {OuService} from '../ou.service';
 import {Http, Headers} from "@angular/http";
 import {JhiEventManager} from "ng-jhipster";
 
@@ -11,7 +11,7 @@ import {Observer, Observable} from "rxjs/Rx"
 
 @Component({
     selector: 'ngx-smart-table',
-    templateUrl: './smart-table.component.html',
+    templateUrl: './company.component.html',
     styles: [`
         nb-card {
             transform: translate3d(0, 0, 0);
@@ -64,18 +64,10 @@ export class SmartTableComponent {
       },
     },*/
       columns: {
-          /* id: {
-               title: 'ID',
-               type: 'number',
-           },*/
           companyName: {
               title: '公司名',
               type: 'string',
           },
-          /*/companyName: {
-              title: 'Company Name',
-              type: 'string',
-          },*/
           parentCompanyName: {
               title: '父公司名',
               type: 'string',
@@ -93,47 +85,14 @@ export class SmartTableComponent {
               type: 'string',
           },
 
-          /*addressCode: {
-              title: 'Address Code',
-              type: 'number',
-          },*/
           addressName: {
               title: '地址',
               type: 'number',
           },
-          /*legalPerson: {
-              title: 'Legal Person',
-              type: 'number',
-          },*/
-          /*parentCompanyCode: {
-              title: 'Parent CompanyCode',
-              type: 'number',
-          },*/
-          /*remark: {
-              title: 'Remark',
-              type: 'number',
-          },*/
-          /*attachsNum: {
-              title: 'Attachs Num',
-              type: 'number',
-          },*/
-          /* seqNo: {
-               title: 'seq No',
-               type: 'number',
-           },*/
            enable: {
                title: '是否可用',
                type: 'number',
            },
-
-          /*createTime: {
-              title: 'create Time',
-              type: 'number',
-          },*/
-          /*updatedBy: {
-              title: 'Updated By',
-              type: 'number',
-          },*/
 
 
       },
@@ -141,7 +100,7 @@ export class SmartTableComponent {
 
   source: LocalDataSource = new LocalDataSource();
     isSaving:boolean;
-  constructor(private service: SmartTableService,
+  constructor(private service: OuService,
               private http:Http,
               private eventManager:JhiEventManager
               ) {

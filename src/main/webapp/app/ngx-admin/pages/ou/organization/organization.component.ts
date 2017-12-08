@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 
-import { SmartTableService } from '../../../@core/data/smart-table.service';
+import { OuService } from '../ou.service';
 import {Http} from "@angular/http";
 import {JhiEventManager} from "ng-jhipster";
 
 @Component({
   selector: 'ngx-smart-table',
-  templateUrl: './smart-table.component.html',
+  templateUrl: './company.component.html',
   styles: [`
     nb-card {
       transform: translate3d(0, 0, 0);
@@ -34,30 +34,6 @@ export class Organizationtable {
       confirmDelete: true,
     },
     columns: {
-      /*id: {
-        title: 'ID',
-        type: 'number',
-      },
-      firstName: {
-        title: 'First Name',
-        type: 'string',
-      },
-      lastName: {
-        title: 'Last Name',
-        type: 'string',
-      },
-      username: {
-        title: 'Username',
-        type: 'string',
-      },
-      email: {
-        title: 'E-mail',
-        type: 'string',
-      },
-      age: {
-        title: 'Age',
-        type: 'number',
-      },*/
         orgCode: {
             title: 'orgCode',
             type: 'number',
@@ -91,7 +67,7 @@ export class Organizationtable {
 
   source: LocalDataSource = new LocalDataSource();
 
-  constructor(private service: SmartTableService,
+  constructor(private service: OuService,
               private  http  : Http,
               private  eventManager: JhiEventManager
               ) {
