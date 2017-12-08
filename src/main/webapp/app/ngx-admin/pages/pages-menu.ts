@@ -138,6 +138,22 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
+    {
+        title: 'Tables1',
+        icon: 'nb-tables',
+        children: [
+        {
+            title: 'Smart Table1',
+            link: '/pages/tables1/smarttable1',
+
+        },
+        {
+            title: 'Smart Table2',
+            link: '/pages/tables1/smart-table',
+
+        },
+        ],
+    },
 
     {
         title: '设备管理',
@@ -162,7 +178,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
             {
                 title: '多路开关状态',
                 link: '/pages/tables2/MultiwaySwitch',
-            },
+            }, 
         ],
 
     },
@@ -182,11 +198,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
                 title: '规则属性',
                 link: '/pages/EmCloudArc/RuleAttributes',
             },
-            {
-                title: 'Smart Table1',
-                link: '/pages/tables1/smarttable1',
 
-            },
         ],
     },
     {
