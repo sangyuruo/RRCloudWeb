@@ -70,7 +70,7 @@ export class AddressComponent {
                private eventManeger: JhiEventManager) {
     /*const data = this.service.getData();
     this.source.load(data);*/
-    this.service.getData6().subscribe(data =>(this.source.load(data)))
+    this.service.getDataAddress().subscribe(data =>(this.source.load(data)))
   }
 
   onDeleteConfirm(event): void {

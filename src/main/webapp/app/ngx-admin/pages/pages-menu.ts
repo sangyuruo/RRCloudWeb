@@ -52,7 +52,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
     children: [
       {
         title: 'Form Inputs',
-        link: '/pages/forms/inputs',
+          icon: 'nb-compose',
+          children: [
+              {
+                  title: '子菜单',
+                  link: '/pages/forms/example/son'
+              },]
       },
       {
         title: 'Form Layouts',
@@ -138,12 +143,76 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Tables1',
         icon: 'nb-tables',
         children: [
+        {
+            title: 'Smart Table1',
+            link: '/pages/tables1/smarttable1',
+
+        },
+        {
+            title: 'Smart Table2',
+            link: '/pages/tables1/smart-table',
+
+        },
+        ],
+    },
+
+    {
+        title: '设备管理',
+        icon: 'nb-tables',
+        children: [
             {
-                title: 'Smart Table',
-                link: '/pages/tables1/smart-table',
+                title: '设备分类信息',
+                link: '/pages/tables2/MeterCategoryInfo',
+            },
+            {
+                title: '设备信息',
+                link: '/pages/tables2/MeterInfo',
+            },
+            {
+                title: '设备状态',
+                link: '/pages/tables2/MeterStatus',
+            },
+            {
+                title: '多路开关信息',
+                link: '/pages/tables2/multiwaySwitchInfo',
+            },
+            {
+                title: '多路开关状态',
+                link: '/pages/tables2/MultiwaySwitch',
+            }, 
+        ],
+
+    },
+    {
+        title: '报警服务',
+        icon: 'nb-tables',
+        children: [
+            {
+                title: '报警服务规则',
+                link: '/pages/EmCloudArc/AlarmRule',
+            },
+            {
+                title: '设备规则',
+                link: '/pages/EmCloudArc/MeterRule',
+            },
+            {
+                title: '规则属性',
+                link: '/pages/EmCloudArc/RuleAttributes',
+            },
+
+        ],
+    },
+    {
+        title: '资源管理',
+        icon: 'nb-tables',
+        children: [
+            {
+                title: '资源管理',
+                link: '/pages/EmCloudResource/Resource',
             },
         ],
     },
+
 
     {
         title: '字典工程',

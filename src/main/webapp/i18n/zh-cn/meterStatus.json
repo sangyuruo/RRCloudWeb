@@ -1,0 +1,28 @@
+{
+    "emCloudWebApp": {
+        "meterStatus" : {
+            "home": {
+                "title": "Meter Statuses",
+                "createLabel": "创建新 Meter Status",
+                "createOrEditLabel": "创建或编辑 Meter Status"
+            },
+            "delete": {
+                "question": "你确定要删除 Meter Status {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Meter Status"
+            },
+            "meterCode": "Meter Code",
+            "trafficStatus": "Traffic Status",
+            "switchStatus": "Switch Status",
+            "recordTime": "Record Time"
+        }
+    },
+    "emCloudMiApp": {
+        "meterStatus" : {
+            "created": "Meter Status {{ param }} 创建成功",
+            "updated": "Meter Status {{ param }} 更新成功",
+            "deleted": "Meter Status {{ param }} 删除成功"
+        }
+    }
+}

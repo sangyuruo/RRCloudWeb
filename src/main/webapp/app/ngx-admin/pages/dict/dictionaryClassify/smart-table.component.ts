@@ -70,7 +70,7 @@ export class DictionaryClassifyComponent {
   constructor(private service: SmartTableService,
                private http:Http,
                private eventManager:JhiEventManager) {
-   this.service.getData3().subscribe(data =>(this.source.load(data)));
+   this.service.getDataDictionaryClassify().subscribe(data =>(this.source.load(data)));
   }
 
   onDeleteConfirm(event): void {

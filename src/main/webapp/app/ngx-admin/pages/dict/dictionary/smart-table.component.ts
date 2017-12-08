@@ -68,7 +68,7 @@ export class DictionaryComponent {
               private http:Http,
               private eventManager:JhiEventManager) {
 
-      this.service.getData2().subscribe(data => (this.source.load(data)))
+      this.service.getDataDictionary().subscribe(data => (this.source.load(data)))
   }
 
   onDeleteConfirm(event): void {

@@ -64,7 +64,7 @@ export class AreaComponent {
   source: LocalDataSource = new LocalDataSource();
 
   constructor(private service: SmartTableService) {
-    this.service.getData7().subscribe(data =>(this.source.load(data)))
+    this.service.getDataArea().subscribe(data =>(this.source.load(data)))
   }
 
   onDeleteConfirm(event): void {

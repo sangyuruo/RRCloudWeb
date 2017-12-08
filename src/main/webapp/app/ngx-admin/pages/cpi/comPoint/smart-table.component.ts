@@ -95,7 +95,7 @@ export class ComPointComponent {
               private eventManager:JhiEventManager) {
    /* const data = this.service.getData();
     this.source.load(data);*/
-   this.service.getData4().subscribe(data =>(this.source.load(data)));
+   this.service.getDataComPoint().subscribe(data =>(this.source.load(data)));
   }
 
   onDeleteConfirm(event): void {

@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { TablesComponent } from './tables.component';
 import { SmartTableComponent } from './smart-table/smart-table.component';
+import {SmartTableComponent1} from "./smart-table1/smart-table.component";
+
 
 const routes: Routes = [{
   path: '',
@@ -10,6 +12,9 @@ const routes: Routes = [{
   children: [{
     path: 'smart-table',
     component: SmartTableComponent,
+  },{
+      path: 'smarttable1',
+      component: SmartTableComponent1,
   }],
 }];
 
@@ -22,4 +27,5 @@ export class TablesRoutingModule { }
 export const routedComponents = [
   TablesComponent,
   SmartTableComponent,
+    SmartTableComponent1
 ];

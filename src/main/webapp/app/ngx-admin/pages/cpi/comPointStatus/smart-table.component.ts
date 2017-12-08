@@ -56,7 +56,7 @@ export class comPointStatusComponent {
               private eventManager:JhiEventManager) {
    /* const data = this.service.getData();
     this.source.load(data);*/
-   this.service.getData5().subscribe(data =>(this.source.load(data)));
+   this.service.getDataComPointStatus().subscribe(data =>(this.source.load(data)));
   }
 
   onDeleteConfirm(event): void
