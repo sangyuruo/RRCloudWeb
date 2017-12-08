@@ -9,29 +9,10 @@ import { MeterInfoDetailComponent } from './meter-info-detail.component';
 import { MeterInfoPopupComponent } from './meter-info-dialog.component';
 import { MeterInfoDeletePopupComponent } from './meter-info-delete-dialog.component';
 
-@Injectable()
-export class MeterInfoResolvePagingParams implements Resolve<any> {
-
-    constructor(private paginationUtil: JhiPaginationUtil) {}
-
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        const page = route.queryParams['page'] ? route.queryParams['page'] : '1';
-        const sort = route.queryParams['sort'] ? route.queryParams['sort'] : 'id,asc';
-        return {
-            page: this.paginationUtil.parsePage(page),
-            predicate: this.paginationUtil.parsePredicate(sort),
-            ascending: this.paginationUtil.parseAscending(sort)
-      };
-    }
-}
-
 export const meterInfoRoute: Routes = [
     {
         path: 'meter-info',
         component: MeterInfoComponent,
-        resolve: {
-            'pagingParams': MeterInfoResolvePagingParams
-        },
         data: {
             authorities: ['ROLE_USER'],
             pageTitle: 'emCloudWebApp.meterInfo.home.title'

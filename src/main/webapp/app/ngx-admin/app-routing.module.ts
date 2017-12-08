@@ -45,8 +45,8 @@ const routes: Routes = [
     ],
   },
     /*{ path: '', redirectTo: 'auth/login', pathMatch: 'full' },*///浏览器页面加载后跳转到登入页面
-  { path: '', redirectTo: 'auth/login', pathMatch: 'full' },
-  { path: '**', redirectTo: 'auth/login' },
+  { path: '', redirectTo: 'pages', pathMatch: 'full' },
+  { path: '**', redirectTo: 'pages' },
 ];
 
 const config: ExtraOptions = {

@@ -118,6 +118,13 @@
             </div>
         </div>
 
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="emCloudWebApp.multiwaySwitchInfo.meterInfo" for="field_meterInfo">Meter Info</label>
+            <select class="form-control" id="field_meterInfo" name="meterInfo" [(ngModel)]="multiwaySwitchInfo.meterInfo" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="meterInfoOption.id === multiwaySwitchInfo.meterInfo?.id ? multiwaySwitchInfo.meterInfo : meterInfoOption" *ngFor="let meterInfoOption of meterinfos; trackBy: trackMeterInfoById">{{meterInfoOption.id}}</option>
+            </select>
+        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">

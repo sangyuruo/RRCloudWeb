@@ -138,18 +138,142 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
+
     {
-        title: 'Tables1',
+        title: 'OU',
+        icon: 'nb-tables',
+        children: [
+        {
+            title: 'Smart Table1',
+            link: '/pages/tables1/smarttable1',
+
+        },
+        {
+            title: 'Smart Table2',
+            link: '/pages/tables1/smart-table',
+
+        },
+        ],
+    },
+
+    {
+        title: '设备管理',
         icon: 'nb-tables',
         children: [
             {
-                title: 'Smart Table',
+                title: '设备分类信息',
+                link: '/pages/tables2/MeterCategoryInfo',
+            },
+            {
+                title: '设备信息',
+                link: '/pages/tables2/MeterInfo',
+            },
+            {
+                title: '设备状态',
+                link: '/pages/tables2/MeterStatus',
+            },
+            {
+                title: '多路开关信息',
+                link: '/pages/tables2/multiwaySwitchInfo',
+            },
+            {
+                title: '多路开关状态',
+                link: '/pages/tables2/MultiwaySwitch',
+            },
+        ],
+
+    },
+    {
+        title: '报警服务',
+        icon: 'nb-tables',
+        children: [
+            {
+                title: '报警服务规则',
+                link: '/pages/EmCloudArc/AlarmRule',
+            },
+            {
+                title: '设备规则',
+                link: '/pages/EmCloudArc/MeterRule',
+            },
+            {
+                title: 'Company',
                 link: '/pages/tables1/smart-table',
             },
             {
-                title: 'Smart Table1',
-                link: '/pages/tables1/smarttable1',
+                title: 'Organization',
+                link: '/pages/tables1/organization',
+            },
+        ],
+    },
+    {
+        title: 'Nfs',
+        icon: 'nb-tables',
+        children: [
+            {
+                title: 'MessageTemplate',
+                link: '/pages/tables2/message-template',
+            },
+            {
+                title: '规则属性',
+                link: '/pages/EmCloudArc/RuleAttributes',
+            },
+        ],
+    },
+    {
+        title: '资源管理',
+        icon: 'nb-tables',
+        children: [
+            {
+                title: '资源管理',
+                link: '/pages/EmCloudResource/Resource',
+            },
+        ],
+    },
 
+
+    {
+        title: '字典工程',
+        icon: 'nb-tables',
+        children: [
+            {
+                title: 'dictionary',
+                link: '/pages/dict/dictionary',
+            },
+
+            {
+                title: 'dictionaryClassify',
+                link: '/pages/dict/DictionaryClassify',
+            },
+        ],
+    },
+    {
+        title: '信息点采集',
+        icon: 'nb-tables',
+        children: [
+            {
+                title: 'comPoint',
+                link: '/pages/cpi/comPoint',
+            },
+
+            {
+                title: 'comPointStatus',
+                link: '/pages/cpi/ComPointStatus',
+            },
+        ],
+    },
+
+    {
+        title: '地区地点',
+        icon: 'nb-tables',
+        children: [
+            {
+                title: 'address',
+                link: '/pages/loc/address',
+            },
+
+            {
+                title: 'area',
+                link: '/pages/loc/area',
             },
         ],
     },

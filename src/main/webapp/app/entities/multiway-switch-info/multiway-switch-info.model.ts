@@ -10,6 +10,7 @@ export class MultiwaySwitchInfo implements BaseEntity {
         public updatedBy?: string,
         public updateTime?: any,
         public controlCommands?: string,
+        public meterInfo?: BaseEntity,
     ) {
     }
 }

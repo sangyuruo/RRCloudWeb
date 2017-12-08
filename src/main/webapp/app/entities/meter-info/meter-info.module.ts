@@ -13,7 +13,6 @@ import {
     MeterInfoDeleteDialogComponent,
     meterInfoRoute,
     meterInfoPopupRoute,
-    MeterInfoResolvePagingParams,
 } from './';
 
 const ENTITY_STATES = [
@@ -44,7 +43,6 @@ const ENTITY_STATES = [
     providers: [
         MeterInfoService,
         MeterInfoPopupService,
-        MeterInfoResolvePagingParams,
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

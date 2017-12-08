@@ -13,7 +13,6 @@ import {
     MeterCategoryInfoDeleteDialogComponent,
     meterCategoryInfoRoute,
     meterCategoryInfoPopupRoute,
-    MeterCategoryInfoResolvePagingParams,
 } from './';
 
 const ENTITY_STATES = [
@@ -44,7 +43,6 @@ const ENTITY_STATES = [
     providers: [
         MeterCategoryInfoService,
         MeterCategoryInfoPopupService,
-        MeterCategoryInfoResolvePagingParams,
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -32,6 +32,12 @@
         <dd>
             <span>{{multiwaySwitchInfo.controlCommands}}</span>
         </dd>
+        <dt><span jhiTranslate="emCloudWebApp.multiwaySwitchInfo.meterInfo">Meter Info</span></dt>
+        <dd>
+            <div *ngIf="multiwaySwitchInfo.meterInfo">
+                <a [routerLink]="['/meter-info', multiwaySwitchInfo.meterInfo?.id]">{{multiwaySwitchInfo.meterInfo?.id}}</a>
+            </div>
+        </dd>
     </dl>
 
     <button type="submit"

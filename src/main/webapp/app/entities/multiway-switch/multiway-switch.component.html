@@ -1,0 +1,62 @@
+<div>
+    <h2>
+        <span jhiTranslate="emCloudWebApp.multiwaySwitch.home.title">Multiway Switches</span>
+        <button class="btn btn-primary float-right jh-create-entity create-multiway-switch" [routerLink]="['/', { outlets: { popup: ['multiway-switch-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="emCloudWebApp.multiwaySwitch.home.createLabel">
+            Create new Multiway Switch
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="multiwaySwitches">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="emCloudWebApp.multiwaySwitch.meterCode">Meter Code</span></th>
+            <th><span jhiTranslate="emCloudWebApp.multiwaySwitch.switchCode">Switch Code</span></th>
+            <th><span jhiTranslate="emCloudWebApp.multiwaySwitch.switchStatus">Switch Status</span></th>
+            <th><span jhiTranslate="emCloudWebApp.multiwaySwitch.recordTime">Record Time</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let multiwaySwitch of multiwaySwitches ;trackBy: trackId">
+                <td><a [routerLink]="['../multiway-switch', multiwaySwitch.id ]">{{multiwaySwitch.id}}</a></td>
+                <td>{{multiwaySwitch.meterCode}}</td>
+                <td>{{multiwaySwitch.switchCode}}</td>
+                <td>{{multiwaySwitch.switchStatus}}</td>
+                <td>{{multiwaySwitch.recordTime | date:'medium'}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../multiway-switch', multiwaySwitch.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'multiway-switch/'+ multiwaySwitch.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'multiway-switch/'+ multiwaySwitch.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

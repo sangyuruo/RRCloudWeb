@@ -9,6 +9,8 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { MultiwaySwitchInfo } from './multiway-switch-info.model';
 import { MultiwaySwitchInfoPopupService } from './multiway-switch-info-popup.service';
 import { MultiwaySwitchInfoService } from './multiway-switch-info.service';
+import { MeterInfo, MeterInfoService } from '../meter-info';
+import { ResponseWrapper } from '../../shared';
 
 @Component({
     selector: 'jhi-multiway-switch-info-dialog',
@@ -19,16 +21,21 @@ export class MultiwaySwitchInfoDialogComponent implements OnInit {
     multiwaySwitchInfo: MultiwaySwitchInfo;
     isSaving: boolean;
 
+    meterinfos: MeterInfo[];
+
     constructor(
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
         private multiwaySwitchInfoService: MultiwaySwitchInfoService,
+        private meterInfoService: MeterInfoService,
         private eventManager: JhiEventManager
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
+        this.meterInfoService.query()
+            .subscribe((res: ResponseWrapper) => { this.meterinfos = res.json; }, (res: ResponseWrapper) => this.onError(res.json));
     }
 
     clear() {
@@ -63,6 +70,10 @@ export class MultiwaySwitchInfoDialogComponent implements OnInit {
 
     private onError(error: any) {
         this.jhiAlertService.error(error.message, null, null);
+    }
+
+    trackMeterInfoById(index: number, item: MeterInfo) {
+        return item.id;
     }
 }
 

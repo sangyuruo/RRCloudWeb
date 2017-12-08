@@ -18,6 +18,7 @@
             "addressCode": "Address Code",
             "organizationCode": "Organization Code",
             "companyCode": "Company Code",
+            "comPointCode": "Com Point Code",
             "meterType": "Meter Type",
             "startOffset": "Start Offset",
             "numberOfRegisters": "Number Of Registers",

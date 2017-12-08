@@ -9,29 +9,10 @@ import { MeterCategoryInfoDetailComponent } from './meter-category-info-detail.c
 import { MeterCategoryInfoPopupComponent } from './meter-category-info-dialog.component';
 import { MeterCategoryInfoDeletePopupComponent } from './meter-category-info-delete-dialog.component';
 
-@Injectable()
-export class MeterCategoryInfoResolvePagingParams implements Resolve<any> {
-
-    constructor(private paginationUtil: JhiPaginationUtil) {}
-
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        const page = route.queryParams['page'] ? route.queryParams['page'] : '1';
-        const sort = route.queryParams['sort'] ? route.queryParams['sort'] : 'id,asc';
-        return {
-            page: this.paginationUtil.parsePage(page),
-            predicate: this.paginationUtil.parsePredicate(sort),
-            ascending: this.paginationUtil.parseAscending(sort)
-      };
-    }
-}
-
 export const meterCategoryInfoRoute: Routes = [
     {
         path: 'meter-category-info',
         component: MeterCategoryInfoComponent,
-        resolve: {
-            'pagingParams': MeterCategoryInfoResolvePagingParams
-        },
         data: {
             authorities: ['ROLE_USER'],
             pageTitle: 'emCloudWebApp.meterCategoryInfo.home.title'

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
+
+import {Observable} from "rxjs/Observable";
 import {Http,Response} from "@angular/http";
-import { Observable } from 'rxjs/Rx';
+import {Company} from "../../../entities/company/company.model";
 
 
 @Injectable()
@@ -427,23 +429,279 @@ export class SmartTableService {
     'email': 'lousanchez@comtours.com',
     'age': 16,
   }];
+  constructor(private http:Http){}
 
-  constructor(private http: Http){}
+  createDictionary(data)
+  {
+      this.http.post('/emclouddict/api/dictionaries',data)
+          .map(res => res.json())
+  }
+  updateDictionary(data):Observable<Response>
+  {
+      return this.http.put('/emclouddict/api/dictionaries',data)
+          .map(res => res.json())
+  }
+  createDictionaryClassify(data)
+  {
+      this.http.post('/emclouddict/api/dictionaryclassifies',data)
+          .map(res => res.json())
+  }
+
+  updateDictionaryClassify(data):Observable<Response>
+  {
+      return this.http.put('/emclouddict/api/dictionaryclassifies',data)
+          .map(res => res.json())
+  }
+  createAddress(data):Observable<Response>
+  {
+      return this.http.post('/emcloudloc/api/addresses',data)
+          .map(res => res.json())
+  }
+  updateAddress(data):Observable<Response>
+  {
+      return this.http.post('/emcloudloc/api/addresses',data)
+          .map(res => res.json())
+  }
+
+
+
   getData() {
     return this.data;
   }
-  getData1(){
-      return this.http.get('/emcloudou/api/companies')
+  getCompany(){
+      return this.http.get('/emcloudou/api/companies?size=2000')
           .map(res => res.json())
   }
-    delete(id: number): Observable<Response> {
-        return this.http.delete(`${'/emcloudou/api/companies'}/${id}`);
+getOrganization(){
+    return this.http.get('/emcloudou/api/organizations?size=2000')
+        .map(res => res.json())
+}
+getMessageTemplate(){
+    return this.http.get('/emcloudnfs/api/message-templates?size=2000')
+        .map(res => res.json())
+}
+    deleteCompany (id: number) : Observable<Response>{
+        return this.http.delete(
+            `${'/emcloudou/api/companies'}/${id}`);
+    }
+    deleteOrganization (id: number) : Observable<Response>{
+        return this.http.delete(
+            `${'/emcloudou/api/organizations'}/${id}`);
+    }
+    deleteMessageTemplate(id: number): Observable<Response>{
+        return this.http.delete(
+            `${'/emcloudnfs/api/message-templates'}/${id}`);
+    }
+    saveCompany (data) {
+        return this.http.post('/emcloudou/api/companies',data)
+            .map(res=> res.json());
+    }
+    saveOrganization (data) {
+        return this.http.post('/emcloudou/api/organizations',data)
+            .map(res=> res.json());
+    }
+    saveMessageTemplate (data) {
+        return this.http.post('/emcloudnfs/api/message-templates',data)
+            .map(res=> res.json());
+    }
+    updateCompany (data) : Observable<Response>{
+        return this.http.put('/emcloudou/api/companies',data)
+            .map(res => res.json());
+    }
+    updateOrganization (data) : Observable<Response>{
+        return this.http.put('/emcloudou/api/organizations',data)
+            .map(res => res.json());
+    }
+    updateMessageTemplate (data) : Observable<Response>{
+        return this.http.put('/emcloudnfs/api/message-templates',data)
+            .map(res => res.json());
+    }
+
+
+    getDataMeterCategoryInfo(){
+        return this.http.get('/emcloudmi/api/meter-category-infos?size=2000')
+            .map(res => res.json())
+    }
+    getDataMeterInfo(){
+        return this.http.get('/emcloudmi/api/meter-infos?size=2000')
+            .map(res => res.json())
+    }
+    getDataMeterStatus(){
+        return this.http.get('/emcloudmi/api/meter-statuses?size=2000')
+            .map(res => res.json())
+    }
+    getDataMultiwaySwitchInfo(){
+        return this.http.get('/emcloudmi/api/multiway-switch-infos?size=2000')
+            .map(res => res.json())
+    }
+    getDataMultiwaySwitch(){
+        return this.http.get('/emcloudmi/api/multiway-switches?size=2000')
+            .map(res => res.json())
+    }
+    getDataAlarmRule(){
+        return this.http.get('/emcloudarc/api/alarm-rules?size=2000')
+            .map(res => res.json())
+    }
+    getDataRuleAttributes(){
+        return this.http.get('/emcloudarc/api/rule-attributes?size=2000')
+            .map(res => res.json())
+    }
+    getDataMeterRule(){
+        return this.http.get('/emcloudarc/api/meter-rules?size=2000')
+            .map(res => res.json())
+    }
+    getDataResource(){
+        return this.http.get('/emcloudresource/api/resources?size=2000')
+            .map(res => res.json())
+    }
+
+
+    deleteMeterCategoryInfo(id: number): Observable<Response> {
+        return this.http.delete(`${'/emcloudmi/api/meter-category-infos'}/${id}`);
+    }
+    deleteMeterInfo(id: number): Observable<Response> {
+        return this.http.delete(`${'/emcloudmi/api/meter-infos'}/${id}`);
+    }
+    deleteMeterStatus(id: number): Observable<Response> {
+        return this.http.delete(`${'/emcloudmi/api/meter-statuses'}/${id}`);
+    }
+    deleteMultiwaySwitch(id: number): Observable<Response> {
+        return this.http.delete(`${'/emcloudmi/api/multiway-switches'}/${id}`);
+    }
+    deleteMultiwaySwitchInfo(id: number): Observable<Response> {
+        return this.http.delete(`${'/emcloudmi/api/multiway-switch-infos'}/${id}`);
+    }
+    deleteAlarmRule(id: number): Observable<Response> {
+        return this.http.delete(`${'/emcloudarc/api/alarm-rules'}/${id}`);
+    }
+    deleteRuleAttributes(id: number): Observable<Response> {
+        return this.http.delete(`${'/emcloudarc/api/rule-attributes'}/${id}`);
+    }
+    deleteMeterRule(id: number): Observable<Response> {
+        return this.http.delete(`${'/emcloudarc/api/meter-rules'}/${id}`);
+    }
+    deleteResource(id: number): Observable<Response> {
+        return this.http.delete(`${'/emcloudresource/api/resources'}/${id}`);
+    }
+    createMeterCategoryInfo(date) {
+        return this.http.post('/emcloudmi/api/meter-category-infos',date).map( res =>res.json());
+    }
+    updateMeterCategoryInfo(date):  Observable<Response>{
+        return this.http.put('/emcloudmi/api/meter-category-infos',date).map( res =>res.json());
+    }
+    createMeterInfo(date) {
+        return this.http.post('/emcloudmi/api/meter-infos',date).map( res =>res.json());
+    }
+    updateMeterInfo(date):  Observable<Response>{
+        return this.http.put('/emcloudmi/api/meter-infos',date).map( res =>res.json());
+    }
+    createMeterStatus(date) {
+        return this.http.post('/emcloudmi/api/meter-statuses',date).map( res =>res.json());
+    }
+    updateMeterStatus(date):  Observable<Response>{
+        return this.http.put('/emcloudmi/api/meter-statuses',date).map( res =>res.json());
+    }
+    createMultiwaySwitch(date) {
+        return this.http.post('/emcloudmi/api/multiway-switches',date).map( res =>res.json());
+    }
+    updateMultiwaySwitch(date):  Observable<Response>{
+        return this.http.put('/emcloudmi/api/multiway-switches',date).map( res =>res.json());
+    }
+    createMultiwaySwitchInfo(date) {
+        return this.http.post('/emcloudmi/api/multiway-switch-infos',date).map( res =>res.json());
+    }
+    updateMultiwaySwitchInfo(date):  Observable<Response>{
+        return this.http.put('/emcloudmi/api/multiway-switch-infos',date).map( res =>res.json());
+    }
+    createAlarmRule(date) {
+        return this.http.post('/emcloudarc/api/alarm-rules',date).map( res =>res.json());
+    }
+    updateAlarmRule(date):  Observable<Response>{
+        return this.http.put('/emcloudarc/api/alarm-rules',date).map( res =>res.json());
+    }
+    createMeterRule(date) {
+        return this.http.post('/emcloudarc/api/meter-rules',date).map( res =>res.json());
+    }
+    updateMeterRule(date):  Observable<Response>{
+        return this.http.put('/emcloudarc/api/meter-rules',date).map( res =>res.json());
+    }
+    createRuleAttributes(date) {
+        return this.http.post('/emcloudarc/api/rule-attributes',date).map( res =>res.json());
+    }
+    updateRuleAttributes(date):  Observable<Response>{
+        return this.http.put('/emcloudarc/api/rule-attributes',date).map( res =>res.json());
+    }
+    createResource(date) {
+        return this.http.post('/emcloudresource/api/resources',date).map( res =>res.json());
+    }
+    updateResource(date):  Observable<Response>{
+        return this.http.put('/emcloudresource/api/resources',date).map( res =>res.json());
     }
 
 
 
+  getDataDictionary()
+  {
+      return this.http.get('/emclouddict/api/dictionaries?size=2000')
+          .map(res => res.json())
+  }
+    getDataDictionaryClassify()
+    {
+        return this.http.get('/emclouddict/api/dictionaryclassifies?size=2000')
+            .map(res => res.json())
+
+    }
+    getDataComPoint()
+    {
+        return this.http.get('/emcloudcpi/api/compoints?size=2000')
+            .map(res => res.json())
+    }
+    getDataComPointStatus()
+    {
+        return this.http.get('/emcloudcpi/api/compointstatuses?size=2000')
+            .map(res => res.json())
+    }
+    getDataAddress()
+    {
+        return this.http.get('/emcloudloc/api/addresses?size=2000')
+            .map(res => res.json())
+    }
+    getDataArea()
+    {
+        return this.http.get('/emcloudloc/api/areas?size=2000')
+            .map(res => res.json())
+    }
+    deleteDictionary(id: number):Observable<Response>
+    {
+        return this.http.delete(`${'/emclouddict/api/dictionaries'}/${id}`);
+    }
+    deleteDictionaryClassify(id: number):Observable<Response>
+    {
+        return this.http.delete(`${'/emclouddict/api/dictionaryclassifies'}/${id}`);
+    }
+    deleteComPoint(id: number):Observable<Response>
+    {
+        return this.http.delete(`${'/emcloudcpi/api/compoints'}/${id}`);
+    }
+    deleteComPointStatus(id: number):Observable<Response>
+    {
+        return this.http.delete(`${'/emcloudcpi/api/compointstatuses'}/${id}`);
+    }
+    deleteAddress(id :number):Observable<Response>
+    {
+        return this.http.delete(`${'/emcloudloc/api/addresses'}/${id}`);
+    }
 
 
+
+    getData1(){
+        return this.http.get('/emcloudou/api/companies?size=2000')
+            .map(res => res.json())
+    }
+
+    delete(id: number): Observable<Response> {
+        return this.http.delete(`${'/emcloudou/api/companies'}/${id}`);
+    }
     create(data){
 
         /*try{
@@ -457,12 +715,6 @@ export class SmartTableService {
     update(data): Observable<Response> {
         return this.http.put('/emcloudou/api/companies', data).map( res => res.json() );
     }
-
-
-
-
-
-
 
 
 }
