@@ -42,6 +42,10 @@ const routes: Routes = [{
       path: 'tables1',
       loadChildren: () => new Promise(resolve => {
           (require as any).ensure([], require => {resolve(require('./tables1/tables.module').TablesModule); })  })
+  },{
+      path: 'tables2',
+      loadChildren: () => new Promise(resolve => {
+          (require as any).ensure([], require => {resolve(require('./tables2/tables.module').TablesModule); })  })
   }, {
     path: '',
     redirectTo: 'dashboard',

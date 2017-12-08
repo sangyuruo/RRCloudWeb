@@ -134,12 +134,26 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ],
   },
     {
-        title: 'Tables1',
+        title: 'OU',
         icon: 'nb-tables',
         children: [
             {
-                title: 'Smart Table',
+                title: 'Company',
                 link: '/pages/tables1/smart-table',
+            },
+            {
+                title: 'Organization',
+                link: '/pages/tables1/organization',
+            },
+        ],
+    },
+    {
+        title: 'Nfs',
+        icon: 'nb-tables',
+        children: [
+            {
+                title: 'MessageTemplate',
+                link: '/pages/tables2/message-template',
             },
         ],
     },

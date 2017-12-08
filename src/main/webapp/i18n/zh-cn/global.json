@@ -8,6 +8,8 @@
             "entities": {
                 "main": "数据",
                 "company": "Company",
+                "organization": "Organization",
+                "messageTemplate": "Message Template",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

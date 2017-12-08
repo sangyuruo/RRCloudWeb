@@ -3,6 +3,7 @@ import { LocalDataSource } from 'ng2-smart-table';
 
 import { SmartTableService } from '../../../@core/data/smart-table.service';
 import {Http} from "@angular/http";
+import {JhiEventManager} from "ng-jhipster";
 
 @Component({
   selector: 'ngx-smart-table',
@@ -20,11 +21,13 @@ export class SmartTableComponent {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
+        confirmCreate : true,
     },
     edit: {
       editButtonContent: '<i class="nb-edit"></i>',
       saveButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
+        confirmSave: true,
     },
     delete: {
       deleteButtonContent: '<i class="nb-trash"></i>',
@@ -61,8 +64,8 @@ export class SmartTableComponent {
                title: 'ID',
                type: 'number',
            },*/
-          companyLongName: {
-              title: 'Company Long Name',
+          companyName: {
+              title: '公司名',
               type: 'string',
           },
           /*/companyName: {
@@ -70,23 +73,28 @@ export class SmartTableComponent {
               type: 'string',
           },*/
           parentCompanyName: {
-              title: 'Parent CompanyName',
+              title: '父公司名',
               type: 'string',
           },
-          /*companyCode: {
-              title: 'Company Code',
+          companyCode: {
+              title: '公司代码',
               type: 'string',
-          },*/
+          },
+          countryCode: {
+              title: '国家代码',
+              type: 'string',
+          },
+          cityCode: {
+              title: '城市代码',
+              type: 'string',
+          },
+
           /*addressCode: {
               title: 'Address Code',
               type: 'number',
           },*/
           addressName: {
-              title: 'Address Name',
-              type: 'number',
-          },
-          telephone: {
-              title: 'Telephone',
+              title: '地址',
               type: 'number',
           },
           /*legalPerson: {
@@ -97,10 +105,6 @@ export class SmartTableComponent {
               title: 'Parent CompanyCode',
               type: 'number',
           },*/
-          levelId: {
-              title: 'Level Id',
-              type: 'number',
-          },
           /*remark: {
               title: 'Remark',
               type: 'number',
@@ -113,14 +117,11 @@ export class SmartTableComponent {
                title: 'seq No',
                type: 'number',
            },*/
-          /* enable: {
-               title: 'Enable',
+           enable: {
+               title: '是否可用',
                type: 'number',
-           },*/
-          createdBy: {
-              title: 'Created By',
-              type: 'number',
-          },
+           },
+
           /*createTime: {
               title: 'create Time',
               type: 'number',
@@ -129,31 +130,54 @@ export class SmartTableComponent {
               title: 'Updated By',
               type: 'number',
           },*/
-          updateTime: {
-              title: 'update Time',
-              type: 'number',
-          },
+
 
       },
   };
 
   source: LocalDataSource = new LocalDataSource();
-
+    isSaving:boolean;
   constructor(private service: SmartTableService,
-              private http:Http) {
+              private http:Http,
+              private eventManager:JhiEventManager
+              ) {
     //const data = this.service.getData();
     //this.source.load(data);
       /*this.http.get('/emcloudou/api/companies')
           .map(res => res.json())
           .subscribe(data => (this.source.load(data)) )*/
-      this.service.getData1().subscribe(data => (this.source.load(data)))
+      this.service.getCompany().subscribe(data => (this.source.load(data)))
   }
 
   onDeleteConfirm(event): void {
-    if (window.confirm('Are you sure you want to delete?')) {
-      event.confirm.resolve();
+    if (window.confirm('确定删除不?')) {
+        this.service.deleteCompany(event.data.id).subscribe((response) => {
+            event.confirm.resolve(response);
+            console.log(response);
+            })
     } else {
       event.confirm.reject();
     }
+  }
+
+  onCreateConfirm(event) {
+      if (window.confirm('确定新增不?')) {
+      this.service.saveCompany(event.newData).subscribe((response) =>{
+         event.confirm.resolve(response);
+          console.log(response);
+      });
+        }else{
+            event.confirm.reject();
+      }
+  }
+  onSaveConfirm(event) {
+      if (window.confirm('确定修改不?')) {
+          this.service.updateCompany(event.newData).subscribe((response) =>{
+              event.confirm.resolve(response);
+              console.log(response);
+          });
+      }else{
+          event.confirm.reject();
+      }
   }
 }

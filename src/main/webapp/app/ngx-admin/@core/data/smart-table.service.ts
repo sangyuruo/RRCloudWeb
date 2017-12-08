@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import {Http} from "@angular/http";
+import {Observable} from "rxjs/Observable";
+import {Http,Response} from "@angular/http";
+import {Company} from "../../../entities/company/company.model";
+
 
 @Injectable()
 export class SmartTableService {
@@ -429,8 +432,53 @@ export class SmartTableService {
   getData() {
     return this.data;
   }
-  getData1(){
+  getCompany(){
       return this.http.get('/emcloudou/api/companies')
           .map(res => res.json())
   }
+getOrganization(){
+    return this.http.get('/emcloudou/api/organizations')
+        .map(res => res.json())
+}
+getMessageTemplate(){
+    return this.http.get('/emcloudnfs/api/message-templates')
+        .map(res => res.json())
+}
+    deleteCompany (id: number) : Observable<Response>{
+        return this.http.delete(
+            `${'/emcloudou/api/companies'}/${id}`);
+    }
+    deleteOrganization (id: number) : Observable<Response>{
+        return this.http.delete(
+            `${'/emcloudou/api/organizations'}/${id}`);
+    }
+    deleteMessageTemplate(id: number): Observable<Response>{
+        return this.http.delete(
+            `${'/emcloudnfs/api/message-templates'}/${id}`);
+    }
+    saveCompany (data) {
+        return this.http.post('/emcloudou/api/companies',data)
+            .map(res=> res.json());
+    }
+    saveOrganization (data) {
+        return this.http.post('/emcloudou/api/organizations',data)
+            .map(res=> res.json());
+    }
+    saveMessageTemplate (data) {
+        return this.http.post('/emcloudnfs/api/message-templates',data)
+            .map(res=> res.json());
+    }
+    updateCompany (data) : Observable<Response>{
+        return this.http.put('/emcloudou/api/companies',data)
+            .map(res => res.json());
+    }
+    updateOrganization (data) : Observable<Response>{
+        return this.http.put('/emcloudou/api/organizations',data)
+            .map(res => res.json());
+    }
+    updateMessageTemplate (data) : Observable<Response>{
+        return this.http.put('/emcloudnfs/api/message-templates',data)
+            .map(res => res.json());
+    }
+
 }
