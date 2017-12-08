@@ -8,6 +8,15 @@
             "entities": {
                 "main": "数据",
                 "company": "Company",
+                "meterCategoryInfo": "Meter Category Info",
+                "meterInfo": "Meter Info",
+                "meterStatus": "Meter Status",
+                "multiwaySwitchInfo": "Multiway Switch Info",
+                "multiwaySwitch": "Multiway Switch",
+                "alarmRule": "Alarm Rule",
+                "ruleAttributes": "Rule Attributes",
+                "meterRule": "Meter Rule",
+                "resource": "Resource",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

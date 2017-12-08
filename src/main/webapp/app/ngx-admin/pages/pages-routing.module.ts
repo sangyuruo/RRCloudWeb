@@ -38,11 +38,25 @@ const routes: Routes = [{
     path: 'tables',
     loadChildren: () => new Promise(resolve => {
       (require as any).ensure([], require => {resolve(require('./tables/tables.module').TablesModule); })  })
-  },{
+  },/*{
       path: 'tables1',
       loadChildren: () => new Promise(resolve => {
           (require as any).ensure([], require => {resolve(require('./tables1/tables.module').TablesModule); })  })
-  }, {
+  },*/ {
+      path: 'tables2',
+      loadChildren: () => new Promise(resolve => {
+          (require as any).ensure([], require => {resolve(require('./tables2/tables.module').TablesModule); })  })
+  },{
+      path: 'EmCloudArc',
+      loadChildren: () => new Promise(resolve => {
+          (require as any).ensure([], require => {resolve(require('./EmCloudArc/tables.module').TablesModule); })  })
+  },{
+      path: 'EmCloudResource',
+      loadChildren: () => new Promise(resolve => {
+          (require as any).ensure([], require => {resolve(require('./EmCloudResource/tables.module').TablesModule); })  })
+  },
+
+      {
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',

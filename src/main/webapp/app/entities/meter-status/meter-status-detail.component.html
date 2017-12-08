@@ -1,0 +1,37 @@
+
+<div *ngIf="meterStatus">
+    <h2><span jhiTranslate="emCloudWebApp.meterStatus.detail.title">Meter Status</span> {{meterStatus.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="emCloudWebApp.meterStatus.meterCode">Meter Code</span></dt>
+        <dd>
+            <span>{{meterStatus.meterCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.meterStatus.trafficStatus">Traffic Status</span></dt>
+        <dd>
+            <span>{{meterStatus.trafficStatus}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.meterStatus.switchStatus">Switch Status</span></dt>
+        <dd>
+            <span>{{meterStatus.switchStatus}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.meterStatus.recordTime">Record Time</span></dt>
+        <dd>
+            <span>{{meterStatus.recordTime | date:'medium'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'meter-status/'+ meterStatus.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

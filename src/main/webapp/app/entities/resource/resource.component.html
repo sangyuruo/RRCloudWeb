@@ -1,0 +1,81 @@
+<div>
+    <h2>
+        <span jhiTranslate="emCloudWebApp.resource.home.title">Resources</span>
+        <button class="btn btn-primary float-right jh-create-entity create-resource" [routerLink]="['/', { outlets: { popup: ['resource-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="emCloudWebApp.resource.home.createLabel">
+            Create new Resource
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="resources">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="resourceCode"><span jhiTranslate="emCloudWebApp.resource.resourceCode">Resource Code</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="resourceName"><span jhiTranslate="emCloudWebApp.resource.resourceName">Resource Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="resourceType"><span jhiTranslate="emCloudWebApp.resource.resourceType">Resource Type</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="resourceUrl"><span jhiTranslate="emCloudWebApp.resource.resourceUrl">Resource Url</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="enable"><span jhiTranslate="emCloudWebApp.resource.enable">Enable</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="createdBy"><span jhiTranslate="emCloudWebApp.resource.createdBy">Created By</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="createTime"><span jhiTranslate="emCloudWebApp.resource.createTime">Create Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="updatedBy"><span jhiTranslate="emCloudWebApp.resource.updatedBy">Updated By</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="updateTime"><span jhiTranslate="emCloudWebApp.resource.updateTime">Update Time</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let resource of resources ;trackBy: trackId">
+                <td><a [routerLink]="['../resource', resource.id ]">{{resource.id}}</a></td>
+                <td>{{resource.resourceCode}}</td>
+                <td>{{resource.resourceName}}</td>
+                <td>{{resource.resourceType}}</td>
+                <td>{{resource.resourceUrl}}</td>
+                <td>{{resource.enable}}</td>
+                <td>{{resource.createdBy}}</td>
+                <td>{{resource.createTime | date:'medium'}}</td>
+                <td>{{resource.updatedBy}}</td>
+                <td>{{resource.updateTime | date:'medium'}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../resource', resource.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'resource/'+ resource.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'resource/'+ resource.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <!-- Pager is not implemented yet, so this is normal pagination instead -->
+        <div *ngIf="resources && resources.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [maxSize]="5" [(page)]="page"  (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

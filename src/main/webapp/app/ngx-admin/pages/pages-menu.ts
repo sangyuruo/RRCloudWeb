@@ -133,16 +133,64 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
+
     {
-        title: 'Tables1',
+        title: '设备管理',
         icon: 'nb-tables',
         children: [
             {
-                title: 'Smart Table',
-                link: '/pages/tables1/smart-table',
+                title: '设备分类信息',
+                link: '/pages/tables2/MeterCategoryInfo',
+            },
+            {
+                title: '设备信息',
+                link: '/pages/tables2/MeterInfo',
+            },
+            {
+                title: '设备状态',
+                link: '/pages/tables2/MeterStatus',
+            },
+            {
+                title: '多路开关信息',
+                link: '/pages/tables2/multiwaySwitchInfo',
+            },
+            {
+                title: '多路开关状态',
+                link: '/pages/tables2/MultiwaySwitch',
+            },
+        ],
+
+    },
+    {
+        title: '报警服务',
+        icon: 'nb-tables',
+        children: [
+            {
+                title: '报警服务规则',
+                link: '/pages/EmCloudArc/AlarmRule',
+            },
+            {
+                title: '设备规则',
+                link: '/pages/EmCloudArc/MeterRule',
+            },
+            {
+                title: '规则属性',
+                link: '/pages/EmCloudArc/RuleAttributes',
+            },
+
+        ],
+    },
+    {
+        title: '资源管理',
+        icon: 'nb-tables',
+        children: [
+            {
+                title: '资源管理',
+                link: '/pages/EmCloudResource/Resource',
             },
         ],
     },
+
 
   {
     title: 'Auth',

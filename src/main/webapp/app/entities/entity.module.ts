@@ -1,11 +1,29 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { EmCloudWebCompanyModule } from './company/company.module';
+import { EmCloudWebMeterCategoryInfoModule } from './meter-category-info/meter-category-info.module';
+import { EmCloudWebMeterInfoModule } from './meter-info/meter-info.module';
+import { EmCloudWebMeterStatusModule } from './meter-status/meter-status.module';
+import { EmCloudWebMultiwaySwitchInfoModule } from './multiway-switch-info/multiway-switch-info.module';
+import { EmCloudWebMultiwaySwitchModule } from './multiway-switch/multiway-switch.module';
+import { EmCloudWebAlarmRuleModule } from './alarm-rule/alarm-rule.module';
+import { EmCloudWebRuleAttributesModule } from './rule-attributes/rule-attributes.module';
+import { EmCloudWebMeterRuleModule } from './meter-rule/meter-rule.module';
+import { EmCloudWebResourceModule } from './resource/resource.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
     imports: [
         EmCloudWebCompanyModule,
+        EmCloudWebMeterCategoryInfoModule,
+        EmCloudWebMeterInfoModule,
+        EmCloudWebMeterStatusModule,
+        EmCloudWebMultiwaySwitchInfoModule,
+        EmCloudWebMultiwaySwitchModule,
+        EmCloudWebAlarmRuleModule,
+        EmCloudWebRuleAttributesModule,
+        EmCloudWebMeterRuleModule,
+        EmCloudWebResourceModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],
