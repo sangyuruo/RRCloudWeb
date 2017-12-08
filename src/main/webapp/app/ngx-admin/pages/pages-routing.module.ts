@@ -58,8 +58,6 @@ const routes: Routes = [{
           loadChildren: () => new Promise(resolve => {
               (require as any).ensure([], require => {resolve(require('./loc/tables.module').TablesModule); })  })
       }, {
-
-  },{
       path: 'tables2',
       loadChildren: () => new Promise(resolve => {
           (require as any).ensure([], require => {resolve(require('./tables2/tables.module').TablesModule); })  })
