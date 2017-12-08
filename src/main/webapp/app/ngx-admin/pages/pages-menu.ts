@@ -133,6 +133,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
+
     {
         title: 'Tables1',
         icon: 'nb-tables',
@@ -140,6 +141,53 @@ export const MENU_ITEMS: NbMenuItem[] = [
             {
                 title: 'Smart Table',
                 link: '/pages/tables1/smart-table',
+            },
+        ],
+    },
+
+    {
+        title: '字典工程',
+        icon: 'nb-tables',
+        children: [
+            {
+                title: 'dictionary',
+                link: '/pages/tables2/dictionary',
+            },
+
+            {
+                title: 'dictionaryClassify',
+                link: '/pages/tables2/DictionaryClassify',
+            },
+        ],
+    },
+    {
+        title: '信息点采集',
+        icon: 'nb-tables',
+        children: [
+            {
+                title: 'comPoint',
+                link: '/pages/tables3/comPoint',
+            },
+
+            {
+                title: 'comPointStatus',
+                link: '/pages/tables3/ComPointStatus',
+            },
+        ],
+    },
+
+    {
+        title: '地区地点',
+        icon: 'nb-tables',
+        children: [
+            {
+                title: 'address',
+                link: '/pages/tables4/address',
+            },
+
+            {
+                title: 'area',
+                link: '/pages/tables4/area',
             },
         ],
     },

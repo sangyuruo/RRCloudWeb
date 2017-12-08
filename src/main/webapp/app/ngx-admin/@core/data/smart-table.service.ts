@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import {Http} from "@angular/http";
+import {Http, Response} from "@angular/http";
+import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class SmartTableService {
@@ -426,6 +427,42 @@ export class SmartTableService {
     'age': 16,
   }];
   constructor(private http:Http){}
+
+  createDictionary(data)
+  {
+      this.http.post('/emclouddict/api/dictionaries',data)
+          .map(res => res.json())
+  }
+  updateDictionary(data):Observable<Response>
+  {
+      return this.http.put('/emclouddict/api/dictionaries',data)
+          .map(res => res.json())
+  }
+  careteDictionaryClassify(data)
+  {
+      this.http.post('/emclouddict/api/dictionaryclassifies',data)
+          .map(res => res.json())
+  }
+
+  updateDictionaryClassify(data):Observable<Response>
+  {
+      return this.http.put('/emclouddict/api/dictionaryclassifies',data)
+          .map(res => res.json())
+  }
+  createAddress(data)
+  {
+       this.http.post('/emcloudloc/api/addresses',data)
+          .map(res => res.json())
+  }
+  updateAddress(data):Observable<Response>
+  {
+      return this.http.post('/emcloudloc/api/addresses',data)
+          .map(res => res.json())
+  }
+
+
+
+
   getData() {
     return this.data;
   }
@@ -433,4 +470,69 @@ export class SmartTableService {
       return this.http.get('/emcloudou/api/companies')
           .map(res => res.json())
   }
+  getData2()
+  {
+      return this.http.get('/emclouddict/api/dictionaries')
+          .map(res => res.json())
+  }
+    getData3()
+    {
+        return this.http.get('/emclouddict/api/dictionaryclassifies')
+            .map(res => res.json())
+
+    }
+    getData4()
+    {
+        return this.http.get('/emcloudcpi/api/compoints')
+            .map(res => res.json())
+    }
+    getData5()
+    {
+        return this.http.get('/emcloudcpi/api/compointstatuses')
+            .map(res => res.json())
+    }
+    getData6()
+    {
+        return this.http.get('/emcloudloc/api/addresses?size=' +
+            '30')
+            .map(res => res.json())
+    }
+    getData7()
+    {
+        return this.http.get('/emcloudloc/api/areas?page=0&size=2000')
+            .map(res => res.json())
+    }
+    deleteDictionary(id: number):Observable<Response>
+    {
+        return this.http.delete(`${'/emclouddict/api/dictionaries'}/${id}`);
+    }
+    deleteDictionaryClassify(id: number):Observable<Response>
+    {
+        return this.http.delete(`${'/emclouddict/api/dictionaryclassifies'}/${id}`);
+    }
+    deleteComPoint(id: number):Observable<Response>
+    {
+        return this.http.delete(`${'/emcloudcpi/api/compoints'}/${id}`);
+    }
+    deleteComPointStatus(id: number):Observable<Response>
+    {
+        return this.http.delete(`${'/emcloudcpi/api/compointstatuses'}/${id}`);
+    }
+    deleteAddress(id :number):Observable<Response>
+    {
+        return this.http.delete(`${'/emcloudloc/api/addresses'}/${id}`);
+    }
+    deleteArea(id :number):Observable<Response>
+    {
+        return this.http.delete(`${'/emcloudloc/api/areas'}/${id}`);
+    }
+
+
+
+
+
+
+
+
+
 }

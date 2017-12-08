@@ -8,6 +8,12 @@
             "entities": {
                 "main": "数据",
                 "company": "Company",
+                "dictionary": "Dictionary",
+                "dictionaryclassify": "Dictionaryclassify",
+                "compoint": "Compoint",
+                "compointstatus": "Compointstatus",
+                "address": "Address",
+                "area": "Area",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

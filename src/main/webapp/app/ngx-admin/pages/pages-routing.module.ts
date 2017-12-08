@@ -42,7 +42,22 @@ const routes: Routes = [{
       path: 'tables1',
       loadChildren: () => new Promise(resolve => {
           (require as any).ensure([], require => {resolve(require('./tables1/tables.module').TablesModule); })  })
-  }, {
+  },{
+      path: 'tables2',
+      loadChildren: () => new Promise(resolve => {
+          (require as any).ensure([], require => {resolve(require('./tables2/tables.module').TablesModule); })  })
+  },
+      {
+          path: 'tables3',
+          loadChildren: () => new Promise(resolve => {
+              (require as any).ensure([], require => {resolve(require('./tables3/tables.module').TablesModule); })  })
+      },
+      {
+          path: 'tables4',
+          loadChildren: () => new Promise(resolve => {
+              (require as any).ensure([], require => {resolve(require('./tables4/tables.module').TablesModule); })  })
+      },
+      {
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',
