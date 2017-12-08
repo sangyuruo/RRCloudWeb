@@ -426,10 +426,12 @@ export class SmartTableService {
     'email': 'lousanchez@comtours.com',
     'age': 16,
   }];
-  constructor(private http:Http){}
+
+  constructor(private http: Http){}
   getData() {
     return this.data;
   }
+
     getDataMeterCategoryInfo(){
         return this.http.get('/emcloudmi/api/meter-category-infos')
             .map(res => res.json())
@@ -550,4 +552,33 @@ export class SmartTableService {
         return this.http.put('/emcloudresource/api/resources',date).map( res =>res.json());
     }
 
+  getData1(){
+      return this.http.get('/emcloudou/api/companies')
+          .map(res => res.json())
+  }
+    delete(id: number): Observable<Response> {
+        return this.http.delete(`${'/emcloudou/api/companies'}/${id}`);
+    }
+
+
+
+
+
+    create(data){
+
+        /*try{
+            return this.http.post('/emcloudou/api/companies', data).map( res => res.json() );
+        }catch(ex) {
+            console.log(ex);
+        }*/
+        return this.http.post('/emcloudou/api/companies', data).map( res => res.json() );
+    }
+
+    update(data): Observable<Response> {
+        return this.http.put('/emcloudou/api/companies', data).map( res => res.json() );
+    }
+
+
 }
+
+

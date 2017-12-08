@@ -10,7 +10,7 @@ const routes: Routes = [{
   children: [{
     path: 'Resource',
     component: SmartTableComponentResource,
-  }],
+  },],
 }];
 
 @NgModule({

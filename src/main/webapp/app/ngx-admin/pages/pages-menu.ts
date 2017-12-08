@@ -52,7 +52,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
     children: [
       {
         title: 'Form Inputs',
-        link: '/pages/forms/inputs',
+          icon: 'nb-compose',
+          children: [
+              {
+                  title: '子菜单',
+                  link: '/pages/forms/example/son'
+              },]
       },
       {
         title: 'Form Layouts',
@@ -177,7 +182,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
                 title: '规则属性',
                 link: '/pages/EmCloudArc/RuleAttributes',
             },
+            {
+                title: 'Smart Table1',
+                link: '/pages/tables1/smarttable1',
 
+            },
         ],
     },
     {

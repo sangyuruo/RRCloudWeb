@@ -4,15 +4,15 @@ import { LocalDataSource } from 'ng2-smart-table';
 import { SmartTableService } from '../../../@core/data/smart-table.service';
 
 @Component({
-  selector: 'ngx-smart-table',
-  templateUrl: './smart-table.component.html',
+  selector: 'ngx-smart-table1',
+  templateUrl: './smart-table1.component.html',
   styles: [`
     nb-card {
       transform: translate3d(0, 0, 0);
     }
   `],
 })
-export class SmartTableComponent {
+export class SmartTableComponent1 {
 
   settings = {
     add: {
@@ -71,6 +71,4 @@ export class SmartTableComponent {
       event.confirm.reject();
     }
   }
-
-
 }
