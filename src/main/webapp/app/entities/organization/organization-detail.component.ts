@@ -3,37 +3,36 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 import { JhiEventManager } from 'ng-jhipster';
 
-import { Company } from './company.model';
-import { CompanyService } from './company.service';
+import { Organization } from './organization.model';
+import { OrganizationService } from './organization.service';
 
 @Component({
-    selector: 'jhi-company-detail',
-    templateUrl: './company-detail.component.html'
+    selector: 'jhi-organization-detail',
+    templateUrl: './organization-detail.component.html'
 })
-export class CompanyDetailComponent implements OnInit, OnDestroy {
+export class OrganizationDetailComponent implements OnInit, OnDestroy {
 
-    company: Company;
+    organization: Organization;
     private subscription: Subscription;
     private eventSubscriber: Subscription;
 
     constructor(
         private eventManager: JhiEventManager,
-        private companyService: CompanyService,
+        private organizationService: OrganizationService,
         private route: ActivatedRoute
     ) {
     }
-
 
     ngOnInit() {
         this.subscription = this.route.params.subscribe((params) => {
             this.load(params['id']);
         });
-        this.registerChangeInCompanies();
+        this.registerChangeInOrganizations();
     }
 
     load(id) {
-        this.companyService.find(id).subscribe((company) => {
-            this.company = company;
+        this.organizationService.find(id).subscribe((organization) => {
+            this.organization = organization;
         });
     }
     previousState() {
@@ -45,10 +44,10 @@ export class CompanyDetailComponent implements OnInit, OnDestroy {
         this.eventManager.destroy(this.eventSubscriber);
     }
 
-    registerChangeInCompanies() {
+    registerChangeInOrganizations() {
         this.eventSubscriber = this.eventManager.subscribe(
-            'companyListModification',
-            (response) => this.load(this.company.id)
+            'organizationListModification',
+            (response) => this.load(this.organization.id)
         );
     }
 }

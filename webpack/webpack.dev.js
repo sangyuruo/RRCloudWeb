@@ -18,10 +18,12 @@ module.exports = webpackMerge(commonConfig({ env: ENV }), {
             context: [
                 '/emclouduaa',
                 '/emcloudou',
-
                 '/emclouddict',
                 '/emcloudcpi',
                 '/emcloudloc',
+
+
+                '/emcloudnfs',
 
                 '/emcloudmi',
                 '/emcloudarc',

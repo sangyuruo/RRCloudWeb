@@ -100,7 +100,7 @@ export class AddressComponent {
   }
   onCreateConfirm(event){
       if(window.confirm('Are you sure you want to create?')){
-          this.service.updateAddress(event.newData).subscribe((response)=>{
+          this.service.createAddress(event.newData).subscribe((response)=>{
               event.confirm.resolve(response)
               console.log(response)
           })

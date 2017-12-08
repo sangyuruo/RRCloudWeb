@@ -3,37 +3,36 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 import { JhiEventManager } from 'ng-jhipster';
 
-import { Company } from './company.model';
-import { CompanyService } from './company.service';
+import { MessageTemplate } from './message-template.model';
+import { MessageTemplateService } from './message-template.service';
 
 @Component({
-    selector: 'jhi-company-detail',
-    templateUrl: './company-detail.component.html'
+    selector: 'jhi-message-template-detail',
+    templateUrl: './message-template-detail.component.html'
 })
-export class CompanyDetailComponent implements OnInit, OnDestroy {
+export class MessageTemplateDetailComponent implements OnInit, OnDestroy {
 
-    company: Company;
+    messageTemplate: MessageTemplate;
     private subscription: Subscription;
     private eventSubscriber: Subscription;
 
     constructor(
         private eventManager: JhiEventManager,
-        private companyService: CompanyService,
+        private messageTemplateService: MessageTemplateService,
         private route: ActivatedRoute
     ) {
     }
-
 
     ngOnInit() {
         this.subscription = this.route.params.subscribe((params) => {
             this.load(params['id']);
         });
-        this.registerChangeInCompanies();
+        this.registerChangeInMessageTemplates();
     }
 
     load(id) {
-        this.companyService.find(id).subscribe((company) => {
-            this.company = company;
+        this.messageTemplateService.find(id).subscribe((messageTemplate) => {
+            this.messageTemplate = messageTemplate;
         });
     }
     previousState() {
@@ -45,10 +44,10 @@ export class CompanyDetailComponent implements OnInit, OnDestroy {
         this.eventManager.destroy(this.eventSubscriber);
     }
 
-    registerChangeInCompanies() {
+    registerChangeInMessageTemplates() {
         this.eventSubscriber = this.eventManager.subscribe(
-            'companyListModification',
-            (response) => this.load(this.company.id)
+            'messageTemplateListModification',
+            (response) => this.load(this.messageTemplate.id)
         );
     }
 }

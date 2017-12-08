@@ -140,7 +140,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
 
     {
-        title: 'Tables1',
+        title: 'OU',
         icon: 'nb-tables',
         children: [
         {
@@ -179,7 +179,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
             {
                 title: '多路开关状态',
                 link: '/pages/tables2/MultiwaySwitch',
-            }, 
+            },
         ],
 
     },
@@ -196,10 +196,27 @@ export const MENU_ITEMS: NbMenuItem[] = [
                 link: '/pages/EmCloudArc/MeterRule',
             },
             {
+                title: 'Company',
+                link: '/pages/tables1/smart-table',
+            },
+            {
+                title: 'Organization',
+                link: '/pages/tables1/organization',
+            },
+        ],
+    },
+    {
+        title: 'Nfs',
+        icon: 'nb-tables',
+        children: [
+            {
+                title: 'MessageTemplate',
+                link: '/pages/tables2/message-template',
+            },
+            {
                 title: '规则属性',
                 link: '/pages/EmCloudArc/RuleAttributes',
             },
-
         ],
     },
     {

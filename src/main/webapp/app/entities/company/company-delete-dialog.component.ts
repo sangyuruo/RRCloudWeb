@@ -31,7 +31,16 @@ export class CompanyDeleteDialogComponent {
         this.companyService.delete(id).subscribe((response) => {
             this.eventManager.broadcast({
                 name: 'companyListModification',
-                content: 'Deleted an company'
+                content: 'Deleted a company'
+            });
+            this.activeModal.dismiss(true);
+        });
+    }
+    save(company : Company){
+        this.companyService.create(company).subscribe((response) =>{
+            this.eventManager.broadcast({
+                name:'company',
+                content:'Save a company'
             });
             this.activeModal.dismiss(true);
         });

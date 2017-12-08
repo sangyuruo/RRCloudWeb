@@ -1,11 +1,15 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { EmCloudWebCompanyModule } from './company/company.module';
+
 import { EmCloudWebDictionaryModule } from './dictionary/dictionary.module';
 import { EmCloudWebDictionaryclassifyModule } from './dictionaryclassify/dictionaryclassify.module';
 import { EmCloudWebCompointModule } from './compoint/compoint.module';
 import { EmCloudWebCompointstatusModule } from './compointstatus/compointstatus.module';
 import { EmCloudWebAddressModule } from './address/address.module';
 import { EmCloudWebAreaModule } from './area/area.module';
+import { EmCloudWebOrganizationModule } from './organization/organization.module';
+import { EmCloudWebMessageTemplateModule } from './message-template/message-template.module';
+
 import { EmCloudWebMeterCategoryInfoModule } from './meter-category-info/meter-category-info.module';
 import { EmCloudWebMeterInfoModule } from './meter-info/meter-info.module';
 import { EmCloudWebMeterStatusModule } from './meter-status/meter-status.module';
@@ -28,6 +32,9 @@ import { EmCloudWebResourceModule } from './resource/resource.module';
         EmCloudWebCompointstatusModule,
         EmCloudWebAddressModule,
         EmCloudWebAreaModule,
+
+        EmCloudWebOrganizationModule,
+        EmCloudWebMessageTemplateModule,
 
         EmCloudWebMeterCategoryInfoModule,
         EmCloudWebMeterInfoModule,
