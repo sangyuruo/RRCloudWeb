@@ -43,19 +43,19 @@ const routes: Routes = [{
       loadChildren: () => new Promise(resolve => {
           (require as any).ensure([], require => {resolve(require('./tables1/tables.module').TablesModule); })  })
   },{
-      path: 'tables2',
+      path: 'dict',
       loadChildren: () => new Promise(resolve => {
-          (require as any).ensure([], require => {resolve(require('./tables2/tables.module').TablesModule); })  })
+          (require as any).ensure([], require => {resolve(require('./dict/tables.module').TablesModule); })  })
   },
       {
-          path: 'tables3',
+          path: 'cpi',
           loadChildren: () => new Promise(resolve => {
-              (require as any).ensure([], require => {resolve(require('./tables3/tables.module').TablesModule); })  })
+              (require as any).ensure([], require => {resolve(require('./cpi/tables.module').TablesModule); })  })
       },
       {
-          path: 'tables4',
+          path: 'loc',
           loadChildren: () => new Promise(resolve => {
-              (require as any).ensure([], require => {resolve(require('./tables4/tables.module').TablesModule); })  })
+              (require as any).ensure([], require => {resolve(require('./loc/tables.module').TablesModule); })  })
       },
       {
     path: '',

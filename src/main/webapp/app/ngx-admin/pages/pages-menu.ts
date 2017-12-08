@@ -151,12 +151,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
         children: [
             {
                 title: 'dictionary',
-                link: '/pages/tables2/dictionary',
+                link: '/pages/dict/dictionary',
             },
 
             {
                 title: 'dictionaryClassify',
-                link: '/pages/tables2/DictionaryClassify',
+                link: '/pages/dict/DictionaryClassify',
             },
         ],
     },
@@ -166,12 +166,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
         children: [
             {
                 title: 'comPoint',
-                link: '/pages/tables3/comPoint',
+                link: '/pages/cpi/comPoint',
             },
 
             {
                 title: 'comPointStatus',
-                link: '/pages/tables3/ComPointStatus',
+                link: '/pages/cpi/ComPointStatus',
             },
         ],
     },
@@ -182,12 +182,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
         children: [
             {
                 title: 'address',
-                link: '/pages/tables4/address',
+                link: '/pages/loc/address',
             },
 
             {
                 title: 'area',
-                link: '/pages/tables4/area',
+                link: '/pages/loc/area',
             },
         ],
     },
