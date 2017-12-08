@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 import { TablesComponent } from './tables.component';
-import { MessageTempalte } from './MessageTemplate/smart-table.component';
+
 
 
 import { SmartTableComponent } from './MeterCategoryInfo/smart-table.component';
@@ -14,11 +13,7 @@ import {SmartTableComponent5} from "./MultiwaySwitch/smart-table.component";
 const routes: Routes = [{
     path: '',
     component: TablesComponent,
-    children: [{
-
-        path: 'message-template',
-        component: MessageTempalte,
-    },
+    children: [
         {
             path: 'MeterCategoryInfo',
             component: SmartTableComponent,
@@ -51,7 +46,6 @@ export class TablesRoutingModule { }
 
 export const routedComponents = [
   TablesComponent,
-  MessageTempalte,
   SmartTableComponent,
     SmartTableComponent2,
     SmartTableComponent3,

@@ -39,9 +39,9 @@ const routes: Routes = [{
     loadChildren: () => new Promise(resolve => {
       (require as any).ensure([], require => {resolve(require('./tables/tables.module').TablesModule); })  })
   },{
-      path: 'tables1',
+      path: 'ou',
       loadChildren: () => new Promise(resolve => {
-          (require as any).ensure([], require => {resolve(require('./tables1/tables.module').TablesModule); })  })
+          (require as any).ensure([], require => {resolve(require('./ou/tables.module').TablesModule); })  })
 
   },{
       path: 'dict',
@@ -58,15 +58,10 @@ const routes: Routes = [{
           loadChildren: () => new Promise(resolve => {
               (require as any).ensure([], require => {resolve(require('./loc/tables.module').TablesModule); })  })
       }, {
-      path: 'tables2',
+      path: 'mi',
       loadChildren: () => new Promise(resolve => {
-          (require as any).ensure([], require => {resolve(require('./tables2/tables.module').TablesModule); })  })
+          (require as any).ensure([], require => {resolve(require('./mi/tables.module').TablesModule); })  })
   }, {
-
-      path: 'tables2',
-      loadChildren: () => new Promise(resolve => {
-          (require as any).ensure([], require => {resolve(require('./tables2/tables.module').TablesModule); })  })
-  },{
       path: 'EmCloudArc',
       loadChildren: () => new Promise(resolve => {
           (require as any).ensure([], require => {resolve(require('./EmCloudArc/tables.module').TablesModule); })  })
@@ -74,7 +69,11 @@ const routes: Routes = [{
       path: 'EmCloudResource',
       loadChildren: () => new Promise(resolve => {
           (require as any).ensure([], require => {resolve(require('./EmCloudResource/tables.module').TablesModule); })  })
-  }, {
+  },{
+          path: 'nfs',
+          loadChildren: () => new Promise(resolve => {
+              (require as any).ensure([], require => {resolve(require('./nfs/tables.module').TablesModule); })  })
+      }, {
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',
