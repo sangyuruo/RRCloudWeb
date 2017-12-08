@@ -189,15 +189,15 @@ export const MENU_ITEMS: NbMenuItem[] = [
         children: [
             {
                 title: '报警服务规则',
-                link: '/pages/EmCloudArc/AlarmRule',
+                link: '/pages/arc/AlarmRule',
             },
             {
                 title: '设备规则',
-                link: '/pages/EmCloudArc/MeterRule',
+                link: '/pages/arc/MeterRule',
             },
             {
                 title: '规则属性',
-                link: '/pages/EmCloudArc/RuleAttributes',
+                link: '/pages/arc/RuleAttributes',
             },
 
         ],
@@ -218,7 +218,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         children: [
             {
                 title: '资源管理',
-                link: '/pages/EmCloudResource/Resource',
+                link: '/pages/resource/Resource',
             },
         ],
     },

@@ -41,12 +41,12 @@ const routes: Routes = [{
   },{
       path: 'ou',
       loadChildren: () => new Promise(resolve => {
-          (require as any).ensure([], require => {resolve(require('./ou/tables.module').TablesModule); })  })
+          (require as any).ensure([], require => {resolve(require('./ou/ou.module').TablesModule); })  })
 
   },{
       path: 'dict',
       loadChildren: () => new Promise(resolve => {
-          (require as any).ensure([], require => {resolve(require('./dict/tables.module').TablesModule); })  })
+          (require as any).ensure([], require => {resolve(require('./dict/dict.module').TablesModule); })  })
   },
       {
           path: 'cpi',
@@ -60,15 +60,15 @@ const routes: Routes = [{
       }, {
       path: 'mi',
       loadChildren: () => new Promise(resolve => {
-          (require as any).ensure([], require => {resolve(require('./mi/tables.module').TablesModule); })  })
+          (require as any).ensure([], require => {resolve(require('./mi/mi.module').TablesModule); })  })
   }, {
-      path: 'EmCloudArc',
+      path: 'arc',
       loadChildren: () => new Promise(resolve => {
-          (require as any).ensure([], require => {resolve(require('./EmCloudArc/tables.module').TablesModule); })  })
+          (require as any).ensure([], require => {resolve(require('./arc/arc.module').arcTablesModule); })  })
   },{
-      path: 'EmCloudResource',
+      path: 'resource',
       loadChildren: () => new Promise(resolve => {
-          (require as any).ensure([], require => {resolve(require('./EmCloudResource/tables.module').TablesModule); })  })
+          (require as any).ensure([], require => {resolve(require('./resource/resource.module').TablesModule); })  })
   },{
           path: 'nfs',
           loadChildren: () => new Promise(resolve => {

@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { TablesComponent } from './tables.component';
-
-import {MessageTempalte} from "./message-template/smart-table.component";
+import { TablesComponent } from './resource.component';
+import {SmartTableComponentResource} from "./resource/resource.component";
 
 const routes: Routes = [{
   path: '',
   component: TablesComponent,
   children: [{
-      path: 'message-template',
-      component: MessageTempalte,
+    path: 'Resource',
+    component: SmartTableComponentResource,
   },],
 }];
 
@@ -22,8 +21,5 @@ export class TablesRoutingModule { }
 
 export const routedComponents = [
   TablesComponent,
-
-    MessageTempalte
+    SmartTableComponentResource,
 ];
-
-
