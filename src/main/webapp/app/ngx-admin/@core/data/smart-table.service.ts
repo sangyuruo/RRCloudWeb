@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+
 import {Observable} from "rxjs/Observable";
 import {Http,Response} from "@angular/http";
 import {Company} from "../../../entities/company/company.model";
@@ -428,7 +429,8 @@ export class SmartTableService {
     'email': 'lousanchez@comtours.com',
     'age': 16,
   }];
-  constructor(private http:Http){}
+
+  constructor(private http: Http){}
   getData() {
     return this.data;
   }
@@ -481,4 +483,153 @@ getMessageTemplate(){
             .map(res => res.json());
     }
 
+
+    getDataMeterCategoryInfo(){
+        return this.http.get('/emcloudmi/api/meter-category-infos')
+            .map(res => res.json())
+    }
+    getDataMeterInfo(){
+        return this.http.get('/emcloudmi/api/meter-infos')
+            .map(res => res.json())
+    }
+    getDataMeterStatus(){
+        return this.http.get('/emcloudmi/api/meter-statuses')
+            .map(res => res.json())
+    }
+    getDataMultiwaySwitchInfo(){
+        return this.http.get('/emcloudmi/api/multiway-switch-infos')
+            .map(res => res.json())
+    }
+    getDataMultiwaySwitch(){
+        return this.http.get('/emcloudmi/api/multiway-switches')
+            .map(res => res.json())
+    }
+    getDataAlarmRule(){
+        return this.http.get('/emcloudarc/api/alarm-rules')
+            .map(res => res.json())
+    }
+    getDataRuleAttributes(){
+        return this.http.get('/emcloudarc/api/rule-attributes')
+            .map(res => res.json())
+    }
+    getDataMeterRule(){
+        return this.http.get('/emcloudarc/api/meter-rules')
+            .map(res => res.json())
+    }
+    getDataResource(){
+        return this.http.get('/emcloudresource/api/resources')
+            .map(res => res.json())
+    }
+
+
+    deleteMeterCategoryInfo(id: number): Observable<Response> {
+        return this.http.delete(`${'/emcloudmi/api/meter-category-infos'}/${id}`);
+    }
+    deleteMeterInfo(id: number): Observable<Response> {
+        return this.http.delete(`${'/emcloudmi/api/meter-infos'}/${id}`);
+    }
+    deleteMeterStatus(id: number): Observable<Response> {
+        return this.http.delete(`${'/emcloudmi/api/meter-statuses'}/${id}`);
+    }
+    deleteMultiwaySwitch(id: number): Observable<Response> {
+        return this.http.delete(`${'/emcloudmi/api/multiway-switches'}/${id}`);
+    }
+    deleteMultiwaySwitchInfo(id: number): Observable<Response> {
+        return this.http.delete(`${'/emcloudmi/api/multiway-switch-infos'}/${id}`);
+    }
+    deleteAlarmRule(id: number): Observable<Response> {
+        return this.http.delete(`${'/emcloudarc/api/alarm-rules'}/${id}`);
+    }
+    deleteRuleAttributes(id: number): Observable<Response> {
+        return this.http.delete(`${'/emcloudarc/api/rule-attributes'}/${id}`);
+    }
+    deleteMeterRule(id: number): Observable<Response> {
+        return this.http.delete(`${'/emcloudarc/api/meter-rules'}/${id}`);
+    }
+    deleteResource(id: number): Observable<Response> {
+        return this.http.delete(`${'/emcloudresource/api/resources'}/${id}`);
+    }
+    createMeterCategoryInfo(date) {
+        return this.http.post('/emcloudmi/api/meter-category-infos',date).map( res =>res.json());
+    }
+    updateMeterCategoryInfo(date):  Observable<Response>{
+        return this.http.put('/emcloudmi/api/meter-category-infos',date).map( res =>res.json());
+    }
+    createMeterInfo(date) {
+        return this.http.post('/emcloudmi/api/meter-infos',date).map( res =>res.json());
+    }
+    updateMeterInfo(date):  Observable<Response>{
+        return this.http.put('/emcloudmi/api/meter-infos',date).map( res =>res.json());
+    }
+    createMeterStatus(date) {
+        return this.http.post('/emcloudmi/api/meter-statuses',date).map( res =>res.json());
+    }
+    updateMeterStatus(date):  Observable<Response>{
+        return this.http.put('/emcloudmi/api/meter-statuses',date).map( res =>res.json());
+    }
+    createMultiwaySwitch(date) {
+        return this.http.post('/emcloudmi/api/multiway-switches',date).map( res =>res.json());
+    }
+    updateMultiwaySwitch(date):  Observable<Response>{
+        return this.http.put('/emcloudmi/api/multiway-switches',date).map( res =>res.json());
+    }
+    createMultiwaySwitchInfo(date) {
+        return this.http.post('/emcloudmi/api/multiway-switch-infos',date).map( res =>res.json());
+    }
+    updateMultiwaySwitchInfo(date):  Observable<Response>{
+        return this.http.put('/emcloudmi/api/multiway-switch-infos',date).map( res =>res.json());
+    }
+    createAlarmRule(date) {
+        return this.http.post('/emcloudarc/api/alarm-rules',date).map( res =>res.json());
+    }
+    updateAlarmRule(date):  Observable<Response>{
+        return this.http.put('/emcloudarc/api/alarm-rules',date).map( res =>res.json());
+    }
+    createMeterRule(date) {
+        return this.http.post('/emcloudarc/api/meter-rules',date).map( res =>res.json());
+    }
+    updateMeterRule(date):  Observable<Response>{
+        return this.http.put('/emcloudarc/api/meter-rules',date).map( res =>res.json());
+    }
+    createRuleAttributes(date) {
+        return this.http.post('/emcloudarc/api/rule-attributes',date).map( res =>res.json());
+    }
+    updateRuleAttributes(date):  Observable<Response>{
+        return this.http.put('/emcloudarc/api/rule-attributes',date).map( res =>res.json());
+    }
+    createResource(date) {
+        return this.http.post('/emcloudresource/api/resources',date).map( res =>res.json());
+    }
+    updateResource(date):  Observable<Response>{
+        return this.http.put('/emcloudresource/api/resources',date).map( res =>res.json());
+    }
+
+  getData1(){
+      return this.http.get('/emcloudou/api/companies')
+          .map(res => res.json())
+  }
+    delete(id: number): Observable<Response> {
+        return this.http.delete(`${'/emcloudou/api/companies'}/${id}`);
+    }
+
+
+
+
+
+    create(data){
+
+        /*try{
+            return this.http.post('/emcloudou/api/companies', data).map( res => res.json() );
+        }catch(ex) {
+            console.log(ex);
+        }*/
+        return this.http.post('/emcloudou/api/companies', data).map( res => res.json() );
+    }
+
+    update(data): Observable<Response> {
+        return this.http.put('/emcloudou/api/companies', data).map( res => res.json() );
+    }
+
 }
+
+

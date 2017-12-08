@@ -1,0 +1,57 @@
+
+<div *ngIf="resource">
+    <h2><span jhiTranslate="emCloudWebApp.resource.detail.title">Resource</span> {{resource.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="emCloudWebApp.resource.resourceCode">Resource Code</span></dt>
+        <dd>
+            <span>{{resource.resourceCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.resource.resourceName">Resource Name</span></dt>
+        <dd>
+            <span>{{resource.resourceName}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.resource.resourceType">Resource Type</span></dt>
+        <dd>
+            <span>{{resource.resourceType}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.resource.resourceUrl">Resource Url</span></dt>
+        <dd>
+            <span>{{resource.resourceUrl}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.resource.enable">Enable</span></dt>
+        <dd>
+            <span>{{resource.enable}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.resource.createdBy">Created By</span></dt>
+        <dd>
+            <span>{{resource.createdBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.resource.createTime">Create Time</span></dt>
+        <dd>
+            <span>{{resource.createTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.resource.updatedBy">Updated By</span></dt>
+        <dd>
+            <span>{{resource.updatedBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.resource.updateTime">Update Time</span></dt>
+        <dd>
+            <span>{{resource.updateTime | date:'medium'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'resource/'+ resource.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>
