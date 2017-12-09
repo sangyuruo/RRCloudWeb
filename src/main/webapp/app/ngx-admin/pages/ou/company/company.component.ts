@@ -17,7 +17,7 @@ import {OuService} from "../ou.service";
         }
     `],
 })
-export class SmartTableComponent {
+export class CompanyComponent {
 
     settings = {
         add: {

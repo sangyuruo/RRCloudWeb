@@ -13,7 +13,7 @@ import {OuService} from "../ou.service";
     }
   `],
 })
-export class Organizationtable {
+export class OrganizationComponent {
 
     settings = {
         add: {
@@ -58,31 +58,31 @@ export class Organizationtable {
               type: 'number',
             },*/
             orgCode: {
-                title: 'orgCode',
+                title: '组织代码',
                 type: 'number',
             },
             orgName: {
-                title: 'orgName',
+                title: '组织名称',
                 type: 'number',
             },
             companyCode: {
-                title: 'companyCode',
+                title: '公司代码',
                 type: 'number',
             },
             companyName: {
-                title: 'companyName',
+                title: '公司名称',
                 type: 'number',
             },
             parentOrgName: {
-                title: 'parentOrgName',
+                title: '父组织名称',
                 type: 'number',
             },
             addressName: {
-                title: 'addressName',
+                title: '地址',
                 type: 'number',
             },
             enable: {
-                title:'enable',
+                title:'是否可用',
                 type: 'Boolean',
             }
         },

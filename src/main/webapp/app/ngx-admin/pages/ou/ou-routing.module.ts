@@ -1,24 +1,24 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { TablesComponent } from './ou.component';
+import { OuComponent } from './ou.component';
 
-import { SmartTableComponent } from './company/company.component';
-import {Organizationtable} from "./organization/organization.component";
+import { CompanyComponent } from './company/company.component';
+import {OrganizationComponent} from "./organization/organization.component";
 
 
 
 
 const routes: Routes = [{
   path: '',
-  component: TablesComponent,
+  component: OuComponent,
   children: [{
     path: 'company',
-    component: SmartTableComponent,
+    component: CompanyComponent,
 
   }, {
       path: 'organization',
-      component: Organizationtable,
+      component: OrganizationComponent,
       }],
   },]
 ;
@@ -30,8 +30,8 @@ const routes: Routes = [{
 export class TablesRoutingModule { }
 
 export const routedComponents = [
-  TablesComponent,
-  SmartTableComponent,
-    Organizationtable,
+    OuComponent,
+    CompanyComponent,
+    OrganizationComponent,
 
 ];

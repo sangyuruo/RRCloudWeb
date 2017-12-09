@@ -1,17 +1,18 @@
 import { Component } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
+
 import { NfsService } from '../nfs.service';
 
 @Component({
   selector: 'ngx-smart-table',
-  templateUrl: './company.component.html',
+  templateUrl: './message-template.component.html',
   styles: [`
     nb-card {
       transform: translate3d(0, 0, 0);
     }
   `],
 })
-export class MessageTempalte {
+export class MessageTemplateComponent {
 
   settings = {
     add: {
@@ -57,23 +58,23 @@ export class MessageTempalte {
       //   type: 'number',
       // },
         mtCode: {
-            title: 'mtCode',
+            title: '消息代码',
             type: 'number',
         },
         content: {
-            title: 'content',
+            title: '内容',
             type: 'number',
         },
         paramFlag: {
-            title: 'paramFlag',
+            title: '是否包含参数',
             type: 'number',
         },
         type: {
-            title: 'type',
+            title: '消息类型',
             type: 'number',
         },
         enable: {
-            title: 'enable',
+            title: '是否可用',
             type: 'boolean',
         },
 
