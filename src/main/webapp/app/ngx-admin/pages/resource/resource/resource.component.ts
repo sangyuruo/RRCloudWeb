@@ -13,7 +13,7 @@ import {ResourceService} from "../resource.service";
     }
   `],
 })
-export class SmartTableComponentResource {
+export class ResourceComponent {
 
     settings = {
         add: {

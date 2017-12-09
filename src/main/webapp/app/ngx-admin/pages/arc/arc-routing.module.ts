@@ -1,26 +1,26 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { TablesComponent } from './arc.component';
-import { SmartTableComponentAlarmRule } from './alarm-rule/alarm-rule.component';
-import {SmartTableComponentRuleAttributes} from "./rule-attributes/smart-table.component";
-import {SmartTableComponentMeterRule} from "./meter-rule/meter-rule.component";
+import {AlarmRuleComponent} from "./alarm-rule/alarm-rule.component";
+import {ArcComponent} from "./arc.component";
+import {MeterRuleComponent} from "./meter-rule/meter-rule.component";
+import {RuleAttributesComponent} from "./rule-attributes/rule-attributes.component";
 
 const routes: Routes = [{
   path: '',
-  component: TablesComponent,
+  component: ArcComponent,
   children: [
       {
     path: 'AlarmRule',
-    component: SmartTableComponentAlarmRule,
+    component: AlarmRuleComponent,
   },
       {
           path: 'RuleAttributes',
-          component: SmartTableComponentRuleAttributes,
+          component: RuleAttributesComponent,
       },
       {
           path: 'MeterRule',
-          component: SmartTableComponentMeterRule,
+          component: MeterRuleComponent,
       },
   ],
 }];
@@ -32,8 +32,8 @@ const routes: Routes = [{
 export class TablesRoutingModule { }
 
 export const routedComponents = [
-  TablesComponent,
-    SmartTableComponentAlarmRule,
-    SmartTableComponentRuleAttributes,
-    SmartTableComponentMeterRule,
+    ArcComponent,
+    AlarmRuleComponent,
+    RuleAttributesComponent,
+    MeterRuleComponent,
 ];

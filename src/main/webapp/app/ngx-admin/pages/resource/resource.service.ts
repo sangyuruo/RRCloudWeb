@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 
 import {Observable} from "rxjs/Observable";
 import {Http,Response} from "@angular/http";
-import {Company} from "../../../entities/company/company.model";
 
 
 @Injectable()

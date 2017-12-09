@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { TablesComponent } from './mi.component';
 import {MultiwaySwitchComponent} from "./multiway-switch/multiway-switch.component";
 import {MeterCategoryInfoComponent} from "./meter-category-info/meter-category-info.component";
 import {MeterInfoComponent} from "./meter-info/meter-info.component";
 import {MeterStatusComponent} from "./meter-status/meter-status.component";
 import {MultiwaySwitchInfoComponent} from "./multiway-switch-info/multiway-switch-info.component";
+import {MiComponent} from "./mi.component";
 
 
 const routes: Routes = [{
     path: '',
-    component: TablesComponent,
+    component: MiComponent,
     children: [
         {
             path: 'MeterCategoryInfo',
@@ -43,7 +43,7 @@ const routes: Routes = [{
 export class TablesRoutingModule { }
 
 export const routedComponents = [
-  TablesComponent,
+    MiComponent,
     MeterCategoryInfoComponent,
     MeterInfoComponent,
     MeterStatusComponent,

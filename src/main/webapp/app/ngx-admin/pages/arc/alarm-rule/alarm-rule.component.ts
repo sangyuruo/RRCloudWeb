@@ -13,7 +13,7 @@ import {ArcService} from "../arc.service";
     }
   `],
 })
-export class SmartTableComponentAlarmRule {
+export class AlarmRuleComponent {
 
     settings = {
         add: {

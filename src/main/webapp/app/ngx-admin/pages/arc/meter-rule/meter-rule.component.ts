@@ -13,7 +13,7 @@ import {ArcService} from "../arc.service";
     }
   `],
 })
-export class SmartTableComponentMeterRule {
+export class MeterRuleComponent {
 
   settings = {
     add: {
