@@ -144,13 +144,13 @@ export const MENU_ITEMS: NbMenuItem[] = [
         icon: 'nb-tables',
         children: [
         {
-            title: 'Smart Table1',
-            link: '/pages/tables1/smarttable1',
+            title: '公司',
+            link: '/pages/ou/company',
 
         },
         {
-            title: 'Smart Table2',
-            link: '/pages/tables1/smart-table',
+            title: '组织',
+            link: '/pages/ou/organization',
 
         },
         ],
@@ -162,23 +162,23 @@ export const MENU_ITEMS: NbMenuItem[] = [
         children: [
             {
                 title: '设备分类信息',
-                link: '/pages/tables2/MeterCategoryInfo',
+                link: '/pages/mi/MeterCategoryInfo',
             },
             {
                 title: '设备信息',
-                link: '/pages/tables2/MeterInfo',
+                link: '/pages/mi/MeterInfo',
             },
             {
                 title: '设备状态',
-                link: '/pages/tables2/MeterStatus',
+                link: '/pages/mi/MeterStatus',
             },
             {
                 title: '多路开关信息',
-                link: '/pages/tables2/multiwaySwitchInfo',
+                link: '/pages/mi/multiwaySwitchInfo',
             },
             {
                 title: '多路开关状态',
-                link: '/pages/tables2/MultiwaySwitch',
+                link: '/pages/mi/MultiwaySwitch',
             },
         ],
 
@@ -189,20 +189,17 @@ export const MENU_ITEMS: NbMenuItem[] = [
         children: [
             {
                 title: '报警服务规则',
-                link: '/pages/EmCloudArc/AlarmRule',
+                link: '/pages/arc/AlarmRule',
             },
             {
                 title: '设备规则',
-                link: '/pages/EmCloudArc/MeterRule',
+                link: '/pages/arc/MeterRule',
             },
             {
-                title: 'Company',
-                link: '/pages/tables1/smart-table',
+                title: '规则属性',
+                link: '/pages/arc/RuleAttributes',
             },
-            {
-                title: 'Organization',
-                link: '/pages/tables1/organization',
-            },
+
         ],
     },
     {
@@ -211,11 +208,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         children: [
             {
                 title: 'MessageTemplate',
-                link: '/pages/tables2/message-template',
-            },
-            {
-                title: '规则属性',
-                link: '/pages/EmCloudArc/RuleAttributes',
+                link: '/pages/nfs/message-template',
             },
         ],
     },
@@ -225,7 +218,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         children: [
             {
                 title: '资源管理',
-                link: '/pages/EmCloudResource/Resource',
+                link: '/pages/resource/Resource',
             },
         ],
     },

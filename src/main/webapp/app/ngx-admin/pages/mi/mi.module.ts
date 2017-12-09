@@ -2,9 +2,8 @@ import { NgModule } from '@angular/core';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 import { ThemeModule } from '../../@theme/theme.module';
-import { TablesRoutingModule, routedComponents } from './tables-routing.module';
-
-import {CpiService} from "./cpi.service";
+import { TablesRoutingModule, routedComponents } from './mi-routing.module';
+import {MiService} from "./mi.service";
 
 @NgModule({
   imports: [
@@ -16,7 +15,7 @@ import {CpiService} from "./cpi.service";
     ...routedComponents,
   ],
   providers: [
-      CpiService,
+    MiService,
   ],
 })
 export class TablesModule { }
