@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 
-import { SmartTableService } from '../../../@core/data/smart-table.service';
+import { LocService } from '../loc.service';
 
 @Component({
   selector: 'ngx-smart-table',
-  templateUrl: './smart-table.component.html',
+  templateUrl: './company.component.html',
   styles: [`
     nb-card {
       transform: translate3d(0, 0, 0);
@@ -63,7 +63,7 @@ export class AreaComponent {
 
   source: LocalDataSource = new LocalDataSource();
 
-  constructor(private service: SmartTableService) {
+  constructor(private service: LocService) {
     this.service.getDataArea().subscribe(data =>(this.source.load(data)))
   }
 

@@ -9,21 +9,21 @@ import {OuService} from "./ou.service";
 
 
 @NgModule({
-  imports: [
-    ThemeModule,
-    TablesRoutingModule,
-    Ng2SmartTableModule,
+    imports: [
+        ThemeModule,
+        TablesRoutingModule,
+        Ng2SmartTableModule,
 
 
 
-  ],
-  declarations: [
-    ...routedComponents,
+    ],
+    declarations: [
+        ...routedComponents,
 
 
-  ],
-  providers: [
-      OuService,
-  ],
+    ],
+    providers: [
+        OuService,
+    ],
 })
 export class TablesModule { }

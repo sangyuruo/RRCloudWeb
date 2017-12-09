@@ -9,35 +9,35 @@ import {Company} from "../../../entities/company/company.model";
 export class DictService {
 
 
-  constructor(private http:Http){}
+    constructor(private http:Http){}
 
-  createDictionary(data)
-  {
-      this.http.post('/emclouddict/api/dictionaries',data)
-          .map(res => res.json())
-  }
-  updateDictionary(data):Observable<Response>
-  {
-      return this.http.put('/emclouddict/api/dictionaries',data)
-          .map(res => res.json())
-  }
-  createDictionaryClassify(data)
-  {
-      this.http.post('/emclouddict/api/dictionaryclassifies',data)
-          .map(res => res.json())
-  }
+    createDictionary(data)
+    {
+        this.http.post('/emclouddict/api/dictionaries',data)
+            .map(res => res.json())
+    }
+    updateDictionary(data):Observable<Response>
+    {
+        return this.http.put('/emclouddict/api/dictionaries',data)
+            .map(res => res.json())
+    }
+    createDictionaryClassify(data)
+    {
+        this.http.post('/emclouddict/api/dictionaryclassifies',data)
+            .map(res => res.json())
+    }
 
-  updateDictionaryClassify(data):Observable<Response>
-  {
-      return this.http.put('/emclouddict/api/dictionaryclassifies',data)
-          .map(res => res.json())
-  }
+    updateDictionaryClassify(data):Observable<Response>
+    {
+        return this.http.put('/emclouddict/api/dictionaryclassifies',data)
+            .map(res => res.json())
+    }
 
-  getDataDictionary()
-  {
-      return this.http.get('/emclouddict/api/dictionaries?size=2000')
-          .map(res => res.json())
-  }
+    getDataDictionary()
+    {
+        return this.http.get('/emclouddict/api/dictionaries?size=2000')
+            .map(res => res.json())
+    }
     getDataDictionaryClassify()
     {
         return this.http.get('/emclouddict/api/dictionaryclassifies?size=2000')

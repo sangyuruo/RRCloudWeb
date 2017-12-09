@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { TablesComponent } from './tables.component';
+import { TablesComponent } from './nfs.component';
 
 import {MessageTempalte} from "./message-template/smart-table.component";
 

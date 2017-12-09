@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 
+import { DictService } from '../dict.service';
 import {Http} from "@angular/http";
 import {JhiEventManager} from "ng-jhipster";
-import {ArcService} from "../arc.service";
 
 @Component({
   selector: 'ngx-smart-table',
@@ -14,7 +14,7 @@ import {ArcService} from "../arc.service";
     }
   `],
 })
-export class SmartTableComponentRuleAttributes {
+export class DictionaryClassifyComponent {
 
   settings = {
     add: {
@@ -34,64 +34,83 @@ export class SmartTableComponentRuleAttributes {
       confirmDelete: true,
     },
     columns: {
-      id: {
-        title: 'ID',
+        dictCode: {
+        title: 'dictCode',
         type: 'number',
       },
-        ruleCode: {
-        title: '规则编码',
+        dictClassifyCode: {
+        title: 'dictClassifyCode',
         type: 'string',
       },
-        attributeName: {
-            title: '属性名',
-            type: 'string',
+        dictClassifyValue: {
+        title: 'dictClassifyValue',
+        type: 'string',
+      },
+        parentClassifyCode: {
+        title: 'parentClassifyCode',
+        type: 'string',
+      },
+        seqNo: {
+        title: 'seqNo',
+        type: 'string',
+      },
+        enable: {
+        title: 'enable',
+        type: 'number',
+      },
+        remark: {
+            title: 'remark',
+            type: 'number',
         },
-        attributeValue: {
-        title: '属性值',
-        type: 'string',
-      },
-
     },
   };
 
   source: LocalDataSource = new LocalDataSource();
 
-    constructor(private service: ArcService,
-                private http:Http,
-                private eventManager:JhiEventManager) {
-        this.service.getDataRuleAttributes().subscribe(data => (this.source.load(data)))
-    }
+  constructor(private service: DictService,
+               private http:Http,
+               private eventManager:JhiEventManager) {
+   this.service.getDataDictionaryClassify().subscribe(data =>(this.source.load(data)));
+  }
 
   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
-        this.service.deleteRuleAttributes(event.data.id).subscribe((response) => {
+        this.service.deleteDictionaryClassify(event.data.id).subscribe((response) => {
             this.eventManager.broadcast({
-                name: 'RuleAttributesListModification',
-                content: 'Deleted an RuleAttributes'
+                name: 'dictionaryclassifyListModification',
+                content: 'Deleted an dictionaryclassify'
             });
+            event.confirm.resolve();
         });
-      event.confirm.resolve();
     } else {
       event.confirm.reject();
     }
   }
-    onUpdateConfirm(event) {
-        if (window.confirm('Are you sure you want to update?')) {
-            this.service.updateRuleAttributes(event.newData).subscribe((response) => {
+    onSaveConfirm(event){
+        if(window.confirm("Are you sure you want to save?"))
+        {
+            this.service.updateDictionaryClassify(event.newData).subscribe((response)=>{
                 event.confirm.resolve(response)
                 console.log(response)
-            });
-        } else {
+            })
+        }
+        else
+        {
             event.confirm.reject();
         }
     }
-    onCreateConfirm(event) {
-        if (window.confirm('Are you sure you want to create?')) {
-            this.service.createRuleAttributes(event.newData).subscribe((response) => {
+
+    onCreateConfirm(event)
+    {
+        if(window.confirm('Are you sure you want to create?'))
+        {
+            this.service.updateDictionaryClassify(event.newData).subscribe((response)=>{
                 event.confirm.resolve(response)
                 console.log(response)
-            });
-        } else {
+            })
+        }
+        else
+        {
             event.confirm.reject();
         }
     }

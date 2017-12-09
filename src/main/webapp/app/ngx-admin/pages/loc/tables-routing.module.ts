@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TablesComponent } from './tables.component';
-import { AddressComponent } from './address/smart-table.component';
-import { AreaComponent } from './area/smart-table.component';
+import { AddressComponent } from './address/address.component';
+import { AreaComponent } from './area/area.component';
 
 const routes: Routes = [{
   path: '',
