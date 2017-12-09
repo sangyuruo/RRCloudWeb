@@ -30,32 +30,28 @@ export class AreaComponent {
       confirmDelete: true,
     },
     columns: {
-        id: {
-            title: 'id',
-            type: 'number',
-        },
         areaCode: {
-        title: 'areaCode',
+        title: '地区代码',
         type: 'number',
       },
         areaName: {
-        title: 'areaName',
+        title: '地区名称',
         type: 'string',
       },
         zipCode: {
-        title: 'zipCode',
+        title: '邮政编码',
         type: 'string',
       },
         parentId: {
-        title: 'parentId',
+        title: '父地址编码',
         type: 'string',
       },
         parentName: {
-        title: 'parentName',
+        title: '父地址名称',
         type: 'string',
       },
         depth: {
-        title: 'depth',
+        title: '深度',
         type: 'number',
       },
     },

@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
+import {Component} from '@angular/core';
+import {LocalDataSource} from 'ng2-smart-table';
 
-import { SmartTableService } from '../../../@core/data/smart-table.service';
+import {DictService} from '../dict.service';
 import {Http} from "@angular/http";
 import {JhiEventManager} from "ng-jhipster";
 import {nextTick} from "q";
@@ -10,10 +10,10 @@ import {nextTick} from "q";
     selector: 'ngx-smart-table',
     templateUrl: './dictionary.component.html',
     styles: [`
-    nb-card {
-      transform: translate3d(0, 0, 0);
-    }
-  `],
+        nb-card {
+            transform: translate3d(0, 0, 0);
+        }
+    `],
 })
 export class DictionaryComponent {
 
@@ -35,28 +35,24 @@ export class DictionaryComponent {
             confirmDelete: true,
         },
         columns: {
-            id: {
-                title: 'id',
-                type: 'number',
-            },
             dictName: {
-                title: 'dictName',
+                title: '字典名称',
                 type: 'number',
             },
             dictCode: {
-                title: 'dictCode',
+                title: '字典代码',
                 type: 'number',
             },
             startTime: {
-                title: 'startTime',
+                title: '开始时间',
                 type: 'number',
             },
             endTime: {
-                title: 'endTime',
+                title: '结束时间',
                 type: 'number',
             },
             seqNo: {
-                title: 'seqNo',
+                title: '序号',
                 type: 'number',
             },
         }
@@ -64,9 +60,9 @@ export class DictionaryComponent {
 
     source: LocalDataSource = new LocalDataSource();
 
-    constructor(private service: SmartTableService,
-                private http:Http,
-                private eventManager:JhiEventManager) {
+    constructor(private service: DictService,
+                private http: Http,
+                private eventManager: JhiEventManager) {
 
         this.service.getDataDictionary().subscribe(data => (this.source.load(data)))
     }
@@ -85,31 +81,26 @@ export class DictionaryComponent {
         }
     }
 
-    onSaveConfirm(event){
-        if(window.confirm("Are you sure you want to save?"))
-        {
-            this.service.updateDictionary(event.newData).subscribe((response)=>{
+    onSaveConfirm(event) {
+        if (window.confirm("Are you sure you want to save?")) {
+            this.service.updateDictionary(event.newData).subscribe((response) => {
                 event.confirm.resolve(response)
                 console.log(response)
             })
         }
-        else
-        {
+        else {
             event.confirm.reject();
         }
     }
 
-    onCreateConfirm(event)
-    {
-        if(window.confirm('Are you sure you want to create?'))
-        {
-            this.service.updateDictionary(event.newData).subscribe((response)=>{
+    onCreateConfirm(event) {
+        if (window.confirm('Are you sure you want to create?')) {
+            this.service.createDictionary(event.newData).subscribe((response) => {
                 event.confirm.resolve(response)
                 console.log(response)
             })
         }
-        else
-        {
+        else {
             event.confirm.reject();
         }
     }

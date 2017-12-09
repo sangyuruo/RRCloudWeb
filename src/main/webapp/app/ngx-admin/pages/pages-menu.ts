@@ -229,12 +229,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
         icon: 'nb-tables',
         children: [
             {
-                title: 'dictionary',
+                title: '字典',
                 link: '/pages/dict/dictionary',
             },
 
             {
-                title: 'dictionaryClassify',
+                title: '字典分类',
                 link: '/pages/dict/DictionaryClassify',
             },
         ],
@@ -244,12 +244,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
         icon: 'nb-tables',
         children: [
             {
-                title: 'comPoint',
+                title: '信息点采集',
                 link: '/pages/cpi/comPoint',
             },
 
             {
-                title: 'comPointStatus',
+                title: '信息点采集状态',
                 link: '/pages/cpi/ComPointStatus',
             },
         ],
@@ -260,12 +260,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
         icon: 'nb-tables',
         children: [
             {
-                title: 'address',
+                title: '地址',
                 link: '/pages/loc/address',
             },
 
             {
-                title: 'area',
+                title: '地区',
                 link: '/pages/loc/area',
             },
         ],

@@ -490,42 +490,6 @@ getMessageTemplate(){
     }
 
 
-    getDataMeterCategoryInfo(){
-        return this.http.get('/emcloudmi/api/meter-category-infos?size=2000')
-            .map(res => res.json())
-    }
-    getDataMeterInfo(){
-        return this.http.get('/emcloudmi/api/meter-infos?size=2000')
-            .map(res => res.json())
-    }
-    getDataMeterStatus(){
-        return this.http.get('/emcloudmi/api/meter-statuses?size=2000')
-            .map(res => res.json())
-    }
-    getDataMultiwaySwitchInfo(){
-        return this.http.get('/emcloudmi/api/multiway-switch-infos?size=2000')
-            .map(res => res.json())
-    }
-    getDataMultiwaySwitch(){
-        return this.http.get('/emcloudmi/api/multiway-switches?size=2000')
-            .map(res => res.json())
-    }
-    getDataAlarmRule(){
-        return this.http.get('/emcloudarc/api/alarm-rules?size=2000')
-            .map(res => res.json())
-    }
-    getDataRuleAttributes(){
-        return this.http.get('/emcloudarc/api/rule-attributes?size=2000')
-            .map(res => res.json())
-    }
-    getDataMeterRule(){
-        return this.http.get('/emcloudarc/api/meter-rules?size=2000')
-            .map(res => res.json())
-    }
-    getDataResource(){
-        return this.http.get('/emcloudresource/api/resources?size=2000')
-            .map(res => res.json())
-    }
 
 
 

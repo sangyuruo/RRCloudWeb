@@ -34,31 +34,31 @@ export class DictionaryClassifyComponent {
     },
     columns: {
         dictCode: {
-        title: 'dictCode',
+        title: '字典代码',
         type: 'number',
       },
         dictClassifyCode: {
-        title: 'dictClassifyCode',
+        title: '分类代码',
         type: 'string',
       },
         dictClassifyValue: {
-        title: 'dictClassifyValue',
+        title: '分类值',
         type: 'string',
       },
         parentClassifyCode: {
-        title: 'parentClassifyCode',
+        title: '父分类代码',
         type: 'string',
       },
         seqNo: {
-        title: 'seqNo',
+        title: '序号',
         type: 'string',
       },
         enable: {
-        title: 'enable',
+        title: '是否有效',
         type: 'number',
       },
         remark: {
-            title: 'remark',
+            title: '备注',
             type: 'number',
         },
     },
@@ -103,7 +103,7 @@ export class DictionaryClassifyComponent {
     {
         if(window.confirm('Are you sure you want to create?'))
         {
-            this.service.updateDictionaryClassify(event.newData).subscribe((response)=>{
+            this.service.createDictionaryClassify(event.newData).subscribe((response)=>{
                 event.confirm.resolve(response)
                 console.log(response)
             })
