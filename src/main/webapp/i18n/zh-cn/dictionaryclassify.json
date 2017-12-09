@@ -1,16 +1,16 @@
 {
     "emCloudWebApp": {
-        "dictionaryclassify" : {
+        "dictionaryClassify" : {
             "home": {
-                "title": "Dictionaryclassifies",
-                "createLabel": "创建新 Dictionaryclassify",
-                "createOrEditLabel": "创建或编辑 Dictionaryclassify"
+                "title": "Dictionary Classifies",
+                "createLabel": "创建新 Dictionary Classify",
+                "createOrEditLabel": "创建或编辑 Dictionary Classify"
             },
             "delete": {
-                "question": "你确定要删除 Dictionaryclassify {{ id }} 吗？"
+                "question": "你确定要删除 Dictionary Classify {{ id }} 吗？"
             },
             "detail": {
-                "title": "Dictionaryclassify"
+                "title": "Dictionary Classify"
             },
             "dictCode": "Dict Code",
             "dictClassifyCode": "Dict Classify Code",
@@ -23,10 +23,10 @@
         }
     },
     "emCloudDictApp": {
-        "dictionaryclassify" : {
-            "created": "Dictionaryclassify {{ param }} 创建成功",
-            "updated": "Dictionaryclassify {{ param }} 更新成功",
-            "deleted": "Dictionaryclassify {{ param }} 删除成功"
+        "dictionaryClassify" : {
+            "created": "Dictionary Classify {{ param }} 创建成功",
+            "updated": "Dictionary Classify {{ param }} 更新成功",
+            "deleted": "Dictionary Classify {{ param }} 删除成功"
         }
     }
 }
