@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { TablesComponent } from './tables.component';
-import { ComPointComponent } from './comPoint/comPoint.component';
-import { comPointStatusComponent } from './comPointStatus/comPointStatus.component';
+import { TablesComponent } from './cpi.component';
+import { ComPointComponent } from './com-point/com-point.component';
+import { comPointStatusComponent } from './com-point-status/com-point-status.component';
 
 const routes: Routes = [{
   path: '',

@@ -96,7 +96,7 @@ export class MessageTemplateComponent {
 
 
     onDeleteConfirm(event): void {
-        if (window.confirm('你敢删老子吗?')) {
+        if (window.confirm('Are you sure you want to delete?')) {
             this.service.deleteMessageTemplate(event.data.id).subscribe((response) => {
                 event.confirm.resolve(response);
                 console.log(response);
@@ -107,7 +107,7 @@ export class MessageTemplateComponent {
   }
 
     onCreateConfirm(event){
-        if (window.confirm('新增吗?')) {
+        if (window.confirm('Are you sure you want to save?')) {
             this.service.saveMessageTemplate(event.newData).subscribe((response) => {
                 event.confirm.resolve(response);
                 console.log(response);
@@ -117,7 +117,7 @@ export class MessageTemplateComponent {
         }
     }
     onSaveConfirm(event){
-        if (window.confirm('修改吗?')) {
+        if (window.confirm('Are you sure you want to update?')) {
             this.service.updateMessageTemplate(event.newData).subscribe((response) => {
                 event.confirm.resolve(response);
                 console.log(response);

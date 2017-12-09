@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 
 import {Observable} from "rxjs/Observable";
 import {Http,Response} from "@angular/http";
-import {Company} from "../../../entities/company/company.model";
 
 
 @Injectable()
@@ -13,7 +12,7 @@ export class DictService {
 
     createDictionary(data)
     {
-        this.http.post('/emclouddict/api/dictionaries',data)
+       return this.http.post('/emclouddict/api/dictionaries',data)
             .map(res => res.json())
     }
     updateDictionary(data):Observable<Response>
@@ -23,7 +22,7 @@ export class DictService {
     }
     createDictionaryClassify(data)
     {
-        this.http.post('/emclouddict/api/dictionaryclassifies',data)
+       return this.http.post('/emclouddict/api/dictionaryclassifies',data)
             .map(res => res.json())
     }
 

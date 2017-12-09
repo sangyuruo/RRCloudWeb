@@ -51,12 +51,12 @@ const routes: Routes = [{
       {
           path: 'cpi',
           loadChildren: () => new Promise(resolve => {
-              (require as any).ensure([], require => {resolve(require('./cpi/tables.module').TablesModule); })  })
+              (require as any).ensure([], require => {resolve(require('./cpi/cpi.module').TablesModule); })  })
       },
       {
           path: 'loc',
           loadChildren: () => new Promise(resolve => {
-              (require as any).ensure([], require => {resolve(require('./loc/tables.module').TablesModule); })  })
+              (require as any).ensure([], require => {resolve(require('./loc/loc.module').TablesModule); })  })
       }, {
       path: 'mi',
       loadChildren: () => new Promise(resolve => {

@@ -7,7 +7,7 @@ import {Http} from "@angular/http";
 
 @Component({
   selector: 'ngx-smart-table',
-  templateUrl: './comPointStatus.component.html',
+  templateUrl: './com-point-status.component.html',
   styles: [`
     nb-card {
       transform: translate3d(0, 0, 0);
@@ -21,11 +21,13 @@ export class comPointStatusComponent {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
+        confirmCreate: true,
     },
     edit: {
       editButtonContent: '<i class="nb-edit"></i>',
       saveButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
+        confirmSave: true,
     },
     delete: {
       deleteButtonContent: '<i class="nb-trash"></i>',
@@ -34,15 +36,15 @@ export class comPointStatusComponent {
     columns: {
 
         comPointCode: {
-            title: 'comPointCode',
+            title: '设备编码',
             type: 'number',
         },
         communicationStatus: {
-            title: 'communicationStatus',
+            title: '通讯状态',
             type: 'number',
         },
         recordTime: {
-            title: 'recordTime',
+            title: '记录时间',
             type: 'number',
         },
 
@@ -77,4 +79,29 @@ export class comPointStatusComponent {
           event.confirm.reject();
       }
   }
+
+
+    onSaveConfirm(event)
+    {
+        if (window.confirm('Are you sure you want to save?')) {
+            this.service.updateComPointStatus(event.newData).subscribe((response) => {
+                event.confirm.resolve()
+                console.log(response)
+            });
+        } else {
+            event.confirm.reject();
+        }
+    }
+
+    onCreateConfirm(event)
+    {
+        if (window.confirm('Are you sure you want to save?')) {
+            this.service.createComPointStatus(event.newData).subscribe((response) => {
+                event.confirm.resolve()
+                console.log(response)
+            });
+        } else {
+            event.confirm.reject();
+        }
+    }
 }

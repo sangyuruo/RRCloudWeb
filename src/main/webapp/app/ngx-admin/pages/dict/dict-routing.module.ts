@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { TablesComponent } from './dict.component';
+import { DictComponent } from './dict.component';
 import {DictionaryComponent} from "./dictionary/dictionary.component";
 import {DictionaryClassifyComponent} from "./dictionary-classify/dictionary-classify.component";
 
 const routes: Routes = [{
     path: '',
-    component: TablesComponent,
+    component: DictComponent,
     children: [
         {
             path: 'dictionary',
@@ -28,6 +28,6 @@ const routes: Routes = [{
 export class TablesRoutingModule { }
 
 export const routedComponents = [
-    TablesComponent,
+    DictComponent,
     DictionaryComponent,
     DictionaryClassifyComponent];

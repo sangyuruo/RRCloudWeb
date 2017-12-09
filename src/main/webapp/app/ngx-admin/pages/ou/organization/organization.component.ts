@@ -101,7 +101,7 @@ export class OrganizationComponent {
 
     onDeleteConfirm(event): void {
 
-        if (window.confirm('你敢删老子吗?')) {
+        if (window.confirm('Are you sure you want to delete?')) {
             this.service.deleteOrganization(event.data.id).subscribe((response) => {
                 event.confirm.resolve(response);
                 console.log(response);
@@ -112,7 +112,7 @@ export class OrganizationComponent {
     }
     onCreateConfirm(event){
 
-        if (window.confirm('新增吗?')) {
+        if (window.confirm('Are you sure you want to save?')) {
             this.service.saveOrganization(event.newData).subscribe((response) => {
                 event.confirm.resolve(response);
                 console.log(response);
@@ -123,7 +123,7 @@ export class OrganizationComponent {
     }
     onSaveConfirm(event){
 
-        if (window.confirm('修改吗?')) {
+        if (window.confirm('Are you sure you want to update?')) {
             this.service.updateOrganization(event.newData).subscribe((response) => {
                 event.confirm.resolve(response);
                 console.log(response);

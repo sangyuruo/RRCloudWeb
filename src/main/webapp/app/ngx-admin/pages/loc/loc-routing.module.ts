@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { TablesComponent } from './tables.component';
+import { TablesComponent } from './loc.component';
 import { AddressComponent } from './address/address.component';
 import { AreaComponent } from './area/area.component';
 
