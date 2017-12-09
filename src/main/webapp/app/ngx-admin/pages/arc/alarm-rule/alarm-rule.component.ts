@@ -33,10 +33,6 @@ export class SmartTableComponentAlarmRule {
             confirmDelete: true,
         },
         columns: {
-            id: {
-                title: 'ID',
-                type: 'number',
-            },
             ruleName: {
                 title: '规则名称',
                 type: 'string',

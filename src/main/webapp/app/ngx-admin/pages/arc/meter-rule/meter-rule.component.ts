@@ -33,10 +33,6 @@ export class SmartTableComponentMeterRule {
       confirmDelete: true,
     },
     columns: {
-      id: {
-        title: 'ID',
-        type: 'number',
-      },
         meterCode: {
         title: '设备编码',
         type: 'string',

@@ -14,7 +14,7 @@ import {MiService} from "../mi.service";
     }
   `],
 })
-export class SmartTableComponent4 {
+export class MultiwaySwitchInfoComponent {
 
     settings = {
         add: {
@@ -34,10 +34,6 @@ export class SmartTableComponent4 {
             confirmDelete: true,
         },
         columns: {
-            id: {
-                title: 'id',
-                type: 'Integer',
-            },
             meterCode: {
                 title: '设备编码',
                 type: 'String',
@@ -46,22 +42,7 @@ export class SmartTableComponent4 {
                 title: '开关序号',
                 type: 'Integer',
             },
-            createdBy: {
-                title: '创建人',
-                type: 'String',
-            },
-            createTime: {
-                title: '创建时间',
-                type: 'Instant',
-            },
-            updatedBy: {
-                title: '修改人',
-                type: 'String',
-            },
-            updateTime: {
-                title: '修改时间',
-                type: 'Instant',
-            },
+
             controlCommands: {
                 title: '下发命令',
                 type: 'String',
