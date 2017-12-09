@@ -7,7 +7,7 @@ import {ArcService} from "../arc.service";
 
 @Component({
   selector: 'ngx-smart-table',
-  templateUrl: './company.component.html',
+  templateUrl: './smart-table.component.html',
   styles: [`
     nb-card {
       transform: translate3d(0, 0, 0);

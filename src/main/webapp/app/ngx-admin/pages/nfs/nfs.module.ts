@@ -3,7 +3,7 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 import { ThemeModule } from '../../@theme/theme.module';
 import { TablesRoutingModule, routedComponents } from './nfs-routing.module';
-import { SmartTableService } from '../../@core/data/smart-table.service';
+import {NfsService} from "./nfs.service";
 
 @NgModule({
   imports: [
@@ -15,7 +15,7 @@ import { SmartTableService } from '../../@core/data/smart-table.service';
     ...routedComponents,
   ],
   providers: [
-    SmartTableService,
+   NfsService
   ],
 })
 export class TablesModule { }

@@ -7,7 +7,7 @@ import {Http} from "@angular/http";
 
 @Component({
   selector: 'ngx-smart-table',
-  templateUrl: './company.component.html',
+  templateUrl: './comPointStatus.component.html',
   styles: [`
     nb-card {
       transform: translate3d(0, 0, 0);
