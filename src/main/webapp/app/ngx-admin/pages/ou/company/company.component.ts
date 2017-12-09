@@ -153,7 +153,7 @@ export class CompanyComponent {
     }
 
     onDeleteConfirm(event): void {
-        if (window.confirm('确定删除不?')) {
+        if (window.confirm('Are you sure you want to delete?')) {
             this.service.deleteCompany(event.data.id).subscribe((response) => {
                 event.confirm.resolve(response);
                 console.log(response);
@@ -164,7 +164,7 @@ export class CompanyComponent {
     }
 
     onCreateConfirm(event) {
-        if (window.confirm('确定新增不?')) {
+        if (window.confirm('Are you sure you want to save?')) {
             this.service.saveCompany(event.newData).subscribe((response) =>{
                 event.confirm.resolve(response);
                 console.log(response);
@@ -174,7 +174,7 @@ export class CompanyComponent {
         }
     }
     onSaveConfirm(event) {
-        if (window.confirm('确定修改不?')) {
+        if (window.confirm('Are you sure you want to update?')) {
             this.service.updateCompany(event.newData).subscribe((response) =>{
                 event.confirm.resolve(response);
                 console.log(response);

@@ -240,6 +240,21 @@ export const MENU_ITEMS: NbMenuItem[] = [
         ],
     },
     {
+        title: '地区地点',
+        icon: 'nb-tables',
+        children: [
+            {
+                title: '地址',
+                link: '/pages/loc/address',
+            },
+
+            {
+                title: '地区',
+                link: '/pages/loc/area',
+            },
+        ],
+    },
+    {
         title: '信息点采集',
         icon: 'nb-tables',
         children: [
@@ -255,21 +270,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         ],
     },
 
-    {
-        title: '地区地点',
-        icon: 'nb-tables',
-        children: [
-            {
-                title: '地址',
-                link: '/pages/loc/address',
-            },
 
-            {
-                title: '地区',
-                link: '/pages/loc/area',
-            },
-        ],
-    },
 
   {
     title: 'Auth',
