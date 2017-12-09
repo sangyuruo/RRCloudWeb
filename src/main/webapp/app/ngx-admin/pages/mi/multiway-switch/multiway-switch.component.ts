@@ -14,7 +14,7 @@ import {MiService} from "../mi.service";
     }
   `],
 })
-export class SmartTableComponent5 {
+export class MultiwaySwitchComponent {
 
     settings = {
         add: {

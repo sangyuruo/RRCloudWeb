@@ -33,10 +33,6 @@ export class SmartTableComponentResource {
             confirmDelete: true,
         },
         columns: {
-            id: {
-                title: 'ID',
-                type: 'number',
-            },
             resourceCode: {
                 title: '资源编号',
                 type: 'string',

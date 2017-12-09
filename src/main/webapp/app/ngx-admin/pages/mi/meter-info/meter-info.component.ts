@@ -13,7 +13,7 @@ import {MiService} from "../mi.service";
     }
   `],
 })
-export class SmartTableComponent2 {
+export class MeterInfoComponent {
 
     settings = {
         add: {
@@ -33,10 +33,6 @@ export class SmartTableComponent2 {
             confirmDelete: true,
         },
         columns: {
-            id: {
-                title: '序号',
-                type: 'number',
-            },
             meterCode: {
                 title: '设备编码',
                 type: 'String',

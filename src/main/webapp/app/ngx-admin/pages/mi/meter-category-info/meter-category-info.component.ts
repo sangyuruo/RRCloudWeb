@@ -14,7 +14,7 @@ import {MiService} from "../mi.service";
     }
   `],
 })
-export class SmartTableComponent {
+export class MeterCategoryInfoComponent {
 
     settings = {
         add: {
@@ -34,10 +34,6 @@ export class SmartTableComponent {
             confirmDelete: true,
         },
         columns: {
-            id: {
-                title: '序号',
-                type: 'number',
-            },
             meterName: {
                 title: '设备名称',
                 type: 'string',
@@ -65,10 +61,6 @@ export class SmartTableComponent {
             controlAddress: {
                 title: '控制地址',
                 type: 'Integer',
-            },
-            createTime: {
-                title: '创建时间',
-                type: 'Instant',
             },
         },
     };

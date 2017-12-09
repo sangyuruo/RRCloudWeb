@@ -1,14 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TablesComponent } from './mi.component';
+import {MultiwaySwitchComponent} from "./multiway-switch/multiway-switch.component";
+import {MeterCategoryInfoComponent} from "./meter-category-info/meter-category-info.component";
+import {MeterInfoComponent} from "./meter-info/meter-info.component";
+import {MeterStatusComponent} from "./meter-status/meter-status.component";
+import {MultiwaySwitchInfoComponent} from "./multiway-switch-info/multiway-switch-info.component";
 
-
-
-import { SmartTableComponent } from './meter-category-info/meter-category-info.component';
-import {SmartTableComponent2} from "./meter-info/meter-info.component";
-import {SmartTableComponent3} from "./meter-status/meter-status.component";
-import {SmartTableComponent4} from "./multiway-switch-info/multiway-switch-info.component";
-import {SmartTableComponent5} from "./multiway-switch/multiway-switch.component";
 
 const routes: Routes = [{
     path: '',
@@ -16,23 +14,23 @@ const routes: Routes = [{
     children: [
         {
             path: 'MeterCategoryInfo',
-            component: SmartTableComponent,
+            component: MeterCategoryInfoComponent,
         },
         {
             path: 'MeterInfo',
-            component: SmartTableComponent2,
+            component: MeterInfoComponent,
         },
         {
             path: 'MeterStatus',
-            component: SmartTableComponent3,
+            component: MeterStatusComponent,
         },
         {
             path: 'multiwaySwitchInfo',
-            component: SmartTableComponent4,
+            component: MultiwaySwitchInfoComponent,
         },
         {
             path: 'MultiwaySwitch',
-            component: SmartTableComponent5,
+            component: MultiwaySwitchComponent,
         },
     ],
 }]
@@ -46,9 +44,9 @@ export class TablesRoutingModule { }
 
 export const routedComponents = [
   TablesComponent,
-  SmartTableComponent,
-    SmartTableComponent2,
-    SmartTableComponent3,
-    SmartTableComponent4,
-    SmartTableComponent5,
+    MeterCategoryInfoComponent,
+    MeterInfoComponent,
+    MeterStatusComponent,
+    MultiwaySwitchInfoComponent,
+    MultiwaySwitchComponent,
 ];

@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { TablesComponent } from './nfs.component';
+import { NfsComponent } from './nfs.component';
 
-import {MessageTempalte} from "./message-template/smart-table.component";
+import {MessageTemplateComponent} from "./message-template/message-template.component";
 
 const routes: Routes = [{
   path: '',
-  component: TablesComponent,
+  component: NfsComponent,
   children: [{
       path: 'message-template',
-      component: MessageTempalte,
+      component: MessageTemplateComponent,
   },],
 }];
 
@@ -21,9 +21,8 @@ const routes: Routes = [{
 export class TablesRoutingModule { }
 
 export const routedComponents = [
-  TablesComponent,
-
-    MessageTempalte
+    NfsComponent,
+    MessageTemplateComponent
 ];
 
 

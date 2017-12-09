@@ -1,7 +1,7 @@
 import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
-  {
+  /*{
     title: 'Dashboard',
     icon: 'nb-home',
     link: '/pages/dashboard',
@@ -138,9 +138,9 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
-
+*/
     {
-        title: 'OU',
+        title: '组织架构',
         icon: 'nb-tables',
         children: [
         {
@@ -203,11 +203,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
         ],
     },
     {
-        title: 'Nfs',
+        title: '通知服务',
         icon: 'nb-tables',
         children: [
             {
-                title: 'MessageTemplate',
+                title: '消息模板',
                 link: '/pages/nfs/message-template',
             },
         ],

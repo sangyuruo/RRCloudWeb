@@ -34,10 +34,6 @@ export class SmartTableComponentRuleAttributes {
       confirmDelete: true,
     },
     columns: {
-      id: {
-        title: 'ID',
-        type: 'number',
-      },
         ruleCode: {
         title: '规则编码',
         type: 'string',
