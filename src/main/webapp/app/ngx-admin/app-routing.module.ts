@@ -7,7 +7,7 @@ import {
   NbRegisterComponent,
   NbRequestPasswordComponent,
   NbResetPasswordComponent,
-} from '@nebular/auth';
+} from './@nebular/auth';
 import {promise} from "selenium-webdriver";
 
 const routes: Routes = [

@@ -21,9 +21,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 //添加
-import { NB_AUTH_TOKEN_WRAPPER_TOKEN, NbAuthJWTToken } from '@nebular/auth';
+import { NB_AUTH_TOKEN_WRAPPER_TOKEN, NbAuthJWTToken } from './@nebular/auth';
 //添加
-import { NbEmailPassAuthProvider, NbAuthModule } from '@nebular/auth';
+import { NbEmailPassAuthProvider, NbAuthModule } from './@nebular/auth';
 //添加
 const formSetting: any = {
     redirectDelay: 0,
