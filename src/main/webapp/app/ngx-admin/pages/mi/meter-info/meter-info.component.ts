@@ -10,6 +10,7 @@ import {MiService} from "../mi.service";
     styles: [`
     nb-card {
       transform: translate3d(0, 0, 0);
+        width: 70rem;
     }
   `],
 })
