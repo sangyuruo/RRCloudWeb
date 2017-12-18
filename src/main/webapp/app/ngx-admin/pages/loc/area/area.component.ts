@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 
 import { LocService } from '../loc.service';
+import { ServerDataSource } from 'ng2-smart-table';
+
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'ngx-smart-table',
@@ -15,6 +18,10 @@ import { LocService } from '../loc.service';
 export class AreaComponent {
 
   settings = {
+
+      pager:{
+          perPage:15,
+      },
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
@@ -57,10 +64,16 @@ export class AreaComponent {
     },
   };
 
-  source: LocalDataSource = new LocalDataSource();
+ // source: LocalDataSource = new LocalDataSource();
 
-  constructor(private service: LocService) {
-    this.service.getDataArea().subscribe(data =>(this.source.load(data)))
+    source: ServerDataSource;
+
+  constructor(private service: LocService,private http: Http) {
+    //this.service.getDataArea().subscribe(data =>(this.source.load(data)))
+    //  this.source.setPaging(1,5,true);
+
+
+      this.source = new ServerDataSource(http, { endPoint: '/emcloudloc/api/areas' });
   }
 
   onDeleteConfirm(event): void {
