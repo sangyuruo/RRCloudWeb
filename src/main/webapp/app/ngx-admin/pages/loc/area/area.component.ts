@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
+
 
 import { LocService } from '../loc.service';
-import { ServerDataSource } from 'ng2-smart-table';
+import { ServerDataSource } from '../../../ng2-smart-table/lib/data-source/server/server.data-source';
 
 import { Http } from '@angular/http';
 
