@@ -1,10 +1,11 @@
 import {Component} from '@angular/core';
-import {LocalDataSource} from 'ng2-smart-table';
 
 import {DictService} from '../dict.service';
 import {Http} from "@angular/http";
 import {JhiEventManager} from "ng-jhipster";
 import {nextTick} from "q";
+import {ServerDataSource} from '../../../ng2-smart-table/lib/data-source/server/server.data-source';
+
 
 @Component({
     selector: 'ngx-smart-table',
@@ -19,6 +20,11 @@ export class DictionaryComponent {
 
     settings = {
         add: {
+
+            pager: {
+                perPage: 15,
+            },
+
             addButtonContent: '<i class="nb-plus"></i>',
             createButtonContent: '<i class="nb-checkmark"></i>',
             cancelButtonContent: '<i class="nb-close"></i>',
@@ -58,13 +64,15 @@ export class DictionaryComponent {
         }
     };
 
-    source: LocalDataSource = new LocalDataSource();
+    //source: LocalDataSource = new LocalDataSource();
+    source: ServerDataSource;
 
     constructor(private service: DictService,
                 private http: Http,
                 private eventManager: JhiEventManager) {
 
-        this.service.getDataDictionary().subscribe(data => (this.source.load(data)))
+        //  this.service.getDataDictionary().subscribe(data => (this.source.load(data)))
+        this.source = new ServerDataSource(http, {endPoint: '/emclouddict/api/dictionaries'});
     }
 
     onDeleteConfirm(event): void {
