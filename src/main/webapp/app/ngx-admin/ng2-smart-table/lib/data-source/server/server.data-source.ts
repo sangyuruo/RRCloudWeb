@@ -15,6 +15,7 @@ export class ServerDataSource extends LocalDataSource {
 
   protected lastRequestCount: number = 0;
 
+
   constructor(protected http: Http, conf: ServerSourceConf | {} = {}) {
     super();
 
@@ -114,7 +115,8 @@ export class ServerDataSource extends LocalDataSource {
     const searchParams: URLSearchParams = <URLSearchParams>requestOptions.params;
 
     if (this.pagingConf && this.pagingConf['page'] && this.pagingConf['perPage']) {
-      searchParams.set(this.conf.pagerPageKey, this.pagingConf['page']);
+        let pageParams : string = (this.pagingConf['page']-1).toString();// 定义变量转化为字符串
+      searchParams.set(this.conf.pagerPageKey, pageParams);
       searchParams.set(this.conf.pagerLimitKey, this.pagingConf['perPage']);
     }
 
