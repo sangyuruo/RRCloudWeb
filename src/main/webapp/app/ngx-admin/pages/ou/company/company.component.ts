@@ -7,11 +7,10 @@ import 'rxjs/Rx';
 
 import {OuService} from "../ou.service";
 
-
 @Component({
     selector: 'ngx-smart-table',
     templateUrl: './company.component.html',
-    styles: [`
+    styles: [`                                                                                                                              
         nb-card {
             transform: translate3d(0, 0, 0);
         }

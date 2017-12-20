@@ -1,9 +1,11 @@
 import {Component} from '@angular/core';
-import {LocalDataSource} from 'ng2-smart-table';
 
 import {CpiService} from '../cpi.service';
 import {Http} from "@angular/http";
 import {JhiEventManager} from 'ng-jhipster';
+
+import {ServerDataSource} from '../../../ng2-smart-table/lib/data-source/server/server.data-source';
+
 
 @Component({
     selector: 'ngx-smart-table',
@@ -18,6 +20,10 @@ export class ComPointComponent {
 
     settings = {
         add: {
+            pager: {
+                perPage: 15,
+            },
+
             addButtonContent: '<i class="nb-plus"></i>',
             createButtonContent: '<i class="nb-checkmark"></i>',
             cancelButtonContent: '<i class="nb-close"></i>',
@@ -50,14 +56,14 @@ export class ComPointComponent {
                 title: '地址编码',
                 type: 'number',
             },
-             organizationCode: {
-                 title: '组织编码',
-                 type: 'number',
-             },
-             companyCode: {
-                 title: '公司编码',
-                 type: 'number',
-             },
+            organizationCode: {
+                title: '组织编码',
+                type: 'number',
+            },
+            companyCode: {
+                title: '公司编码',
+                type: 'number',
+            },
             ip: {
                 title: 'ip地址',
                 type: 'number',
@@ -93,14 +99,16 @@ export class ComPointComponent {
         },
     };
 
-    source: LocalDataSource = new LocalDataSource();
+    //source: LocalDataSource = new LocalDataSource();
+    source: ServerDataSource;
 
     constructor(private service: CpiService,
                 private http: Http,
                 private eventManager: JhiEventManager) {
         /* const data = this.service.getData();
          this.source.load(data);*/
-        this.service.getDataComPoint().subscribe(data => (this.source.load(data)));
+        //this.service.getDataComPoint().subscribe(data => (this.source.load(data)));
+        this.source = new ServerDataSource(http, {endPoint: '/emcloudcpi/api/compoints'});
     }
 
     onDeleteConfirm(event): void {
@@ -114,27 +122,25 @@ export class ComPointComponent {
         }
     }
 
-        onSaveConfirm(event)
-        {
-            if (window.confirm('Are you sure you want to save?')) {
-                this.service.updateComPoint(event.newData).subscribe((response) => {
-                    event.confirm.resolve()
-                    console.log(response)
-                });
-            } else {
-                event.confirm.reject();
-            }
-        }
-
-        onCreateConfirm(event)
-        {
-            if (window.confirm('Are you sure you want to save?')) {
-                this.service.createComPoint(event.newData).subscribe((response) => {
-                    event.confirm.resolve()
-                    console.log(response)
-                });
-            } else {
-                event.confirm.reject();
-            }
+    onSaveConfirm(event) {
+        if (window.confirm('Are you sure you want to save?')) {
+            this.service.updateComPoint(event.newData).subscribe((response) => {
+                event.confirm.resolve()
+                console.log(response)
+            });
+        } else {
+            event.confirm.reject();
         }
     }
+
+    onCreateConfirm(event) {
+        if (window.confirm('Are you sure you want to save?')) {
+            this.service.createComPoint(event.newData).subscribe((response) => {
+                event.confirm.resolve()
+                console.log(response)
+            });
+        } else {
+            event.confirm.reject();
+        }
+    }
+}

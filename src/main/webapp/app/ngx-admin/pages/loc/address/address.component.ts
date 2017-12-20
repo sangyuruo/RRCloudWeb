@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
 import {LocalDataSource} from 'ng2-smart-table';
-
 import {LocService} from '../loc.service';
 import {Http} from "@angular/http";
 import {JhiEventManager} from "ng-jhipster";
+import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
 
 @Component({
     selector: 'ngx-smart-table',
@@ -17,6 +17,10 @@ import {JhiEventManager} from "ng-jhipster";
 export class AddressComponent {
 
     settings = {
+
+        pager: {
+            parPage: 15,
+        },
         add: {
             addButtonContent: '<i class="nb-plus"></i>',
             createButtonContent: '<i class="nb-checkmark"></i>',
@@ -61,14 +65,16 @@ export class AddressComponent {
         },
     };
 
-    source: LocalDataSource = new LocalDataSource();
+    //source: LocalDataSource = new LocalDataSource();
+    source: ServerDataSource;
 
     constructor(private service: LocService,
                 private http: Http,
                 private eventManeger: JhiEventManager) {
         /*const data = this.service.getData();
         this.source.load(data);*/
-        this.service.getDataAddress().subscribe(data => (this.source.load(data)))
+        //this.service.getDataAddress().subscribe(data => (this.source.load(data)))
+        this.source = new ServerDataSource(http, {endPoint: '/emcloudloc/api/addresses'});
     }
 
     onDeleteConfirm(event): void {
