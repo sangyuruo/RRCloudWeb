@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
+import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
+
 import {Http} from "@angular/http";
 import {JhiEventManager} from "ng-jhipster";
 import {OuService} from "../ou.service";
+import {AddressNameEditorComponent} from '../company/addressname-editor.components';
+import {CompanyCodeEditorComponent} from './companycode-editor.components';
+import {CompanyNameEditorComponent} from "./companyname-editor.components";
 
 @Component({
     selector: 'ngx-smart-table',
@@ -67,28 +71,49 @@ export class OrganizationComponent {
             },
             companyCode: {
                 title: '公司代码',
-                type: 'number',
+                type: 'html',
+                editor:{
+                    type:'custom',
+                    component:CompanyCodeEditorComponent,
+                }
             },
             companyName: {
                 title: '公司名称',
-                type: 'number',
+                type: 'html',
+                editor:{
+                    type:'custom',
+                    component:CompanyNameEditorComponent,
+                }
             },
             parentOrgName: {
                 title: '父组织名称',
                 type: 'number',
             },
             addressName: {
-                title: '地址',
-                type: 'number',
+                title: '地址名称',
+                type: 'html',
+                editor:{
+                    type:'custom',
+                    component:AddressNameEditorComponent,
+                }
             },
             enable: {
-                title:'是否可用',
-                type: 'Boolean',
-            }
+                title: '是否有效',
+                editor: {
+                    type: 'list',
+                    config: {
+                        selectText: 'Select...',
+                        list: [
+                            {value: true, title: 'true'},
+                            {value: false, title: 'false'}
+                        ]
+                    }
+                },
+            },
         },
     };
 
-    source: LocalDataSource = new LocalDataSource();
+    source: ServerDataSource;
 
     constructor(private service: OuService,
                 private  http  : Http,
@@ -96,7 +121,8 @@ export class OrganizationComponent {
     ) {
         /* const data = this.service.getData();
          this.source.load(data);*/
-        this.service.getOrganization().subscribe(data => (this.source.load(data)))
+        //this.service.getOrganization().subscribe(data => (this.source.load(data)))
+        this.source = new ServerDataSource(http, { endPoint: '/emcloudou/api/organizations' });
     }
 
     onDeleteConfirm(event): void {
@@ -125,7 +151,8 @@ export class OrganizationComponent {
 
         if (window.confirm('Are you sure you want to update?')) {
             this.service.updateOrganization(event.newData).subscribe((response) => {
-                event.confirm.resolve(response);
+                this.service.getOrganization().subscribe(data=>(this.source.load(data))),
+                    event.confirm.resolve(response);
                 console.log(response);
             });
         } else {

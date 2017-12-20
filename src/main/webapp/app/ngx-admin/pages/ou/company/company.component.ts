@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {LocalDataSource} from 'ng2-smart-table';
 import {Http, Headers} from "@angular/http";
 import {JhiEventManager} from "ng-jhipster";
 
@@ -7,6 +6,7 @@ import 'rxjs/Rx';
 
 import {OuService} from "../ou.service";
 import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
+import {AddressNameEditorComponent} from "./addressname-editor.components";
 
 @Component({
     selector: 'ngx-smart-table',
@@ -97,8 +97,12 @@ export class CompanyComponent {
                 type: 'number',
             },*/
             addressName: {
-                title: '地址',
-                type: 'number',
+                title: '地址名称',
+                type: 'html',
+                editor:{
+                    type:'custom',
+                    component:AddressNameEditorComponent,
+                }
             },
             /*legalPerson: {
                 title: 'Legal Person',
@@ -121,8 +125,17 @@ export class CompanyComponent {
                  type: 'number',
              },*/
             enable: {
-                title: '是否可用',
-                type: 'number',
+                title: '是否有效',
+                editor: {
+                    type: 'list',
+                    config: {
+                        selectText: 'Select...',
+                        list: [
+                            {value: true, title: 'true'},
+                            {value: false, title: 'false'}
+                        ]
+                    }
+                },
             },
 
             /*createTime: {
@@ -178,6 +191,7 @@ export class CompanyComponent {
     onSaveConfirm(event) {
         if (window.confirm('Are you sure you want to update?')) {
             this.service.updateCompany(event.newData).subscribe((response) =>{
+               this.service.getCompany().subscribe(data=>(this.source.load(data))),
                 event.confirm.resolve(response);
                 console.log(response);
             });

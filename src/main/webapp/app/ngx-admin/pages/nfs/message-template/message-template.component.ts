@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 
 import { NfsService } from '../nfs.service';
+import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
+import * as http from "http";
+import {Http} from "@angular/http";
 
 @Component({
   selector: 'ngx-smart-table',
@@ -67,31 +70,61 @@ export class MessageTemplateComponent {
         },
         paramFlag: {
             title: '是否包含参数',
-            type: 'number',
+            editor: {
+                type: 'list',
+                config: {
+                    selectText: 'Select...',
+                    list: [
+                        {value: true, title: '包含'},
+                        {value: false, title: '不包含'}
+                    ]
+                }
+            },
         },
         type: {
             title: '消息类型',
-            type: 'number',
+            editor: {
+                type: 'list',
+                config: {
+                    selectText: 'Select...',
+                    list: [
+                        {value: 1, title: '短信'},
+                        {value: 2, title: '邮件'},
+                        {value: 3, title: 'app通知'}
+                    ]
+                }
+            },
         },
         enable: {
-            title: '是否可用',
-            type: 'boolean',
+            title: '是否有效',
+            editor: {
+                type: 'list',
+                config: {
+                    selectText: 'Select...',
+                    list: [
+                        {value: true, title: 'true'},
+                        {value: false, title: 'false'}
+                    ]
+                }
+            },
         },
 
     },
   };
 
-  source: LocalDataSource = new LocalDataSource();
+    source: ServerDataSource;
 
   // constructor(private service: SmartTableService) {
   //   const data = this.service.getData();
   //   this.source.load(data);
   // }
 
-    constructor(private service: NfsService) {
+    constructor(private service: NfsService,
+                private http:Http) {
         /* const data = this.service.getData();
          this.source.load(data);*/
-        this.service.getMessageTemplate().subscribe(data => (this.source.load(data)))
+        //this.service.getMessageTemplate().subscribe(data => (this.source.load(data)))
+        this.source = new ServerDataSource(http, {endPoint: '/emcloudloc/api/addresses'});
     }
 
 
@@ -119,6 +152,7 @@ export class MessageTemplateComponent {
     onSaveConfirm(event){
         if (window.confirm('Are you sure you want to update?')) {
             this.service.updateMessageTemplate(event.newData).subscribe((response) => {
+                this.service.getMessageTemplate().subscribe(data=>(this.source.load(data)))
                 event.confirm.resolve(response);
                 console.log(response);
             });
