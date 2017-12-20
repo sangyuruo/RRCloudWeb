@@ -4,6 +4,8 @@ import {JhiEventManager} from "ng-jhipster";
 import {DictService} from "../dict.service";
 
 import {ServerDataSource} from '../../../ng2-smart-table/lib/data-source/server/server.data-source';
+import {DictCodeEditorComponent} from "./dictcode-editor.components";
+import {seqNoEditorComponent} from "./seqNo-editor.components";
 
 @Component({
     selector: 'ngx-smart-table',
@@ -40,7 +42,11 @@ export class DictionaryClassifyComponent {
         columns: {
             dictCode: {
                 title: '字典代码',
-                type: 'number',
+                type: 'html',
+                editor:{
+                    type:'custom',
+                    component:DictCodeEditorComponent,
+                }
             },
             dictClassifyCode: {
                 title: '分类代码',
@@ -56,11 +62,24 @@ export class DictionaryClassifyComponent {
             },
             seqNo: {
                 title: '序号',
-                type: 'string',
+                type: 'html',
+                editor:{
+                    type:'custom',
+                    component:seqNoEditorComponent,
+                }
             },
             enable: {
                 title: '是否有效',
-                type: 'number',
+                editor: {
+                    type: 'list',
+                    config: {
+                        selectText: 'Select...',
+                        list: [
+                            {value: true, title: 'true'},
+                            {value: false, title: 'false'}
+                        ]
+                    }
+                },
             },
             remark: {
                 title: '备注',
@@ -96,6 +115,7 @@ export class DictionaryClassifyComponent {
     onSaveConfirm(event) {
         if (window.confirm("Are you sure you want to save?")) {
             this.service.updateDictionaryClassify(event.newData).subscribe((response) => {
+                this.service.getDataDictionaryClassify().subscribe(data => (this.source.load(data)));
                 event.confirm.resolve(response)
                 console.log(response)
             })

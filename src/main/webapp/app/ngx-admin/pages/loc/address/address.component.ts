@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
-import {LocalDataSource} from 'ng2-smart-table';
 import {LocService} from '../loc.service';
 import {Http} from "@angular/http";
 import {JhiEventManager} from "ng-jhipster";
 import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
+import {AreaCodeEditorComponent} from "./areacode-editor.components";
 
 @Component({
     selector: 'ngx-smart-table',
@@ -56,11 +56,24 @@ export class AddressComponent {
             },
             areaCode: {
                 title: '地区代码',
-                type: 'string',
+                type: 'html',
+                editor:{
+                    type:'custom',
+                    component:AreaCodeEditorComponent,
+                }
             },
             enable: {
                 title: '是否有效',
-                type: 'number',
+                editor: {
+                    type: 'list',
+                    config: {
+                        selectText: 'Select...',
+                        list: [
+                            {value: true, title: 'true'},
+                            {value: false, title: 'false'}
+                        ]
+                    }
+                },
             },
         },
     };
@@ -95,6 +108,7 @@ export class AddressComponent {
     onSaveConfirm(event) {
         if (window.confirm('Are you sure you want to save?')) {
             this.service.updateAddress(event.newData).subscribe((response) => {
+                this.service.getDataAddress().subscribe(data=>(this.source.load(data)))
                 event.confirm.resolve(response)
                 console.log(response)
             })

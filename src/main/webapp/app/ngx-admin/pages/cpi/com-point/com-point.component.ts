@@ -4,7 +4,10 @@ import {CpiService} from '../cpi.service';
 import {Http} from "@angular/http";
 import {JhiEventManager} from 'ng-jhipster';
 
-import {ServerDataSource} from '../../../ng2-smart-table/lib/data-source/server/server.data-source';
+import {AddressCodeEditorComponent} from "./addresscode-editor.components";
+import {CompanyCodeEditorComponent} from './companycode-editor.components';
+import {OrgCodeEditorComponent} from "./orgcode-editor.components";
+import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
 
 
 @Component({
@@ -53,16 +56,28 @@ export class ComPointComponent {
                 type: 'number',
             },
             addressCode: {
-                title: '地址编码',
-                type: 'number',
+                title: '地址代码',
+                type: 'html',
+                editor: {
+                    type: 'custom',
+                    component: AddressCodeEditorComponent,
+                }
             },
             organizationCode: {
                 title: '组织编码',
-                type: 'number',
+                type: 'html',
+                editor: {
+                    type: 'custom',
+                    component: CompanyCodeEditorComponent,
+                }
             },
             companyCode: {
                 title: '公司编码',
-                type: 'number',
+                type: 'html',
+                editor: {
+                    type: 'custom',
+                    component: OrgCodeEditorComponent,
+                }
             },
             ip: {
                 title: 'ip地址',
@@ -86,11 +101,29 @@ export class ComPointComponent {
             },
             enable: {
                 title: '是否有效',
-                type: 'number',
+                editor: {
+                    type: 'list',
+                    config: {
+                        selectText: 'Select...',
+                        list: [
+                            {value: true, title: 'true'},
+                            {value: false, title: 'false'}
+                        ]
+                    }
+                },
             },
             keepAlive: {
                 title: '是否心跳',
-                type: 'number',
+                editor: {
+                    type: 'list',
+                    config: {
+                        selectText: 'Select...',
+                        list: [
+                            {value: true, title: 'true'},
+                            {value: false, title: 'false'}
+                        ]
+                    }
+                },
             },
             connectMode: {
                 title: '链接模式',
@@ -125,6 +158,7 @@ export class ComPointComponent {
     onSaveConfirm(event) {
         if (window.confirm('Are you sure you want to save?')) {
             this.service.updateComPoint(event.newData).subscribe((response) => {
+                this.service.getDataComPoint().subscribe(data => (this.source.load(data)));
                 event.confirm.resolve()
                 console.log(response)
             });

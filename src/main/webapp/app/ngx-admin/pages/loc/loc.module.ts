@@ -6,6 +6,7 @@ import { TablesRoutingModule, routedComponents } from './loc-routing.module';
 
 import {LocService} from "./loc.service";
 import {Ng2SmartTableModule} from "../../ng2-smart-table/ng2-smart-table.module";
+import {AreaCodeEditorComponent} from "./address/areacode-editor.components";
 
 @NgModule({
   imports: [
@@ -15,7 +16,10 @@ import {Ng2SmartTableModule} from "../../ng2-smart-table/ng2-smart-table.module"
   ],
   declarations: [
     ...routedComponents,
+      AreaCodeEditorComponent
+
   ],
+    entryComponents:[AreaCodeEditorComponent],
   providers: [
       LocService
   ],

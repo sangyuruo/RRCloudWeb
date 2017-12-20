@@ -4,6 +4,7 @@ import {CpiService} from '../cpi.service';
 import {JhiEventManager} from "ng-jhipster";
 import {Http} from "@angular/http";
 import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
+import {CompointCodeEditorComponent} from "./compointcode-editor.components";
 
 
 
@@ -45,7 +46,11 @@ export class comPointStatusComponent {
 
             comPointCode: {
                 title: '设备编码',
-                type: 'number',
+                type: 'html',
+                editor: {
+                    type: 'custom',
+                    component: CompointCodeEditorComponent,
+                }
             },
             communicationStatus: {
                 title: '通讯状态',
@@ -91,6 +96,8 @@ export class comPointStatusComponent {
     onSaveConfirm(event) {
         if (window.confirm('Are you sure you want to save?')) {
             this.service.updateComPointStatus(event.newData).subscribe((response) => {
+                this.service.getDataComPoint().subscribe(data => (this.source.load(data)));
+
                 event.confirm.resolve()
                 console.log(response)
             });
