@@ -117,16 +117,15 @@ export class MeterInfoComponent {
     onDeleteConfirm(event): void {
         if (window.confirm('Are you sure you want to delete?')) {
             this.service.deleteMeterInfo(event.data.id).subscribe((response) => {
-                this.eventManager.broadcast({
-                    name: 'MeterInfoListModification',
-                    content: 'Deleted a MeterInfo'
-                });
-
-            }); event.confirm.resolve();
+                event.confirm.resolve(response);
+                console.log(response);
+            })
         } else {
             event.confirm.reject();
         }
     }
+
+
     onUpdateConfirm(event) {
         if (window.confirm('Are you sure you want to update?')) {
             this.service.updateMeterInfo(event.newData).subscribe((response) => {

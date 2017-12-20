@@ -66,19 +66,17 @@ export class RuleAttributesComponent {
         this.source = new ServerDataSource(http, { endPoint: '/emcloudarc/api/rule-attributes' });
     }
 
-  onDeleteConfirm(event): void {
-    if (window.confirm('Are you sure you want to delete?')) {
-        this.service.deleteRuleAttributes(event.data.id).subscribe((response) => {
-            this.eventManager.broadcast({
-                name: 'RuleAttributesListModification',
-                content: 'Deleted an RuleAttributes'
-            });
-        });
-      event.confirm.resolve();
-    } else {
-      event.confirm.reject();
+    onDeleteConfirm(event): void {
+        if (window.confirm('Are you sure you want to delete?')) {
+            this.service.deleteRuleAttributes(event.data.id).subscribe((response) => {
+                event.confirm.resolve(response);
+                console.log(response);
+            })
+        } else {
+            event.confirm.reject();
+        }
     }
-  }
+
     onUpdateConfirm(event) {
         if (window.confirm('Are you sure you want to update?')) {
             this.service.updateRuleAttributes(event.newData).subscribe((response) => {

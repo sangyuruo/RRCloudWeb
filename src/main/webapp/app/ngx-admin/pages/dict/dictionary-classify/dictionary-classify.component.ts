@@ -18,53 +18,6 @@ import {seqNoEditorComponent} from "./seqNo-editor.components";
 })
 export class DictionaryClassifyComponent {
 
-<<<<<<< HEAD
-  settings = {
-    add: {
-      addButtonContent: '<i class="nb-plus"></i>',
-      createButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-        confirmCreate: true,
-    },
-    edit: {
-          editButtonContent: '<i class="nb-edit"></i>',
-          saveButtonContent: '<i class="nb-checkmark"></i>',
-          cancelButtonContent: '<i class="nb-close"></i>',
-          confirmSave: true,
-      },
-    delete: {
-      deleteButtonContent: '<i class="nb-trash"></i>',
-      confirmDelete: true,
-    },
-    columns: {
-        dictCode: {
-        title: '字典代码',
-        type: 'number',
-      },
-        dictClassifyCode: {
-        title: '分类代码',
-        type: 'string',
-      },
-        dictClassifyValue: {
-        title: '分类值',
-        type: 'string',
-      },
-        parentClassifyCode: {
-        title: '父分类代码',
-        type: 'string',
-      },
-        seqNo: {
-        title: '序号',
-        type: 'string',
-      },
-        enable: {
-        title: '是否有效',
-        type: 'number',
-      },
-        remark: {
-            title: '备注',
-            type: 'number',
-=======
     settings = {
         add: {
             pager: {
@@ -132,7 +85,7 @@ export class DictionaryClassifyComponent {
                 title: '备注',
                 type: 'number',
             },
->>>>>>> 76ee884499563c6e49f8647f5139b18e39b6e160
+
         },
     };
 
@@ -145,20 +98,18 @@ export class DictionaryClassifyComponent {
         //this.service.getDataDictionaryClassify().subscribe(data =>(this.source.load(data)));
         this.source = new ServerDataSource(http, {endPoint: '/emclouddict/api/dictionaryclassifies'});
     }
-
     onDeleteConfirm(event): void {
         if (window.confirm('Are you sure you want to delete?')) {
             this.service.deleteDictionaryClassify(event.data.id).subscribe((response) => {
-                this.eventManager.broadcast({
-                    name: 'dictionaryclassifyListModification',
-                    content: 'Deleted an dictionaryclassify'
-                });
-                event.confirm.resolve();
-            });
+                event.confirm.resolve(response);
+                console.log(response);
+            })
         } else {
             event.confirm.reject();
         }
     }
+
+
 
     onSaveConfirm(event) {
         if (window.confirm("Are you sure you want to save?")) {

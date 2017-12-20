@@ -96,19 +96,17 @@ export class MeterRuleComponent {
         this.source = new ServerDataSource(http, { endPoint: '/emcloudarc/api/meter-rules' });
     }
 
-  onDeleteConfirm(event): void {
-    if (window.confirm('Are you sure you want to delete?')) {
-        this.service.deleteMeterRule(event.data.id).subscribe((response) => {
-            this.eventManager.broadcast({
-                name: 'MeterRuleListModification',
-                content: 'Deleted an MeterRule'
-            });
-        });
-      event.confirm.resolve();
-    } else {
-      event.confirm.reject();
+    onDeleteConfirm(event): void {
+        if (window.confirm('Are you sure you want to delete?')) {
+            this.service.deleteMeterRule(event.data.id).subscribe((response) => {
+                event.confirm.resolve(response);
+                console.log(response);
+            })
+        } else {
+            event.confirm.reject();
+        }
     }
-  }
+
     onUpdateConfirm(event) {
         if (window.confirm('Are you sure you want to update?')) {
             this.service.updateMeterRule(event.newData).subscribe((response) => {

@@ -75,19 +75,13 @@ export class comPointStatusComponent {
         //this.service.getDataComPointStatus().subscribe(data =>(this.source.load(data)));
         this.source = new ServerDataSource(http, {endPoint: '/emcloudcpi/api/compointstatuses'});
     }
-
     onDeleteConfirm(event): void {
         if (window.confirm('Are you sure you want to delete?')) {
-
             this.service.deleteComPointStatus(event.data.id).subscribe((response) => {
-                this.eventManager.broadcast({
-                    name: 'compointstatusListModification',
-                    content: 'Deleted an compointstatus'
-                });
-            });
-            event.confirm.resolve();
-        }
-        else {
+                event.confirm.resolve(response);
+                console.log(response);
+            })
+        } else {
             event.confirm.reject();
         }
     }

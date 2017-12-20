@@ -8,7 +8,6 @@ import {
   NbRequestPasswordComponent,
   NbResetPasswordComponent,
 } from './@nebular/auth';
-import {promise} from "selenium-webdriver";
 
 const routes: Routes = [
   {

@@ -92,18 +92,15 @@ export class AddressComponent {
 
     onDeleteConfirm(event): void {
         if (window.confirm('Are you sure you want to delete?')) {
-            event.confirm.resolve();
             this.service.deleteAddress(event.data.id).subscribe((response) => {
-                this.eventManeger.broadcast({
-                    name: 'addressListModification',
-                    content: 'Deleted an address'
-                });
-            });
-        }
-        else {
+                event.confirm.resolve(response);
+                console.log(response);
+            })
+        } else {
             event.confirm.reject();
         }
     }
+
 
     onSaveConfirm(event) {
         if (window.confirm('Are you sure you want to save?')) {

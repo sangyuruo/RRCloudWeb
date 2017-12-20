@@ -143,17 +143,17 @@ export class ComPointComponent {
         //this.service.getDataComPoint().subscribe(data => (this.source.load(data)));
         this.source = new ServerDataSource(http, {endPoint: '/emcloudcpi/api/compoints'});
     }
-
     onDeleteConfirm(event): void {
         if (window.confirm('Are you sure you want to delete?')) {
             this.service.deleteComPoint(event.data.id).subscribe((response) => {
-                event.confirm.resolve()
-                console.log(event.data.id)
-            });
+                event.confirm.resolve(response);
+                console.log(response);
+            })
         } else {
             event.confirm.reject();
         }
     }
+
 
     onSaveConfirm(event) {
         if (window.confirm('Are you sure you want to save?')) {

@@ -74,24 +74,23 @@ export class DictionaryComponent {
         //  this.service.getDataDictionary().subscribe(data => (this.source.load(data)))
         this.source = new ServerDataSource(http, {endPoint: '/emclouddict/api/dictionaries'});
     }
-
     onDeleteConfirm(event): void {
         if (window.confirm('Are you sure you want to delete?')) {
             this.service.deleteDictionary(event.data.id).subscribe((response) => {
-                this.eventManager.broadcast({
-                    name: 'dictionaryListModification',
-                    content: 'Deleted an dictionary'
-                });
-                event.confirm.resolve();
-            });
+                event.confirm.resolve(response);
+                console.log(response);
+            })
         } else {
             event.confirm.reject();
         }
     }
 
+
+
     onSaveConfirm(event) {
         if (window.confirm("Are you sure you want to save?")) {
             this.service.updateDictionary(event.newData).subscribe((response) => {
+                this.service.getDataDictionary().subscribe(data => (this.source.load(data)))
                 event.confirm.resolve(response)
                 console.log(response)
             })

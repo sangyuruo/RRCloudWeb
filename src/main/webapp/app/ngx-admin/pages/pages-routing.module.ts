@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 
 import {PagesComponent} from './pages.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
+import {promise} from "selenium-webdriver";
 
 const routes: Routes = [{
     path: '',

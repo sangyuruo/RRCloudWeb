@@ -79,16 +79,15 @@ export class AlarmRuleComponent {
     onDeleteConfirm(event): void {
         if (window.confirm('Are you sure you want to delete?')) {
             this.service.deleteAlarmRule(event.data.id).subscribe((response) => {
-                this.eventManager.broadcast({
-                    name: 'AlarmRuleListModification',
-                    content: 'Deleted an AlarmRule'
-                });
-            });
-            event.confirm.resolve();
+                event.confirm.resolve(response);
+                console.log(response);
+            })
         } else {
             event.confirm.reject();
         }
     }
+
+
     onUpdateConfirm(event) {
         if (window.confirm('Are you sure you want to update?')) {
             this.service.updateAlarmRule(event.newData).subscribe((response) => {

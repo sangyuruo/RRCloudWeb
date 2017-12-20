@@ -70,17 +70,15 @@ export class MultiwaySwitchInfoComponent {
     onDeleteConfirm(event): void {
         if (window.confirm('Are you sure you want to delete?')) {
             this.service.deleteMultiwaySwitchInfo(event.data.id).subscribe((response) => {
-                this.service.getDataMultiwaySwitchInfo().subscribe(data => (this.source.load(data)))
-                this.eventManager.broadcast({
-                    name: 'MultiwaySwitchInfoListModification',
-                    content: 'Deleted a MultiwaySwitchInfo'
-                });
-            });
-            event.confirm.resolve();
+                event.confirm.resolve(response);
+                console.log(response);
+            })
         } else {
             event.confirm.reject();
         }
     }
+
+
     onUpdateConfirm(event) {
         if (window.confirm('Are you sure you want to update?')) {
             this.service.updateMultiwaySwitchInfo(event.newData).subscribe((response) => {

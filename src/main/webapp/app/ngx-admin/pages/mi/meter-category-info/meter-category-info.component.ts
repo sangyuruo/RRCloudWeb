@@ -85,19 +85,18 @@ export class MeterCategoryInfoComponent {
         //this.service.getDataMeterCategoryInfo().subscribe(data => (this.source.load(data)))
         this.source = new ServerDataSource(http, { endPoint: '/emcloudmi/api/meter-category-infos' });
     }
+
     onDeleteConfirm(event): void {
         if (window.confirm('Are you sure you want to delete?')) {
             this.service.deleteMeterCategoryInfo(event.data.id).subscribe((response) => {
-                this.eventManager.broadcast({
-                    name: 'meterCategoryInfoListModification',
-                    content: 'Deleted an meterCategoryInfo'
-                });
-            });
-            event.confirm.resolve();
+                event.confirm.resolve(response);
+                console.log(response);
+            })
         } else {
             event.confirm.reject();
         }
     }
+
     onUpdateConfirm(event) {
         if (window.confirm('Are you sure you want to update?')) {
             this.service.updateMeterCategoryInfo(event.newData).subscribe((response) => {

@@ -71,16 +71,14 @@ export class MeterStatusComponent {
     onDeleteConfirm(event): void {
         if (window.confirm('Are you sure you want to delete?')) {
             this.service.deleteMeterStatus(event.data.id).subscribe((response) => {
-                this.eventManager.broadcast({
-                    name: 'MeterStatusListModification',
-                    content: 'Deleted a MeterStatus'
-                });
-            });
-            event.confirm.resolve();
+                event.confirm.resolve(response);
+                console.log(response);
+            })
         } else {
             event.confirm.reject();
         }
     }
+
     onUpdateConfirm(event) {
         if (window.confirm('Are you sure you want to update?')) {
             this.service.updateMeterStatus(event.newData).subscribe((response) => {
