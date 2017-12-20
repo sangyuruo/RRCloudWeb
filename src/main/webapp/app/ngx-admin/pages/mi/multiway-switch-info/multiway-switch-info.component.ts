@@ -4,6 +4,9 @@ import { LocalDataSource } from 'ng2-smart-table';
 import {Http} from "@angular/http";
 import {JhiEventManager} from "ng-jhipster";
 import {MiService} from "../mi.service";
+import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
+import {MiMeterCodeEditorComponent} from "../meter-status/meter-code-editor.component";
+
 
 @Component({
     selector: 'ngx-smart-table',
@@ -36,7 +39,11 @@ export class MultiwaySwitchInfoComponent {
         columns: {
             meterCode: {
                 title: '设备编码',
-                type: 'String',
+                type: 'html',
+                editor:{
+                    type:'custom',
+                    component: MiMeterCodeEditorComponent,
+                }
             },
             switchCode: {
                 title: '开关序号',
@@ -51,17 +58,19 @@ export class MultiwaySwitchInfoComponent {
         },
     };
 
-    source: LocalDataSource = new LocalDataSource();
-
+    // source: LocalDataSource = new LocalDataSource();
+    source: ServerDataSource;
     constructor(private service: MiService,
                 private http:Http,
                 private eventManager:JhiEventManager) {
         this.service.getDataMultiwaySwitchInfo().subscribe(data => (this.source.load(data)))
+        this.source = new ServerDataSource(http, { endPoint: '/emcloudmi/api/multiway-switch-infos' });
     }
 
     onDeleteConfirm(event): void {
         if (window.confirm('Are you sure you want to delete?')) {
             this.service.deleteMultiwaySwitchInfo(event.data.id).subscribe((response) => {
+                this.service.getDataMultiwaySwitchInfo().subscribe(data => (this.source.load(data)))
                 this.eventManager.broadcast({
                     name: 'MultiwaySwitchInfoListModification',
                     content: 'Deleted a MultiwaySwitchInfo'

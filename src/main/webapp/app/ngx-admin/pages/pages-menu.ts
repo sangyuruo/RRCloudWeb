@@ -230,7 +230,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
             },
         ],
     },
-    {
+   /* {
         title: '资源管理',
         icon: 'nb-tables',
         children: [
@@ -239,7 +239,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
                 link: '/pages/resource/Resource',
             },
         ],
-    },
+    },*/
 
 
     {

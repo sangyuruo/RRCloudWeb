@@ -1,16 +1,22 @@
 import { Component } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
+import {LocalDataSource} from 'ng2-smart-table';
 
 import {Http} from "@angular/http";
 import {JhiEventManager} from "ng-jhipster";
 import {MiService} from "../mi.service";
+import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
+import {CompanyCodeEditorComponent} from "./company-code-editor.component";
+import {OrganizationCodeEditorComponent} from "./organization-code-editor.component";
+import {ComPointCodeEditorComponent} from "./com-point-code-editor.component";
+import {AddressCodeEditorComponent} from "./address-code-editor.component";
+
 @Component({
     selector: 'ngx-smart-table',
     templateUrl: './meter-info.component.html',
     styles: [`
     nb-card {
       transform: translate3d(0, 0, 0);
-        width: 70rem;
+        /*width: 70rem;*/
     }
   `],
 })
@@ -48,19 +54,35 @@ export class MeterInfoComponent {
             },
             addressCode: {
                 title: '地址编码',
-                type: 'string',
+                type: 'html',
+                editor:{
+                    type:'custom',
+                    component: AddressCodeEditorComponent,
+                }
             },
             organizationCode: {
                 title: '组织编码',
-                type: 'string',
+                type: 'html',
+                editor:{
+                    type:'custom',
+                    component: OrganizationCodeEditorComponent,
+                }
             },
             companyCode: {
                 title: '公司编码',
-                type: 'String',
+                type: 'html',
+                editor:{
+                    type:'custom',
+                    component: CompanyCodeEditorComponent,
+                }
             },
             comPointCode: {
                 title: '串口编码',
-                type: 'String',
+                type: 'html',
+                editor:{
+                    type:'custom',
+                    component: ComPointCodeEditorComponent,
+                }
             },
             meterType: {
                 title: '设备类型',
@@ -81,12 +103,15 @@ export class MeterInfoComponent {
         },
     };
 
-    source: LocalDataSource = new LocalDataSource();
+    //source: LocalDataSource = new LocalDataSource();
 
+    source: ServerDataSource;
     constructor(private service: MiService,
                 private http:Http,
-                private eventManager:JhiEventManager) {
-        this.service.getDataMeterInfo().subscribe(data => (this.source.load(data)))
+                private eventManager:JhiEventManager
+    ) {
+        // this.service.getDataMeterInfo().subscribe(data => (this.source.load(data)))
+        this.source = new ServerDataSource(http, { endPoint: '/emcloudmi/api/meter-infos' });
     }
 
     onDeleteConfirm(event): void {
@@ -105,6 +130,7 @@ export class MeterInfoComponent {
     onUpdateConfirm(event) {
         if (window.confirm('Are you sure you want to update?')) {
             this.service.updateMeterInfo(event.newData).subscribe((response) => {
+                this.service.getDataMeterInfo().subscribe(data => (this.source.load(data)))
                 event.confirm.resolve(response)
                 console.log(response)
             });

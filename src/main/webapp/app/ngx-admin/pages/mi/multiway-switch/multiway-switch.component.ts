@@ -4,6 +4,9 @@ import { LocalDataSource } from 'ng2-smart-table';
 import {Http} from "@angular/http";
 import {JhiEventManager} from "ng-jhipster";
 import {MiService} from "../mi.service";
+import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
+import {MsiMeterCodeEditorComponent} from "./meter-code-editor.component";
+import {MsiSwitchCodeEditorComponent} from "./switch-code-editor.component";
 
 @Component({
     selector: 'ngx-smart-table',
@@ -36,11 +39,19 @@ export class MultiwaySwitchComponent {
         columns: {
             meterCode: {
                 title: '设备编码',
-                type: 'String',
+                type: 'html',
+                editor:{
+                    type:'custom',
+                    component: MsiMeterCodeEditorComponent,
+                }
             },
             switchCode: {
                 title: '开关序号',
-                type: 'Integer',
+                type: 'html',
+                editor:{
+                    type:'custom',
+                    component: MsiSwitchCodeEditorComponent,
+                }
             },
             switchStatus: {
                 title: '开关状态',
@@ -54,12 +65,13 @@ export class MultiwaySwitchComponent {
         },
     };
 
-    source: LocalDataSource = new LocalDataSource();
-
+    // source: LocalDataSource = new LocalDataSource();
+    source: ServerDataSource;
     constructor(private service: MiService,
                 private http:Http,
                 private eventManager:JhiEventManager) {
-        this.service.getDataMultiwaySwitch().subscribe(data => (this.source.load(data)))
+        // this.service.getDataMultiwaySwitch().subscribe(data => (this.source.load(data)))
+        this.source = new ServerDataSource(http, { endPoint: '/emcloudmi/api/multiway-switches' });
     }
 
     onDeleteConfirm(event): void {
@@ -78,6 +90,7 @@ export class MultiwaySwitchComponent {
     onUpdateConfirm(event) {
         if (window.confirm('Are you sure you want to update?')) {
             this.service.updateMultiwaySwitch(event.newData).subscribe((response) => {
+                this.service.getDataMultiwaySwitch().subscribe(data => (this.source.load(data)))
                 event.confirm.resolve(response)
                 console.log(response)
             });

@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
+import {LocalDataSource} from 'ng2-smart-table';
 
 import {Http} from "@angular/http";
 import {JhiEventManager} from "ng-jhipster";
 import {MiService} from "../mi.service";
+import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
+import {MiMeterCodeEditorComponent} from "./meter-code-editor.component";
 @Component({
     selector: 'ngx-smart-table',
     templateUrl: './meter-status.component.html',
@@ -35,7 +37,11 @@ export class MeterStatusComponent {
         columns: {
             meterCode: {
                 title: '设备编码',
-                type: 'String',
+                type: 'html',
+                editor:{
+                    type:'custom',
+                    component: MiMeterCodeEditorComponent,
+                }
             },
             trafficStatus: {
                 title: '通讯状态',
@@ -53,12 +59,13 @@ export class MeterStatusComponent {
         },
     };
 
-    source: LocalDataSource = new LocalDataSource();
-
+    // source: LocalDataSource = new LocalDataSource();
+    source: ServerDataSource;
     constructor(private service: MiService,
                 private http:Http,
                 private eventManager:JhiEventManager) {
-        this.service.getDataMeterStatus().subscribe(data => (this.source.load(data)))
+        // this.service.getDataMeterStatus().subscribe(data => (this.source.load(data)))
+        this.source = new ServerDataSource(http, { endPoint: '/emcloudmi/api/meter-statuses' });
     }
 
     onDeleteConfirm(event): void {
@@ -77,6 +84,7 @@ export class MeterStatusComponent {
     onUpdateConfirm(event) {
         if (window.confirm('Are you sure you want to update?')) {
             this.service.updateMeterStatus(event.newData).subscribe((response) => {
+                this.service.getDataMeterStatus().subscribe(data => (this.source.load(data)))
                 event.confirm.resolve(response)
                 console.log(response)
             });

@@ -8,22 +8,19 @@ import {Company} from "../../../entities/company/company.model";
 @Injectable()
 export class ArcService {
 
-
   constructor(private http:Http){}
 
 
-
-
     getDataAlarmRule(){
-        return this.http.get('/emcloudarc/api/alarm-rules?size=2000')
+        return this.http.get('/emcloudarc/api/alarm-rules')
             .map(res => res.json())
     }
     getDataRuleAttributes(){
-        return this.http.get('/emcloudarc/api/rule-attributes?size=2000')
+        return this.http.get('/emcloudarc/api/rule-attributes')
             .map(res => res.json())
     }
     getDataMeterRule(){
-        return this.http.get('/emcloudarc/api/meter-rules?size=2000')
+        return this.http.get('/emcloudarc/api/meter-rules')
             .map(res => res.json())
     }
 

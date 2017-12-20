@@ -3,6 +3,7 @@ import { LocalDataSource } from 'ng2-smart-table';
 import {Http} from "@angular/http";
 import {JhiEventManager} from "ng-jhipster";
 import {ArcService} from "../arc.service";
+import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
 
 @Component({
     selector: 'ngx-smart-table',
@@ -51,17 +52,28 @@ export class AlarmRuleComponent {
             },
             enable: {
                 title: '是否有效',
-                type: 'string',
+                editor:{
+                    type:'list',
+                    config:{
+                        selectText:'Select...',
+                        list:[
+                            { value: true, title:'true'},
+                            { value: false, title:'false'},
+
+                        ],
+                    }
+                }
             },
         },
     };
 
-    source: LocalDataSource = new LocalDataSource();
-
+    // source: LocalDataSource = new LocalDataSource();
+    source: ServerDataSource;
     constructor(private service: ArcService,
                 private http:Http,
                 private eventManager:JhiEventManager) {
-        this.service.getDataAlarmRule().subscribe(data => (this.source.load(data)))
+        // this.service.getDataAlarmRule().subscribe(data => (this.source.load(data)))
+        this.source = new ServerDataSource(http, { endPoint: '/emcloudarc/api/alarm-rules' });
     }
 
     onDeleteConfirm(event): void {
@@ -80,6 +92,7 @@ export class AlarmRuleComponent {
     onUpdateConfirm(event) {
         if (window.confirm('Are you sure you want to update?')) {
             this.service.updateAlarmRule(event.newData).subscribe((response) => {
+                this.service.getDataAlarmRule().subscribe(data => (this.source.load(data)))
                 event.confirm.resolve(response)
                 console.log(response)
             });

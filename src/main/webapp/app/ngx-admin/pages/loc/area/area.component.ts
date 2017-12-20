@@ -37,6 +37,10 @@ export class AreaComponent {
       confirmDelete: true,
     },
     columns: {
+        id: {
+            title: 'id',
+            type: 'number',
+        },
         areaCode: {
         title: '地区代码',
         type: 'number',
@@ -68,7 +72,8 @@ export class AreaComponent {
 
     source: ServerDataSource;
 
-  constructor(private service: LocService,private http: Http) {
+  constructor(private service: LocService,
+              private http: Http) {
     //this.service.getDataArea().subscribe(data =>(this.source.load(data)))
     //  this.source.setPaging(1,5,true);
 

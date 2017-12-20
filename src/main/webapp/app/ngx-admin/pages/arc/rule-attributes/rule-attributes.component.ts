@@ -4,6 +4,8 @@ import { LocalDataSource } from 'ng2-smart-table';
 import {Http} from "@angular/http";
 import {JhiEventManager} from "ng-jhipster";
 import {ArcService} from "../arc.service";
+import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
+import {RuleCodeEditorComponent} from "./rule-code-editor.component";
 
 @Component({
   selector: 'ngx-smart-table',
@@ -36,7 +38,11 @@ export class RuleAttributesComponent {
     columns: {
         ruleCode: {
         title: '规则编码',
-        type: 'string',
+            type: 'html',
+            editor:{
+                type:'custom',
+                component: RuleCodeEditorComponent,
+            }
       },
         attributeName: {
             title: '属性名',
@@ -50,12 +56,14 @@ export class RuleAttributesComponent {
     },
   };
 
-  source: LocalDataSource = new LocalDataSource();
+  // source: LocalDataSource = new LocalDataSource();
+    source: ServerDataSource;
 
     constructor(private service: ArcService,
                 private http:Http,
                 private eventManager:JhiEventManager) {
-        this.service.getDataRuleAttributes().subscribe(data => (this.source.load(data)))
+        // this.service.getDataRuleAttributes().subscribe(data => (this.source.load(data)))
+        this.source = new ServerDataSource(http, { endPoint: '/emcloudarc/api/rule-attributes' });
     }
 
   onDeleteConfirm(event): void {
@@ -74,6 +82,7 @@ export class RuleAttributesComponent {
     onUpdateConfirm(event) {
         if (window.confirm('Are you sure you want to update?')) {
             this.service.updateRuleAttributes(event.newData).subscribe((response) => {
+                this.service.getDataRuleAttributes().subscribe(data => (this.source.load(data)))
                 event.confirm.resolve(response)
                 console.log(response)
             });

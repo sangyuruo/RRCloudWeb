@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
+import {LocalDataSource,} from 'ng2-smart-table';
 
 import {Http} from "@angular/http";
 import {JhiEventManager} from "ng-jhipster";
 import {MiService} from "../mi.service";
+import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
+import {MeterNameEditorComponent} from "./meter-name-editor.component";
+import {MeterTypeEditorComponent} from "./meter-type-editor.component";
 
 @Component({
     selector: 'ngx-smart-table',
@@ -36,11 +39,19 @@ export class MeterCategoryInfoComponent {
         columns: {
             meterName: {
                 title: '设备名称',
-                type: 'string',
+                type: 'html',
+                editor:{
+                    type:'custom',
+                    component: MeterNameEditorComponent,
+                }
             },
             meterType: {
                 title: '设备类型',
-                type: 'string',
+                type: 'html',
+                editor:{
+                    type:'custom',
+                    component: MeterTypeEditorComponent,
+                }
             },
             meterFactory: {
                 title: '设备生产厂家',
@@ -65,13 +76,14 @@ export class MeterCategoryInfoComponent {
         },
     };
 
-    source: LocalDataSource = new LocalDataSource();
-
+    //source: LocalDataSource = new LocalDataSource();
+    source: ServerDataSource;
 
     constructor(private service: MiService,
                 private http:Http,
                 private eventManager:JhiEventManager) {
-        this.service.getDataMeterCategoryInfo().subscribe(data => (this.source.load(data)))
+        //this.service.getDataMeterCategoryInfo().subscribe(data => (this.source.load(data)))
+        this.source = new ServerDataSource(http, { endPoint: '/emcloudmi/api/meter-category-infos' });
     }
     onDeleteConfirm(event): void {
         if (window.confirm('Are you sure you want to delete?')) {
@@ -89,6 +101,7 @@ export class MeterCategoryInfoComponent {
     onUpdateConfirm(event) {
         if (window.confirm('Are you sure you want to update?')) {
             this.service.updateMeterCategoryInfo(event.newData).subscribe((response) => {
+                this.service.getDataMeterCategoryInfo().subscribe(data => (this.source.load(data)))
                 event.confirm.resolve(response)
                 console.log(response)
             });

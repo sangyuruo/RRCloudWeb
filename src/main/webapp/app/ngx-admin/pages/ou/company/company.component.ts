@@ -6,6 +6,7 @@ import {JhiEventManager} from "ng-jhipster";
 import 'rxjs/Rx';
 
 import {OuService} from "../ou.service";
+import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
 
 
 @Component({
@@ -138,8 +139,9 @@ export class CompanyComponent {
         },
     };
 
-    source: LocalDataSource = new LocalDataSource();
-    isSaving:boolean;
+  //  source: LocalDataSource = new LocalDataSource();
+   // isSaving:boolean;
+    source: ServerDataSource;
     constructor(private service: OuService,
                 private http:Http,
                 private eventManager:JhiEventManager
@@ -149,7 +151,8 @@ export class CompanyComponent {
         /*this.http.get('/emcloudou/api/companies')
             .map(res => res.json())
             .subscribe(data => (this.source.load(data)) )*/
-        this.service.getCompany().subscribe(data => (this.source.load(data)))
+        //this.service.getCompany().subscribe(data => (this.source.load(data)))
+        this.source = new ServerDataSource(http, { endPoint: '/emcloudou/api/companies' });
     }
 
     onDeleteConfirm(event): void {
