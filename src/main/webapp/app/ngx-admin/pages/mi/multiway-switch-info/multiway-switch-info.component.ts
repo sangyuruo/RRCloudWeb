@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 
 import {Http} from "@angular/http";
-import {JhiEventManager} from "ng-jhipster";
+import {JhiDateUtils, JhiEventManager} from "ng-jhipster";
 import {MiService} from "../mi.service";
 import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
 import {MiMeterCodeEditorComponent} from "../meter-status/meter-code-editor.component";
@@ -54,7 +54,10 @@ export class MultiwaySwitchInfoComponent {
                 title: '下发命令',
                 type: 'String',
             },
-
+            createTime: {
+                title: 'create Time',
+                type: 'number',
+            },
         },
     };
 
@@ -62,9 +65,10 @@ export class MultiwaySwitchInfoComponent {
     source: ServerDataSource;
     constructor(private service: MiService,
                 private http:Http,
-                private eventManager:JhiEventManager) {
+                private dateUtils: JhiDateUtils) {
         this.service.getDataMultiwaySwitchInfo().subscribe(data => (this.source.load(data)))
-        this.source = new ServerDataSource(http, { endPoint: '/emcloudmi/api/multiway-switch-infos' });
+        this.source = new ServerDataSource(http, { endPoint: '/emcloudmi/api/multiway-switch-infos' },
+            dateUtils);
     }
 
     onDeleteConfirm(event): void {

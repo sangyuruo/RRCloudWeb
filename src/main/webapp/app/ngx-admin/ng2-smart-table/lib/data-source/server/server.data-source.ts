@@ -8,6 +8,9 @@ import { ServerSourceConf } from './server-source.conf';
 import { getDeepFromObject } from '../../helpers';
 
 import 'rxjs/add/operator/toPromise';
+import {JhiDateUtils} from "ng-jhipster";
+
+
 
 export class ServerDataSource extends LocalDataSource {
 
@@ -16,7 +19,9 @@ export class ServerDataSource extends LocalDataSource {
   protected lastRequestCount: number = 0;
 
 
-  constructor(protected http: Http, conf: ServerSourceConf | {} = {}) {
+  constructor(protected http: Http, conf: ServerSourceConf | {} = {},
+    protected  dateUtils: JhiDateUtils) {
+
     super();
 
     this.conf = new ServerSourceConf(conf);
@@ -30,14 +35,29 @@ export class ServerDataSource extends LocalDataSource {
     return this.lastRequestCount;
   }
 
-  getElements(): Promise<any> {
-    return this.requestElements().map(res => {
-      this.lastRequestCount = this.extractTotalFromResponse(res);
-      this.data = this.extractDataFromResponse(res);
+  getElements(){
+      return this.requestElements().map(res => {
+          this.lastRequestCount = this.extractTotalFromResponse(res);
+          this.data = this.extractDataFromResponse(res);
 
-      return this.data;
-    }).toPromise();
+          //新增
+          const result = [];
+          for (let i = 0; i < this.data.length; i++) {
+              result.push(this.convertItemFromServer(this.data[i]));
+          }
+          return result;
+          // return this.data;
+      }).toPromise();
   }
+    //新增
+      convertItemFromServer(json: any){
+          const entity  = Object.assign(json);
+          entity.createTime = this.dateUtils.convertDateTimeFromServer(json.createTime);
+          entity.updateTime = this.dateUtils.convertDateTimeFromServer(json.updateTime);
+          entity.recordTime = this.dateUtils.convertDateTimeFromServer(json.recordTime);
+          return entity;
+      }
+
 
   /**
    * Extracts array of data from server response

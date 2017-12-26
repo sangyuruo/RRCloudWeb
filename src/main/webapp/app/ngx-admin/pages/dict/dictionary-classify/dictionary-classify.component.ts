@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Http} from "@angular/http";
-import {JhiEventManager} from "ng-jhipster";
+import {JhiDateUtils, JhiEventManager} from "ng-jhipster";
 import {DictService} from "../dict.service";
 
 import {ServerDataSource} from '../../../ng2-smart-table/lib/data-source/server/server.data-source';
@@ -94,9 +94,10 @@ export class DictionaryClassifyComponent {
 
     constructor(private service: DictService,
                 private http: Http,
-                private eventManager: JhiEventManager) {
+                private dateUtils: JhiDateUtils) {
         //this.service.getDataDictionaryClassify().subscribe(data =>(this.source.load(data)));
-        this.source = new ServerDataSource(http, {endPoint: '/emclouddict/api/dictionaryclassifies'});
+        this.source = new ServerDataSource(http, {endPoint: '/emclouddict/api/dictionaryclassifies'},
+            dateUtils);
     }
     onDeleteConfirm(event): void {
         if (window.confirm('Are you sure you want to delete?')) {

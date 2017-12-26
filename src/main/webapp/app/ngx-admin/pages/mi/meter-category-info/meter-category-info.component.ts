@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {LocalDataSource,} from 'ng2-smart-table';
 
 import {Http} from "@angular/http";
-import {JhiEventManager} from "ng-jhipster";
+import {JhiDateUtils, JhiEventManager} from "ng-jhipster";
 import {MiService} from "../mi.service";
 import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
 import {MeterNameEditorComponent} from "./meter-name-editor.component";
@@ -73,6 +73,10 @@ export class MeterCategoryInfoComponent {
                 title: '控制地址',
                 type: 'Integer',
             },
+            createTime: {
+                title: 'create Time',
+                type: 'number',
+            },
         },
     };
 
@@ -81,9 +85,10 @@ export class MeterCategoryInfoComponent {
 
     constructor(private service: MiService,
                 private http:Http,
-                private eventManager:JhiEventManager) {
+                private dateUtils: JhiDateUtils) {
         //this.service.getDataMeterCategoryInfo().subscribe(data => (this.source.load(data)))
-        this.source = new ServerDataSource(http, { endPoint: '/emcloudmi/api/meter-category-infos' });
+        this.source = new ServerDataSource(http, { endPoint: '/emcloudmi/api/meter-category-infos' },
+            dateUtils);
     }
 
     onDeleteConfirm(event): void {

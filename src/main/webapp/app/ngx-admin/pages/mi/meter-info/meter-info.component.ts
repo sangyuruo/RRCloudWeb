@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {LocalDataSource} from 'ng2-smart-table';
 
 import {Http} from "@angular/http";
-import {JhiEventManager} from "ng-jhipster";
+import {JhiDateUtils, JhiEventManager} from "ng-jhipster";
 import {MiService} from "../mi.service";
 import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
 import {CompanyCodeEditorComponent} from "./company-code-editor.component";
@@ -108,10 +108,11 @@ export class MeterInfoComponent {
     source: ServerDataSource;
     constructor(private service: MiService,
                 private http:Http,
-                private eventManager:JhiEventManager
+                private dateUtils: JhiDateUtils
     ) {
         // this.service.getDataMeterInfo().subscribe(data => (this.source.load(data)))
-        this.source = new ServerDataSource(http, { endPoint: '/emcloudmi/api/meter-infos' });
+        this.source = new ServerDataSource(http, { endPoint: '/emcloudmi/api/meter-infos' },
+            dateUtils);
     }
 
     onDeleteConfirm(event): void {

@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 
 import {CpiService} from '../cpi.service';
 import {Http} from "@angular/http";
-import {JhiEventManager} from 'ng-jhipster';
+import {JhiDateUtils, JhiEventManager} from 'ng-jhipster';
 
 import {AddressCodeEditorComponent} from "./addresscode-editor.components";
 import {CompanyCodeEditorComponent} from './companycode-editor.components';
@@ -137,11 +137,12 @@ export class ComPointComponent {
 
     constructor(private service: CpiService,
                 private http: Http,
-                private eventManager: JhiEventManager) {
+                private dateUtils: JhiDateUtils) {
         /* const data = this.service.getData();
          this.source.load(data);*/
         //this.service.getDataComPoint().subscribe(data => (this.source.load(data)));
-        this.source = new ServerDataSource(http, {endPoint: '/emcloudcpi/api/compoints'});
+        this.source = new ServerDataSource(http, {endPoint: '/emcloudcpi/api/compoints'},
+            dateUtils);
     }
     onDeleteConfirm(event): void {
         if (window.confirm('Are you sure you want to delete?')) {

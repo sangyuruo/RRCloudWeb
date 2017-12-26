@@ -24,6 +24,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NB_AUTH_TOKEN_WRAPPER_TOKEN, NbAuthJWTToken } from './@nebular/auth';
 //添加
 import { NbEmailPassAuthProvider, NbAuthModule } from './@nebular/auth';
+import {JhiDateUtils} from "ng-jhipster";
 //添加
 const formSetting: any = {
     redirectDelay: 0,
@@ -92,6 +93,8 @@ const formSetting: any = {
   bootstrap: [AppComponent],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
+      //添加日期服务
+      JhiDateUtils,
       //添加
       { provide: NB_AUTH_TOKEN_WRAPPER_TOKEN, useClass: NbAuthJWTToken },
   ],

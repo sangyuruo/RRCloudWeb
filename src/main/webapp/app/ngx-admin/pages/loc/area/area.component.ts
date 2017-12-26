@@ -3,6 +3,7 @@ import {LocService} from '../loc.service';
 import {ServerDataSource} from '../../../ng2-smart-table/lib/data-source/server/server.data-source';
 
 import {Http} from '@angular/http';
+import {JhiDateUtils} from "ng-jhipster";
 
 @Component({
     selector: 'ngx-smart-table',
@@ -69,10 +70,13 @@ export class AreaComponent {
     source: ServerDataSource;
 
 
-    constructor(private service: LocService, private http: Http) {
+    constructor(private service: LocService, private http: Http,
+    private dateUtils: JhiDateUtils
+    ) {
         //this.service.getDataArea().subscribe(data =>(this.source.load(data)))
         //  this.source.setPaging(1,5,true);
-        this.source = new ServerDataSource(http, {endPoint: '/emcloudloc/api/areas'});
+        this.source = new ServerDataSource(http, {endPoint: '/emcloudloc/api/areas'},
+            dateUtils);
     }
 
 

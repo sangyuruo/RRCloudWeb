@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
 
 import {Http} from "@angular/http";
-import {JhiEventManager} from "ng-jhipster";
+import {JhiDateUtils, JhiEventManager} from "ng-jhipster";
 import {OuService} from "../ou.service";
 import {AddressNameEditorComponent} from '../company/addressname-editor.components';
 import {CompanyCodeEditorComponent} from './companycode-editor.components';
@@ -117,12 +117,13 @@ export class OrganizationComponent {
 
     constructor(private service: OuService,
                 private  http  : Http,
-                private  eventManager: JhiEventManager
+                private dateUtils: JhiDateUtils
     ) {
         /* const data = this.service.getData();
          this.source.load(data);*/
         //this.service.getOrganization().subscribe(data => (this.source.load(data)))
-        this.source = new ServerDataSource(http, { endPoint: '/emcloudou/api/organizations' });
+        this.source = new ServerDataSource(http, { endPoint: '/emcloudou/api/organizations' },
+            dateUtils);
     }
 
     onDeleteConfirm(event): void {

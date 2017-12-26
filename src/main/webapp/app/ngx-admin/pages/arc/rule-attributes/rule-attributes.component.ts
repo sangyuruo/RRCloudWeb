@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 
 import {Http} from "@angular/http";
-import {JhiEventManager} from "ng-jhipster";
+import {JhiDateUtils, JhiEventManager} from "ng-jhipster";
 import {ArcService} from "../arc.service";
 import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
 import {RuleCodeEditorComponent} from "./rule-code-editor.component";
@@ -61,9 +61,10 @@ export class RuleAttributesComponent {
 
     constructor(private service: ArcService,
                 private http:Http,
-                private eventManager:JhiEventManager) {
+                private dateUtils: JhiDateUtils) {
         // this.service.getDataRuleAttributes().subscribe(data => (this.source.load(data)))
-        this.source = new ServerDataSource(http, { endPoint: '/emcloudarc/api/rule-attributes' });
+        this.source = new ServerDataSource(http, { endPoint: '/emcloudarc/api/rule-attributes' },
+            dateUtils);
     }
 
     onDeleteConfirm(event): void {

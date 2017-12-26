@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Http, Headers} from "@angular/http";
-import {JhiEventManager} from "ng-jhipster";
+import {JhiDateUtils, JhiEventManager} from "ng-jhipster";
 
 import 'rxjs/Rx';
 
@@ -138,10 +138,10 @@ export class CompanyComponent {
                 },
             },
 
-            /*createTime: {
+            createTime: {
                 title: 'create Time',
                 type: 'number',
-            },*/
+            },
             /*updatedBy: {
                 title: 'Updated By',
                 type: 'number',
@@ -156,7 +156,7 @@ export class CompanyComponent {
     source: ServerDataSource;
     constructor(private service: OuService,
                 private http:Http,
-                private eventManager:JhiEventManager
+                private dateUtils: JhiDateUtils
     ) {
         //const data = this.service.getData();
         //this.source.load(data);
@@ -164,7 +164,8 @@ export class CompanyComponent {
             .map(res => res.json())
             .subscribe(data => (this.source.load(data)) )*/
         //this.service.getCompany().subscribe(data => (this.source.load(data)))
-        this.source = new ServerDataSource(http, { endPoint: '/emcloudou/api/companies' });
+        this.source = new ServerDataSource(http, { endPoint: '/emcloudou/api/companies' },
+            dateUtils);
     }
 
     onDeleteConfirm(event): void {

@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 import {CpiService} from '../cpi.service';
-import {JhiEventManager} from "ng-jhipster";
+import {JhiDateUtils, JhiEventManager} from "ng-jhipster";
 import {Http} from "@angular/http";
 import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
 import {CompointCodeEditorComponent} from "./compointcode-editor.components";
@@ -69,11 +69,12 @@ export class comPointStatusComponent {
 
     constructor(private service: CpiService,
                 private http: Http,
-                private eventManager: JhiEventManager) {
+                private dateUtils: JhiDateUtils) {
         /* const data = this.service.getData();
          this.source.load(data);*/
         //this.service.getDataComPointStatus().subscribe(data =>(this.source.load(data)));
-        this.source = new ServerDataSource(http, {endPoint: '/emcloudcpi/api/compointstatuses'});
+        this.source = new ServerDataSource(http, {endPoint: '/emcloudcpi/api/compointstatuses'},
+            dateUtils);
     }
     onDeleteConfirm(event): void {
         if (window.confirm('Are you sure you want to delete?')) {

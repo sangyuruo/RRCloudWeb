@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import {Http} from "@angular/http";
-import {JhiEventManager} from "ng-jhipster";
+import {JhiDateUtils, JhiEventManager} from "ng-jhipster";
 import {ArcService} from "../arc.service";
 import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
 
@@ -71,9 +71,12 @@ export class AlarmRuleComponent {
     source: ServerDataSource;
     constructor(private service: ArcService,
                 private http:Http,
-                private eventManager:JhiEventManager) {
+                private dateUtils: JhiDateUtils
+                ) {
         // this.service.getDataAlarmRule().subscribe(data => (this.source.load(data)))
-        this.source = new ServerDataSource(http, { endPoint: '/emcloudarc/api/alarm-rules' });
+        this.source = new ServerDataSource(http, { endPoint: '/emcloudarc/api/alarm-rules' },
+        dateUtils
+        );
     }
 
     onDeleteConfirm(event): void {

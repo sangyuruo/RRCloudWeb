@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {LocService} from '../loc.service';
 import {Http} from "@angular/http";
-import {JhiEventManager} from "ng-jhipster";
+import {JhiDateUtils, JhiEventManager} from "ng-jhipster";
 import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
 import {AreaCodeEditorComponent} from "./areacode-editor.components";
 
@@ -83,11 +83,12 @@ export class AddressComponent {
 
     constructor(private service: LocService,
                 private http: Http,
-                private eventManeger: JhiEventManager) {
+                private dateUtils: JhiDateUtils) {
         /*const data = this.service.getData();
         this.source.load(data);*/
         //this.service.getDataAddress().subscribe(data => (this.source.load(data)))
-        this.source = new ServerDataSource(http, {endPoint: '/emcloudloc/api/addresses'});
+        this.source = new ServerDataSource(http, {endPoint: '/emcloudloc/api/addresses'},
+            dateUtils);
     }
 
     onDeleteConfirm(event): void {
