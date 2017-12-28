@@ -12,17 +12,23 @@
             "favicon.ico"
         ],
         "index": "index.html",
-        "main": "app/app.main.ts",
-        "polyfills": "app/polyfills.ts",
-        "test": "src/test/javascript/spec/entry.ts",
-        "tsconfig": "../../../tsconfig.json",
-        "prefix": "jhi",
-        "mobile": false,
-        "styles": [
+            "main": "app/app.main.ts",
+            "polyfills": "app/polyfills.ts",
+            "test": "src/test/javascript/spec/entry.ts",
+            "tsconfig": "../../../tsconfig.json",
+            "prefix": "jhi",
+            "mobile": false,
+            "styles": [
             "content/scss/vendor.scss",
             "content/scss/global.scss"
         ],
-        "scripts": []
+        "scripts": [
+
+            "./src/main/webapp/app/ngx-admin/assets/qrcode.js",
+            "./src/main/webapp/app/ngx-admin/assets/zepto.js",
+            "./src/main/webapp/app/ngx-admin/assets/jquery.qrcode.min.js",
+            "../node_modules/jquery/dist/jquery.js"
+        ]
     }],
     "lint": [{
             "project": "../../../tsconfig.json"
