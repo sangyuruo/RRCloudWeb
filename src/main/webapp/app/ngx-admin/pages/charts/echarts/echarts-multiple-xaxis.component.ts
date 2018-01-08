@@ -1,5 +1,6 @@
 import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
+import {ApiService} from "../../../app.service";
 
 @Component({
   selector: 'ngx-echarts-multiple-xaxis',
@@ -10,8 +11,9 @@ import { NbThemeService } from '@nebular/theme';
 export class EchartsMultipleXaxisComponent implements AfterViewInit, OnDestroy {
   options: any = {};
   themeSubscription: any;
+    organizationes: any;
 
-  constructor(private theme: NbThemeService) {
+  constructor(private theme: NbThemeService,private apiService: ApiService) {
   }
 
   ngAfterViewInit() {
@@ -147,17 +149,33 @@ export class EchartsMultipleXaxisComponent implements AfterViewInit, OnDestroy {
             type: 'line',
             xAxisIndex: 1,
             smooth: true,
-            data: [2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3],
+            data: [/*2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3*/],
           },
           {
             name: '2016 Precipitation',
             type: 'line',
             smooth: true,
-            data: [3.9, 5.9, 11.1, 18.7, 48.3, 69.2, 231.6, 46.6, 55.4, 18.4, 10.3, 0.7],
+            data: [/*3.9, 5.9, 11.1, 18.7, 48.3, 69.2, 231.6, 46.6, 55.4, 18.4, 10.3, 0.7*/],
           },
         ],
       };
     });
+
+
+    //添加
+      this.organizationes = this.apiService.getOrganizationes()
+      if( this.organizationes && this.organizationes.length ){
+          for(let i=0;i<this.organizationes.length;i++){
+
+              this.options.series[0].data.push(
+                  this.organizationes[i].orgCode
+              )
+              this.options.series[1].data.push(
+                  this.organizationes[i].companyCode
+              )
+          }
+      }
+
   }
 
   ngOnDestroy(): void {

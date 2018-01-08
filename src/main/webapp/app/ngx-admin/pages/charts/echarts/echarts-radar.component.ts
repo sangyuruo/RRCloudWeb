@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
+import {ApiService} from "../../../app.service";
 
 @Component({
   selector: 'ngx-echarts-radar',
@@ -10,8 +11,9 @@ import { NbThemeService } from '@nebular/theme';
 export class EchartsRadarComponent implements AfterViewInit, OnDestroy {
   options: any = {};
   themeSubscription: any;
+    organizationes: any;
 
-  constructor(private theme: NbThemeService) {
+  constructor(private theme: NbThemeService,private apiService: ApiService) {
   }
 
   ngAfterViewInit() {
@@ -51,7 +53,7 @@ export class EchartsRadarComponent implements AfterViewInit, OnDestroy {
           },
         },
         series: [
-          {
+          /*{
             name: 'Budget vs Spending',
             type: 'radar',
             data: [
@@ -64,10 +66,30 @@ export class EchartsRadarComponent implements AfterViewInit, OnDestroy {
                 name: 'Actual Spending',
               },
             ],
-          },
+          },*/
         ],
       };
     });
+
+      //添加
+      this.organizationes = this.apiService.getOrganizationes()
+      if( this.organizationes && this.organizationes.length ){
+          for(let i=0;i<this.organizationes.length;i++){
+
+              this.options.series.push({
+                      name: 'Budget vs Spending',
+                      type: 'radar',
+                      data: [
+                          {
+                              value: this.organizationes[i].orgCode,
+                              name: 'Allocated Budget',
+                          },
+                          {
+                              value: this.organizationes[i].companyCode,
+                              name: 'Actual Spending',
+                          },],
+                  },)}
+      }
   }
 
   ngOnDestroy(): void {

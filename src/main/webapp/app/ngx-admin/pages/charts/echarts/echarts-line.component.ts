@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
+import {ApiService} from "../../../app.service";
 
 @Component({
   selector: 'ngx-echarts-line',
@@ -10,8 +11,10 @@ import { NbThemeService } from '@nebular/theme';
 export class EchartsLineComponent implements AfterViewInit, OnDestroy {
   options: any = {};
   themeSubscription: any;
+    organizationes: any;
 
-  constructor(private theme: NbThemeService) {
+
+  constructor(private theme: NbThemeService,private apiService: ApiService) {
   }
 
   ngAfterViewInit() {
@@ -37,7 +40,7 @@ export class EchartsLineComponent implements AfterViewInit, OnDestroy {
         xAxis: [
           {
             type: 'category',
-            data: ['1', '2', '3', '4', '5', '6', '7', '8', '9'],
+            data: [/*'1', '2', '3', '4', '5', '6', '7', '8', '9'*/],
             axisTick: {
               alignWithLabel: true,
             },
@@ -83,22 +86,47 @@ export class EchartsLineComponent implements AfterViewInit, OnDestroy {
           {
             name: 'Line 1',
             type: 'line',
-            data: [1, 3, 9, 27, 81, 247, 741, 2223, 6669],
+            data: [/*1, 3, 9, 27, 81, 247, 741, 2223, 6669*/],
           },
           {
             name: 'Line 2',
             type: 'line',
-            data: [1, 2, 4, 8, 16, 32, 64, 128, 256],
+            data: [/*1, 2, 4, 8, 16, 32, 64, 128, 256*/],
           },
-          {
-            name: 'Line 3',
-            type: 'line',
-            data: [1 / 2, 1 / 4, 1 / 8, 1 / 16, 1 / 32, 1 / 64, 1 / 128, 1 / 256, 1 / 512],
-          },
+            {
+              name: 'Line 3',
+              type: 'line',
+              data: [/*1 / 2, 1 / 4, 1 / 8, 1 / 16, 1 / 32, 1 / 64, 1 / 128, 1 / 256, 1 / 512*/],
+            },
         ],
       };
     });
+
+
+
+      this.organizationes = this.apiService.getOrganizationes()
+      if( this.organizationes && this.organizationes.length ){
+          for(let i=0;i<this.organizationes.length;i++){
+
+              this.options.xAxis[0].data.push(
+                  this.organizationes[i].orgName
+              )
+
+              this.options.series[0].data.push(
+                   this.organizationes[i].orgCode
+                  )
+              this.options.series[1].data.push(
+                  this.organizationes[i].companyCode
+              )
+              this.options.series[2].data.push(
+                  this.organizationes[i].id
+              )
+
+          }
+      }
+
   }
+
 
   ngOnDestroy(): void {
     this.themeSubscription.unsubscribe();

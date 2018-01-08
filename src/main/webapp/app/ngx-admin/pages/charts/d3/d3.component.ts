@@ -6,3 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './d3.component.html',
 })
 export class D3Component {}
+
