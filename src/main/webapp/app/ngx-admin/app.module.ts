@@ -20,14 +20,18 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
-//添加
-import { NB_AUTH_TOKEN_WRAPPER_TOKEN, NbAuthJWTToken } from './@nebular/auth';
-//添加
-import { NbEmailPassAuthProvider, NbAuthModule } from './@nebular/auth';
+
 import {JhiDateUtils} from "ng-jhipster";
+import {NbAuthModule} from "./@nebular/auth/auth.module";
+import {NbEmailPassAuthProvider} from "./@nebular/auth/providers/email-pass-auth.provider";
+import {AuthGuard} from "./auth-guard.service";
+
+import {NB_AUTH_TOKEN_WRAPPER_TOKEN} from "./@nebular/auth/auth.options";
+import {NbAuthJWTToken} from "./@nebular/auth/services/token.service";
+import {ApiService} from "./app.service";
 //添加
 const formSetting: any = {
-    redirectDelay: 0,
+    redirectDelay: 1500,
     showMessages: {
         success: true,
     },
@@ -53,28 +57,60 @@ const formSetting: any = {
                   config: {
                       baseEndpoint: '',
                       login: {
+                          alwaysFail: false,
+                          rememberMe: true,
                           endpoint: '/auth/login',
                           method: 'post',
                           redirect: {
                               success: '/pages',
                               failure: null,
                           },
+                          defaultErrors: ['登录失败，请重新登录。'],
+                          defaultMessages: ['登录成功！'],
                       },
                       register: {
-                          endpoint: '/api/auth/register',
+                          alwaysFail: false,
+                          rememberMe: true,
+                          endpoint: 'emclouduaa/api/register',
                           method: 'post',
+                          redirect: {
+                              success: '/auth/login',
+                              failure: '/auth/login',
+                          },
+                          defaultErrors: ['出了点问题，请重试。'],
+                          defaultMessages: ['您已成功注册。'],
                       },
                       logout: {
-                          endpoint: '/api/auth/logout',
+                          alwaysFail: false,
+                          endpoint: '/auth/logout',
                           method: 'post',
+                          redirect: {
+                              success: '/auth/login',
+                              failure: '/auth/login',
+                          },
+                          defaultErrors: ['出了点问题，请重试。'],
+                          defaultMessages: ['您已成功注销。'],
                       },
                       requestPass: {
-                          endpoint: '/api/auth/request-pass',
+                          endpoint: 'emclouduaa/api/account/change-password',
                           method: 'post',
+                          redirect: {
+                              success: '/auth/reset-password',
+                              failure: '/auth/reset-password',
+                          },
+                          defaultErrors: ['出了点问题，请重试。'],
+                          defaultMessages: ['重置密码说明已发送到您的电子邮件。'],
                       },
                       resetPass: {
-                          endpoint: '/api/auth/reset-pass',
+                          endpoint: 'emclouduaa/api/account/change-password',
                           method: 'post',
+                          redirect: {
+                              success: '/auth/login',
+                              failure: '/auth/login',
+                          },
+                          resetPasswordTokenKey: 'reset_password_token',
+                          defaultErrors: ['出了点问题，请重试。'],
+                          defaultMessages: ['你的密码已成功更改。'],
                       },
                   },
               },
@@ -85,7 +121,7 @@ const formSetting: any = {
               requestPassword: formSetting,
               resetPassword: formSetting,
               logout: {
-                  redirectDelay: 0,
+                  redirectDelay: 1500,
               },
           },
       }),
@@ -93,10 +129,17 @@ const formSetting: any = {
   bootstrap: [AppComponent],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
+      //添加charts服务
+      ApiService,
       //添加日期服务
       JhiDateUtils,
+      //添加保护路由
+      AuthGuard,
       //添加
       { provide: NB_AUTH_TOKEN_WRAPPER_TOKEN, useClass: NbAuthJWTToken },
+/*
+      { provide: HTTP_INTERCEPTORS, useClass: NbAuthJWTInterceptor, multi: true },
+*/
   ],
 })
 export class EmCloudWebNgxAppModule {

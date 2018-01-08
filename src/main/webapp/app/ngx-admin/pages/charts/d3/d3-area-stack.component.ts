@@ -1,5 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
+import {ApiService} from '../../../app.service';
 
 @Component({
   selector: 'ngx-d3-area-stack',
@@ -19,7 +20,7 @@ import { NbThemeService } from '@nebular/theme';
   `,
 })
 export class D3AreaStackComponent implements OnDestroy {
-  multi = [{
+  multi = [/*{
     name: 'Germany',
     series: [{
         name: '2010',
@@ -46,7 +47,7 @@ export class D3AreaStackComponent implements OnDestroy {
         name: '2011',
         value: 5800000,
       }],
-  }];
+  }*/];
   showLegend = true;
   autoScale = true;
   showXAxis = true;
@@ -58,13 +59,29 @@ export class D3AreaStackComponent implements OnDestroy {
   colorScheme: any;
   themeSubscription: any;
 
-  constructor(private theme: NbThemeService) {
+    organizationes: any;
+
+  constructor(
+      private theme: NbThemeService,
+      private apiService: ApiService
+      ) {
     this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
       const colors: any = config.variables;
       this.colorScheme = {
         domain: [colors.primaryLight, colors.infoLight, colors.successLight, colors.warningLight, colors.dangerLight],
       };
     });
+
+      this.organizationes = this.apiService.getOrganizationes()
+      if( this.organizationes && this.organizationes.length ){
+          for(let i=0;i<this.organizationes.length;i++){
+              this.multi.push({
+                  name: this.organizationes[i].orgName,
+                  series:[{name: '2016', value: this.organizationes[i].orgCode},
+                          {name: '2017', value: this.organizationes[i].id}]
+             })
+          }
+      }
   }
 
   ngOnDestroy(): void {

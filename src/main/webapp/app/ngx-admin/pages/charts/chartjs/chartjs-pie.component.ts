@@ -60,3 +60,5 @@ export class ChartjsPieComponent implements OnDestroy {
     this.themeSubscription.unsubscribe();
   }
 }
+
+

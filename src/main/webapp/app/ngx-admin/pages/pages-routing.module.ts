@@ -3,12 +3,17 @@ import {NgModule} from '@angular/core';
 
 import {PagesComponent} from './pages.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
-import {promise} from "selenium-webdriver";
+
+
 
 const routes: Routes = [{
     path: '',
     component: PagesComponent,
     children: [{
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full',
+    }, {
         path: 'dashboard',
         component: DashboardComponent,
     }, {
@@ -119,10 +124,6 @@ const routes: Routes = [{
                     resolve(require('./nfs/nfs.module').TablesModule);
                 })
             })
-        }, {
-            path: '',
-            redirectTo: 'dashboard',
-            pathMatch: 'full',
         }],
 }];
 

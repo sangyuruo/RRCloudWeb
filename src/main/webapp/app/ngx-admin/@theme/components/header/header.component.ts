@@ -3,9 +3,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NbMenuService, NbSidebarService } from '@nebular/theme';
 import { UserService } from '../../../@core/data/users.service';
 import { AnalyticsService } from '../../../@core/utils/analytics.service';
+import {NbAuthService} from "../../../@nebular/auth/services/auth.service";
+import {NbAuthJWTToken} from "../../../@nebular/auth/services/token.service";
 
-//添加
-import { NbAuthJWTToken, NbAuthService } from '@nebular/auth';
 @Component({
   selector: 'ngx-header',
   styleUrls: ['./header.component.scss'],
@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
 
   user: any;
 
-  userMenu = [{ title: '设置' }, { title: '注销' ,link: '/auth/login',}];
+  userMenu = [{ title: '设置' }, { title: '注销' ,link: '/auth/logout',}];
 
   constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,

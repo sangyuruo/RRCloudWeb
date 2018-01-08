@@ -26,7 +26,7 @@ export class NbAuthResult {
     protected redirect?: any,
     errors?: any,
     messages?: any,
-    token?: NbAuthSimpleToken) {
+     token?: NbAuthSimpleToken) {
 
     this.errors = this.errors.concat([errors]);
     if (errors instanceof Array) {
@@ -38,7 +38,12 @@ export class NbAuthResult {
       this.messages = messages;
     }
 
-    this.token = token;
+    //将token更换成access_token
+    //this.token = token;
+    this.token = new NbAuthSimpleToken();
+    if(this.response && this.response.body && this.response.body.access_token){
+        this.token.setValue(this.response.body.access_token);
+    }
   }
 
   getResponse(): any {
@@ -100,7 +105,8 @@ export class NbAuthService {
    * @returns {Observable<any>}
    */
   isAuthenticated(): Observable<any> {
-    return this.getToken().map(token => !!(token && token.getValue()));
+    return this.getToken().map( token => !!(token && token.getValue()));
+
   }
 
   /**
@@ -134,7 +140,7 @@ export class NbAuthService {
   authenticate(provider: string, data?: any): Observable<NbAuthResult> {
     return this.getProvider(provider).authenticate(data)
       .switchMap((result: NbAuthResult) => {
-        if (result.isSuccess() && result.getTokenValue()) {
+          if (result.isSuccess()) {
           return this.tokenService.set(result.getTokenValue())
             .switchMap(_ => this.tokenService.get())
             .map(token => {
@@ -187,9 +193,13 @@ export class NbAuthService {
   logout(provider: string): Observable<NbAuthResult> {
     return this.getProvider(provider).logout()
       .do((result: NbAuthResult) => {
-        if (result.isSuccess()) {
-          this.tokenService.clear().subscribe(() => { });
+        if (result.getResponse().status === 200) {
+          // this.tokenService.clear().subscribe(() => { });
+
+            result.replaceToken(null);
+            this.tokenService.set(null);
         }
+
       });
   }
 

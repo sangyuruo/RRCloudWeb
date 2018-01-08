@@ -1,10 +1,13 @@
-import { Component, OnDestroy } from '@angular/core';
-import { NbThemeService } from '@nebular/theme';
+import {Component, ElementRef, OnDestroy, ViewChild} from '@angular/core';
+import { NbThemeService} from '@nebular/theme';
+import {ApiService} from "../../../app.service";
+
 
 @Component({
   selector: 'ngx-d3-bar',
   template: `
     <ngx-charts-bar-vertical
+        #bars
       [scheme]="colorScheme"
       [results]="results"
       [xAxis]="showXAxis"
@@ -16,12 +19,13 @@ import { NbThemeService } from '@nebular/theme';
   `,
 })
 export class D3BarComponent implements OnDestroy {
-
+     @ViewChild('bars') bars: ElementRef;
   results = [
-    { name: 'Germany', value: 8940 },
-    { name: 'USA', value: 5000 },
-    { name: 'France', value: 7200 },
+      /*{name: 'china', value : 3232 },
+      {name: 'germany', value : 5000 },
+      {name: 'japan', value : 6000 }*/
   ];
+    fetch = false;
   showLegend = true;
   showXAxis = true;
   showYAxis = true;
@@ -29,17 +33,29 @@ export class D3BarComponent implements OnDestroy {
   yAxisLabel = 'Population';
   colorScheme: any;
   themeSubscription: any;
+    organizationes: any;
 
-  constructor(private theme: NbThemeService) {
+  constructor(private theme: NbThemeService,
+              private apiService: ApiService
+  ) {
+      this.fetch = false;
     this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
       const colors: any = config.variables;
       this.colorScheme = {
         domain: [colors.primaryLight, colors.infoLight, colors.successLight, colors.warningLight, colors.dangerLight],
       };
     });
+      this.organizationes = this.apiService.getOrganizationes()
+      if( this.organizationes && this.organizationes.length ){
+          for(let i=0;i<this.organizationes.length;i++){
+              this.results.push({name:this.organizationes[i].orgName, value :this.organizationes[i].id })
+          }
+      }
   }
 
   ngOnDestroy(): void {
     this.themeSubscription.unsubscribe();
+
   }
+
 }

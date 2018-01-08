@@ -8,7 +8,9 @@ import { ThemeModule } from '../../@theme/theme.module';
 import { ChartsRoutingModule, routedComponents } from './charts-routing.module';
 import { ChartjsBarComponent } from './chartjs/chartjs-bar.component';
 import { ChartjsLineComponent } from './chartjs/chartjs-line.component';
+
 import { ChartjsPieComponent } from './chartjs/chartjs-pie.component';
+
 import { ChartjsMultipleXaxisComponent } from './chartjs/chartjs-multiple-xaxis.component';
 import { ChartjsBarHorizontalComponent } from './chartjs/chartjs-bar-horizontal.component';
 import { ChartjsRadarComponent } from './chartjs/chartjs-radar.component';
@@ -26,10 +28,21 @@ import { EchartsAreaStackComponent } from './echarts/echarts-area-stack.componen
 import { EchartsBarAnimationComponent } from './echarts/echarts-bar-animation.component';
 import { EchartsRadarComponent } from './echarts/echarts-radar.component';
 
+
+import {EchartsLineUselessComponent} from "./echarts/echarts-line-useless.component";
+import {EchartsLineUseComponent} from "./echarts/echarts-line-use.component";
+import {EchartsLineEleComponent} from './echarts/echarts-line-ele.component';
+import {EchartsLineLessComponent} from "./echarts/echarts-line-less.component";
+import {EchartsLineVolComponent} from "./echarts/echarts-line-vol.component";
+import {EchartsLineCurComponent} from "./echarts/echarts-line-cur.component";
+
+
 const components = [
   ChartjsBarComponent,
   ChartjsLineComponent,
+
   ChartjsPieComponent,
+
   ChartjsMultipleXaxisComponent,
   ChartjsBarHorizontalComponent,
   ChartjsRadarComponent,
@@ -46,10 +59,21 @@ const components = [
   EchartsAreaStackComponent,
   EchartsBarAnimationComponent,
   EchartsRadarComponent,
+
+    //添加
+    EchartsLineVolComponent,
+    EchartsLineCurComponent,
+    EchartsLineUseComponent,
+    EchartsLineUselessComponent,
+    EchartsLineEleComponent,
+    EchartsLineLessComponent,
+
 ];
 
 @NgModule({
   imports: [ThemeModule, ChartsRoutingModule, AngularEchartsModule, NgxChartsModule, ChartModule],
   declarations: [...routedComponents, ...components],
+    //添加
+    exports: [ ...components]
 })
 export class ChartsModule {}

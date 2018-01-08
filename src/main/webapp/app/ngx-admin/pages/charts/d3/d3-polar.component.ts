@@ -1,5 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
+import {ApiService} from "../../../app.service";
 
 @Component({
   selector: 'ngx-d3-polar',
@@ -20,7 +21,7 @@ import { NbThemeService } from '@nebular/theme';
 })
 export class D3PolarComponent implements OnDestroy {
   multi = [
-    {
+    /*{
       name: 'Germany',
       series: [
         {
@@ -70,7 +71,7 @@ export class D3PolarComponent implements OnDestroy {
           value: 36240,
         },
       ],
-    },
+    },*/
   ];
   showLegend = true;
   autoScale = true;
@@ -82,14 +83,28 @@ export class D3PolarComponent implements OnDestroy {
   yAxisLabel = 'Population';
   colorScheme: any;
   themeSubscription: any;
+    companies: any;
 
-  constructor(private theme: NbThemeService) {
+  constructor(private theme: NbThemeService,private apiService: ApiService) {
     this.themeSubscription = this.theme.getJsTheme().subscribe(config => {
       const colors: any = config.variables;
       this.colorScheme = {
         domain: [colors.primaryLight, colors.infoLight, colors.successLight, colors.warningLight, colors.dangerLight],
       };
     });
+
+
+      this.companies = this.apiService.getCompanies()
+      if( this.companies && this.companies.length ){
+          for( let i=0; i<this.companies.length; i++){
+              this.multi.push({name:this.companies[i].companyName,
+                  series: [
+                      {name:'2016', value:this.companies[i].id},
+                      {name:'2017', value:this.companies[i].companyCode}
+                  ]
+              })
+          }
+      }
   }
 
   ngOnDestroy(): void {

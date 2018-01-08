@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnDestroy } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
+import {ApiService} from "../../../app.service";
 
 @Component({
   selector: 'ngx-echarts-bar',
@@ -10,8 +11,9 @@ import { NbThemeService } from '@nebular/theme';
 export class EchartsBarComponent implements AfterViewInit, OnDestroy {
   options: any = {};
   themeSubscription: any;
+    organizationes: any;
 
-  constructor(private theme: NbThemeService) {
+  constructor(private theme: NbThemeService,private apiService: ApiService) {
   }
 
   ngAfterViewInit() {
@@ -38,7 +40,7 @@ export class EchartsBarComponent implements AfterViewInit, OnDestroy {
         xAxis: [
           {
             type: 'category',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            data: [/*'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'*/],
             axisTick: {
               alignWithLabel: true,
             },
@@ -79,11 +81,23 @@ export class EchartsBarComponent implements AfterViewInit, OnDestroy {
             name: 'Score',
             type: 'bar',
             barWidth: '60%',
-            data: [10, 52, 200, 334, 390, 330, 220],
+            data: [/*10, 52, 200, 334, 390, 330, 220*/],
           },
         ],
       };
     });
+
+      this.organizationes = this.apiService.getOrganizationes()
+      if( this.organizationes && this.organizationes.length ){
+          for(let i=0;i<this.organizationes.length;i++){
+
+                  this.options.xAxis[0].data.push(
+                      this.organizationes[i].orgName
+                  )
+                  this.options.series[0].data.push(
+                       this.organizationes[i].orgCode)
+          }
+      }
   }
 
   ngOnDestroy(): void {
