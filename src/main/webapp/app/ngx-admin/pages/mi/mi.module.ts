@@ -8,11 +8,12 @@ import {OrganizationCodeEditorComponent} from "./meter-info/organization-code-ed
 import {ComPointCodeEditorComponent} from "./meter-info/com-point-code-editor.component";
 import {AddressCodeEditorComponent} from "./meter-info/address-code-editor.component";
 import {MeterNameEditorComponent} from "./meter-category-info/meter-name-editor.component";
-import {MeterTypeEditorComponent} from "./meter-category-info/meter-type-editor.component";
+import {MeterTypeEditorComponent} from "./meter-info/meter-type-editor.component";
 import {MiMeterCodeEditorComponent} from "./meter-status/meter-code-editor.component";
 import {MsiMeterCodeEditorComponent} from "./multiway-switch/meter-code-editor.component";
 import {MsiSwitchCodeEditorComponent} from "./multiway-switch/switch-code-editor.component";
 import {Ng2SmartTableModule} from "../../ng2-smart-table/ng2-smart-table.module";
+import {DictClassifyValueEditorComponent} from "./meter-category-info/dict-classify-value-editor.component";
 @NgModule({
   imports: [
     ThemeModule,
@@ -29,7 +30,8 @@ import {Ng2SmartTableModule} from "../../ng2-smart-table/ng2-smart-table.module"
       MeterTypeEditorComponent,
       MiMeterCodeEditorComponent,
       MsiMeterCodeEditorComponent,
-      MsiSwitchCodeEditorComponent
+      MsiSwitchCodeEditorComponent,
+      DictClassifyValueEditorComponent
   ],
 
     entryComponents:[CompanyCodeEditorComponent,
@@ -40,7 +42,8 @@ import {Ng2SmartTableModule} from "../../ng2-smart-table/ng2-smart-table.module"
         MeterTypeEditorComponent,
         MiMeterCodeEditorComponent,
         MsiMeterCodeEditorComponent,
-        MsiSwitchCodeEditorComponent
+        MsiSwitchCodeEditorComponent,
+        DictClassifyValueEditorComponent
     ],
 
   providers: [

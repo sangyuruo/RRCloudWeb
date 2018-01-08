@@ -7,6 +7,7 @@ import {CompanyCodeEditorComponent} from "./company-code-editor.component";
 import {OrganizationCodeEditorComponent} from "./organization-code-editor.component";
 import {ComPointCodeEditorComponent} from "./com-point-code-editor.component";
 import {AddressCodeEditorComponent} from "./address-code-editor.component";
+import {MeterTypeEditorComponent} from "./meter-type-editor.component";
 declare let $:any;
 declare let Qrcode:any;
 
@@ -55,38 +56,46 @@ export class MeterInfoComponent {
             addressCode: {
                 title: '地址编码',
                 type: 'html',
-                editor:{
-                    type:'custom',
-                    component: AddressCodeEditorComponent,
-                }
+                /* editor:{
+                     type:'custom',
+                     component: AddressCodeEditorComponent,
+                 }*/
             },
             organizationCode: {
                 title: '组织编码',
                 type: 'html',
-                editor:{
+                /*editor:{
                     type:'custom',
                     component: OrganizationCodeEditorComponent,
-                }
+                }*/
             },
             companyCode: {
                 title: '公司编码',
                 type: 'html',
-                editor:{
-                    type:'custom',
-                    component: CompanyCodeEditorComponent,
-                }
+                /* editor:{
+                     type:'custom',
+                     component: CompanyCodeEditorComponent,
+                 }*/
             },
             comPointCode: {
                 title: '串口编码',
                 type: 'html',
-                editor:{
-                    type:'custom',
-                    component: ComPointCodeEditorComponent,
-                }
+                /*  editor:{
+                      type:'custom',
+                      component: ComPointCodeEditorComponent,
+                  }*/
+            },
+            meterTypeCode: {
+                title: '设备分类代码',
+                type: 'Integer',
             },
             meterType: {
                 title: '设备类型',
-                type: 'String',
+                type: 'html',
+                editor:{
+                    type:'custom',
+                    component: MeterTypeEditorComponent,
+                }
             },
             startOffset: {
                 title: '起始偏移',
