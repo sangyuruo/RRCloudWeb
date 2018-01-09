@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
 import {Http} from "@angular/http";
 import {JhiDateUtils, JhiEventManager} from "ng-jhipster";
 import {ArcService} from "../arc.service";
 import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
-
 @Component({
     selector: 'ngx-smart-table',
     templateUrl: './alarm-rule.component.html',

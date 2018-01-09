@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
-
 import { NfsService } from '../nfs.service';
 import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
-import * as http from "http";
 import {Http} from "@angular/http";
 import {JhiDateUtils} from "ng-jhipster";
 
@@ -123,10 +120,7 @@ export class MessageTemplateComponent {
     constructor(private service: NfsService,
                 private http:Http,
                 private dateUtils: JhiDateUtils    ) {
-        /* const data = this.service.getData();
-         this.source.load(data);*/
-        //this.service.getMessageTemplate().subscribe(data => (this.source.load(data)))
-        this.source = new ServerDataSource(http, {endPoint: '/emcloudloc/api/addresses'},
+        this.source = new ServerDataSource(http, {endPoint: '/emcloudnfs/api/message-templates'},
             dateUtils);
     }
 
