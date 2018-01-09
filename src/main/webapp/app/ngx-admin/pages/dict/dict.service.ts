@@ -41,7 +41,6 @@ export class DictService {
     {
         return this.http.get('/emclouddict/api/dictionary-classifies?size=2000')
             .map(res => res.json())
-
     }
 
     deleteDictionary(id: number):Observable<Response>
