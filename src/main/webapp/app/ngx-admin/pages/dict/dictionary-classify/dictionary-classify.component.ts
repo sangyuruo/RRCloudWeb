@@ -96,7 +96,7 @@ export class DictionaryClassifyComponent {
                 private http: Http,
                 private dateUtils: JhiDateUtils) {
         //this.service.getDataDictionaryClassify().subscribe(data =>(this.source.load(data)));
-        this.source = new ServerDataSource(http, {endPoint: '/emclouddict/api/dictionaryclassifies'},
+        this.source = new ServerDataSource(http, {endPoint: '/emclouddict/api/dictionary-classifies'},
             dateUtils);
     }
     onDeleteConfirm(event): void {
