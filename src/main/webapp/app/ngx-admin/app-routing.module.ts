@@ -52,7 +52,7 @@ const routes: Routes = [
         ],
     },*/
   {
-    path: '',
+    path: 'auth',
     component: NbAuthComponent,
     children: [
       {

@@ -3,8 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NbMenuService, NbSidebarService} from '@nebular/theme';
 import { UserService } from '../../../@core/data/users.service';
 import { AnalyticsService } from '../../../@core/utils/analytics.service';
-import {NbAuthService} from "../../../@nebular/auth/services/auth.service";
-import {NbAuthJWTToken} from "../../../@nebular/auth/services/token.service";
+
 
 @Component({
   selector: 'ngx-header',
@@ -20,32 +19,20 @@ export class HeaderComponent implements OnInit {
   user: any;
 
   userMenu = [
-      { title: '登录', link: '/login' },
-      { title: '注册', link: '/register' },
+      { title: '登录', link: '/auth/login' },
+      { title: '注册', link: '/auth/register' },
 
-      { title: '设置',link: '/setting' },
-      { title: '密码',link: '/reset' },
-      { title: '退出',link: '/logout' }
+      { title: '设置',link: '/auth/setting' },
+      { title: '密码',link: '/auth/reset' },
+      { title: '退出',link: '/auth/logout' }
   ];
 
 constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,
               private userService: UserService,
               private analyticsService: AnalyticsService,
-
-              //添加
-              private authService: NbAuthService,
   ) {
 
-      //添加
-      this.authService.onTokenChange()
-          .subscribe((token: NbAuthJWTToken) => {
-
-              if (token.getValue()) {
-                  this.user = token.getPayload(); // here we receive a payload from the token and assigne it to our `user` variable
-              }
-
-          });
   }
 
 
