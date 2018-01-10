@@ -16,10 +16,7 @@ import { CoreModule } from './@core/core.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ThemeModule } from './@theme/theme.module';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-
-
+import {NgbActiveModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import {JhiDateUtils} from "ng-jhipster";
 import {NbAuthModule} from "./@nebular/auth/auth.module";
@@ -29,13 +26,16 @@ import {AuthGuard} from "./auth-guard.service";
 import {NB_AUTH_TOKEN_WRAPPER_TOKEN} from "./@nebular/auth/auth.options";
 import {NbAuthJWTToken} from "./@nebular/auth/services/token.service";
 import {ApiService} from "./app.service";
+import {EmCloudWebSharedModule} from "../shared/shared.module";
+import {SessionStorageService} from "ng2-webstorage";
+import {EmCloudWebAccountModule} from "../account/account.module";
 //添加
-const formSetting: any = {
+/*const formSetting: any = {
     redirectDelay: 1500,
     showMessages: {
         success: true,
     },
-};
+};*/
 
 @NgModule({
   declarations: [AppComponent],
@@ -49,8 +49,10 @@ const formSetting: any = {
     ThemeModule.forRoot(),
     CoreModule.forRoot(),
 
-      //添加
-      NbAuthModule.forRoot({
+      //添加jhipster权限认证
+      EmCloudWebSharedModule,
+      EmCloudWebAccountModule,
+      NbAuthModule.forRoot(/*{
           providers: {
               email: {
                   service: NbEmailPassAuthProvider,
@@ -124,7 +126,7 @@ const formSetting: any = {
                   redirectDelay: 1500,
               },
           },
-      }),
+      }*/),
   ],
   bootstrap: [AppComponent],
   providers: [
@@ -137,9 +139,9 @@ const formSetting: any = {
       AuthGuard,
       //添加
       { provide: NB_AUTH_TOKEN_WRAPPER_TOKEN, useClass: NbAuthJWTToken },
-/*
-      { provide: HTTP_INTERCEPTORS, useClass: NbAuthJWTInterceptor, multi: true },
-*/
+      //jhipster权限认证
+      SessionStorageService,
+      NgbActiveModal,
   ],
 })
 export class EmCloudWebNgxAppModule {

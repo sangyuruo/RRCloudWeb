@@ -19,6 +19,7 @@ export class ActivateComponent implements OnInit {
         private loginModalService: LoginModalService,
         private route: ActivatedRoute
     ) {
+
     }
 
     ngOnInit() {

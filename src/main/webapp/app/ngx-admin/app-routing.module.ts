@@ -9,46 +9,76 @@ import {
   NbResetPasswordComponent,
 } from './@nebular/auth';
 import {AuthGuard} from "./auth-guard.service";
+import {JhiLoginModalComponent} from "../shared/login/login.component";
+import {RegisterComponent} from "../account/register/register.component";
+import {SettingsComponent} from "../account/settings/settings.component";
+import {PasswordComponent} from "../account/password/password.component";
 
 const routes: Routes = [
   {
     path: 'pages',
-     canActivate: [AuthGuard],
+     /*canActivate: [AuthGuard],*/
     loadChildren: () => new Promise(resolve => {(require as any).ensure([],
             require => {resolve(require('./pages/pages.module').PagesModule); }) })
   },
+    /*{
+        path: 'auth',
+        component: NbAuthComponent,
+        children: [
+            {
+                path: '',
+                component: NbLoginComponent,
+            },
+            {
+                path: 'login',
+                component: NbLoginComponent,
+            },
+            {
+                path: 'register',
+                component: NbRegisterComponent,
+            },
+            {
+                path: 'logout',
+                component: NbLogoutComponent,
+            },
+            {
+                path: 'request-password',
+                component: NbRequestPasswordComponent,
+            },
+            {
+                path: 'reset-password',
+                component: NbResetPasswordComponent,
+            },
+        ],
+    },*/
   {
     path: 'auth',
     component: NbAuthComponent,
     children: [
       {
         path: '',
-        component: NbLoginComponent,
+        component: JhiLoginModalComponent,
       },
       {
         path: 'login',
-        component: NbLoginComponent,
+        component: JhiLoginModalComponent,
       },
       {
         path: 'register',
-        component: NbRegisterComponent,
+        component: RegisterComponent,
       },
       {
-        path: 'logout',
-        component: NbLogoutComponent,
+        path: 'reset',
+        component: PasswordComponent,
       },
       {
-        path: 'request-password',
-        component: NbRequestPasswordComponent,
-      },
-      {
-        path: 'reset-password',
-        component: NbResetPasswordComponent,
+        path: 'setting',
+        component: SettingsComponent,
       },
     ],
   },
-    { path: '', redirectTo: 'auth/login', pathMatch: 'full' },//浏览器页面加载后跳转到登入页面
-    { path: '**', redirectTo: 'auth/login' },
+    { path: '', redirectTo: 'pages', pathMatch: 'full' },//浏览器页面加载后跳转到登入页面
+    { path: '**', redirectTo: 'pages' },
 ];
 
 const config: ExtraOptions = {

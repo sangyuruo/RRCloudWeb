@@ -68,6 +68,7 @@ export class JhiLoginModalComponent implements AfterViewInit {
                 this.stateStorageService.storeUrl(null);
                 this.router.navigate([redirect]);
             }
+            this.router.navigate(['/pages']);
         }).catch(() => {
             this.authenticationError = true;
         });
@@ -80,6 +81,6 @@ export class JhiLoginModalComponent implements AfterViewInit {
 
     requestResetPassword() {
         this.activeModal.dismiss('to state requestReset');
-        this.router.navigate(['/reset', 'request']);
+        this.router.navigate(['/reset']);
     }
 }

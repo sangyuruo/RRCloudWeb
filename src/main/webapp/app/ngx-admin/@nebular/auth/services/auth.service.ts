@@ -193,13 +193,14 @@ export class NbAuthService {
   logout(provider: string): Observable<NbAuthResult> {
     return this.getProvider(provider).logout()
       .do((result: NbAuthResult) => {
-        if (result.getResponse().status === 200) {
+        if (result.isSuccess()) {//getResponse().status === 200
           // this.tokenService.clear().subscribe(() => { });
-
             result.replaceToken(null);
             this.tokenService.set(null);
-        }
-
+        }/*else {
+            result.replaceToken(null);
+            this.tokenService.set(null);
+        }*/
       });
   }
 
