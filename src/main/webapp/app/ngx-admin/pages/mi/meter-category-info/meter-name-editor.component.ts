@@ -7,9 +7,7 @@ import {Http} from "@angular/http";
         <select class="form-control" [(ngModel)]="sure" (ngModelChange)="setInfo()" #name [name]="cell.getId()">
         <option *ngFor="let meterInfo of meterInfos" [value]="meterInfo.meterName">{{meterInfo.meterName}}</option>
         </select>
-     
   `,
-
 })
 export class MeterNameEditorComponent extends DefaultEditor implements AfterViewInit {
 
@@ -21,7 +19,8 @@ export class MeterNameEditorComponent extends DefaultEditor implements AfterView
     constructor(private http: Http) {
         super();
         this.http.get('/emcloudmi/api/meter-infos?size=2000').map( res => res.json()).subscribe(
-            data =>{this.meterInfos = data;
+            data =>{
+                this.meterInfos = data;
                 this.sure=this.cell.newValue
             }
         )

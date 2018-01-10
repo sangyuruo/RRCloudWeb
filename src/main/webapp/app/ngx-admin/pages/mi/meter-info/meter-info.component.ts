@@ -56,34 +56,34 @@ export class MeterInfoComponent {
             addressCode: {
                 title: '地址编码',
                 type: 'html',
-                /* editor:{
+                 editor:{
                      type:'custom',
                      component: AddressCodeEditorComponent,
-                 }*/
+                 }
             },
             organizationCode: {
                 title: '组织编码',
                 type: 'html',
-                /*editor:{
+                editor:{
                     type:'custom',
                     component: OrganizationCodeEditorComponent,
-                }*/
+                }
             },
             companyCode: {
                 title: '公司编码',
                 type: 'html',
-                /* editor:{
+                 editor:{
                      type:'custom',
                      component: CompanyCodeEditorComponent,
-                 }*/
+                 }
             },
             comPointCode: {
                 title: '串口编码',
                 type: 'html',
-                /*  editor:{
+                  editor:{
                       type:'custom',
                       component: ComPointCodeEditorComponent,
-                  }*/
+                  }
             },
             meterTypeCode: {
                 title: '设备分类代码',
