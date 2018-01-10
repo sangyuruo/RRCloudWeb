@@ -7,7 +7,6 @@ import {CompanyCodeEditorComponent} from "./meter-info/company-code-editor.compo
 import {OrganizationCodeEditorComponent} from "./meter-info/organization-code-editor.component"
 import {ComPointCodeEditorComponent} from "./meter-info/com-point-code-editor.component";
 import {AddressCodeEditorComponent} from "./meter-info/address-code-editor.component";
-import {MeterNameEditorComponent} from "./meter-category-info/meter-name-editor.component";
 import {MeterTypeEditorComponent} from "./meter-info/meter-type-editor.component";
 import {MiMeterCodeEditorComponent} from "./meter-status/meter-code-editor.component";
 import {MsiMeterCodeEditorComponent} from "./multiway-switch/meter-code-editor.component";
@@ -26,7 +25,6 @@ import {DictClassifyValueEditorComponent} from "./meter-category-info/dict-class
       OrganizationCodeEditorComponent,
       ComPointCodeEditorComponent,
       AddressCodeEditorComponent,
-      MeterNameEditorComponent,
       MeterTypeEditorComponent,
       MiMeterCodeEditorComponent,
       MsiMeterCodeEditorComponent,
@@ -38,7 +36,6 @@ import {DictClassifyValueEditorComponent} from "./meter-category-info/dict-class
         OrganizationCodeEditorComponent,
         ComPointCodeEditorComponent,
         AddressCodeEditorComponent,
-        MeterNameEditorComponent,
         MeterTypeEditorComponent,
         MiMeterCodeEditorComponent,
         MsiMeterCodeEditorComponent,

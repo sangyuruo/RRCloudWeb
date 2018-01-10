@@ -55,6 +55,10 @@ export class AddressComponent {
                 type: 'string',
             },
             areaCode: {
+                title: '地区代码',
+                type: 'string',
+            },
+            areaName: {
                 title: '地区名称',
                 type: 'html',
                 editor:{

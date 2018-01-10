@@ -20,7 +20,7 @@ export class AreaNameEditorComponent extends DefaultEditor implements AfterViewI
     sure ;
     constructor(private http: Http) {
         super();
-        this.http.get('/emcloudloc/api/areas').map( res => res.json()).subscribe(
+        this.http.get('/emcloudloc/api/areas?size=2000').map( res => res.json()).subscribe(
             data =>{this.addresses = data;
                 this.sure=this.cell.newValue
             }

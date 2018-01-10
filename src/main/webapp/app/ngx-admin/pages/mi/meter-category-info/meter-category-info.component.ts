@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
-import {LocalDataSource,} from 'ng2-smart-table';
 
 import {Http} from "@angular/http";
-import {JhiDateUtils, JhiEventManager} from "ng-jhipster";
+import {JhiDateUtils} from "ng-jhipster";
 import {MiService} from "../mi.service";
 import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
-import {MeterNameEditorComponent} from "./meter-name-editor.component";
-import {MeterTypeEditorComponent} from "../meter-info/meter-type-editor.component";
 import {DictClassifyValueEditorComponent} from "./dict-classify-value-editor.component";
 
 @Component({
@@ -87,7 +84,16 @@ export class MeterCategoryInfoComponent {
              },*/
             enable: {
                 title: '是否有效',
-                type: 'Boolean',
+                editor: {
+                    type: 'list',
+                    config: {
+                        selectText: 'Select...',
+                        list: [
+                            {value: true, title: 'true'},
+                            {value: false, title: 'false'}
+                        ]
+                    }
+                },
             },
         },
     };
