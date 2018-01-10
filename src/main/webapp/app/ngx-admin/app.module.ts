@@ -52,7 +52,6 @@ import {EmCloudWebAccountModule} from "../account/account.module";
       //添加jhipster权限认证
       EmCloudWebSharedModule,
       EmCloudWebAccountModule,
-
       NbAuthModule.forRoot(/*{
           providers: {
               email: {
