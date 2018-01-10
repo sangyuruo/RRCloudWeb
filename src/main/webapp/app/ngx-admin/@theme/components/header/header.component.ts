@@ -24,11 +24,11 @@ export class HeaderComponent implements OnInit {
   user: any;
 
   userMenu = [
-      { title: '登录', link: '/auth/login'},
-      { title: '注册', link: '/auth/register' },
+      { title: '登录', link: '/login'},
+      { title: '注册', link: '/register' },
 
-      { title: '设置',link: '/auth/setting' },
-      { title: '密码',link: '/auth/reset' },
+      { title: '设置',link: '/setting' },
+      { title: '密码',link: '/reset' },
       { title: '退出' }
   ];
 
@@ -49,7 +49,7 @@ constructor(private sidebarService: NbSidebarService,
 
   ngOnInit() {
     this.userService.getUsers()
-      .subscribe((users: any) => this.user = users.nick);
+      .subscribe((users: any) => this.user = users.游坦之);
   }
 
   toggleSidebar(): boolean {
@@ -70,7 +70,7 @@ constructor(private sidebarService: NbSidebarService,
     this.analyticsService.trackEvent('startSearch');
   }
 
-  //添加登录弹出窗口
+    //添加登录弹出窗口
     /*openLogin() {
         this.modalRef = this.loginModalService.open();
     }*/
