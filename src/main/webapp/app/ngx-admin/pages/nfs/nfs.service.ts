@@ -12,7 +12,7 @@ export class NfsService {
     }
 
     getMessageTemplate() {
-        return this.http.get('/emcloudnfs/api/message-templates?size=2000')
+        return this.http.get('/emcloudnfs/api/message-templates')
             .map(res => res.json())
     }
 

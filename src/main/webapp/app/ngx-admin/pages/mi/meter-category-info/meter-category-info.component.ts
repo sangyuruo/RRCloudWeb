@@ -6,7 +6,8 @@ import {JhiDateUtils, JhiEventManager} from "ng-jhipster";
 import {MiService} from "../mi.service";
 import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
 import {MeterNameEditorComponent} from "./meter-name-editor.component";
-import {MeterTypeEditorComponent} from "./meter-type-editor.component";
+import {MeterTypeEditorComponent} from "../meter-info/meter-type-editor.component";
+import {DictClassifyValueEditorComponent} from "./dict-classify-value-editor.component";
 
 @Component({
     selector: 'ngx-smart-table',
@@ -37,21 +38,28 @@ export class MeterCategoryInfoComponent {
             confirmDelete: true,
         },
         columns: {
-            meterName: {
-                title: '设备名称',
-                type: 'html',
-                editor:{
-                    type:'custom',
-                    component: MeterNameEditorComponent,
-                }
+            meterTypeCode: {
+                title: '设备分类代码',
+                type: 'Integer',
             },
             meterType: {
-                title: '设备类型',
+                title: '设备分类',
                 type: 'html',
+            },
+            dictCode: {
+                title: '设备大类代码',
+
+            },
+            dictName: {
+                title: '设备大类名称',
                 editor:{
                     type:'custom',
-                    component: MeterTypeEditorComponent,
+                    component: DictClassifyValueEditorComponent,
                 }
+            },
+            functionCode: {
+                title: '功能码',
+                type: 'Integer',
             },
             meterFactory: {
                 title: '设备生产厂家',
@@ -73,9 +81,13 @@ export class MeterCategoryInfoComponent {
                 title: '控制地址',
                 type: 'Integer',
             },
-            createTime: {
-                title: 'create Time',
-                type: 'number',
+            /* createTime: {
+                 title: 'create Time',
+                 type: 'number',
+             },*/
+            enable: {
+                title: '是否有效',
+                type: 'Boolean',
             },
         },
     };

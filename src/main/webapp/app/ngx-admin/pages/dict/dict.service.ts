@@ -22,13 +22,13 @@ export class DictService {
     }
     createDictionaryClassify(data)
     {
-       return this.http.post('/emclouddict/api/dictionaryclassifies',data)
+       return this.http.post('/emclouddict/api/dictionary-classifies',data)
             .map(res => res.json())
     }
 
     updateDictionaryClassify(data):Observable<Response>
     {
-        return this.http.put('/emclouddict/api/dictionaryclassifies',data)
+        return this.http.put('/emclouddict/api/dictionary-classifies',data)
             .map(res => res.json())
     }
 
@@ -39,9 +39,8 @@ export class DictService {
     }
     getDataDictionaryClassify()
     {
-        return this.http.get('/emclouddict/api/dictionaryclassifies?size=2000')
+        return this.http.get('/emclouddict/api/dictionary-classifies?size=2000')
             .map(res => res.json())
-
     }
 
     deleteDictionary(id: number):Observable<Response>
@@ -50,7 +49,7 @@ export class DictService {
     }
     deleteDictionaryClassify(id: number):Observable<Response>
     {
-        return this.http.delete(`${'/emclouddict/api/dictionaryclassifies'}/${id}`);
+        return this.http.delete(`${'/emclouddict/api/dictionary-classifies'}/${id}`);
     }
 
 }
