@@ -35,6 +35,7 @@ import {
 } from './layouts';
 import { DEFAULT_THEME } from './styles/theme.default';
 import { COSMIC_THEME } from './styles/theme.cosmic';
+import {HomeComponent} from "./components/home/home.component";
 
 const BASE_MODULES = [CommonModule, FormsModule, ReactiveFormsModule];
 
@@ -64,6 +65,10 @@ const COMPONENTS = [
   SampleLayoutComponent,
   ThreeColumnsLayoutComponent,
   TwoColumnsLayoutComponent,
+
+    //增加首页
+    HomeComponent,
+
 
 ];
 

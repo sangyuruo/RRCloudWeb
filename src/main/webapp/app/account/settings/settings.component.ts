@@ -50,13 +50,13 @@ export class SettingsComponent implements OnInit {
 
     copyAccount(account) {
         return {
-            /*activated: account.activated,
+            activated: account.activated,
             email: account.email,
             firstName: account.firstName,
             langKey: account.langKey,
             lastName: account.lastName,
             login: account.login,
-            imageUrl: account.imageUrl*/
+            imageUrl: account.imageUrl
         };
     }
 }

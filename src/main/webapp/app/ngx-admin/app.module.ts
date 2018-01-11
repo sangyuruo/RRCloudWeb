@@ -21,7 +21,6 @@ import {NgbActiveModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {JhiDateUtils} from "ng-jhipster";
 import {NbAuthModule} from "./@nebular/auth/auth.module";
 import {NbEmailPassAuthProvider} from "./@nebular/auth/providers/email-pass-auth.provider";
-import {AuthGuard} from "./auth-guard.service";
 
 import {NB_AUTH_TOKEN_WRAPPER_TOKEN} from "./@nebular/auth/auth.options";
 import {NbAuthJWTToken} from "./@nebular/auth/services/token.service";
@@ -29,6 +28,8 @@ import {ApiService} from "./app.service";
 import {EmCloudWebSharedModule} from "../shared/shared.module";
 import {SessionStorageService} from "ng2-webstorage";
 import {EmCloudWebAccountModule} from "../account/account.module";
+import {EmCloudWebHomeModule} from "../home/home.module";
+import {UserRouteAccessService} from "../shared/auth/user-route-access-service";
 //添加
 /*const formSetting: any = {
     redirectDelay: 1500,
@@ -52,6 +53,9 @@ import {EmCloudWebAccountModule} from "../account/account.module";
       //添加jhipster权限认证
       EmCloudWebSharedModule,
       EmCloudWebAccountModule,
+      //增加jhipster首页
+      EmCloudWebHomeModule,
+
       NbAuthModule.forRoot(/*{
           providers: {
               email: {
@@ -136,12 +140,14 @@ import {EmCloudWebAccountModule} from "../account/account.module";
       //添加日期服务
       JhiDateUtils,
       //添加保护路由
-      AuthGuard,
+      /*AuthGuard,*/
+      UserRouteAccessService,
       //添加
       { provide: NB_AUTH_TOKEN_WRAPPER_TOKEN, useClass: NbAuthJWTToken },
       //jhipster权限认证
       SessionStorageService,
       NgbActiveModal,
+
   ],
 })
 export class EmCloudWebNgxAppModule {

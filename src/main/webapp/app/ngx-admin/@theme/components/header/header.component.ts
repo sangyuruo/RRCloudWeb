@@ -3,9 +3,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NbMenuService, NbSidebarService} from '@nebular/theme';
 import { UserService } from '../../../@core/data/users.service';
 import { AnalyticsService } from '../../../@core/utils/analytics.service';
-import {NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
-import {LoginModalService} from "../../../../shared/login/login-modal.service";
 import {LoginService} from "../../../../shared/login/login.service";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -15,20 +14,13 @@ import {LoginService} from "../../../../shared/login/login.service";
 })
 export class HeaderComponent implements OnInit {
 
-    //添加登录弹出窗口
-    modalRef: NgbModalRef;
-
-
   @Input() position = 'normal';
 
   user: any;
 
   userMenu = [
-      { title: '登录', link: '/login'},
-      { title: '注册', link: '/register' },
-
       { title: '设置',link: '/setting' },
-      { title: '密码',link: '/reset' },
+      { title: '密码',link: '/password' },
       { title: '退出' }
   ];
 
@@ -37,11 +29,10 @@ constructor(private sidebarService: NbSidebarService,
               private userService: UserService,
               private analyticsService: AnalyticsService,
 
-            //添加登录弹出窗口
-            private loginModalService: LoginModalService,
+            //jhipster注销功能
             private loginService: LoginService,
-
-) {
+            private router: Router,
+            ) {
 
   }
 
@@ -49,7 +40,7 @@ constructor(private sidebarService: NbSidebarService,
 
   ngOnInit() {
     this.userService.getUsers()
-      .subscribe((users: any) => this.user = users.游坦之);
+      .subscribe((users: any) => this.user = users.nick);
   }
 
   toggleSidebar(): boolean {
@@ -70,14 +61,13 @@ constructor(private sidebarService: NbSidebarService,
     this.analyticsService.trackEvent('startSearch');
   }
 
-    //添加登录弹出窗口
-    /*openLogin() {
-        this.modalRef = this.loginModalService.open();
-    }*/
-
+    //jhipster注销功能
     logout() {
         this.loginService.logout();
+        this.router.navigate(['']);
     }
+
+
 
 
 }

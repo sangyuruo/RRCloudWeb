@@ -17,7 +17,7 @@ export class PasswordComponent implements OnInit {
 
     constructor(
         private passwordService: PasswordService,
-        private principal: Principal
+        private principal: Principal,
     ) {
     }
 
@@ -43,4 +43,5 @@ export class PasswordComponent implements OnInit {
             });
         }
     }
+
 }
