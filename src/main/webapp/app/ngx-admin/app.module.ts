@@ -42,6 +42,7 @@ import {UserRouteAccessService} from "../shared/auth/user-route-access-service";
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+
     BrowserAnimationsModule,
     HttpModule,
     AppRoutingModule,

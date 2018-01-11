@@ -8,6 +8,7 @@ import {OrganizationCodeEditorComponent} from "./organization-code-editor.compon
 import {ComPointCodeEditorComponent} from "./com-point-code-editor.component";
 import {AddressCodeEditorComponent} from "./address-code-editor.component";
 import {MeterTypeEditorComponent} from "./meter-type-editor.component";
+import {HttpClient, HttpParams} from "@angular/common/http";
 declare let $:any;
 declare let Qrcode:any;
 
@@ -56,10 +57,10 @@ export class MeterInfoComponent {
             addressCode: {
                 title: '地址编码',
                 type: 'html',
-                 editor:{
-                     type:'custom',
-                     component: AddressCodeEditorComponent,
-                 }
+                editor:{
+                    type:'custom',
+                    component: AddressCodeEditorComponent,
+                }
             },
             organizationCode: {
                 title: '组织编码',
@@ -72,18 +73,18 @@ export class MeterInfoComponent {
             companyCode: {
                 title: '公司编码',
                 type: 'html',
-                 editor:{
-                     type:'custom',
-                     component: CompanyCodeEditorComponent,
-                 }
+                editor:{
+                    type:'custom',
+                    component: CompanyCodeEditorComponent,
+                }
             },
             comPointCode: {
                 title: '串口编码',
                 type: 'html',
-                  editor:{
-                      type:'custom',
-                      component: ComPointCodeEditorComponent,
-                  }
+                editor:{
+                    type:'custom',
+                    component: ComPointCodeEditorComponent,
+                }
             },
             meterTypeCode: {
                 title: '设备分类代码',
@@ -118,6 +119,7 @@ export class MeterInfoComponent {
 
     constructor(private service: MiService,
                 private http:Http,
+                private http1:HttpClient,
                 private dateUtils: JhiDateUtils
     ) {
         // this.service.getDataMeterInfo().subscribe(data => (this.source.load(data)))
@@ -141,21 +143,39 @@ export class MeterInfoComponent {
 
     onUpdateConfirm(event) {
         if (window.confirm('Are you sure you want to update?')) {
+            /* const params= new HttpParams().set('meterType',event.newData.meterType);
+             this.http1.get('/emcloudmi/api/meter-category-infos/by-meter-type',{params})
+                 .subscribe(data=>{event.newData.meterTypeCode=data[0].meterTypeCode;
+                     event.newData.startOffset=data[0].startOffset;
+                     event.newData.numberOfRegisters=data[0].numberOfRegisters;
+                     event.newData.controlAddress=data[0].controlAddress;*/
             this.service.updateMeterInfo(event.newData).subscribe((response) => {
                 this.service.getDataMeterInfo().subscribe(data => (this.source.load(data)))
                 event.confirm.resolve(response)
                 console.log(response)
             });
+            /* });*/
         } else {
             event.confirm.reject();
         }
     }
     onCreateConfirm(event) {
         if (window.confirm('Are you sure you want to create?')) {
+            /* const params= new HttpParams().set('meterType',event.newData.meterType);
+             this.http1.get('/emcloudmi/api/meter-category-infos/by-meter-type',{params})
+                 .subscribe(data=>{event.newData.meterTypeCode=data[0].meterTypeCode;
+                     event.newData.startOffset=data[0].startOffset;
+                     event.newData.numberOfRegisters=data[0].numberOfRegisters;
+                     event.newData.controlAddress=data[0].controlAddress;*/
             this.service.createMeterInfo(event.newData).subscribe((response) => {
                 event.confirm.resolve(response)
                 console.log(response)
             });
+            /*  });*/
+            /*this.service.createMeterInfo(event.newData).subscribe((response) => {
+                event.confirm.resolve(response)
+                console.log(response)
+            });*/
         } else {
             event.confirm.reject();
         }
