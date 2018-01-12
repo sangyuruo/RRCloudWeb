@@ -124,7 +124,7 @@ export class MeterCategoryInfoComponent {
 
     onUpdateConfirm(event) {
         if (window.confirm('Are you sure you want to update?')) {
-              const params= new HttpParams().set('dictClassifyValue',event.newData.dictName);
+           /*   const params= new HttpParams().set('dictClassifyValue',event.newData.dictName);
               this.http1.get('emclouddict/api/dictionary-classifies/by-dict-classify-value',{params})
                   .subscribe(data=>{event.newData.dictCode=data[0].dictClassifyCode;
             this.service.updateMeterCategoryInfo(event.newData).subscribe((response) => {
@@ -132,7 +132,7 @@ export class MeterCategoryInfoComponent {
                 event.confirm.resolve(response)
                 console.log(response)
             });
-              });
+              });*/
 
 
             /* if(event.newData.dictName === "水表"){
@@ -142,11 +142,11 @@ export class MeterCategoryInfoComponent {
              }else{
                  event.newData.dictCode = 3
              }*/
-            /* this.service.updateMeterCategoryInfo(event.newData).subscribe((response) => {
+             this.service.updateMeterCategoryInfo(event.newData).subscribe((response) => {
                  this.service.getDataMeterCategoryInfo().subscribe(data => (this.source.load(data)))
                  event.confirm.resolve(response)
                  console.log(response)
-             });*/
+             });
         } else {
             event.confirm.reject();
         }
@@ -154,15 +154,15 @@ export class MeterCategoryInfoComponent {
     onCreateConfirm(event) {
         if (window.confirm('Are you sure you want to create?')) {
 
-            const params= new HttpParams().set('dictClassifyValue',event.newData.dictName);
+          /*  const params= new HttpParams().set('dictClassifyValue',event.newData.dictName);
             this.http1.get('emclouddict/api/dictionary-classifies/by-dict-classify-value',{params})
-                .subscribe(data=>{event.newData.dictCode=data[0].dictClassifyCode;
+                .subscribe(data=>{event.newData.dictCode=data[0].dictClassifyCode;*/
 
                     this.service.createMeterCategoryInfo(event.newData).subscribe((response) => {
                         event.confirm.resolve(response)
                         console.log(response)
                     });
-                });
+          /*      });*/
             /*
                         this.service.createMeterCategoryInfo(event.newData).subscribe((response) => {
                             event.confirm.resolve(response)
