@@ -291,4 +291,16 @@ export const MENU_ITEMS: NbMenuItem[] = [
         ],
     },
 
+    {
+        title: 'company',
+        icon: 'nb-tables',
+        children: [
+            {
+                title: '公司',
+                link: '/pages/company',
+            },
+
+        ],
+    },
+
 ];

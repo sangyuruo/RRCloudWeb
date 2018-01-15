@@ -124,6 +124,13 @@ const routes: Routes = [{
                     resolve(require('./nfs/nfs.module').TablesModule);
                 })
             })
+        }, {
+            path: 'company',
+            loadChildren: () => new Promise(resolve => {
+                (require as any).ensure([], require => {
+                    resolve(require('../../entities/company/company.module').EmCloudWebCompanyModule);
+                })
+            })
         }],
 }];
 

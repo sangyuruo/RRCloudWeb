@@ -25,11 +25,9 @@ import {NbEmailPassAuthProvider} from "./@nebular/auth/providers/email-pass-auth
 import {NB_AUTH_TOKEN_WRAPPER_TOKEN} from "./@nebular/auth/auth.options";
 import {NbAuthJWTToken} from "./@nebular/auth/services/token.service";
 import {ApiService} from "./app.service";
-import {EmCloudWebSharedModule} from "../shared/shared.module";
 import {SessionStorageService} from "ng2-webstorage";
-import {EmCloudWebAccountModule} from "../account/account.module";
-import {EmCloudWebHomeModule} from "../home/home.module";
 import {UserRouteAccessService} from "../shared/auth/user-route-access-service";
+import {EmCloudWebAppModule} from "../app.module";
 //添加
 /*const formSetting: any = {
     redirectDelay: 1500,
@@ -51,11 +49,9 @@ import {UserRouteAccessService} from "../shared/auth/user-route-access-service";
     ThemeModule.forRoot(),
     CoreModule.forRoot(),
 
-      //添加jhipster权限认证
-      EmCloudWebSharedModule,
-      EmCloudWebAccountModule,
+
       //增加jhipster首页
-      EmCloudWebHomeModule,
+      EmCloudWebAppModule,
 
       NbAuthModule.forRoot(/*{
           providers: {

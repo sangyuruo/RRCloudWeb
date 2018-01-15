@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { Response } from '@angular/http';
 
 import { Observable } from 'rxjs/Rx';
@@ -23,7 +23,9 @@ export class CompanyDialogComponent implements OnInit {
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
         private companyService: CompanyService,
-        private eventManager: JhiEventManager
+        private eventManager: JhiEventManager,
+        //强行跳转
+        private router:Router
     ) {
     }
 
@@ -32,6 +34,8 @@ export class CompanyDialogComponent implements OnInit {
     }
 
     clear() {
+        //强行跳转
+        this.router.navigate(['pages/company']);
         this.activeModal.dismiss('cancel');
     }
 
@@ -54,6 +58,8 @@ export class CompanyDialogComponent implements OnInit {
     private onSaveSuccess(result: Company) {
         this.eventManager.broadcast({ name: 'companyListModification', content: 'OK'});
         this.isSaving = false;
+        //强行跳转
+        this.router.navigate(['pages/company']);
         this.activeModal.dismiss(result);
     }
 

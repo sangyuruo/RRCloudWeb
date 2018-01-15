@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
@@ -19,11 +19,15 @@ export class CompanyDeleteDialogComponent {
     constructor(
         private companyService: CompanyService,
         public activeModal: NgbActiveModal,
-        private eventManager: JhiEventManager
+        private eventManager: JhiEventManager,
+        //强行跳转
+        private router:Router
     ) {
     }
 
     clear() {
+        //强行跳转
+        this.router.navigate(['pages/company']);
         this.activeModal.dismiss('cancel');
     }
 
@@ -33,10 +37,13 @@ export class CompanyDeleteDialogComponent {
                 name: 'companyListModification',
                 content: 'Deleted a company'
             });
+                    //强行跳转
+            this.router.navigate(['pages/company']);
             this.activeModal.dismiss(true);
         });
     }
     save(company : Company){
+
         this.companyService.create(company).subscribe((response) =>{
             this.eventManager.broadcast({
                 name:'company',
