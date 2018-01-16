@@ -20,14 +20,10 @@ export class CompanyDeleteDialogComponent {
         private companyService: CompanyService,
         public activeModal: NgbActiveModal,
         private eventManager: JhiEventManager,
-        //强行跳转
-        private router:Router
     ) {
     }
 
     clear() {
-        //强行跳转
-        this.router.navigate(['pages/company']);
         this.activeModal.dismiss('cancel');
     }
 
@@ -37,8 +33,6 @@ export class CompanyDeleteDialogComponent {
                 name: 'companyListModification',
                 content: 'Deleted a company'
             });
-                    //强行跳转
-            this.router.navigate(['pages/company']);
             this.activeModal.dismiss(true);
         });
     }

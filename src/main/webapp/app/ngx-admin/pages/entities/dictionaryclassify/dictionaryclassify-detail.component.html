@@ -1,0 +1,55 @@
+
+<div *ngIf="dictionaryclassify">
+    <h2><span jhiTranslate="emCloudWebApp.dictionaryclassify.detail.title">Dictionaryclassify</span> {{dictionaryclassify.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="emCloudWebApp.dictionaryclassify.dictCode">Dict Code</span></dt>
+        <dd>
+            <span>{{dictionaryclassify.dictCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.dictionaryclassify.dictClassifyCode">Dict Classify Code</span></dt>
+        <dd>
+            <span>{{dictionaryclassify.dictClassifyCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.dictionaryclassify.dictClassifyValue">Dict Classify Value</span></dt>
+        <dd>
+            <span>{{dictionaryclassify.dictClassifyValue}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.dictionaryclassify.parentClassifyCode">Parent Classify Code</span></dt>
+        <dd>
+            <span>{{dictionaryclassify.parentClassifyCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.dictionaryclassify.seqNo">Seq No</span></dt>
+        <dd>
+            <span>{{dictionaryclassify.seqNo}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.dictionaryclassify.enable">Enable</span></dt>
+        <dd>
+            <span>{{dictionaryclassify.enable}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.dictionaryclassify.remark">Remark</span></dt>
+        <dd>
+            <span>{{dictionaryclassify.remark}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.dictionaryclassify.dictionary">Dictionary</span></dt>
+        <dd>
+            <div *ngIf="dictionaryclassify.dictionary">
+                <a [routerLink]="['/dictionary', dictionaryclassify.dictionary?.id]">{{dictionaryclassify.dictionary?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'dictionaryclassify/'+ dictionaryclassify.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

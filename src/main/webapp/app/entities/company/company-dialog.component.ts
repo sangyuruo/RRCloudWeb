@@ -23,9 +23,7 @@ export class CompanyDialogComponent implements OnInit {
         public activeModal: NgbActiveModal,
         private jhiAlertService: JhiAlertService,
         private companyService: CompanyService,
-        private eventManager: JhiEventManager,
-        //强行跳转
-        private router:Router
+        private eventManager: JhiEventManager
     ) {
     }
 
@@ -34,8 +32,6 @@ export class CompanyDialogComponent implements OnInit {
     }
 
     clear() {
-        //强行跳转
-        this.router.navigate(['pages/company']);
         this.activeModal.dismiss('cancel');
     }
 
@@ -58,8 +54,6 @@ export class CompanyDialogComponent implements OnInit {
     private onSaveSuccess(result: Company) {
         this.eventManager.broadcast({ name: 'companyListModification', content: 'OK'});
         this.isSaving = false;
-        //强行跳转
-        this.router.navigate(['pages/company']);
         this.activeModal.dismiss(result);
     }
 

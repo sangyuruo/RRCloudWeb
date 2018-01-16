@@ -26,8 +26,8 @@ import {NB_AUTH_TOKEN_WRAPPER_TOKEN} from "./@nebular/auth/auth.options";
 import {NbAuthJWTToken} from "./@nebular/auth/services/token.service";
 import {ApiService} from "./app.service";
 import {SessionStorageService} from "ng2-webstorage";
-import {UserRouteAccessService} from "../shared/auth/user-route-access-service";
 import {EmCloudWebAppModule} from "../app.module";
+import {UserRouteAccessService} from "./pages/shared/auth/user-route-access-service";
 //添加
 /*const formSetting: any = {
     redirectDelay: 1500,
@@ -138,12 +138,13 @@ import {EmCloudWebAppModule} from "../app.module";
       JhiDateUtils,
       //添加保护路由
       /*AuthGuard,*/
-      UserRouteAccessService,
+
       //添加
       { provide: NB_AUTH_TOKEN_WRAPPER_TOKEN, useClass: NbAuthJWTToken },
       //jhipster权限认证
       SessionStorageService,
       NgbActiveModal,
+      UserRouteAccessService,
 
   ],
 })

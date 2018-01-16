@@ -1,0 +1,83 @@
+<div>
+    <h2>
+        <span jhiTranslate="emCloudWebApp.dictionaryclassify.home.title">Dictionaryclassifies</span>
+        <button class="btn btn-primary float-right jh-create-entity create-dictionaryclassify" [routerLink]="['/', { outlets: { popup: ['dictionaryclassify-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="emCloudWebApp.dictionaryclassify.home.createLabel">
+            Create new Dictionaryclassify
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="dictionaryclassifies">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dictCode"><span jhiTranslate="emCloudWebApp.dictionaryclassify.dictCode">Dict Code</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dictClassifyCode"><span jhiTranslate="emCloudWebApp.dictionaryclassify.dictClassifyCode">Dict Classify Code</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dictClassifyValue"><span jhiTranslate="emCloudWebApp.dictionaryclassify.dictClassifyValue">Dict Classify Value</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="parentClassifyCode"><span jhiTranslate="emCloudWebApp.dictionaryclassify.parentClassifyCode">Parent Classify Code</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="seqNo"><span jhiTranslate="emCloudWebApp.dictionaryclassify.seqNo">Seq No</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="enable"><span jhiTranslate="emCloudWebApp.dictionaryclassify.enable">Enable</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="remark"><span jhiTranslate="emCloudWebApp.dictionaryclassify.remark">Remark</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dictionary.id"><span jhiTranslate="emCloudWebApp.dictionaryclassify.dictionary">Dictionary</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let dictionaryclassify of dictionaryclassifies ;trackBy: trackId">
+                <td><a [routerLink]="['../dictionaryclassify', dictionaryclassify.id ]">{{dictionaryclassify.id}}</a></td>
+                <td>{{dictionaryclassify.dictCode}}</td>
+                <td>{{dictionaryclassify.dictClassifyCode}}</td>
+                <td>{{dictionaryclassify.dictClassifyValue}}</td>
+                <td>{{dictionaryclassify.parentClassifyCode}}</td>
+                <td>{{dictionaryclassify.seqNo}}</td>
+                <td>{{dictionaryclassify.enable}}</td>
+                <td>{{dictionaryclassify.remark}}</td>
+                <td>
+                    <div *ngIf="dictionaryclassify.dictionary">
+                        <a [routerLink]="['../dictionary', dictionaryclassify.dictionary?.id ]" >{{dictionaryclassify.dictionary?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../dictionaryclassify', dictionaryclassify.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'dictionaryclassify/'+ dictionaryclassify.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'dictionaryclassify/'+ dictionaryclassify.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <!-- Pager is not implemented yet, so this is normal pagination instead -->
+        <div *ngIf="dictionaryclassifies && dictionaryclassifies.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [maxSize]="5" [(page)]="page"  (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

@@ -128,7 +128,7 @@ const routes: Routes = [{
             path: 'company',
             loadChildren: () => new Promise(resolve => {
                 (require as any).ensure([], require => {
-                    resolve(require('../../entities/company/company.module').EmCloudWebCompanyModule);
+                    resolve(require('./entities/entity.module').EmCloudWebEntityModule);
                 })
             })
         }],
