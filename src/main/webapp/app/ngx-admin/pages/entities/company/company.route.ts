@@ -27,7 +27,7 @@ export class CompanyResolvePagingParams implements Resolve<any> {
 
 export const companyRoute: Routes = [
     {
-        path: 'company',
+        path: '',
         component: CompanyComponent,
         resolve: {
             'pagingParams': CompanyResolvePagingParams

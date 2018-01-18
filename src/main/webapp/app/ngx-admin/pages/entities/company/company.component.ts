@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
-import { JhiEventManager, JhiParseLinks, JhiAlertService } from 'ng-jhipster';
+import {JhiEventManager, JhiParseLinks, JhiAlertService, JhiLanguageService} from 'ng-jhipster';
 
 import { Company } from './company.model';
 import { CompanyService } from './company.service';
@@ -27,7 +27,8 @@ currentAccount: any;
     predicate: any;
     previousPage: any;
     reverse: any;
-
+    //增加变量
+    companyAccount: any;
     constructor(
         private companyService: CompanyService,
         private parseLinks: JhiParseLinks,
@@ -35,7 +36,8 @@ currentAccount: any;
         private principal: Principal,
         private activatedRoute: ActivatedRoute,
         private router: Router,
-        private eventManager: JhiEventManager
+        private eventManager: JhiEventManager,
+        private languageService: JhiLanguageService,
     ) {
         this.itemsPerPage = ITEMS_PER_PAGE;
         this.routeData = this.activatedRoute.data.subscribe((data) => {
@@ -60,6 +62,12 @@ currentAccount: any;
             this.previousPage = page;
             this.transition();
         }
+        //增加国际化
+        this.languageService.getCurrent().then((current) => {
+            if (this.companyAccount.langKey !== current) {
+                this.languageService.changeLanguage(this.companyAccount.langKey);
+            }
+        });
     }
     transition() {
         this.router.navigate(['/company'], {queryParams:

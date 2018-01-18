@@ -5,6 +5,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { ThemeModule } from '../@theme/theme.module';
 import {JhiEventManager} from "ng-jhipster";
+import {EmCloudWebSharedModule} from '../../shared/shared.module';
 
 
 const PAGES_COMPONENTS = [
@@ -13,6 +14,10 @@ const PAGES_COMPONENTS = [
 
 @NgModule({
   imports: [
+      //新增
+      EmCloudWebSharedModule,
+
+
     PagesRoutingModule,
     ThemeModule,
     DashboardModule,
