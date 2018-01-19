@@ -42,7 +42,7 @@ export class Ng2SmartTableComponent implements OnChanges {
     hideHeader: false,
     hideSubHeader: false,
     actions: {
-      columnTitle: 'Actions',
+      columnTitle: '操作',
       add: true,
       edit: true,
       delete: true,
@@ -74,7 +74,7 @@ export class Ng2SmartTableComponent implements OnChanges {
       id: '',
       class: '',
     },
-    noDataMessage: 'No data found',
+    noDataMessage: '没有数据',
     columns: {},
     pager: {
       display: true,
