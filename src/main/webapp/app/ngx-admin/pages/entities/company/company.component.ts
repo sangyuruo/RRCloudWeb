@@ -64,13 +64,9 @@ currentAccount: any;
             this.previousPage = page;
             this.transition();
         }
-        /*//添加国际化
-        this.languageService.getCurrent().then((current) => {
-
-        });*/
     }
     transition() {
-        this.router.navigate(['/company'], {queryParams:
+        this.router.navigate(['/pages/company'], {queryParams:
             {
                 page: this.page,
                 size: this.itemsPerPage,
@@ -82,7 +78,7 @@ currentAccount: any;
 
     clear() {
         this.page = 0;
-        this.router.navigate(['/company', {
+        this.router.navigate(['/pages/company', {
             page: this.page,
             sort: this.predicate + ',' + (this.reverse ? 'asc' : 'desc')
         }]);

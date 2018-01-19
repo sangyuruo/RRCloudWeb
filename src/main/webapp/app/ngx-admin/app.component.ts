@@ -17,19 +17,12 @@ import {JhiLanguageService} from "ng-jhipster";
 export class AppComponent implements OnInit {
 
   constructor(private analytics: AnalyticsService,
-              private apiService: ApiService,
-              //添加国际化
-              private languageService: JhiLanguageService,
+              private apiService: ApiService
               ) {
   }
 
   ngOnInit(): void {
     this.analytics.trackPageViews();
-
-      //添加国际化
-      this.languageService.getCurrent().then((current) => {
-
-      });
 
       //添加
       this.apiService.initOrganizationesDatas();
