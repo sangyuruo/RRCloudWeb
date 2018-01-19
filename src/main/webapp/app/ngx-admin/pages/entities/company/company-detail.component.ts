@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
-import {JhiEventManager, JhiLanguageService} from 'ng-jhipster';
+import {JhiEventManager} from 'ng-jhipster';
 
 import { Company } from './company.model';
 import { CompanyService } from './company.service';
@@ -19,9 +19,7 @@ export class CompanyDetailComponent implements OnInit, OnDestroy {
     constructor(
         private eventManager: JhiEventManager,
         private companyService: CompanyService,
-        private route: ActivatedRoute,
-        //添加国际化
-        private languageService: JhiLanguageService,
+        private route: ActivatedRoute
     ) {
     }
 
@@ -40,10 +38,6 @@ export class CompanyDetailComponent implements OnInit, OnDestroy {
     }
     previousState() {
         window.history.back();
-        //添加国际化
-        this.languageService.getCurrent().then((current) => {
-
-        });
     }
 
     ngOnDestroy() {

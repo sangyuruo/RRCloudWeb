@@ -64,10 +64,10 @@ currentAccount: any;
             this.previousPage = page;
             this.transition();
         }
-        //添加国际化
+        /*//添加国际化
         this.languageService.getCurrent().then((current) => {
 
-        });
+        });*/
     }
     transition() {
         this.router.navigate(['/company'], {queryParams:
