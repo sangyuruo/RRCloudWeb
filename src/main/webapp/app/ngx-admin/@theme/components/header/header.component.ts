@@ -42,12 +42,9 @@ constructor(private sidebarService: NbSidebarService,
 
 
   ngOnInit() {
-
-
       return this.account.get().toPromise().then((account) => {
           this.user=account;
       }).catch((err) => {
-
           return null;
       });
     // this.userService.getUsers()
