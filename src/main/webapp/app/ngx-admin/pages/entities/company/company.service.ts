@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Rx';
 import { JhiDateUtils } from 'ng-jhipster';
 
 import { Company } from './company.model';
-import { ResponseWrapper, createRequestOption } from '../../shared';
+import { ResponseWrapper, createRequestOption } from '../../../../shared';
 
 @Injectable()
 export class CompanyService {
