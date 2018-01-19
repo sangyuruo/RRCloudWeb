@@ -5,7 +5,7 @@ import { JhiEventManager, JhiParseLinks, JhiAlertService } from 'ng-jhipster';
 
 import { Compointstatus } from './compointstatus.model';
 import { CompointstatusService } from './compointstatus.service';
-import { ITEMS_PER_PAGE, Principal, ResponseWrapper } from '../../shared';
+import { ITEMS_PER_PAGE, Principal, ResponseWrapper } from '../../../../shared';
 
 @Component({
     selector: 'jhi-compointstatus',

@@ -5,7 +5,7 @@ import { JhiEventManager, JhiParseLinks, JhiAlertService } from 'ng-jhipster';
 
 import { MeterRule } from './meter-rule.model';
 import { MeterRuleService } from './meter-rule.service';
-import { ITEMS_PER_PAGE, Principal, ResponseWrapper } from '../../shared';
+import { ITEMS_PER_PAGE, Principal, ResponseWrapper } from '../../../../shared';
 
 @Component({
     selector: 'jhi-meter-rule',

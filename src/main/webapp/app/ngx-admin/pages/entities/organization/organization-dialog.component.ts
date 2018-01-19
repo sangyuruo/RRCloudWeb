@@ -10,7 +10,7 @@ import { Organization } from './organization.model';
 import { OrganizationPopupService } from './organization-popup.service';
 import { OrganizationService } from './organization.service';
 import { Company, CompanyService } from '../company';
-import { ResponseWrapper } from '../../shared';
+import { ResponseWrapper } from '../../../../shared';
 
 @Component({
     selector: 'jhi-organization-dialog',

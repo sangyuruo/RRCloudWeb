@@ -5,7 +5,7 @@ import { JhiEventManager, JhiParseLinks, JhiAlertService } from 'ng-jhipster';
 
 import { RuleAttributes } from './rule-attributes.model';
 import { RuleAttributesService } from './rule-attributes.service';
-import { ITEMS_PER_PAGE, Principal, ResponseWrapper } from '../../shared';
+import { ITEMS_PER_PAGE, Principal, ResponseWrapper } from '../../../../shared';
 
 @Component({
     selector: 'jhi-rule-attributes',

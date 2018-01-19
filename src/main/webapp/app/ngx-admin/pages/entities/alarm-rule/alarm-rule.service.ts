@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Rx';
 import { JhiDateUtils } from 'ng-jhipster';
 
 import { AlarmRule } from './alarm-rule.model';
-import { ResponseWrapper, createRequestOption } from '../../shared';
+import { ResponseWrapper, createRequestOption } from '../../../../shared';
 
 @Injectable()
 export class AlarmRuleService {

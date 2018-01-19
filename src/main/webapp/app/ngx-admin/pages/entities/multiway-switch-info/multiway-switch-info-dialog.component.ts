@@ -10,7 +10,7 @@ import { MultiwaySwitchInfo } from './multiway-switch-info.model';
 import { MultiwaySwitchInfoPopupService } from './multiway-switch-info-popup.service';
 import { MultiwaySwitchInfoService } from './multiway-switch-info.service';
 import { MeterInfo, MeterInfoService } from '../meter-info';
-import { ResponseWrapper } from '../../shared';
+import { ResponseWrapper } from '../../../../shared';
 
 @Component({
     selector: 'jhi-multiway-switch-info-dialog',

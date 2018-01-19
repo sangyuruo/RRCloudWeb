@@ -10,7 +10,7 @@ import { Address } from './address.model';
 import { AddressPopupService } from './address-popup.service';
 import { AddressService } from './address.service';
 import { Area, AreaService } from '../area';
-import { ResponseWrapper } from '../../shared';
+import { ResponseWrapper } from '../../../../shared';
 
 @Component({
     selector: 'jhi-address-dialog',

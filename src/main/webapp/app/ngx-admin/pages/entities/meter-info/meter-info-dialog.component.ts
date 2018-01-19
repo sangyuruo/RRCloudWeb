@@ -10,7 +10,7 @@ import { MeterInfo } from './meter-info.model';
 import { MeterInfoPopupService } from './meter-info-popup.service';
 import { MeterInfoService } from './meter-info.service';
 import { MeterCategoryInfo, MeterCategoryInfoService } from '../meter-category-info';
-import { ResponseWrapper } from '../../shared';
+import { ResponseWrapper } from '../../../../shared';
 
 @Component({
     selector: 'jhi-meter-info-dialog',

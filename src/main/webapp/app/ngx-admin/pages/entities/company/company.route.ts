@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Routes } from '@angular/router';
 
-import { UserRouteAccessService } from '../../shared';
+import { UserRouteAccessService } from '../../../../shared';
 import { JhiPaginationUtil } from 'ng-jhipster';
 
 import { CompanyComponent } from './company.component';
@@ -27,7 +27,7 @@ export class CompanyResolvePagingParams implements Resolve<any> {
 
 export const companyRoute: Routes = [
     {
-        path: 'company',
+        path: '',
         component: CompanyComponent,
         resolve: {
             'pagingParams': CompanyResolvePagingParams

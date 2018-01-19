@@ -10,7 +10,7 @@ import { RuleAttributes } from './rule-attributes.model';
 import { RuleAttributesPopupService } from './rule-attributes-popup.service';
 import { RuleAttributesService } from './rule-attributes.service';
 import { AlarmRule, AlarmRuleService } from '../alarm-rule';
-import { ResponseWrapper } from '../../shared';
+import { ResponseWrapper } from '../../../../shared';
 
 @Component({
     selector: 'jhi-rule-attributes-dialog',

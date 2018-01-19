@@ -1,7 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { EmCloudWebSharedModule } from '../../shared';
+import { EmCloudWebSharedModule } from '../../../../shared';
 import {
     DictionaryService,
     DictionaryPopupService,

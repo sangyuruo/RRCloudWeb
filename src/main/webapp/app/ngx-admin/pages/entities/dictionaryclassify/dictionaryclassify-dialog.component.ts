@@ -10,7 +10,7 @@ import { Dictionaryclassify } from './dictionaryclassify.model';
 import { DictionaryclassifyPopupService } from './dictionaryclassify-popup.service';
 import { DictionaryclassifyService } from './dictionaryclassify.service';
 import { Dictionary, DictionaryService } from '../dictionary';
-import { ResponseWrapper } from '../../shared';
+import { ResponseWrapper } from '../../../../shared';
 
 @Component({
     selector: 'jhi-dictionaryclassify-dialog',

@@ -27,7 +27,7 @@ import {NbAuthJWTToken} from "./@nebular/auth/services/token.service";
 import {ApiService} from "./app.service";
 import {SessionStorageService} from "ng2-webstorage";
 import {EmCloudWebAppModule} from "../app.module";
-import {UserRouteAccessService} from "./pages/shared/auth/user-route-access-service";
+import {UserRouteAccessService} from "../shared/auth/user-route-access-service";
 //添加
 /*const formSetting: any = {
     redirectDelay: 1500,
@@ -145,6 +145,8 @@ import {UserRouteAccessService} from "./pages/shared/auth/user-route-access-serv
       SessionStorageService,
       NgbActiveModal,
       UserRouteAccessService,
+
+
 
   ],
 })

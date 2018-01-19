@@ -26,7 +26,7 @@ import { EmCloudWebResourceModule } from './resource/resource.module';
     imports: [
         EmCloudWebCompanyModule,
 
-        /*EmCloudWebDictionaryModule,
+        EmCloudWebDictionaryModule,
         EmCloudWebDictionaryclassifyModule,
         EmCloudWebCompointModule,
         EmCloudWebCompointstatusModule,
@@ -44,7 +44,7 @@ import { EmCloudWebResourceModule } from './resource/resource.module';
         EmCloudWebAlarmRuleModule,
         EmCloudWebRuleAttributesModule,
         EmCloudWebMeterRuleModule,
-        EmCloudWebResourceModule,*/
+        EmCloudWebResourceModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],
