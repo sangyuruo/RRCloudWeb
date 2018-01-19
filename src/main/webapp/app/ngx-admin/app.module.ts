@@ -18,7 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ThemeModule } from './@theme/theme.module';
 import {NgbActiveModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
-import {JhiDateUtils} from "ng-jhipster";
+import {JhiDateUtils, JhiLanguageService} from "ng-jhipster";
 import {NbAuthModule} from "./@nebular/auth/auth.module";
 import {NbEmailPassAuthProvider} from "./@nebular/auth/providers/email-pass-auth.provider";
 
@@ -145,6 +145,11 @@ import {UserRouteAccessService} from "../shared/auth/user-route-access-service";
       SessionStorageService,
       NgbActiveModal,
       UserRouteAccessService,
+
+      //添加国际化
+      JhiLanguageService
+
+
 
   ],
 })

@@ -51,7 +51,7 @@ const routes: Routes = [
 
 
     { path: '', redirectTo: 'pages', pathMatch: 'full' },//浏览器页面加载后跳转到登入页面
-  /*  { path: '**', redirectTo: 'pages' },*/
+    /*{ path: '**', redirectTo: 'pages' },*/
 ];
 
 const config: ExtraOptions = {

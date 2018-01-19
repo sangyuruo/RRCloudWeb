@@ -292,7 +292,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     },
 
     {
-        title: '实体',
+        title: 'entities',
         icon: 'nb-tables',
         children: [
             {
