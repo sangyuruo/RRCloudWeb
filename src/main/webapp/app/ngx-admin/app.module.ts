@@ -146,11 +146,6 @@ import {UserRouteAccessService} from "../shared/auth/user-route-access-service";
       NgbActiveModal,
       UserRouteAccessService,
 
-      //添加国际化
-      JhiLanguageService
-
-
-
   ],
 })
 export class EmCloudWebNgxAppModule {
