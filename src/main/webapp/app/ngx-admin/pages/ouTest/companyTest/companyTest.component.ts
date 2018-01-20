@@ -4,20 +4,20 @@ import {JhiDateUtils, JhiEventManager} from "ng-jhipster";
 
 import 'rxjs/Rx';
 
-import {OuService} from "../ou.service";
 import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
 import {AddressNameEditorComponent} from "./addressname-editor.components";
+import {OuTestService} from "../ouTest.service";
 
 @Component({
     selector: 'ngx-smart-table',
-    templateUrl: './company.component.html',
+    templateUrl: './companyTest.component.html',
     styles: [`                                                                                                                              
         nb-card {
             transform: translate3d(0, 0, 0);
         }
     `],
 })
-export class CompanyComponent {
+export class CompanyTestComponent {
 
     settings = {
         add: {
@@ -26,6 +26,15 @@ export class CompanyComponent {
             cancelButtonContent: '<i class="nb-close"></i>',
             confirmCreate : true,
         },
+
+
+        view:{
+
+            viewButtonContent: '<i class="nb-edit"></i>',
+            confirmView: true,
+        },
+
+
         edit: {
             editButtonContent: '<i class="nb-edit"></i>',
             saveButtonContent: '<i class="nb-checkmark"></i>',
@@ -36,20 +45,6 @@ export class CompanyComponent {
             deleteButtonContent: '<i class="nb-trash"></i>',
             confirmDelete: true,
         },
-
-        /*Actions: //or something
-            {
-                title:'Detail',
-                type:'html',
-                valuePrepareFunction:(cell,row)=>{
-                    return `<a title="See Detail Product "href="Your api key or something/${row.Id}"> <i class="ion-edit"></i></a>`
-                },
-                filter:false
-            },
-        Id: { //this Id to use in ${row.Id}
-            title: 'ID',
-            type: 'number'
-        },*/
         /*columns: {
           id: {
             title: 'ID',
@@ -77,15 +72,6 @@ export class CompanyComponent {
           },
         },*/
         columns: {
-            Actions: //or something
-                {
-                    title:'Detail',
-                    type:'html',
-                    valuePrepareFunction:(cell,row)=>{
-                        return `<a title="See Detail Product"  href="#/pages/ou/company/${row.id}"> <i class="fa fa-eye" aria-hidden="true"></i></a>`
-                    },
-                    filter:false
-        },
             /* id: {
                  title: 'ID',
                  type: 'number',
@@ -177,7 +163,7 @@ export class CompanyComponent {
   //  source: LocalDataSource = new LocalDataSource();
    // isSaving:boolean;
     source: ServerDataSource;
-    constructor(private service: OuService,
+    constructor(private service: OuTestService,
                 private http:Http,
                 private dateUtils: JhiDateUtils
     ) {
@@ -222,6 +208,11 @@ export class CompanyComponent {
         }else{
             event.confirm.reject();
         }
+    }
+
+
+    onViewConfirm(event){
+
     }
 
 

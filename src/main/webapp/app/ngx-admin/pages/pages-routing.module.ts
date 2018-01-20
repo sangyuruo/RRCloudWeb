@@ -140,6 +140,15 @@ const routes: Routes = [{
                     resolve(require('./entities/company/company.module').EmCloudWebCompanyModule);
                 })
             })
+        }
+        , {
+            path: 'ouTest',
+            loadChildren: () => new Promise(resolve => {
+                (require as any).ensure([], require => {
+                    resolve(require('./ouTest/ouTest.module').OuTestModule);
+                })
+            })
+
         }],
 }];
 
