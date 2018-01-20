@@ -299,7 +299,18 @@ export const MENU_ITEMS: NbMenuItem[] = [
                 title: '公司',
                 link: '/pages/company',
             },
+        ],
+    },
 
+    {
+        title: '测试',
+        icon: 'nb-tables',
+        children: [
+            {
+                title: '公司测试',
+                link: '/pages/ouTest/companyTest',
+
+            },
         ],
     },
 
