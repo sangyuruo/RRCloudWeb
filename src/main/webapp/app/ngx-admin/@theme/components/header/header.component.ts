@@ -5,7 +5,8 @@ import { UserService } from '../../../@core/data/users.service';
 import { AnalyticsService } from '../../../@core/utils/analytics.service';
 import {LoginService} from "../../../../shared/login/login.service";
 import {Router} from "@angular/router";
-import { AccountService } from '../../../../shared/auth/account.service';
+//import { AccountService } from '../../../../shared/auth/account.service';
+import { Principal } from '../../../../shared/auth/principal.service';
 
 
 @Component({
@@ -28,8 +29,8 @@ export class HeaderComponent implements OnInit {
 constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,
               private userService: UserService,
-
-              private account : AccountService,
+              private principal: Principal,
+            //  private account : AccountService,
               private analyticsService: AnalyticsService,
 
             //jhipster注销功能
@@ -42,11 +43,18 @@ constructor(private sidebarService: NbSidebarService,
 
 
   ngOnInit() {
-      return this.account.get().toPromise().then((account) => {
-          this.user=account;
-      }).catch((err) => {
-          return null;
+
+
+      //这种方式取用户信息不用发送请求
+      this.principal.identity().then((account) => {
+          this.user = account;
       });
+      //这种方式会发送请求
+      // return this.account.get().toPromise().then((account) => {
+      //     this.user=account;
+      // }).catch((err) => {
+      //     return null;
+      // });
     // this.userService.getUsers()
     //   .subscribe((users: any) => this.user = users.nick);
   }
