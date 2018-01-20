@@ -54,8 +54,15 @@ const routes: Routes = [
     { path: '**', redirectTo: 'pages' },
 ];
 
+
+// forRoot有一个可选的配置参数，里面有四个选项
+// enableTracing ：在console.log中打印出路由内部事件信息
+// useHash ：把url改成hash风格，protocol://domain/#/account/login
+// initialNavigation ： 禁用初始导航，没用过。。
+// errorHandler ：使用自定义的错误处理，来抛出报错信息；
 const config: ExtraOptions = {
   useHash: true,
+    enableTracing : true,
 };
 
 @NgModule({

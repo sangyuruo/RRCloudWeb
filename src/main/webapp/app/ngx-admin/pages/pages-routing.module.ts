@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 
 import {PagesComponent} from './pages.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
+import {UserRouteAccessService} from "../../shared/auth/user-route-access-service";
 
 
 
@@ -13,9 +14,17 @@ const routes: Routes = [{
         path: '',
         redirectTo: 'dashboard',
         pathMatch: 'full',
+        data: {
+            authorities: ['ROLE_USER','ROLE_ADMIN'],
+        },
+        canActivate: [UserRouteAccessService]
     }, {
         path: 'dashboard',
         component: DashboardComponent,
+        data: {
+            authorities: ['ROLE_USER','ROLE_ADMIN'],
+        },
+        canActivate: [UserRouteAccessService]
     }, {
         path: 'ui-features',
         loadChildren: () => new Promise(resolve => {
