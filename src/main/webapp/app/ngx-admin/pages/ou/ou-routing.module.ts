@@ -5,7 +5,6 @@ import {OuComponent} from './ou.component';
 import {CompanyComponent} from './company/company.component';
 import {OrganizationComponent} from "./organization/organization.component";
 import {OrgsComponent} from "./orgs/orgs.component";
-import {CompanyDetailComponent} from "./company/company-detail.component";
 
 
 const routes: Routes = [{
@@ -15,9 +14,6 @@ const routes: Routes = [{
             path: 'company',
             component: CompanyComponent,
 
-        }, {
-            path: 'company/:id',
-            component: CompanyDetailComponent,
         }, {
             path: 'organization',
             component: OrganizationComponent,
@@ -46,5 +42,4 @@ export const routedComponents = [
     OuComponent,
     CompanyComponent,
     OrganizationComponent,
-    CompanyDetailComponent
 ];

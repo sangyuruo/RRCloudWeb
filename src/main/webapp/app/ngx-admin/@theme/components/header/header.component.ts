@@ -44,7 +44,6 @@ constructor(private sidebarService: NbSidebarService,
 
   ngOnInit() {
 
-
       //这种方式取用户信息不用发送请求
       this.principal.identity().then((account) => {
           this.user = account;

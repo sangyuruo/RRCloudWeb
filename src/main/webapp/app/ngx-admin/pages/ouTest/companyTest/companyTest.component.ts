@@ -72,6 +72,15 @@ export class CompanyTestComponent {
           },
         },*/
         columns: {
+            Actions: //or something
+                {
+                    title:'view',
+                    type:'html',
+                    valuePrepareFunction:(cell,row)=>{
+                        return `<a href="#/pages/ouTest/companyTest/${row.id}"> <i class="fa fa-eye" aria-hidden="true"></i></a>`
+                    },
+                    filter:false
+                },
             /* id: {
                  title: 'ID',
                  type: 'number',
@@ -208,11 +217,6 @@ export class CompanyTestComponent {
         }else{
             event.confirm.reject();
         }
-    }
-
-
-    onViewConfirm(event){
-
     }
 
 

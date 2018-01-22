@@ -3,6 +3,7 @@ import {Routes, RouterModule} from '@angular/router';
 
 import {OuTestComponent} from './ouTest.component';
 import {CompanyTestComponent} from "./companyTest/companyTest.component";
+import {CompanyDetailComponent} from "./companyTest/company-detail.component";
 
 
 
@@ -12,6 +13,9 @@ const routes: Routes = [{
         children: [{
             path: 'companyTest',
             component: CompanyTestComponent
+        },{
+            path: 'companyTest/:id',
+            component: CompanyDetailComponent
         }],
     },]
 ;
@@ -25,5 +29,6 @@ export class OuTestRoutingModule {
 
 export const routedComponents = [
     OuTestComponent,
-    CompanyTestComponent
+    CompanyTestComponent,
+    CompanyDetailComponent
 ];

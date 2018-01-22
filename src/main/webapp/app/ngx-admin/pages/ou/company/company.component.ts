@@ -37,19 +37,6 @@ export class CompanyComponent {
             confirmDelete: true,
         },
 
-        /*Actions: //or something
-            {
-                title:'Detail',
-                type:'html',
-                valuePrepareFunction:(cell,row)=>{
-                    return `<a title="See Detail Product "href="Your api key or something/${row.Id}"> <i class="ion-edit"></i></a>`
-                },
-                filter:false
-            },
-        Id: { //this Id to use in ${row.Id}
-            title: 'ID',
-            type: 'number'
-        },*/
         /*columns: {
           id: {
             title: 'ID',
@@ -77,15 +64,6 @@ export class CompanyComponent {
           },
         },*/
         columns: {
-            Actions: //or something
-                {
-                    title:'Detail',
-                    type:'html',
-                    valuePrepareFunction:(cell,row)=>{
-                        return `<a title="See Detail Product"  href="#/pages/ou/company/${row.id}"> <i class="fa fa-eye" aria-hidden="true"></i></a>`
-                    },
-                    filter:false
-        },
             /* id: {
                  title: 'ID',
                  type: 'number',

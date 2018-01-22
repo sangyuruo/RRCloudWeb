@@ -6,6 +6,7 @@ import {SettingsComponent} from "../account/settings/settings.component";
 import {PasswordComponent} from "../account/password/password.component";
 import {HomeComponent} from "./@theme/components/home/home.component";
 import {UserRouteAccessService} from "../shared/auth/user-route-access-service";
+import {JhiDocsComponent} from "../admin/docs/docs.component";
 
 
 const routes: Routes = [
@@ -22,7 +23,11 @@ const routes: Routes = [
         path: '',
         component: HomeComponent,
 
-      },
+      },{
+            path: 'docs',
+            component: JhiDocsComponent,
+        },
+
       {
         path: 'register',
         component: RegisterComponent,

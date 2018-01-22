@@ -8,8 +8,6 @@ import { EmCloudWebCompanyModule } from './company/company.module';
 @NgModule({
     imports: [
         EmCloudWebCompanyModule,
-
-
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],
