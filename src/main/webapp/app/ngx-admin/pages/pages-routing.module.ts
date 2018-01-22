@@ -4,6 +4,7 @@ import {NgModule} from '@angular/core';
 import {PagesComponent} from './pages.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {UserRouteAccessService} from "../../shared/auth/user-route-access-service";
+import {JhiDocsComponent} from "../../admin/docs/docs.component";
 
 
 
@@ -18,7 +19,13 @@ const routes: Routes = [{
             authorities: ['ROLE_USER','ROLE_ADMIN'],
         },
         canActivate: [UserRouteAccessService]
-    }, {
+    },
+        //增加docs路径
+        {
+            path: 'docs',
+            component: JhiDocsComponent,
+        },
+        {
         path: 'dashboard',
         component: DashboardComponent,
         data: {

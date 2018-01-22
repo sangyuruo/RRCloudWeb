@@ -23,11 +23,7 @@ const routes: Routes = [
         path: '',
         component: HomeComponent,
 
-      },{
-            path: 'docs',
-            component: JhiDocsComponent,
-        },
-
+      },
       {
         path: 'register',
         component: RegisterComponent,
