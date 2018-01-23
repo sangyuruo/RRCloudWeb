@@ -31,6 +31,7 @@ import {
     UserModalService
 } from './';
 import {EmCloudWebSharedModule} from "../../../shared/shared.module";
+import {customHttpProvider} from "../../../blocks/interceptor/http.provider";
 
 @NgModule({
     imports: [
@@ -75,7 +76,9 @@ import {EmCloudWebSharedModule} from "../../../shared/shared.module";
         LogsService,
         UserResolvePagingParams,
         UserResolve,
-        UserModalService
+        UserModalService,
+
+        customHttpProvider(),
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { JhiConfigurationService } from './configuration.service';
+import {JhiLanguageService} from "ng-jhipster";
 
 @Component({
     selector: 'jhi-configuration',
@@ -15,7 +16,9 @@ export class JhiConfigurationComponent implements OnInit {
     reverse: boolean;
 
     constructor(
-        private configurationService: JhiConfigurationService
+        private configurationService: JhiConfigurationService,
+        //添加国际化
+        private languageService: JhiLanguageService,
     ) {
         this.configKeys = [];
         this.filter = '';

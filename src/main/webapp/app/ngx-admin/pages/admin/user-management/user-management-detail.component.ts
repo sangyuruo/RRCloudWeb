@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 import {User} from "../../../../shared/user/user.model";
 import {UserService} from "../../../../shared/user/user.service";
+import {JhiLanguageService} from "ng-jhipster";
 
 
 @Component({
@@ -16,7 +17,9 @@ export class UserMgmtDetailComponent implements OnInit, OnDestroy {
 
     constructor(
         private userService: UserService,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        //添加国际化
+        private languageService: JhiLanguageService,
     ) {
     }
 

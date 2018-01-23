@@ -60,16 +60,16 @@ export const userDialogRoute: Routes = [
     {
         path: 'user-management-new',
         component: UserDialogComponent,
-        outlet: 'popup'
+        outlet: 'pop'
     },
     {
         path: 'user-management/:login/edit',
         component: UserDialogComponent,
-        outlet: 'popup'
+        outlet: 'pop'
     },
     {
         path: 'user-management/:login/delete',
         component: UserDeleteDialogComponent,
-        outlet: 'popup'
+        outlet: 'pop'
     }
 ];

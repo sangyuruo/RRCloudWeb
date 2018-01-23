@@ -3,6 +3,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { JhiMetricsMonitoringModalComponent } from './metrics-modal.component';
 import { JhiMetricsService } from './metrics.service';
+import {JhiLanguageService} from "ng-jhipster";
 
 @Component({
     selector: 'jhi-metrics',
@@ -17,7 +18,9 @@ export class JhiMetricsMonitoringComponent implements OnInit {
 
     constructor(
         private modalService: NgbModal,
-        private metricsService: JhiMetricsService
+        private metricsService: JhiMetricsService,
+        //添加国际化
+        private languageService: JhiLanguageService,
     ) {
         this.JCACHE_KEY = 'jcache.statistics';
     }

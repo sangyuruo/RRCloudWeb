@@ -12,6 +12,7 @@ import {JhiLanguageService} from "ng-jhipster";
   selector: 'ngx-app',
   template: `
       <router-outlet></router-outlet>
+      <router-outlet name="pop"></router-outlet>
   `,
 })
 export class AppComponent implements OnInit {

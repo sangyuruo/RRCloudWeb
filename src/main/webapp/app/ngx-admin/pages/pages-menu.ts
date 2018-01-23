@@ -345,10 +345,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
                 title: '日志',
                 link: '/pages/logs',
             },
-            /*{
+            {
                 title: 'API',
                 link: '/pages/docs',
-            },*/
+            },
 
         ],
     },

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Log } from './log.model';
 import { LogsService } from './logs.service';
+import {JhiLanguageService} from "ng-jhipster";
 
 @Component({
     selector: 'jhi-logs',
@@ -15,7 +16,9 @@ export class LogsComponent implements OnInit {
     reverse: boolean;
 
     constructor(
-        private logsService: LogsService
+        private logsService: LogsService,
+        //添加国际化
+        private languageService: JhiLanguageService,
     ) {
         this.filter = '';
         this.orderProp = 'name';

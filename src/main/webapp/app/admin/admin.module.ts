@@ -31,6 +31,7 @@ import {
     UserResolve,
     UserModalService
 } from './';
+import {customHttpProvider} from "../blocks/interceptor/http.provider";
 
 @NgModule({
     imports: [
@@ -71,7 +72,11 @@ import {
         LogsService,
         UserResolvePagingParams,
         UserResolve,
-        UserModalService
+        UserModalService,
+
+        //认证拦截
+        customHttpProvider(),
+
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

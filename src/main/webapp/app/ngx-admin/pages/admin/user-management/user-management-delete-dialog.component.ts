@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { NgbActiveModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
 
@@ -18,11 +18,15 @@ export class UserMgmtDeleteDialogComponent {
     constructor(
         private userService: UserService,
         public activeModal: NgbActiveModal,
-        private eventManager: JhiEventManager
+        private eventManager: JhiEventManager,
+
+        private router: Router
     ) {
     }
 
     clear() {
+        //强行跳转
+        this.router.navigateByUrl('/pages/user-management');
         this.activeModal.dismiss('cancel');
     }
 
@@ -30,6 +34,8 @@ export class UserMgmtDeleteDialogComponent {
         this.userService.delete(login).subscribe((response) => {
             this.eventManager.broadcast({ name: 'userListModification',
                 content: 'Deleted a user'});
+            //强行跳转
+            this.router.navigateByUrl('/pages/user-management');
             this.activeModal.dismiss(true);
         });
     }

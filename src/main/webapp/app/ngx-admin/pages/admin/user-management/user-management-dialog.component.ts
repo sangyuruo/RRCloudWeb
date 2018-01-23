@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 import { NgbActiveModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
-import { JhiEventManager } from 'ng-jhipster';
+import {JhiEventManager, JhiLanguageService} from 'ng-jhipster';
 
 import { UserModalService } from './user-modal.service';
 import {User} from "../../../../shared/user/user.model";
@@ -24,7 +24,11 @@ export class UserMgmtDialogComponent implements OnInit {
         public activeModal: NgbActiveModal,
         private languageHelper: JhiLanguageHelper,
         private userService: UserService,
-        private eventManager: JhiEventManager
+        private eventManager: JhiEventManager,
+
+        //添加国际化
+        private languageService: JhiLanguageService,
+        private router: Router
     ) {}
 
     ngOnInit() {
@@ -39,6 +43,8 @@ export class UserMgmtDialogComponent implements OnInit {
     }
 
     clear() {
+        //强行跳转
+        this.router.navigateByUrl('/pages/user-management');
         this.activeModal.dismiss('cancel');
     }
 
@@ -54,6 +60,8 @@ export class UserMgmtDialogComponent implements OnInit {
     private onSaveSuccess(result) {
         this.eventManager.broadcast({ name: 'userListModification', content: 'OK' });
         this.isSaving = false;
+        //强行跳转
+        this.router.navigateByUrl('/pages/user-management');
         this.activeModal.dismiss(result);
     }
 

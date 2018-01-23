@@ -3,6 +3,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { JhiHealthService } from './health.service';
 import { JhiHealthModalComponent } from './health-modal.component';
+import {JhiLanguageService} from "ng-jhipster";
 
 @Component({
     selector: 'jhi-health',
@@ -14,7 +15,9 @@ export class JhiHealthCheckComponent implements OnInit {
 
     constructor(
         private modalService: NgbModal,
-        private healthService: JhiHealthService
+        private healthService: JhiHealthService,
+        //添加国际化
+        private languageService: JhiLanguageService,
     ) {
 
     }

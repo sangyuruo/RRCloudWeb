@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { GatewayRoutesService } from './gateway-routes.service';
 import { GatewayRoute } from './gateway-route.model';
+import {JhiLanguageService} from "ng-jhipster";
 
 @Component({
     selector: 'jhi-gateway',
@@ -14,7 +15,9 @@ export class JhiGatewayComponent implements OnInit {
     updatingRoutes: Boolean;
 
     constructor(
-        private gatewayRoutesService: GatewayRoutesService
+        private gatewayRoutesService: GatewayRoutesService,
+        //添加国际化
+        private languageService: JhiLanguageService,
     ) {
     }
 

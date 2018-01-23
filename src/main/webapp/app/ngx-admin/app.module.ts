@@ -16,17 +16,13 @@ import { CoreModule } from './@core/core.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ThemeModule } from './@theme/theme.module';
-import {NgbActiveModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import {JhiDateUtils} from "ng-jhipster";
 import {NbAuthModule} from "./@nebular/auth/auth.module";
 
-import {NB_AUTH_TOKEN_WRAPPER_TOKEN} from "./@nebular/auth/auth.options";
-import {NbAuthJWTToken} from "./@nebular/auth/services/token.service";
 import {ApiService} from "./app.service";
-import {SessionStorageService} from "ng2-webstorage";
 import {EmCloudWebAppModule} from "../app.module";
-import {UserRouteAccessService} from "../shared/auth/user-route-access-service";
 
 @NgModule({
   declarations: [AppComponent],
@@ -53,14 +49,7 @@ import {UserRouteAccessService} from "../shared/auth/user-route-access-service";
       //添加charts服务
       ApiService,
       //添加日期服务
-      JhiDateUtils,
-
-      //添加
-      { provide: NB_AUTH_TOKEN_WRAPPER_TOKEN, useClass: NbAuthJWTToken },
-      //jhipster权限认证
-      SessionStorageService,
-      NgbActiveModal,
-      UserRouteAccessService,
+      JhiDateUtils
 
   ],
 })

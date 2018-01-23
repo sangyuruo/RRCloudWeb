@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
-import { JhiParseLinks } from 'ng-jhipster';
+import {JhiLanguageService, JhiParseLinks} from 'ng-jhipster';
 
 import { Audit } from './audit.model';
 import { AuditsService } from './audits.service';
@@ -24,7 +24,9 @@ export class AuditsComponent implements OnInit {
 
     constructor(
         private auditsService: AuditsService,
-        private parseLinks: JhiParseLinks
+        private parseLinks: JhiParseLinks,
+        //添加国际化
+        private languageService: JhiLanguageService,
     ) {
         this.itemsPerPage = ITEMS_PER_PAGE;
         this.page = 1;

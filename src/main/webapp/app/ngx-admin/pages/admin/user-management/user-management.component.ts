@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { JhiEventManager, JhiParseLinks, JhiAlertService } from 'ng-jhipster';
+import {JhiEventManager, JhiParseLinks, JhiAlertService, JhiLanguageService} from 'ng-jhipster';
 import {User} from "../../../../shared/user/user.model";
 import {UserService} from "../../../../shared/user/user.service";
 import {Principal} from "../../../../shared/auth/principal.service";
@@ -35,7 +35,9 @@ export class UserMgmtComponent implements OnInit, OnDestroy {
         private principal: Principal,
         private eventManager: JhiEventManager,
         private activatedRoute: ActivatedRoute,
-        private router: Router
+        private router: Router,
+        //添加国际化
+        private languageService: JhiLanguageService,
     ) {
         this.itemsPerPage = ITEMS_PER_PAGE;
         this.routeData = this.activatedRoute.data.subscribe((data) => {
