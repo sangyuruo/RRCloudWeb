@@ -313,5 +313,44 @@ export const MENU_ITEMS: NbMenuItem[] = [
             },
         ],
     },
+    {
+        title: '管理',
+        icon: 'nb-compose',
+        children: [
+            {
+                title: '网关',
+                link: '/pages/gateway',
+            },
+            {
+                title: '用户管理',
+                link: '/pages/user-management',
+            },
+            {
+                title: '资源监控',
+                link: '/pages/jhi-metrics',
+            },
+            {
+                title: '服务状态',
+                link: '/pages/jhi-health',
+            },
+            {
+                title: '配置',
+                link: '/pages/jhi-configuration',
+            },
+            {
+                title: '审核',
+                link: '/pages/audits',
+            },
+           {
+                title: '日志',
+                link: '/pages/logs',
+            },
+            /*{
+                title: 'API',
+                link: '/pages/docs',
+            },*/
+
+        ],
+    },
 
 ];

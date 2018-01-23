@@ -5,11 +5,12 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { ThemeModule } from '../@theme/theme.module';
 import {JhiEventManager} from "ng-jhipster";
-import {EmCloudWebAdminModule} from "../../admin/admin.module";
+import {EmCloudWebAdminModule} from "./admin/admin.module";
 
 
 const PAGES_COMPONENTS = [
   PagesComponent,
+
 ];
 
 @NgModule({
