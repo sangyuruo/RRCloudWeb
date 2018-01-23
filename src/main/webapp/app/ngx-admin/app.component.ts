@@ -11,6 +11,7 @@ import {ApiService} from "./app.service";
   selector: 'ngx-app',
   template: `
       <router-outlet></router-outlet>
+      <router-outlet name="pop"></router-outlet>
   `,
 })
 export class AppComponent implements OnInit {

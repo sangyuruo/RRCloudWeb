@@ -1,7 +1,6 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { EmCloudWebSharedModule } from '../shared';
 /* jhipster-needle-add-admin-module-import - JHipster will add admin modules imports here */
 
 import {
@@ -31,13 +30,14 @@ import {
     UserResolve,
     UserModalService
 } from './';
-import {customHttpProvider} from "../blocks/interceptor/http.provider";
+import {EmCloudWebSharedModule} from "../../../shared/shared.module";
+import {customHttpProvider} from "../../../blocks/interceptor/http.provider";
 
 @NgModule({
     imports: [
         EmCloudWebSharedModule,
-        RouterModule.forRoot(adminState, { useHash: true }),
-
+        //RouterModule.forRoot(adminState, { useHash: true }),
+        RouterModule.forChild(adminState),
         /* jhipster-needle-add-admin-module - JHipster will add admin modules here */
     ],
     declarations: [
@@ -58,6 +58,10 @@ import {customHttpProvider} from "../blocks/interceptor/http.provider";
         JhiMetricsMonitoringModalComponent
     ],
     entryComponents: [
+
+        UserMgmtComponent,
+
+
         UserMgmtDialogComponent,
         UserMgmtDeleteDialogComponent,
         JhiHealthModalComponent,
@@ -74,9 +78,7 @@ import {customHttpProvider} from "../blocks/interceptor/http.provider";
         UserResolve,
         UserModalService,
 
-        //认证拦截
         customHttpProvider(),
-
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

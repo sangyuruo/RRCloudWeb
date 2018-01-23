@@ -37,7 +37,7 @@ export class CompanyDeleteDialogComponent {
                 name: 'companyListModification',
                 content: 'Deleted a company'
             });
-                    //强行跳转
+            //强行跳转
             this.router.navigate(['pages/company']);
             this.activeModal.dismiss(true);
         });
