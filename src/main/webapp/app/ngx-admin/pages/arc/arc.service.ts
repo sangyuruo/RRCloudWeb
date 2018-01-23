@@ -51,6 +51,7 @@ export class ArcService {
         return this.http.put('/emcloudarc/api/rule-attributes',date).map( res =>res.json());
     }
 
+
 }
 
 

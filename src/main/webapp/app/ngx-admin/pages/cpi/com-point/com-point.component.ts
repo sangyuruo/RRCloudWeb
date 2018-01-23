@@ -8,6 +8,7 @@ import {AddressCodeEditorComponent} from "./addresscode-editor.components";
 import {CompanyCodeEditorComponent} from './companycode-editor.components';
 import {OrgCodeEditorComponent} from "./orgcode-editor.components";
 import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
+import {ApiService} from "../../../app.service";
 
 
 @Component({
@@ -68,7 +69,7 @@ export class ComPointComponent {
                 type: 'html',
                 editor: {
                     type: 'custom',
-                    component: CompanyCodeEditorComponent,
+                    component: OrgCodeEditorComponent,
                 }
             },
             companyCode: {
@@ -76,7 +77,7 @@ export class ComPointComponent {
                 type: 'html',
                 editor: {
                     type: 'custom',
-                    component: OrgCodeEditorComponent,
+                    component: CompanyCodeEditorComponent,
                 }
             },
             ip: {
@@ -127,7 +128,14 @@ export class ComPointComponent {
             },
             connectMode: {
                 title: '链接模式',
-                type: 'number',
+                type: 'html',
+                editor:{
+                    type:'list',
+                    config:{
+                        selectText:'Select...',
+                        list:[],
+                    }
+                }
             },
         },
     };
@@ -135,15 +143,31 @@ export class ComPointComponent {
     //source: LocalDataSource = new LocalDataSource();
     source: ServerDataSource;
 
+    compoints:any;
+
     constructor(private service: CpiService,
                 private http: Http,
-                private dateUtils: JhiDateUtils) {
+                private dateUtils: JhiDateUtils,
+                private apiService:ApiService) {
         /* const data = this.service.getData();
          this.source.load(data);*/
         //this.service.getDataComPoint().subscribe(data => (this.source.load(data)));
         this.source = new ServerDataSource(http, {endPoint: '/emcloudcpi/api/compoints'},
             dateUtils);
+        this.compoints = this.apiService.getCompoints();
+        if(this.compoints && this.compoints.length)
+        {
+            for(let i = 0;i <this.compoints.length;i++)
+            {
+                this.settings.columns.connectMode.editor.config.list.push(
+                    {value:this.compoints[i].connectMode,title:this.compoints[i].connectMode}
+                )
+            }
+        }
+
     }
+
+
     onDeleteConfirm(event): void {
         if (window.confirm('Are you sure you want to delete?')) {
             this.service.deleteComPoint(event.data.id).subscribe((response) => {

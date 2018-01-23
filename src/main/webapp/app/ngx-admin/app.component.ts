@@ -21,5 +21,6 @@ export class AppComponent implements OnInit {
       //添加
       this.apiService.initOrganizationesDatas();
       this.apiService.initCompaniesDatas();
+      this.apiService.initCompointsDatas();
   }
 }
