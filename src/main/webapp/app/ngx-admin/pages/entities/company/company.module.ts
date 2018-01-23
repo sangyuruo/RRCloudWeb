@@ -15,6 +15,10 @@ import {
     companyPopupRoute,
     CompanyResolvePagingParams,
 } from './';
+import {UserRouteAccessService} from "../../../../shared/auth/user-route-access-service";
+import {PaginationConfig} from "../../../../blocks/config/uib-pagination.config";
+import {customHttpProvider} from "../../../../blocks/interceptor/http.provider";
+import {ProfileService} from "../../../../layouts/profiles/profile.service";
 
 const ENTITY_STATES = [
     ...companyRoute,
@@ -46,6 +50,10 @@ const ENTITY_STATES = [
         CompanyService,
         CompanyPopupService,
         CompanyResolvePagingParams,
+        ProfileService,
+        customHttpProvider(),
+        PaginationConfig,
+        UserRouteAccessService,
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
