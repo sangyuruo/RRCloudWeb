@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
-
 import {Http} from "@angular/http";
 import {JhiDateUtils, JhiEventManager} from "ng-jhipster";
 import {ArcService} from "../arc.service";
@@ -56,13 +54,11 @@ export class RuleAttributesComponent {
     },
   };
 
-  // source: LocalDataSource = new LocalDataSource();
     source: ServerDataSource;
 
     constructor(private service: ArcService,
                 private http:Http,
                 private dateUtils: JhiDateUtils) {
-        // this.service.getDataRuleAttributes().subscribe(data => (this.source.load(data)))
         this.source = new ServerDataSource(http, { endPoint: '/emcloudarc/api/rule-attributes' },
             dateUtils);
     }

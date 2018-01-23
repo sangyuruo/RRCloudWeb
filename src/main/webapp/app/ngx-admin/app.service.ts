@@ -6,6 +6,8 @@ export class ApiService {
 
     private organizationes: any;
     private companies: any;
+    private compoints:any;
+
     constructor(private http: Http) { }
 
     initOrganizationesDatas(){
@@ -28,6 +30,17 @@ export class ApiService {
     }
     getCompanies(): any {
         return this.companies;
+    }
+
+
+    initCompointsDatas(){
+        this.http.get('/emcloudcpi/api/compoints?size=2000').map(res=>res.json()).subscribe(
+            data => {
+                this.compoints = data;
+            })
+    }
+    getCompoints(): any {
+        return this.compoints;
     }
 
 
