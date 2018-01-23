@@ -7,6 +7,7 @@ export class ApiService {
     private organizationes: any;
     private companies: any;
     private compoints:any;
+    private addresses:any;
 
     constructor(private http: Http) { }
 
@@ -18,6 +19,16 @@ export class ApiService {
     }
     getOrganizationes(): any {
         return this.organizationes;
+    }
+
+    initAddressesDatas(){
+        this.http.get('/emcloudloc/api/addresses?size=2000').map(res=>res.json()).subscribe(
+            data => {
+                this.addresses = data;
+            })
+    }
+    getAddresses(): any {
+        return this.addresses;
     }
 
 

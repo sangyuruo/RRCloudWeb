@@ -6,7 +6,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AnalyticsService } from './@core/utils/analytics.service';
 import {ApiService} from "./app.service";
-import {JhiLanguageService} from "ng-jhipster";
 
 @Component({
   selector: 'ngx-app',
@@ -24,9 +23,13 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.analytics.trackPageViews();
 
-      //添加
+      //组织
       this.apiService.initOrganizationesDatas();
+      //公司
       this.apiService.initCompaniesDatas();
+      //串口
       this.apiService.initCompointsDatas();
+      //地址
+      this.apiService.initAddressesDatas();
   }
 }

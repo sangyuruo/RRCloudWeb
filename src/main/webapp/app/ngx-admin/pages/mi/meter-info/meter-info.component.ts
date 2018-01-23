@@ -161,12 +161,14 @@ export class MeterInfoComponent {
     }
     onCreateConfirm(event) {
         if (window.confirm('Are you sure you want to create?')) {
+
             /* const params= new HttpParams().set('meterType',event.newData.meterType);
-             this.http1.get('/emcloudmi/api/meter-category-infos/by-meter-type',{params})
-                 .subscribe(data=>{event.newData.meterTypeCode=data[0].meterTypeCode;
-                     event.newData.startOffset=data[0].startOffset;
-                     event.newData.numberOfRegisters=data[0].numberOfRegisters;
-                     event.newData.controlAddress=data[0].controlAddress;*/
+            this.http1.get('/emcloudmi/api/meter-category-infos/by-meter-type',{params})
+                .subscribe(data=>{event.newData.meterTypeCode=data[0].meterTypeCode;
+                    event.newData.startOffset=data[0].startOffset;
+                    event.newData.numberOfRegisters=data[0].numberOfRegisters;
+                    event.newData.controlAddress=data[0].controlAddress;*/
+
             this.service.createMeterInfo(event.newData).subscribe((response) => {
                 event.confirm.resolve(response)
                 console.log(response)

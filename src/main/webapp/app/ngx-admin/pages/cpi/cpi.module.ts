@@ -10,6 +10,10 @@ import {OrgCodeEditorComponent} from "./com-point/orgcode-editor.components";
 import {CompointCodeEditorComponent} from "./com-point-status/compointcode-editor.components";
 
 import {Ng2SmartTableModule} from "../../ng2-smart-table/ng2-smart-table.module";
+import {CompanyNameEditorComponent} from "./com-point/companyname-editor.components";
+import {AddressNameEditorComponent} from "./com-point/addressname-editor.components";
+import {OrgNameEditorComponent} from "./com-point/orgname-editor.components";
+import {DictNameEditorComponent} from "./com-point/dict-name-editor.component";
 
 
 @NgModule({
@@ -21,12 +25,23 @@ import {Ng2SmartTableModule} from "../../ng2-smart-table/ng2-smart-table.module"
   declarations: [
     ...routedComponents,
       AddressCodeEditorComponent,
+      AddressNameEditorComponent,
+      CompanyNameEditorComponent,
       CompanyCodeEditorComponent,
       OrgCodeEditorComponent,
-
+      OrgNameEditorComponent,
       CompointCodeEditorComponent,
+      DictNameEditorComponent
   ],
-    entryComponents:[AddressCodeEditorComponent,CompanyCodeEditorComponent,OrgCodeEditorComponent,CompointCodeEditorComponent],
+    entryComponents:[
+        AddressCodeEditorComponent,
+        AddressNameEditorComponent,
+        CompanyNameEditorComponent,
+        CompanyCodeEditorComponent,
+        OrgCodeEditorComponent,
+        OrgNameEditorComponent,
+        CompointCodeEditorComponent,
+        DictNameEditorComponent],
   providers: [
       CpiService,
   ],

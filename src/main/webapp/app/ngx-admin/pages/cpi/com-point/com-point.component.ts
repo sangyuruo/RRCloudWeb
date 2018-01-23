@@ -5,10 +5,14 @@ import {Http} from "@angular/http";
 import {JhiDateUtils, JhiEventManager} from 'ng-jhipster';
 
 import {AddressCodeEditorComponent} from "./addresscode-editor.components";
+import {CompanyNameEditorComponent} from './companyname-editor.components';
 import {CompanyCodeEditorComponent} from './companycode-editor.components';
+import {DictNameEditorComponent} from './dict-name-editor.component';
 import {OrgCodeEditorComponent} from "./orgcode-editor.components";
+import {OrgNameEditorComponent} from "./orgname-editor.components";
 import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
 import {ApiService} from "../../../app.service";
+import {AddressNameEditorComponent} from "./addressname-editor.components";
 
 
 @Component({
@@ -17,6 +21,7 @@ import {ApiService} from "../../../app.service";
     styles: [`
         nb-card {
             transform: translate3d(0, 0, 0);
+            
         }
     `],
 })
@@ -44,62 +49,104 @@ export class ComPointComponent {
             confirmDelete: true,
         },
         columns: {
+            //1
             comPointCode: {
                 title: '设备编码',
                 type: 'number',
             },
+            //2
             registerCode: {
                 title: '登记代码',
                 type: 'number',
             },
+            //3
             registerName: {
                 title: '登记名称',
                 type: 'number',
             },
+            //4
             addressCode: {
                 title: '地址代码',
                 type: 'html',
+                // editor: {
+                //     type: 'custom',
+                //     component: AddressCodeEditorComponent,
+                // }
+            },
+            //5
+            addressName: {
+                title: '地址名称',
+                type: 'html',
                 editor: {
                     type: 'custom',
-                    component: AddressCodeEditorComponent,
+                    component: AddressNameEditorComponent,
                 }
+
             },
+            //6
             organizationCode: {
                 title: '组织编码',
                 type: 'html',
-                editor: {
-                    type: 'custom',
-                    component: OrgCodeEditorComponent,
-                }
+                // editor: {
+                //     type: 'custom',
+                //     component: OrgCodeEditorComponent,
+                // }
             },
-            companyCode: {
-                title: '公司编码',
+            //7
+            organizationName: {
+                title: '组织名称',
                 type: 'html',
                 editor: {
                     type: 'custom',
-                    component: CompanyCodeEditorComponent,
+                    component: OrgNameEditorComponent,
                 }
             },
+            //8
+            companyCode: {
+                title: '公司编码',
+                type: 'html',
+                // editor: {
+                //     type: 'custom',
+                //     component: CompanyCodeEditorComponent,
+                // }
+            },
+
+            //9
+            companyName: {
+                title: '公司名称',
+                type: 'html',
+                editor: {
+                    type: 'custom',
+                    component: CompanyNameEditorComponent,
+                }
+            },
+
+            //10
             ip: {
                 title: 'ip地址',
                 type: 'number',
             },
+            //11
             hostName: {
                 title: '服务器名称',
                 type: 'number',
             },
+            //12
             hostPort: {
                 title: '服务器端口',
                 type: 'number',
             },
+            //13
             requestTimeout: {
                 title: '请求超时时间',
                 type: 'number',
             },
+            //14
             replyTimeout: {
                 title: '响应超时时间',
                 type: 'number',
             },
+            //15
             enable: {
                 title: '是否有效',
                 editor: {
@@ -113,6 +160,7 @@ export class ComPointComponent {
                     }
                 },
             },
+            //16
             keepAlive: {
                 title: '是否心跳',
                 editor: {
@@ -126,15 +174,26 @@ export class ComPointComponent {
                     }
                 },
             },
+            //17
             connectMode: {
                 title: '链接模式',
                 type: 'html',
-                editor:{
-                    type:'list',
-                    config:{
-                        selectText:'Select...',
-                        list:[],
-                    }
+                // editor:{
+                //     type:'list',
+                //     config:{
+                //         selectText:'Select...',
+                //         list:[],
+                //     }
+                // }
+            },
+
+            //18
+            dictClassifyValue: {
+                title: '链接模式名称',
+                type: 'html',
+                editor: {
+                    type: 'custom',
+                    component: DictNameEditorComponent,
                 }
             },
         },
@@ -143,8 +202,8 @@ export class ComPointComponent {
     //source: LocalDataSource = new LocalDataSource();
     source: ServerDataSource;
 
-    compoints:any;
-
+    compoints :any;
+    addresses :any;
     constructor(private service: CpiService,
                 private http: Http,
                 private dateUtils: JhiDateUtils,
@@ -155,15 +214,17 @@ export class ComPointComponent {
         this.source = new ServerDataSource(http, {endPoint: '/emcloudcpi/api/compoints'},
             dateUtils);
         this.compoints = this.apiService.getCompoints();
-        if(this.compoints && this.compoints.length)
-        {
-            for(let i = 0;i <this.compoints.length;i++)
-            {
-                this.settings.columns.connectMode.editor.config.list.push(
-                    {value:this.compoints[i].connectMode,title:this.compoints[i].connectMode}
-                )
-            }
-        }
+        // if(this.compoints && this.compoints.length)
+        // {
+        //     for(let i = 0;i <this.compoints.length;i++)
+        //     {
+        //         this.settings.columns.connectMode.editor.config.list.push(
+        //             {value:this.compoints[i].connectMode,title:this.compoints[i].connectMode}
+        //         )
+        //     }
+        // }
+
+
 
     }
 

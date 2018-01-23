@@ -54,8 +54,16 @@
             "javadoc": "公司编码",
             "fieldType": "String",
             "fieldValidateRules": [
-                "maxlength",
-                "required"
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "companyName",
+            "javadoc": "公司名称",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
             ],
             "fieldValidateRulesMaxlength": 64
         },

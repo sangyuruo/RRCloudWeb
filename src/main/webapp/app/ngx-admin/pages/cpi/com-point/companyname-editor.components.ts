@@ -6,13 +6,12 @@ import {Http} from "@angular/http";
 @Component({
     template: `
         <select class="form-control" [(ngModel)]="sure" (ngModelChange)="setInfo()" #name [name]="cell.getId()">
-        <option *ngFor="let comPoint of comPoints" [value]="comPoint.companyCode">{{comPoint.companyCode}}</option>
+        <option *ngFor="let comPoint of comPoints" [value]="comPoint.companyName">{{comPoint.companyName}}</option>
         </select>
-     
   `,
 
 })
-export class CompanyCodeEditorComponent extends DefaultEditor implements AfterViewInit {
+export class CompanyNameEditorComponent extends DefaultEditor implements AfterViewInit {
 
     @ViewChild('name') name: ElementRef;
     @ViewChild('url') url: ElementRef;
@@ -25,11 +24,14 @@ export class CompanyCodeEditorComponent extends DefaultEditor implements AfterVi
             data =>{this.comPoints = data;
                 this.sure=this.cell.newValue
             }
+
         )
     }
     ngAfterViewInit() {}
 
     setInfo() {
-        this.cell.newValue = this.sure;
+        let i = $('option:selected').index();
+        this.cell.getRow().getCells()[7].newValue = this.comPoints[i].companyCode;
+        this.cell.newValue = this.sure
     }
 }
