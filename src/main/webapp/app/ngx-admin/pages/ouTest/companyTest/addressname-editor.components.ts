@@ -5,23 +5,22 @@ import {Http} from "@angular/http";
 @Component({
     template: `
         <select class="form-control" [(ngModel)]="sure" (ngModelChange)="setInfo()" #name [name]="cell.getId()">
-        <option *ngFor="let meterInfo of meterInfos" [value]="meterInfo.meterName">{{meterInfo.meterName}}</option>
+        <option *ngFor="let company of companies" [value]="company.addressName">{{company.addressName}}</option>
         </select>
-     
   `,
 
 })
-export class MeterNameEditorComponent extends DefaultEditor implements AfterViewInit {
+export class AddressNameEditorComponent extends DefaultEditor implements AfterViewInit {
 
     @ViewChild('name') name: ElementRef;
     @ViewChild('url') url: ElementRef;
     @ViewChild('htmlValue') htmlValue: ElementRef;
-    meterInfos;
+    companies;
     sure ;
     constructor(private http: Http) {
         super();
-        this.http.get('/emcloudmi/api/meter-infos?size=2000').map( res => res.json()).subscribe(
-            data =>{this.meterInfos = data;
+        this.http.get('/emcloudloc/api/addresses').map( res => res.json()).subscribe(
+            data =>{this.companies = data;
                 this.sure=this.cell.newValue
             }
         )

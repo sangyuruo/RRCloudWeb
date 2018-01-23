@@ -5,6 +5,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { ThemeModule } from '../@theme/theme.module';
 import {JhiEventManager} from "ng-jhipster";
+import {EmCloudWebAdminModule} from "../../admin/admin.module";
 
 
 const PAGES_COMPONENTS = [
@@ -16,6 +17,10 @@ const PAGES_COMPONENTS = [
     PagesRoutingModule,
     ThemeModule,
     DashboardModule,
+
+      //增加docs模块
+      EmCloudWebAdminModule
+
   ],
   declarations: [
     ...PAGES_COMPONENTS,

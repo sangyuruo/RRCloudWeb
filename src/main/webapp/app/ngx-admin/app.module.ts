@@ -16,31 +16,31 @@ import { CoreModule } from './@core/core.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ThemeModule } from './@theme/theme.module';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgbActiveModal, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
-
-
-
-import {JhiDateUtils} from "ng-jhipster";
+import {JhiDateUtils, JhiLanguageService} from "ng-jhipster";
 import {NbAuthModule} from "./@nebular/auth/auth.module";
 import {NbEmailPassAuthProvider} from "./@nebular/auth/providers/email-pass-auth.provider";
-import {AuthGuard} from "./auth-guard.service";
 
 import {NB_AUTH_TOKEN_WRAPPER_TOKEN} from "./@nebular/auth/auth.options";
 import {NbAuthJWTToken} from "./@nebular/auth/services/token.service";
 import {ApiService} from "./app.service";
+import {SessionStorageService} from "ng2-webstorage";
+import {EmCloudWebAppModule} from "../app.module";
+import {UserRouteAccessService} from "../shared/auth/user-route-access-service";
 //添加
-const formSetting: any = {
+/*const formSetting: any = {
     redirectDelay: 1500,
     showMessages: {
         success: true,
     },
-};
+};*/
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+
     BrowserAnimationsModule,
     HttpModule,
     AppRoutingModule,
@@ -49,8 +49,11 @@ const formSetting: any = {
     ThemeModule.forRoot(),
     CoreModule.forRoot(),
 
-      //添加
-      NbAuthModule.forRoot({
+
+      //增加jhipster首页
+      EmCloudWebAppModule,
+
+      NbAuthModule.forRoot(/*{
           providers: {
               email: {
                   service: NbEmailPassAuthProvider,
@@ -124,7 +127,7 @@ const formSetting: any = {
                   redirectDelay: 1500,
               },
           },
-      }),
+      }*/),
   ],
   bootstrap: [AppComponent],
   providers: [
@@ -134,12 +137,15 @@ const formSetting: any = {
       //添加日期服务
       JhiDateUtils,
       //添加保护路由
-      AuthGuard,
+      /*AuthGuard,*/
+
       //添加
       { provide: NB_AUTH_TOKEN_WRAPPER_TOKEN, useClass: NbAuthJWTToken },
-/*
-      { provide: HTTP_INTERCEPTORS, useClass: NbAuthJWTInterceptor, multi: true },
-*/
+      //jhipster权限认证
+      SessionStorageService,
+      NgbActiveModal,
+      UserRouteAccessService,
+
   ],
 })
 export class EmCloudWebNgxAppModule {

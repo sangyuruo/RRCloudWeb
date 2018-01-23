@@ -169,7 +169,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
             {
                 title: '组织',
                 link: '/pages/ou/organization',
-
+            },
+            {
+                title: '组织2',
+                link: '/pages/ou/orgtree',
             },
         ],
     },
@@ -287,26 +290,28 @@ export const MENU_ITEMS: NbMenuItem[] = [
             },
         ],
     },
+
     {
-        title: 'Auth',
-        icon: 'nb-locked',
+        title: 'entities',
+        icon: 'nb-tables',
         children: [
             {
-                title: 'Login',
-                link: '/auth/login',
-            },
-            {
-                title: 'Register',
-                link: '/auth/register',
-            },
-            {
-                title: 'Request Password',
-                link: '/auth/request-password',
-            },
-            {
-                title: 'Reset Password',
-                link: '/auth/reset-password',
+                title: '公司',
+                link: '/pages/company',
             },
         ],
     },
+
+    {
+        title: '测试',
+        icon: 'nb-tables',
+        children: [
+            {
+                title: '公司测试',
+                link: '/pages/ouTest/companyTest',
+
+            },
+        ],
+    },
+
 ];

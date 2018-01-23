@@ -3,6 +3,8 @@ import {NgModule} from '@angular/core';
 
 import {PagesComponent} from './pages.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
+import {UserRouteAccessService} from "../../shared/auth/user-route-access-service";
+import {JhiDocsComponent} from "../../admin/docs/docs.component";
 
 
 
@@ -13,9 +15,23 @@ const routes: Routes = [{
         path: '',
         redirectTo: 'dashboard',
         pathMatch: 'full',
-    }, {
+        data: {
+            authorities: ['ROLE_USER','ROLE_ADMIN'],
+        },
+        canActivate: [UserRouteAccessService]
+    },
+        //增加docs路径
+        {
+            path: 'docs',
+            component: JhiDocsComponent,
+        },
+        {
         path: 'dashboard',
         component: DashboardComponent,
+        data: {
+            authorities: ['ROLE_USER','ROLE_ADMIN'],
+        },
+        canActivate: [UserRouteAccessService]
     }, {
         path: 'ui-features',
         loadChildren: () => new Promise(resolve => {
@@ -124,6 +140,22 @@ const routes: Routes = [{
                     resolve(require('./nfs/nfs.module').TablesModule);
                 })
             })
+        }, {
+            path: 'company',
+            loadChildren: () => new Promise(resolve => {
+                (require as any).ensure([], require => {
+                    resolve(require('./entities/company/company.module').EmCloudWebCompanyModule);
+                })
+            })
+        }
+        , {
+            path: 'ouTest',
+            loadChildren: () => new Promise(resolve => {
+                (require as any).ensure([], require => {
+                    resolve(require('./ouTest/ouTest.module').OuTestModule);
+                })
+            })
+
         }],
 }];
 

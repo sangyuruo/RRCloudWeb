@@ -1,0 +1,22 @@
+<div class="header-container"
+     [class.left]="position === 'normal'"
+     [class.right]="position === 'inverse'">
+    <div class="logo-containter">
+        <div class="logo">欢迎使用能效管理平台！</div>
+    </div>
+    <ngx-theme-switcher></ngx-theme-switcher>
+</div>
+
+<nb-actions size="medium"
+            class="header-container"
+            [class.right]="position === 'normal'"
+            [class.left]="position === 'inverse'">
+    <nb-action>
+        <nb-user [menu]="userMenu" (menuClick)="openLogin()"
+                 [name]="user?.name" [picture]="user?.picture"></nb-user>
+    </nb-action>
+</nb-actions>
+
+
+
+

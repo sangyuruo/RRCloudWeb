@@ -36,6 +36,7 @@ export class CompanyComponent {
             deleteButtonContent: '<i class="nb-trash"></i>',
             confirmDelete: true,
         },
+
         /*columns: {
           id: {
             title: 'ID',

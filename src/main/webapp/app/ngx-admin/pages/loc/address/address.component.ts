@@ -3,7 +3,7 @@ import {LocService} from '../loc.service';
 import {Http} from "@angular/http";
 import {JhiDateUtils, JhiEventManager} from "ng-jhipster";
 import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
-import {AreaCodeEditorComponent} from "./areacode-editor.components";
+import {AreaNameEditorComponent} from "./area-name-editor.components";
 
 @Component({
     selector: 'ngx-smart-table',
@@ -56,10 +56,14 @@ export class AddressComponent {
             },
             areaCode: {
                 title: '地区代码',
+                type: 'string',
+            },
+            areaName: {
+                title: '地区名称',
                 type: 'html',
                 editor:{
                     type:'custom',
-                    component:AreaCodeEditorComponent,
+                    component:AreaNameEditorComponent,
                 }
             },
             enable: {

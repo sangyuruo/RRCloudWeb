@@ -6,18 +6,24 @@
 import { Component, OnInit } from '@angular/core';
 import { AnalyticsService } from './@core/utils/analytics.service';
 import {ApiService} from "./app.service";
+import {JhiLanguageService} from "ng-jhipster";
 
 @Component({
   selector: 'ngx-app',
-  template: `<router-outlet></router-outlet>`,
+  template: `
+      <router-outlet></router-outlet>
+  `,
 })
 export class AppComponent implements OnInit {
 
-  constructor(private analytics: AnalyticsService,private apiService: ApiService) {
+  constructor(private analytics: AnalyticsService,
+              private apiService: ApiService
+              ) {
   }
 
   ngOnInit(): void {
     this.analytics.trackPageViews();
+
       //添加
       this.apiService.initOrganizationesDatas();
       this.apiService.initCompaniesDatas();

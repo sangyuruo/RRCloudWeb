@@ -1,3 +1,4 @@
+/*
 import { Injectable } from '@angular/core';
 import {NbAuthService} from "./@nebular/auth/services/auth.service";
 import {CanActivate, Router} from "@angular/router";
@@ -19,3 +20,4 @@ export class AuthGuard implements CanActivate {
   }
 
 }
+*/

@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
-import {LocalDataSource,} from 'ng2-smart-table';
 
 import {Http} from "@angular/http";
-import {JhiDateUtils, JhiEventManager} from "ng-jhipster";
+import {JhiDateUtils} from "ng-jhipster";
 import {MiService} from "../mi.service";
 import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
-import {MeterNameEditorComponent} from "./meter-name-editor.component";
-import {MeterTypeEditorComponent} from "../meter-info/meter-type-editor.component";
 import {DictClassifyValueEditorComponent} from "./dict-classify-value-editor.component";
+import {HttpClient, HttpParams} from "@angular/common/http";
 
 @Component({
     selector: 'ngx-smart-table',
@@ -87,7 +85,16 @@ export class MeterCategoryInfoComponent {
              },*/
             enable: {
                 title: '是否有效',
-                type: 'Boolean',
+                editor: {
+                    type: 'list',
+                    config: {
+                        selectText: 'Select...',
+                        list: [
+                            {value: true, title: 'true'},
+                            {value: false, title: 'false'}
+                        ]
+                    }
+                },
             },
         },
     };
@@ -97,6 +104,7 @@ export class MeterCategoryInfoComponent {
 
     constructor(private service: MiService,
                 private http:Http,
+                private http1:HttpClient,
                 private dateUtils: JhiDateUtils) {
         //this.service.getDataMeterCategoryInfo().subscribe(data => (this.source.load(data)))
         this.source = new ServerDataSource(http, { endPoint: '/emcloudmi/api/meter-category-infos' },
@@ -116,26 +124,55 @@ export class MeterCategoryInfoComponent {
 
     onUpdateConfirm(event) {
         if (window.confirm('Are you sure you want to update?')) {
+           /*   const params= new HttpParams().set('dictClassifyValue',event.newData.dictName);
+              this.http1.get('emclouddict/api/dictionary-classifies/by-dict-classify-value',{params})
+                  .subscribe(data=>{event.newData.dictCode=data[0].dictClassifyCode;
             this.service.updateMeterCategoryInfo(event.newData).subscribe((response) => {
                 this.service.getDataMeterCategoryInfo().subscribe(data => (this.source.load(data)))
                 event.confirm.resolve(response)
                 console.log(response)
             });
+              });*/
+
+
+            /* if(event.newData.dictName === "水表"){
+                 event.newData.dictCode = 1
+             }else if(event.newData.dictName === "电表"){
+                 event.newData.dictCode = 2
+             }else{
+                 event.newData.dictCode = 3
+             }*/
+             this.service.updateMeterCategoryInfo(event.newData).subscribe((response) => {
+                 this.service.getDataMeterCategoryInfo().subscribe(data => (this.source.load(data)))
+                 event.confirm.resolve(response)
+                 console.log(response)
+             });
         } else {
             event.confirm.reject();
         }
     }
     onCreateConfirm(event) {
         if (window.confirm('Are you sure you want to create?')) {
-            this.service.createMeterCategoryInfo(event.newData).subscribe((response) => {
-                event.confirm.resolve(response)
-                console.log(response)
-            });
+
+          /*  const params= new HttpParams().set('dictClassifyValue',event.newData.dictName);
+            this.http1.get('emclouddict/api/dictionary-classifies/by-dict-classify-value',{params})
+                .subscribe(data=>{event.newData.dictCode=data[0].dictClassifyCode;*/
+
+                    this.service.createMeterCategoryInfo(event.newData).subscribe((response) => {
+                        event.confirm.resolve(response)
+                        console.log(response)
+                    });
+          /*      });*/
+            /*
+                        this.service.createMeterCategoryInfo(event.newData).subscribe((response) => {
+                            event.confirm.resolve(response)
+                            console.log(response)
+                        });*/
         } else {
             event.confirm.reject();
         }
     }
-    paginate(page){
+    /*paginate(page){
         alert('hi')
-    }
+    }*/
 }
