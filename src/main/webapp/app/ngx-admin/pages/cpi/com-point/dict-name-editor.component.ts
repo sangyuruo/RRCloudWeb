@@ -7,7 +7,7 @@ import {HttpClient} from "@angular/common/http";
 @Component({
     template: `
         <select class="form-control" [(ngModel)]="sure" (ngModelChange)="setInfo()" #name [name]="cell.getId()">
-            <option *ngFor="let comPoint of comPoints" [value]="comPoint.dictClassifyValue">{{comPoint.dictClassifyValue}}</option>
+            <option *ngFor="let comPoint of comPoints" [value]="comPoint.connectModeName">{{comPoint.connectModeName}}</option>
         </select>
 
     `,
