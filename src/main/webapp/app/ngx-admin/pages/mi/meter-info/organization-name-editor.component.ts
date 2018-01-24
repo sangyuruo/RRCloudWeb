@@ -1,6 +1,6 @@
 import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { Cell, DefaultEditor, Editor } from 'ng2-smart-table';
-
+declare let $:any;
 import {Http} from "@angular/http";
 @Component({
     template: `
@@ -27,7 +27,9 @@ export class OrganizationNameEditorComponent extends DefaultEditor implements Af
         )
     }
     ngAfterViewInit() {}
-    setInfo(){
-        this.cell.newValue = this.sure
+    setInfo() {
+        let i = $('option:selected').index();
+        this.cell.getRow().getCells()[5].newValue = this.meterInfos[i].orgCode;
+        this.cell.newValue = this.sure;
     }
 }
