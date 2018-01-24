@@ -2,17 +2,16 @@ import { NgModule } from '@angular/core';
 import { ThemeModule } from '../../@theme/theme.module';
 import { TablesRoutingModule, routedComponents } from './mi-routing.module';
 import {MiService} from "./mi.service";
-
-import {CompanyCodeEditorComponent} from "./meter-info/company-code-editor.component"
-import {OrganizationCodeEditorComponent} from "./meter-info/organization-code-editor.component"
-import {ComPointCodeEditorComponent} from "./meter-info/com-point-code-editor.component";
-import {AddressCodeEditorComponent} from "./meter-info/address-code-editor.component";
 import {MeterTypeEditorComponent} from "./meter-info/meter-type-editor.component";
 import {MiMeterCodeEditorComponent} from "./meter-status/meter-code-editor.component";
 import {MsiMeterCodeEditorComponent} from "./multiway-switch/meter-code-editor.component";
 import {MsiSwitchCodeEditorComponent} from "./multiway-switch/switch-code-editor.component";
 import {Ng2SmartTableModule} from "../../ng2-smart-table/ng2-smart-table.module";
 import {DictClassifyValueEditorComponent} from "./meter-category-info/dict-classify-value-editor.component";
+import {OrganizationNameEditorComponent} from "./meter-info/organization-name-editor.component";
+import {CompanyNameEditorComponent} from "./meter-info/company-name-editor.component";
+import {CpiRegisterNameEditorComponent} from "./meter-info/cpi-register-name-editor.component";
+import {AddressNameEditorComponent} from "./meter-info/address-name-editor.component";
 @NgModule({
   imports: [
     ThemeModule,
@@ -21,10 +20,10 @@ import {DictClassifyValueEditorComponent} from "./meter-category-info/dict-class
   ],
   declarations: [
     ...routedComponents,
-      CompanyCodeEditorComponent,
-      OrganizationCodeEditorComponent,
-      ComPointCodeEditorComponent,
-      AddressCodeEditorComponent,
+      CompanyNameEditorComponent,
+      OrganizationNameEditorComponent,
+      CpiRegisterNameEditorComponent,
+      AddressNameEditorComponent,
       MeterTypeEditorComponent,
       MiMeterCodeEditorComponent,
       MsiMeterCodeEditorComponent,
@@ -32,10 +31,10 @@ import {DictClassifyValueEditorComponent} from "./meter-category-info/dict-class
       DictClassifyValueEditorComponent
   ],
 
-    entryComponents:[CompanyCodeEditorComponent,
-        OrganizationCodeEditorComponent,
-        ComPointCodeEditorComponent,
-        AddressCodeEditorComponent,
+    entryComponents:[CompanyNameEditorComponent,
+        OrganizationNameEditorComponent,
+        CpiRegisterNameEditorComponent,
+        AddressNameEditorComponent,
         MeterTypeEditorComponent,
         MiMeterCodeEditorComponent,
         MsiMeterCodeEditorComponent,
