@@ -3,12 +3,13 @@ import {Http} from "@angular/http";
 import {JhiDateUtils, JhiEventManager} from "ng-jhipster";
 import {MiService} from "../mi.service";
 import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
-import {CompanyCodeEditorComponent} from "./company-code-editor.component";
-import {OrganizationCodeEditorComponent} from "./organization-code-editor.component";
-import {ComPointCodeEditorComponent} from "./com-point-code-editor.component";
-import {AddressCodeEditorComponent} from "./address-code-editor.component";
 import {MeterTypeEditorComponent} from "./meter-type-editor.component";
 import {HttpClient, HttpParams} from "@angular/common/http";
+import {OrganizationNameEditorComponent} from "./organization-name-editor.component";
+import {CompanyNameEditorComponent} from "./company-name-editor.component";
+import {CpiRegisterNameEditorComponent} from "./cpi-register-name-editor.component";
+import {AddressCodeEditorComponent} from "../../cpi/com-point/addresscode-editor.components";
+import {AddressNameEditorComponent} from "./address-name-editor.component";
 declare let $:any;
 declare let Qrcode:any;
 
@@ -57,33 +58,51 @@ export class MeterInfoComponent {
             addressCode: {
                 title: '地址编码',
                 type: 'html',
+            },
+            addressName: {
+                title: '地址名称',
+                type: 'html',
                 editor:{
                     type:'custom',
-                    component: AddressCodeEditorComponent,
+                    component: AddressNameEditorComponent,
                 }
             },
             organizationCode: {
                 title: '组织编码',
                 type: 'html',
+
+            },
+            organizationName: {
+                title: '组织名称',
+                type: 'html',
                 editor:{
                     type:'custom',
-                    component: OrganizationCodeEditorComponent,
+                    component: OrganizationNameEditorComponent,
                 }
             },
             companyCode: {
                 title: '公司编码',
                 type: 'html',
+            },
+            companyName: {
+                title: '公司名',
+                type: 'html',
                 editor:{
                     type:'custom',
-                    component: CompanyCodeEditorComponent,
+                    component: CompanyNameEditorComponent,
                 }
             },
             comPointCode: {
                 title: '串口编码',
                 type: 'html',
+
+            },
+            cpiRegisterName: {
+                title: '串口登记名称',
+                type: 'html',
                 editor:{
                     type:'custom',
-                    component: ComPointCodeEditorComponent,
+                    component: CpiRegisterNameEditorComponent,
                 }
             },
             meterTypeCode: {

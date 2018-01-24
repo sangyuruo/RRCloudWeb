@@ -5,13 +5,13 @@ import {Http} from "@angular/http";
 @Component({
     template: `
         <select class="form-control" [(ngModel)]="sure" (ngModelChange)="setInfo()" #name [name]="cell.getId()">
-        <option *ngFor="let meterInfo of meterInfos" [value]="meterInfo.companyCode">{{meterInfo.companyCode}}</option>
+        <option *ngFor="let meterInfo of meterInfos" [value]="meterInfo.companyName">{{meterInfo.companyName}}</option>
         </select>
      
   `,
 
 })
-export class CompanyCodeEditorComponent extends DefaultEditor implements AfterViewInit {
+export class CompanyNameEditorComponent extends DefaultEditor implements AfterViewInit {
 
     @ViewChild('name') name: ElementRef;
     @ViewChild('url') url: ElementRef;

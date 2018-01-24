@@ -5,13 +5,13 @@ import {Http} from "@angular/http";
 @Component({
     template: `
         <select class="form-control" [(ngModel)]="sure" (ngModelChange)="setInfo()" #name [name]="cell.getId()">
-        <option *ngFor="let meterInfo of meterInfos" [value]="meterInfo.comPointCode">{{meterInfo.comPointCode}}</option>
+        <option *ngFor="let meterInfo of meterInfos" [value]="meterInfo.orgName">{{meterInfo.orgName}}</option>
         </select>
      
   `,
 
 })
-export class ComPointCodeEditorComponent extends DefaultEditor implements AfterViewInit {
+export class OrganizationNameEditorComponent extends DefaultEditor implements AfterViewInit {
 
     @ViewChild('name') name: ElementRef;
     @ViewChild('url') url: ElementRef;
@@ -20,7 +20,7 @@ export class ComPointCodeEditorComponent extends DefaultEditor implements AfterV
     sure ;
     constructor(private http: Http) {
         super();
-        this.http.get('/emcloudcpi/api/compoints?size=2000').map( res => res.json()).subscribe(
+        this.http.get('/emcloudou/api/organizations?size=2000').map( res => res.json()).subscribe(
             data =>{this.meterInfos = data;
                 this.sure=this.cell.newValue
             }
