@@ -41,7 +41,7 @@ export class DictNameEditorComponent extends DefaultEditor implements AfterViewI
 
     setInfo() {
         let i = $('option:selected').index();
-        this.cell.getRow().getCells()[13].newValue = this.comPoints[i].connectMode;
+        this.cell.getRow().getCells()[16].newValue = this.comPoints[i].connectMode;
         this.cell.newValue = this.sure
     }
 }

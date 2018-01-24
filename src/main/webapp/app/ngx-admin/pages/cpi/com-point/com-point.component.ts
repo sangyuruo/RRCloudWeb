@@ -188,7 +188,7 @@ export class ComPointComponent {
             },
 
             //18
-            dictClassifyValue: {
+            connectModeName: {
                 title: '链接模式名称',
                 type: 'html',
                 editor: {
