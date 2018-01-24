@@ -47,6 +47,7 @@ export class MeterTypeEditorComponent extends DefaultEditor implements AfterView
             )*/
 
         let i = $('option:selected').index();
+        this.cell.getRow().getCells()[1].newValue =  this.meterInfos[i].meterType;
         this.cell.getRow().getCells()[11].newValue =  this.meterInfos[i].meterTypeCode;
         this.cell.getRow().getCells()[13].newValue =  this.meterInfos[i].startOffset;
         this.cell.getRow().getCells()[14].newValue =  this.meterInfos[i].numberOfRegisters;

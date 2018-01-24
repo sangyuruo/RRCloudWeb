@@ -129,6 +129,19 @@ export class MeterInfoComponent {
                 title: '控制地址',
                 type: 'String',
             },
+            enable: {
+                title: '是否有效',
+                editor: {
+                    type: 'list',
+                    config: {
+                        selectText: 'Select...',
+                        list: [
+                            {value: true, title: 'true'},
+                            {value: false, title: 'false'}
+                        ]
+                    }
+                },
+            },
         },
     };
 
