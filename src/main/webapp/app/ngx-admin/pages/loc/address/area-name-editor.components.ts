@@ -1,10 +1,10 @@
 import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { Cell, DefaultEditor, Editor } from 'ng2-smart-table';
-
+declare let $:any;
 import {Http} from "@angular/http";
 @Component({
     template: `
-        <select class="form-control" [(ngModel)]="sure" (ngModelChange)="setInfo()" #name [name]="cell.getId()">
+        <select class="form-control" [(ngModel)]="sure" (ngModelChange)="setInfo(sure)" #name [name]="cell.getId()">
         <option *ngFor="let address of addresses" [value]="address.areaName">{{address.areaName}}</option>
         </select>
      
@@ -28,6 +28,8 @@ export class AreaNameEditorComponent extends DefaultEditor implements AfterViewI
     }
     ngAfterViewInit() {}
     setInfo(){
+        let i = $('option:selected').index();
+        this.cell.getRow().getCells()[4].newValue = this.addresses[i].areaCode;
         this.cell.newValue = this.sure
     }
 }
