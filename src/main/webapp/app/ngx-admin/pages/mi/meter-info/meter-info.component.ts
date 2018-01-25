@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Http} from "@angular/http";
-import {JhiDateUtils, JhiEventManager} from "ng-jhipster";
+import {JhiDateUtils} from "ng-jhipster";
 import {MiService} from "../mi.service";
 import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
 import {MeterTypeEditorComponent} from "./meter-type-editor.component";
@@ -8,7 +8,6 @@ import {HttpClient, HttpParams} from "@angular/common/http";
 import {OrganizationNameEditorComponent} from "./organization-name-editor.component";
 import {CompanyNameEditorComponent} from "./company-name-editor.component";
 import {CpiRegisterNameEditorComponent} from "./cpi-register-name-editor.component";
-import {AddressCodeEditorComponent} from "../../cpi/com-point/addresscode-editor.components";
 import {AddressNameEditorComponent} from "./address-name-editor.component";
 declare let $:any;
 declare let Qrcode:any;
