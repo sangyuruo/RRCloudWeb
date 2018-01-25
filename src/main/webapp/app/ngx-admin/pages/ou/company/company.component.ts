@@ -7,7 +7,8 @@ import 'rxjs/Rx';
 import {OuService} from "../ou.service";
 import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
 import {AddressNameEditorComponent} from "./addressname-editor.components";
-
+import {CompanyCodeEditorComponent} from "./companycode-editor.components";
+import {CompanyNameEditorComponent} from './companyname-editor.components';
 @Component({
     selector: 'ngx-smart-table',
     templateUrl: './company.component.html',
@@ -37,53 +38,34 @@ export class CompanyComponent {
             confirmDelete: true,
         },
 
-        /*columns: {
-          id: {
-            title: 'ID',
-            type: 'number',
-          },
-          firstName: {
-            title: 'First Name',
-            type: 'string',
-          },
-          lastName: {
-            title: 'Last Name',
-            type: 'string',
-          },
-          username: {
-            title: 'Username',
-            type: 'string',
-          },
-          email: {
-            title: 'E-mail',
-            type: 'string',
-          },
-          age: {
-            title: 'Age',
-            type: 'number',
-          },
-        },*/
+
         columns: {
             /* id: {
                  title: 'ID',
                  type: 'number',
              },*/
+
             companyName: {
                 title: '公司名',
                 type: 'string',
-            },
-            /*/companyName: {
-                title: 'Company Name',
-                type: 'string',
-            },*/
-            parentCompanyName: {
-                title: '父公司名',
-                type: 'string',
+                editor:{
+                    type:'custom',
+                    component:CompanyNameEditorComponent,
+                }
             },
             companyCode: {
                 title: '公司代码',
                 type: 'string',
+                // editor:{
+                //     type:'custom',
+                //     component:CompanyCodeEditorComponent,
+                // }
             },
+            parentCompanyName: {
+                title: '父公司名',
+                type: 'string',
+            },
+
             countryCode: {
                 title: '国家代码',
                 type: 'string',
@@ -93,10 +75,10 @@ export class CompanyComponent {
                 type: 'string',
             },
 
-            /*addressCode: {
-                title: 'Address Code',
-                type: 'number',
-            },*/
+            addressCode: {
+                title: '地址代码',
+                type: 'number'
+            },
             addressName: {
                 title: '地址名称',
                 type: 'html',
@@ -152,8 +134,6 @@ export class CompanyComponent {
         },
     };
 
-  //  source: LocalDataSource = new LocalDataSource();
-   // isSaving:boolean;
     source: ServerDataSource;
     constructor(private service: OuService,
                 private http:Http,
@@ -165,7 +145,7 @@ export class CompanyComponent {
             .map(res => res.json())
             .subscribe(data => (this.source.load(data)) )*/
         //this.service.getCompany().subscribe(data => (this.source.load(data)))
-        this.source = new ServerDataSource(http, { endPoint: '/emcloudou/api/companies' },
+        this.source = new ServerDataSource(http, { endPoint: '/emcloudou/api/companies'},
             dateUtils);
     }
 

@@ -14,6 +14,7 @@ import {CompanyNameEditorComponent} from "./com-point/companyname-editor.compone
 import {AddressNameEditorComponent} from "./com-point/addressname-editor.components";
 import {OrgNameEditorComponent} from "./com-point/orgname-editor.components";
 import {DictNameEditorComponent} from "./com-point/dict-name-editor.component";
+import {regNameEditorComponent} from "./com-point/regname-editor.components";
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import {DictNameEditorComponent} from "./com-point/dict-name-editor.component";
       OrgCodeEditorComponent,
       OrgNameEditorComponent,
       CompointCodeEditorComponent,
-      DictNameEditorComponent
+      DictNameEditorComponent,
+      regNameEditorComponent
   ],
     entryComponents:[
         AddressCodeEditorComponent,
@@ -41,7 +43,10 @@ import {DictNameEditorComponent} from "./com-point/dict-name-editor.component";
         OrgCodeEditorComponent,
         OrgNameEditorComponent,
         CompointCodeEditorComponent,
-        DictNameEditorComponent],
+        DictNameEditorComponent,
+        regNameEditorComponent
+    ],
+
   providers: [
       CpiService,
   ],

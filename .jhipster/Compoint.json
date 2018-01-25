@@ -100,6 +100,16 @@
             "fieldValidateRulesMaxlength": 20
         },
         {
+            "fieldName": "email",
+            "javadoc": "邮箱",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 20
+        },
+        {
             "fieldName": "hostName",
             "javadoc": "服务器名称",
             "fieldType": "String",
@@ -166,7 +176,7 @@
             ]
         },
         {
-            "fieldName": "connectModeName",
+            "fieldName": "dictClassifyValue",
             "javadoc": "链接模式名称",
             "fieldType": "String",
             "fieldValidateRules": [

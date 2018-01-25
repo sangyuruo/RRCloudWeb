@@ -5,8 +5,11 @@ import {Http} from "@angular/http";
 import {JhiDateUtils, JhiEventManager} from "ng-jhipster";
 import {OuService} from "../ou.service";
 import {AddressNameEditorComponent} from '../company/addressname-editor.components';
-import {CompanyCodeEditorComponent} from './companycode-editor.components';
-import {CompanyNameEditorComponent} from "./companyname-editor.components";
+import {OrgCodeEditorComponent} from "./orgcode-editor.components";
+import {OrgNameEditorComponent} from "./orgname-editor.components";
+import {CompanyCodeEditorComponent} from "../company/companycode-editor.components";
+import {CompanyNameEditorComponent} from "../company/companyname-editor.components";
+import {CpNameEditorComponent} from "./companyname-editor.components";
 
 @Component({
     selector: 'ngx-smart-table',
@@ -37,58 +40,46 @@ export class OrganizationComponent {
             confirmDelete: true,
         },
         columns: {
-            /*id: {
-              title: 'ID',
-              type: 'number',
-            },
-            firstName: {
-              title: 'First Name',
-              type: 'string',
-            },
-            lastName: {
-              title: 'Last Name',
-              type: 'string',
-            },
-            username: {
-              title: 'Username',
-              type: 'string',
-            },
-            email: {
-              title: 'E-mail',
-              type: 'string',
-            },
-            age: {
-              title: 'Age',
-              type: 'number',
-            },*/
-            orgCode: {
-                title: '组织代码',
-                type: 'number',
-            },
+
+
             orgName: {
                 title: '组织名称',
-                type: 'number',
-            },
-            companyCode: {
-                title: '公司代码',
                 type: 'html',
                 editor:{
                     type:'custom',
-                    component:CompanyCodeEditorComponent,
+                    component:OrgNameEditorComponent,
                 }
             },
-            companyName: {
-                title: '公司名称',
+            orgCode: {
+                title: '组织代码',
                 type: 'html',
-                editor:{
-                    type:'custom',
-                    component:CompanyNameEditorComponent,
-                }
+
+                // editor:{
+                //     type:'custom',
+                //     component:OrgCodeEditorComponent,
+                // }
             },
             parentOrgName: {
                 title: '父组织名称',
                 type: 'number',
             },
+            companyName: {
+                title: '公司名',
+                type: 'string',
+                editor:{
+                    type:'custom',
+                    component:CpNameEditorComponent,
+                }
+            },
+            companyCode: {
+                title: '公司代码',
+                type: 'string',
+                // editor:{
+                //     type:'custom',
+                //     component:CompanyCodeEditorComponent,
+                // }
+            },
+
             addressName: {
                 title: '地址名称',
                 type: 'html',

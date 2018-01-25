@@ -13,6 +13,7 @@ import {OrgNameEditorComponent} from "./orgname-editor.components";
 import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
 import {ApiService} from "../../../app.service";
 import {AddressNameEditorComponent} from "./addressname-editor.components";
+import {regNameEditorComponent} from "./regname-editor.components";
 
 
 @Component({
@@ -63,6 +64,11 @@ export class ComPointComponent {
             registerName: {
                 title: '登记名称',
                 type: 'number',
+                editor: {
+                    type: 'custom',
+                    component: regNameEditorComponent,
+                },
+
             },
             //4
             addressCode: {
@@ -211,7 +217,7 @@ export class ComPointComponent {
         /* const data = this.service.getData();
          this.source.load(data);*/
         //this.service.getDataComPoint().subscribe(data => (this.source.load(data)));
-        this.source = new ServerDataSource(http, {endPoint: '/emcloudcpi/api/compoints'},
+        this.source = new ServerDataSource(http, {endPoint:'/emcloudcpi/api/compoints'},
             dateUtils);
         this.compoints = this.apiService.getCompoints();
         // if(this.compoints && this.compoints.length)

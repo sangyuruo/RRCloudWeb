@@ -6,9 +6,10 @@ import {Http} from "@angular/http";
 @Component({
     template: `
         <select class="form-control" [(ngModel)]="sure" (ngModelChange)="setInfo()" #name [name]="cell.getId()">
-        <option *ngFor="let comPoint of comPoints" [value]="comPoint.companyName">{{comPoint.companyName}}</option>
+            <option *ngFor="let comPoint of comPoints" [value]="comPoint.companyName">{{comPoint.companyName}}</option>
         </select>
-  `,
+
+    `,
 
 })
 export class CompanyNameEditorComponent extends DefaultEditor implements AfterViewInit {
