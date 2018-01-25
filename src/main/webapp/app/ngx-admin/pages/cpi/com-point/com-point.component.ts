@@ -70,6 +70,7 @@ export class ComPointComponent {
                 // },
 
             },
+
             //4
             addressCode: {
                 title: '地址代码',
