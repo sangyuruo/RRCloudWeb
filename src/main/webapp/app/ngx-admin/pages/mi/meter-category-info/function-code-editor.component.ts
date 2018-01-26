@@ -11,7 +11,7 @@ declare let $:any;
   `,
 
 })
-export class DictClassifyValueEditorComponent extends DefaultEditor implements AfterViewInit {
+export class FunctionCodeEditorComponent extends DefaultEditor implements AfterViewInit {
 
     @ViewChild('name') name: ElementRef;
     @ViewChild('url') url: ElementRef;
@@ -22,7 +22,7 @@ export class DictClassifyValueEditorComponent extends DefaultEditor implements A
     constructor(private http: Http,
                 private http1: HttpClient,) {
         super();
-        this.http.get('/emclouddict/api/dictionary-classifies/by-dict-code?dictCode=METER_TYPE').map(res => res.json()).subscribe(
+        this.http.get('/emclouddict/api/dictionary-classifies/by-dict-code?dictCode=FUNCTION_CODE').map(res => res.json()).subscribe(
             data => {
                 /*  for(let i=0;i<data.length;i++){
                      if(data[i].dictCode==='METER_TYPE'){
@@ -41,9 +41,6 @@ export class DictClassifyValueEditorComponent extends DefaultEditor implements A
     }
 
     setInfo() {
-       // let i = $('option:selected').index();
-        let i = $('[ng-reflect-name=' + this.cell.getId() + '] option:selected').index();
-        this.cell.getRow().getCells()[2].newValue = this.meterInfos[i].dictClassifyCode;
         this.cell.newValue = this.sure;
     }
 }

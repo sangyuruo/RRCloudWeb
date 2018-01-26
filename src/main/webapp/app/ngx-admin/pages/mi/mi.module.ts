@@ -12,6 +12,7 @@ import {OrganizationNameEditorComponent} from "./meter-info/organization-name-ed
 import {CompanyNameEditorComponent} from "./meter-info/company-name-editor.component";
 import {CpiRegisterNameEditorComponent} from "./meter-info/cpi-register-name-editor.component";
 import {AddressNameEditorComponent} from "./meter-info/address-name-editor.component";
+import {FunctionCodeEditorComponent} from "./meter-category-info/function-code-editor.component";
 @NgModule({
   imports: [
     ThemeModule,
@@ -28,7 +29,8 @@ import {AddressNameEditorComponent} from "./meter-info/address-name-editor.compo
       MiMeterCodeEditorComponent,
       MsiMeterCodeEditorComponent,
       MsiSwitchCodeEditorComponent,
-      DictClassifyValueEditorComponent
+      DictClassifyValueEditorComponent,
+      FunctionCodeEditorComponent
   ],
 
     entryComponents:[CompanyNameEditorComponent,
@@ -39,7 +41,8 @@ import {AddressNameEditorComponent} from "./meter-info/address-name-editor.compo
         MiMeterCodeEditorComponent,
         MsiMeterCodeEditorComponent,
         MsiSwitchCodeEditorComponent,
-        DictClassifyValueEditorComponent
+        DictClassifyValueEditorComponent,
+        FunctionCodeEditorComponent
     ],
 
   providers: [

@@ -29,16 +29,16 @@ export class CompanyNameEditorComponent extends DefaultEditor implements AfterVi
         )
     }
     ngAfterViewInit() {}
-    setInfo(obj) {
-        //后台获取方式
+    setInfo() {
+        /*//后台获取方式
         const params= new HttpParams().set('companyName',obj);
         this.http1.get('/emcloudou/api/companies/by-company-name',{params})
             .subscribe(data=>
                     this.cell.getRow().getCells()[7].newValue = data[0].companyCode
 
-            )
-       /* let i = $('option:selected').index();
-        this.cell.getRow().getCells()[7].newValue = this.meterInfos[i].companyCode;*/
+            )*/
+        let i = $('[ng-reflect-name=' + this.cell.getId() + '] option:selected').index();
+        this.cell.getRow().getCells()[6].newValue = this.meterInfos[i].companyCode;
         this.cell.newValue = this.sure;
     }
 }

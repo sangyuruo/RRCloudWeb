@@ -42,10 +42,10 @@ export class MeterInfoComponent {
             confirmDelete: true,
         },
         columns: {
-            meterCode: {
+          /*  meterCode: {
                 title: '设备编码',
                 type: 'String',
-            },
+            },*/
             meterName: {
                 title: '设备名称',
                 type: 'string',
