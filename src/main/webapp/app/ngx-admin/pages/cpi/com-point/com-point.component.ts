@@ -64,12 +64,13 @@ export class ComPointComponent {
             registerName: {
                 title: '登记名称',
                 type: 'number',
-                editor: {
-                    type: 'custom',
-                    component: regNameEditorComponent,
-                },
+                // editor: {
+                //     type: 'custom',
+                //     component: regNameEditorComponent,
+                // },
 
             },
+
             //4
             addressCode: {
                 title: '地址代码',
