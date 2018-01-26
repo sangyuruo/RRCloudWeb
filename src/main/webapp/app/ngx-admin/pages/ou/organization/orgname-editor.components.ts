@@ -10,7 +10,7 @@ import {HttpClient, HttpParams} from "@angular/common/http";
         <!--<option *ngFor="let organization of organizations" [value]="organization.orgCode">{{organization.orgCode}}</option>-->
         <!--</select>-->
         <input list="pasta" [(ngModel)]="sure"
-               (ngModelChange)="setInfo(sure)" class="form-control short-input"
+               (ngModelChange)="setInfo()" class="form-control short-input"
         >
         <div>
             <datalist id="pasta">
@@ -41,17 +41,16 @@ export class OrgNameEditorComponent extends DefaultEditor implements AfterViewIn
     }
     ngAfterViewInit() {}
 
-    setInfo(obj) {
+    setInfo() {
         //后台获取方式
-        const params= new HttpParams().set('orgName',obj);
-        this.http1.get('/emcloudou/api/organizations/by-org-name',{params})
-            .subscribe(data=>
-                    this.cell.getRow().getCells()[1].newValue = data[0].orgCode
-
-                )
-
-        // let i = $('option:selected').index();
-        // this.cell.getRow().getCells()[4].newValue = this.organizations[i].parentOrgName;
+        // const params= new HttpParams().set('orgName',obj);
+        // this.http1.get('/emcloudou/api/organizations/by-org-name',{params})
+        //     .subscribe(data=>
+        //             this.cell.getRow().getCells()[1].newValue = data[0].orgCode
+        //
+        //         )
+        let i = $('[ng-reflect-name=' + this.cell.getId() + '] option:selected').index();
+        this.cell.getRow().getCells()[1].newValue = this.organizations[i].parentCode;
         this.cell.newValue = this.sure;
     }
 }

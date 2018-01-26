@@ -42,8 +42,10 @@ export class regNameEditorComponent extends DefaultEditor implements AfterViewIn
     ngAfterViewInit() {}
 
     setInfo() {
-        let i = $('option:selected').index();
-        this.cell.getRow().getCells()[1].newValue = this.compoints[i].registerCode;
+        // let i = $('option:selected').index();
+        let i = $('[ng-reflect-name=' + this.cell.getId() + '] option:selected').index();
+
+        this.cell.getRow().getCells()[0].newValue = this.compoints[i].registerCode;
 
         this.cell.newValue = this.sure
     }

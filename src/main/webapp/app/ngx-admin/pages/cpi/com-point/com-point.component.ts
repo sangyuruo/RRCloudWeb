@@ -51,10 +51,10 @@ export class ComPointComponent {
         },
         columns: {
             //1
-            comPointCode: {
-                title: '设备编码',
-                type: 'number',
-            },
+            // comPointCode: {
+            //     title: '设备编码',
+            //     type: 'number',
+            // },
             //2
             registerCode: {
                 title: '登记代码',

@@ -7,7 +7,7 @@ import {HttpClient} from "@angular/common/http";
 @Component({
     template: `
         <select class="form-control" [(ngModel)]="sure" (ngModelChange)="setInfo()" #name [name]="cell.getId()">
-            <option *ngFor="let comPoint of comPoints" [value]="comPoint.dictClassifyValue">{{comPoint.dictClassifyValue}}</option>
+            <option *ngFor="let dict of dicts" [value]="dict.dictClassifyValue">{{dict.dictClassifyValue}}</option>
         </select>
 
     `,
@@ -18,7 +18,7 @@ export class DictNameEditorComponent extends DefaultEditor implements AfterViewI
     @ViewChild('name') name: ElementRef;
     @ViewChild('url') url: ElementRef;
     @ViewChild('htmlValue') htmlValue: ElementRef;
-    comPoints;
+    dicts;
     sure ;
     constructor(private http: Http,
                 private http1: HttpClient,) {
@@ -32,7 +32,7 @@ export class DictNameEditorComponent extends DefaultEditor implements AfterViewI
                      }
                  }*/
 
-                this.comPoints = data;
+                this.dicts = data;
                 this.sure = this.cell.newValue
             }
         )
@@ -40,9 +40,9 @@ export class DictNameEditorComponent extends DefaultEditor implements AfterViewI
     ngAfterViewInit() {}
 
     setInfo() {
-        let i = $('option:selected').index();
-        this.cell.getRow().getCells()[16].newValue = this.comPoints[i].connectMode
-            =this.comPoints[i].dictClassifyCode;
+        // let i = $('option:selected').index();
+        let i = $('[ng-reflect-name=' + this.cell.getId() + '] option:selected').index();
+        this.cell.getRow().getCells()[15].newValue=this.dicts[i].dictClassifyCode;
         this.cell.newValue = this.sure
     }
 }

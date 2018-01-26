@@ -9,6 +9,8 @@ import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/
 import {AddressNameEditorComponent} from "./addressname-editor.components";
 import {CompanyCodeEditorComponent} from "./companycode-editor.components";
 import {CompanyNameEditorComponent} from './companyname-editor.components';
+import {CityCodeEditorComponent} from "./citycode-editor.components";
+import {AreaNameEditorComponent} from "./areaname-editor.components";
 @Component({
     selector: 'ngx-smart-table',
     templateUrl: './company.component.html',
@@ -48,22 +50,28 @@ export class CompanyComponent {
             companyName: {
                 title: '公司名',
                 type: 'string',
-                editor:{
-                    type:'custom',
-                    component:CompanyNameEditorComponent,
-                }
-            },
-            companyCode: {
-                title: '公司代码',
-                type: 'string',
                 // editor:{
                 //     type:'custom',
-                //     component:CompanyCodeEditorComponent,
+                //     component:CompanyNameEditorComponent,
                 // }
+            },
+            disable:{
+                companyCode: {
+                    // title: '公司代码',
+                    // type: 'string',
+                    // editor:{
+                    //     type:'custom',
+                    //     component:CompanyCodeEditorComponent,
+                    // }
+                }
             },
             parentCompanyName: {
                 title: '父公司名',
                 type: 'string',
+                editor:{
+                    type:'custom',
+                    component:CompanyNameEditorComponent,
+                }
             },
 
             countryCode: {
@@ -73,6 +81,18 @@ export class CompanyComponent {
             cityCode: {
                 title: '城市代码',
                 type: 'string',
+                // editor:{
+                //     type:'custom',
+                //     component:CityCodeEditorComponent,
+                // }
+            },
+            cityName: {
+                title: '城市名称',
+                type: 'string',
+                editor:{
+                    type:'custom',
+                    component:AreaNameEditorComponent,
+                }
             },
 
             addressCode: {

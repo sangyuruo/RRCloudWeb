@@ -5,10 +5,7 @@ import {Http} from "@angular/http";
 import {JhiDateUtils, JhiEventManager} from "ng-jhipster";
 import {OuService} from "../ou.service";
 import {AddressNameEditorComponent} from '../company/addressname-editor.components';
-import {OrgCodeEditorComponent} from "./orgcode-editor.components";
 import {OrgNameEditorComponent} from "./orgname-editor.components";
-import {CompanyCodeEditorComponent} from "../company/companycode-editor.components";
-import {CompanyNameEditorComponent} from "../company/companyname-editor.components";
 import {CpNameEditorComponent} from "./companyname-editor.components";
 
 @Component({
@@ -41,28 +38,6 @@ export class OrganizationComponent {
         },
         columns: {
 
-
-            orgName: {
-                title: '组织名称',
-                type: 'html',
-                editor:{
-                    type:'custom',
-                    component:OrgNameEditorComponent,
-                }
-            },
-            orgCode: {
-                title: '组织代码',
-                type: 'html',
-
-                // editor:{
-                //     type:'custom',
-                //     component:OrgCodeEditorComponent,
-                // }
-            },
-            parentOrgName: {
-                title: '父组织名称',
-                type: 'number',
-            },
             companyName: {
                 title: '公司名',
                 type: 'string',
@@ -77,6 +52,38 @@ export class OrganizationComponent {
                 // editor:{
                 //     type:'custom',
                 //     component:CompanyCodeEditorComponent,
+                // }
+            },
+            parentOrgName: {
+                title: '父组织名称',
+                type: 'string',
+                editor:{
+                    type:'list',
+                    config:{
+                        list:[]
+                    },
+                },
+            },
+            parentCode: {
+                title: '父组织代码',
+                type: 'html'
+            },
+
+            orgName: {
+                title: '组织名称',
+                type: 'html',
+                // editor:{
+                //     type:'custom',
+                //     component:OrgNameEditorComponent,
+                // }
+            },
+            orgCode: {
+                title: '组织代码',
+                type: 'html',
+
+                // editor:{
+                //     type:'custom',
+                //     component:OrgCodeEditorComponent,
                 // }
             },
 
@@ -115,6 +122,7 @@ export class OrganizationComponent {
         //this.service.getOrganization().subscribe(data => (this.source.load(data)))
         this.source = new ServerDataSource(http, { endPoint: '/emcloudou/api/organizations' },
             dateUtils);
+
     }
 
     onDeleteConfirm(event): void {

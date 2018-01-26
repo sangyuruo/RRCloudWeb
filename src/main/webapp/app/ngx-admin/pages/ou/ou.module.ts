@@ -13,6 +13,8 @@ import {CompanyCodeEditorComponent} from "./company/companycode-editor.component
 import {OrgCodeEditorComponent} from "./organization/orgcode-editor.components";
 import {OrgNameEditorComponent} from "./organization/orgname-editor.components";
 import {CpNameEditorComponent} from "./organization/companyname-editor.components";
+import { CityCodeEditorComponent} from "./company/citycode-editor.components";
+import {AreaNameEditorComponent} from "./company/areaname-editor.components";
 
 
 
@@ -29,14 +31,15 @@ import {CpNameEditorComponent} from "./organization/companyname-editor.component
         CompanyNameEditorComponent,
         CompanyCodeEditorComponent,
         CpNameEditorComponent,
-
+        CityCodeEditorComponent,
+        AreaNameEditorComponent,
         OrgCodeEditorComponent,
         OrgNameEditorComponent
 
     ],
     entryComponents:[AddressNameEditorComponent,
         CpNameEditorComponent,
-        CompanyNameEditorComponent,CompanyCodeEditorComponent,OrgCodeEditorComponent,
+        CompanyNameEditorComponent,CompanyCodeEditorComponent,AreaNameEditorComponent,CityCodeEditorComponent,OrgCodeEditorComponent,
         OrgNameEditorComponent],
     providers: [
         OuService,
