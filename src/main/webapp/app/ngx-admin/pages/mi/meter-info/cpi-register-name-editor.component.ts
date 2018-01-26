@@ -29,15 +29,15 @@ export class CpiRegisterNameEditorComponent extends DefaultEditor implements Aft
         )
     }
     ngAfterViewInit() {}
-    setInfo(obj) {
-        //后台获取方式
+    setInfo() {
+       /* //后台获取方式
         const params= new HttpParams().set('registerName',obj);
         this.http1.get('/emcloudcpi/api/compoint/by-register-name',{params})
             .subscribe(data=>
                 this.cell.getRow().getCells()[9].newValue = data[0].comPointCode
-            )
-        /*let i = $('option:selected').index();
-        this.cell.getRow().getCells()[9].newValue = this.meterInfos[i].comPointCode;*/
+            )*/
+        let i = $('[ng-reflect-name=' + this.cell.getId() + '] option:selected').index();
+        this.cell.getRow().getCells()[8].newValue = this.meterInfos[i].comPointCode;
         this.cell.newValue = this.sure;
     }
 }

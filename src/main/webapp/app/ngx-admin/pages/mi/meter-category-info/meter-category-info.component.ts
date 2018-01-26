@@ -6,6 +6,7 @@ import {MiService} from "../mi.service";
 import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
 import {DictClassifyValueEditorComponent} from "./dict-classify-value-editor.component";
 import {HttpClient, HttpParams} from "@angular/common/http";
+import {FunctionCodeEditorComponent} from "./function-code-editor.component";
 
 @Component({
     selector: 'ngx-smart-table',
@@ -41,7 +42,7 @@ export class MeterCategoryInfoComponent {
                 type: 'Integer',
             },
             meterType: {
-                title: '设备分类',
+                title: '设备分类名称',
                 type: 'html',
             },
             dictCode: {
@@ -57,7 +58,10 @@ export class MeterCategoryInfoComponent {
             },
             functionCode: {
                 title: '功能码',
-                type: 'Integer',
+                editor:{
+                    type:'custom',
+                    component: FunctionCodeEditorComponent,
+                }
             },
             meterFactory: {
                 title: '设备生产厂家',

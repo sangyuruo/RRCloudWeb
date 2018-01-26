@@ -29,15 +29,15 @@ export class OrganizationNameEditorComponent extends DefaultEditor implements Af
         )
     }
     ngAfterViewInit() {}
-    setInfo(obj) {
-        //后台获取方式
+    setInfo() {
+       /* //后台获取方式
         const params= new HttpParams().set('orgName',obj);
         this.http1.get('/emcloudou/api/organizations/by-org-name',{params})
             .subscribe(data=>
                 this.cell.getRow().getCells()[5].newValue = data[0].orgCode
-            )
-       /* let i = $('option:selected').index();
-        this.cell.getRow().getCells()[5].newValue = this.meterInfos[i].orgCode;*/
+            )*/
+        let i = $('[ng-reflect-name=' + this.cell.getId() + '] option:selected').index();
+        this.cell.getRow().getCells()[4].newValue = this.meterInfos[i].orgCode;
         this.cell.newValue = this.sure;
     }
 }
