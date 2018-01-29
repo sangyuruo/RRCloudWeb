@@ -55,16 +55,7 @@ export class CompanyComponent {
                 //     component:CompanyNameEditorComponent,
                 // }
             },
-            disable:{
-                companyCode: {
-                    // title: '公司代码',
-                    // type: 'string',
-                    // editor:{
-                    //     type:'custom',
-                    //     component:CompanyCodeEditorComponent,
-                    // }
-                }
-            },
+
             parentCompanyName: {
                 title: '父公司名',
                 type: 'string',
@@ -149,7 +140,16 @@ export class CompanyComponent {
                 title: 'Updated By',
                 type: 'number',
             },*/
-
+            disable:{
+                companyCode: {
+                    // title: '公司代码',
+                    // type: 'string',
+                    // editor:{
+                    //     type:'custom',
+                    //     component:CompanyCodeEditorComponent,
+                    // }
+                }
+            },
 
         },
     };

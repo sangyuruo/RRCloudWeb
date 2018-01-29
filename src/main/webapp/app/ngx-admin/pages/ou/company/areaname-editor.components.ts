@@ -34,7 +34,7 @@ export class AreaNameEditorComponent extends DefaultEditor implements AfterViewI
         let i = $('option:selected').index();
         // let i = $('[ng-reflect-name=' + this.cell.getId() + '] option:selected').index();
         //
-        this.cell.getRow().getCells()[4].newValue = this.areas[i].areaCode;
+        this.cell.getRow().getCells()[3].newValue = this.areas[i].areaCode;
         this.cell.newValue = this.sure
     }
 }

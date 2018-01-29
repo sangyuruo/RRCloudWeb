@@ -31,10 +31,10 @@ export class AddressNameEditorComponent extends DefaultEditor implements AfterVi
     }
     ngAfterViewInit() {}
     setInfo(){
-        // let i = $('option:selected').index();
-        // let i = $('[ng-reflect-name=' + this.cell.getId() + '] option:selected').index();
-        //
-        // this.cell.getRow().getCells()[5].newValue = this.addresses[i].addressCode;
+
+        let i = $('[ng-reflect-name=' + this.cell.getId() + '] option:selected').index();
+
+        this.cell.getRow().getCells()[5].newValue = this.addresses[i].addressCode;
         this.cell.newValue = this.sure
     }
 }
