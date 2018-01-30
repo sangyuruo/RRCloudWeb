@@ -7,9 +7,7 @@ import 'rxjs/Rx';
 import {OuService} from "../ou.service";
 import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
 import {AddressNameEditorComponent} from "./addressname-editor.components";
-import {CompanyCodeEditorComponent} from "./companycode-editor.components";
 import {CompanyNameEditorComponent} from './companyname-editor.components';
-import {CityCodeEditorComponent} from "./citycode-editor.components";
 import {AreaNameEditorComponent} from "./areaname-editor.components";
 @Component({
     selector: 'ngx-smart-table',
@@ -42,40 +40,16 @@ export class CompanyComponent {
 
 
         columns: {
-            /* id: {
-                 title: 'ID',
-                 type: 'number',
-             },*/
 
             companyName: {
-                title: '公司名',
-                type: 'string',
-                // editor:{
-                //     type:'custom',
-                //     component:CompanyNameEditorComponent,
-                // }
+                title: '公司名'
             },
-
             parentCompanyName: {
                 title: '父公司名',
-                type: 'string',
                 editor:{
                     type:'custom',
                     component:CompanyNameEditorComponent,
                 }
-            },
-
-            countryCode: {
-                title: '国家代码',
-                type: 'string',
-            },
-            cityCode: {
-                title: '城市代码',
-                type: 'string',
-                // editor:{
-                //     type:'custom',
-                //     component:CityCodeEditorComponent,
-                // }
             },
             cityName: {
                 title: '城市名称',
@@ -85,11 +59,6 @@ export class CompanyComponent {
                     component:AreaNameEditorComponent,
                 }
             },
-
-            addressCode: {
-                title: '地址代码',
-                type: 'number'
-            },
             addressName: {
                 title: '地址名称',
                 type: 'html',
@@ -98,26 +67,6 @@ export class CompanyComponent {
                     component:AddressNameEditorComponent,
                 }
             },
-            /*legalPerson: {
-                title: 'Legal Person',
-                type: 'number',
-            },*/
-            /*parentCompanyCode: {
-                title: 'Parent CompanyCode',
-                type: 'number',
-            },*/
-            /*remark: {
-                title: 'Remark',
-                type: 'number',
-            },*/
-            /*attachsNum: {
-                title: 'Attachs Num',
-                type: 'number',
-            },*/
-            /* seqNo: {
-                 title: 'seq No',
-                 type: 'number',
-             },*/
             enable: {
                 title: '是否有效',
                 editor: {
@@ -131,26 +80,21 @@ export class CompanyComponent {
                     }
                 },
             },
-
             createTime: {
-                title: 'create Time',
-                type: 'number',
+                title: '创建时间',
             },
-            /*updatedBy: {
-                title: 'Updated By',
-                type: 'number',
-            },*/
-            disable:{
-                companyCode: {
-                    // title: '公司代码',
-                    // type: 'string',
-                    // editor:{
-                    //     type:'custom',
-                    //     component:CompanyCodeEditorComponent,
-                    // }
-                }
+            countryCode: {
+                title: '国家代码',
             },
-
+            cityCode: {
+                title: '城市代码',
+            },
+            addressCode: {
+                title: '地址代码',
+            },
+            companyCode: {
+                title: '公司代码',
+            },
         },
     };
 

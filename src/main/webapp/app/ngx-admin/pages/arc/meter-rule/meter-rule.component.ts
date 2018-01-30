@@ -54,6 +54,10 @@ export class MeterRuleComponent {
                 component: MeterNameEditorComponent,
             }
         },
+        meterCategory: {
+            title: '设备类型ID',
+            type: 'html'
+        },
         ruleCode: {
             title: '规则编码',
             type: 'html',
