@@ -34,7 +34,7 @@ export class CpNameEditorComponent extends DefaultEditor implements AfterViewIni
     setInfo() {
         let i = $('[ng-reflect-name=' + this.cell.getId() + '] option:selected').index();
 
-       // this.cell.getRow().getCells()[1].newValue = this.companies[i].companyCode;
+        this.cell.getRow().getCells()[5].newValue = this.companies[i].companyCode;
         this.cell.getRow().getCells()[6].newValue = this.companies[i].parentCode;
 
         this.cell.newValue = this.sure;
