@@ -84,6 +84,10 @@ export class MeterRuleComponent {
                 }
             }
         },
+        meterCategory: {
+            title: '设备分类id',
+            type: 'Integer',
+        },
     },
   };
 

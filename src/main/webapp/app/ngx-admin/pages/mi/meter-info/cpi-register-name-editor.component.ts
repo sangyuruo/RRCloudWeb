@@ -37,7 +37,7 @@ export class CpiRegisterNameEditorComponent extends DefaultEditor implements Aft
                 this.cell.getRow().getCells()[9].newValue = data[0].comPointCode
             )*/
         let i = $('[ng-reflect-name=' + this.cell.getId() + '] option:selected').index();
-        this.cell.getRow().getCells()[8].newValue = this.meterInfos[i].comPointCode;
+        this.cell.getRow().getCells()[5].newValue = this.meterInfos[i].comPointCode;
         this.cell.newValue = this.sure;
     }
 }

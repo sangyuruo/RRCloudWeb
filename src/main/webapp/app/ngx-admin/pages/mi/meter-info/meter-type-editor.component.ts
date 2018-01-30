@@ -50,10 +50,10 @@ export class MeterTypeEditorComponent extends DefaultEditor implements AfterView
 
         let i = $('[ng-reflect-name=' + this.cell.getId() + '] option:selected').index();
         this.cell.getRow().getCells()[0].newValue =  this.meterInfos[i].meterType;
-        this.cell.getRow().getCells()[10].newValue =  this.meterInfos[i].meterTypeCode;
-        this.cell.getRow().getCells()[12].newValue =  this.meterInfos[i].startOffset;
-        this.cell.getRow().getCells()[13].newValue =  this.meterInfos[i].numberOfRegisters;
-        this.cell.getRow().getCells()[14].newValue =  this.meterInfos[i].controlAddress;
+        this.cell.getRow().getCells()[7].newValue =  this.meterInfos[i].meterTypeCode;
+        this.cell.getRow().getCells()[9].newValue =  this.meterInfos[i].startOffset;
+        this.cell.getRow().getCells()[10].newValue =  this.meterInfos[i].numberOfRegisters;
+        this.cell.getRow().getCells()[11].newValue =  this.meterInfos[i].controlAddress;
         this.cell.newValue = this.sure;
         /* this.cell.getRow().getCells()[7].newValue = 1;
          this.cell.getRow().getCells()[9].newValue = 2;

@@ -143,12 +143,12 @@ export class CompanyComponent {
             disable:{
                 companyCode: {
                     // title: '公司代码',
-                    // type: 'string',
-                    // editor:{
-                    //     type:'custom',
-                    //     component:CompanyCodeEditorComponent,
-                    // }
-                }
+                // type: 'string',
+                // editor:{
+                //     type:'custom',
+                //     component:CompanyCodeEditorComponent,
+                // }
+            }
             },
 
         },

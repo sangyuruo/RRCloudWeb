@@ -37,7 +37,7 @@ export class OrganizationNameEditorComponent extends DefaultEditor implements Af
                 this.cell.getRow().getCells()[5].newValue = data[0].orgCode
             )*/
         let i = $('[ng-reflect-name=' + this.cell.getId() + '] option:selected').index();
-        this.cell.getRow().getCells()[4].newValue = this.meterInfos[i].orgCode;
+        this.cell.getRow().getCells()[14].newValue = this.meterInfos[i].orgCode;
         this.cell.newValue = this.sure;
     }
 }
