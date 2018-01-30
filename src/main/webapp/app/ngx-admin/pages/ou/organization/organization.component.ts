@@ -46,14 +46,6 @@ export class OrganizationComponent {
                     component:CpNameEditorComponent,
                 }
             },
-            companyCode: {
-                title: '公司代码',
-                type: 'string',
-                // editor:{
-                //     type:'custom',
-                //     component:CompanyCodeEditorComponent,
-                // }
-            },
             parentOrgName: {
                 title: '父组织名称',
                 type: 'string',
@@ -64,29 +56,10 @@ export class OrganizationComponent {
                     },
                 },
             },
-            parentCode: {
-                title: '父组织代码',
-                type: 'html'
-            },
-
             orgName: {
                 title: '组织名称',
                 type: 'html',
-                // editor:{
-                //     type:'custom',
-                //     component:OrgNameEditorComponent,
-                // }
             },
-            orgCode: {
-                title: '组织代码',
-                type: 'html',
-
-                // editor:{
-                //     type:'custom',
-                //     component:OrgCodeEditorComponent,
-                // }
-            },
-
             addressName: {
                 title: '地址名称',
                 type: 'html',
@@ -107,6 +80,22 @@ export class OrganizationComponent {
                         ]
                     }
                 },
+            },
+            companyCode: {
+                title: '公司代码',
+                type: 'string'
+            },
+            parentCode: {
+                title: '父组织代码',
+                type: 'html'
+            },
+            orgCode: {
+                title: '组织代码',
+                type: 'html', 
+            },
+
+            addressCode: {
+                title: '地址编码',
             },
         },
     };
