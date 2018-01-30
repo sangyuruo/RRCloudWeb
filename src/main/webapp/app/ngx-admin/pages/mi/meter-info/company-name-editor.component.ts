@@ -38,7 +38,7 @@ export class CompanyNameEditorComponent extends DefaultEditor implements AfterVi
 
             )*/
         let i = $('[ng-reflect-name=' + this.cell.getId() + '] option:selected').index();
-        this.cell.getRow().getCells()[6].newValue = this.meterInfos[i].companyCode;
+        this.cell.getRow().getCells()[15].newValue = this.meterInfos[i].companyCode;
         this.cell.newValue = this.sure;
     }
 }

@@ -54,10 +54,7 @@ export class MeterInfoComponent {
                 title: '登记编码',
                 type: 'Integer',
             },
-            addressCode: {
-                title: '地址编码',
-                type: 'html',
-            },
+
             addressName: {
                 title: '地址名称',
                 type: 'html',
@@ -66,11 +63,7 @@ export class MeterInfoComponent {
                     component: AddressNameEditorComponent,
                 }
             },
-            organizationCode: {
-                title: '组织编码',
-                type: 'html',
 
-            },
             organizationName: {
                 title: '组织名称',
                 type: 'html',
@@ -79,10 +72,7 @@ export class MeterInfoComponent {
                     component: OrganizationNameEditorComponent,
                 }
             },
-            companyCode: {
-                title: '公司编码',
-                type: 'html',
-            },
+
             companyName: {
                 title: '公司名',
                 type: 'html',
@@ -141,6 +131,21 @@ export class MeterInfoComponent {
                     }
                 },
             },
+            Hidden:{
+                addressCode: {
+                    title: '地址编码',
+                    type: 'html',
+                },
+
+                organizationCode: {
+                    title: '组织编码',
+                    type: 'html',
+                },
+
+            companyCode: {
+                title: '公司编码',
+                type: 'html',
+            },},
         },
     };
 
