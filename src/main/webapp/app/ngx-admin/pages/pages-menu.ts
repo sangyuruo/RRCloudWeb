@@ -292,6 +292,33 @@ export const MENU_ITEMS: NbMenuItem[] = [
     },
 
     {
+        title: 'Maps',
+        icon: 'nb-location',
+        children: [
+            {
+                title: 'Google Maps',
+                link: '/pages/maps/gmaps',
+            },
+            {
+                title: 'Baidu Maps',
+                link: '/pages/maps/baidu-maps',
+            },
+            {
+                title: 'BdMaps',
+                link: '/pages/maps/bdmaps',
+            },
+            {
+                title: 'panorama',
+                link: '/pages/maps/panorama',
+            },
+            {
+                title: 'Bubble Maps',
+                link: '/pages/maps/bubble',
+            },
+        ],
+    },
+
+    {
         title: 'entities',
         icon: 'nb-tables',
         children: [

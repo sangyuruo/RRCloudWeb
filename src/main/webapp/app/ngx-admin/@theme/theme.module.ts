@@ -36,6 +36,7 @@ import {
 import { DEFAULT_THEME } from './styles/theme.default';
 import { COSMIC_THEME } from './styles/theme.cosmic';
 import {HomeComponent} from "./components/home/home.component";
+import {BaiduMapsComponent} from "../pages/maps/baidu-maps/baidu-maps.component";
 
 const BASE_MODULES = [CommonModule, FormsModule, ReactiveFormsModule];
 
@@ -68,6 +69,9 @@ const COMPONENTS = [
 
     //增加首页
     HomeComponent,
+
+    /*//增加地图
+    BaiduMapsComponent*/
 
 
 ];

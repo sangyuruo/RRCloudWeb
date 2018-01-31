@@ -24,6 +24,10 @@ import {NbAuthModule} from "./@nebular/auth/auth.module";
 import {ApiService} from "./app.service";
 import {EmCloudWebAppModule} from "../app.module";
 
+import { AbmModule } from 'angular-baidu-maps';
+import {AbmConfig} from "./pages/maps/bdmaps/core/abm.config";
+import {LoaderService} from "./pages/maps/bdmaps/core/loader.service";
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -42,6 +46,11 @@ import {EmCloudWebAppModule} from "../app.module";
       EmCloudWebAppModule,
 
       NbAuthModule.forRoot(),
+
+      //增加百度地图模块
+      AbmModule.forRoot({
+          apiKey: 'SSIGjdDybXdVt5wBDrnAjGbZ9hvwOgVp' // app key为必选项
+      })
   ],
   bootstrap: [AppComponent],
   providers: [
@@ -49,7 +58,10 @@ import {EmCloudWebAppModule} from "../app.module";
       //添加charts服务
       ApiService,
       //添加日期服务
-      JhiDateUtils
+      JhiDateUtils,
+
+      AbmConfig,
+      LoaderService
 
   ],
 })

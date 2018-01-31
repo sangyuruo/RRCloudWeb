@@ -5,6 +5,11 @@ import { MapsComponent } from './maps.component';
 import { GmapsComponent } from './gmaps/gmaps.component';
 // import { LeafletComponent } from './leaflet/leaflet.component';
 import { BubbleMapComponent } from './bubble/bubble-map.component';
+import {BaiduMapsComponent} from "./baidu-maps/baidu-maps.component";
+import {DemoComponent} from "./bdmaps/demo.component";
+import {DemoPanoramaComponent} from "./bdmaps/panorama.component";
+import {AbmComponent} from "./bdmaps/core/abm.component";
+import {AbmPanoramaComponent} from "./bdmaps/core/abm-panorama.component";
 
 const routes: Routes = [{
   path: '',
@@ -20,7 +25,21 @@ const routes: Routes = [{
       {
     path: 'bubble',
     component: BubbleMapComponent,
-  }],
+  },
+      {
+          path: 'baidu-maps',
+          component: BaiduMapsComponent,
+      }
+      ,
+      {
+          path: 'bdmaps',
+          component: DemoComponent,
+      }
+      ,
+      {
+          path: 'panorama',
+          component: DemoPanoramaComponent,
+      }],
 }];
 
 @NgModule({
@@ -34,4 +53,11 @@ export const routedComponents = [
   GmapsComponent,
   // LeafletComponent,
   BubbleMapComponent,
+    BaiduMapsComponent,
+
+    DemoComponent,
+    DemoPanoramaComponent,
+
+    AbmComponent,
+    AbmPanoramaComponent
 ];
