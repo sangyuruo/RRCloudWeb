@@ -1,0 +1,28 @@
+{
+    "emCloudWebApp": {
+        "multiwaySwitch" : {
+            "home": {
+                "title": "Multiway Switches",
+                "createLabel": "创建新 Multiway Switch",
+                "createOrEditLabel": "创建或编辑 Multiway Switch"
+            },
+            "delete": {
+                "question": "你确定要删除 Multiway Switch {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Multiway Switch"
+            },
+            "meterCode": "Meter Code",
+            "switchCode": "Switch Code",
+            "switchStatus": "Switch Status",
+            "recordTime": "Record Time"
+        }
+    },
+    "emCloudMiApp": {
+        "multiwaySwitch" : {
+            "created": "Multiway Switch {{ param }} 创建成功",
+            "updated": "Multiway Switch {{ param }} 更新成功",
+            "deleted": "Multiway Switch {{ param }} 删除成功"
+        }
+    }
+}

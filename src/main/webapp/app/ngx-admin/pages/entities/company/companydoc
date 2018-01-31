@@ -1,0 +1,34 @@
+将company表格从jhipster引入到ngx-admin后修改的地方
+
+1、将company表格引入到ngx-admin
+在company.module.ts中：
+ 1>将RouterModule.forRoot(ENTITY_STATES, { useHash: true })修改为RouterModule.forChild(ENTITY_STATES)
+在company.route.ts中：
+ 1>将path: 'company',修改为path: '',
+
+2、实现创建、查看、编辑、删除按钮的功能
+在company.component.html中：
+ 1>将[routerLink]="['/', { outlets: { popup: ['company-new'] } }]修改为[routerLink]="['./', { outlets: { popup: ['company-new'] } }]
+ 2>将[routerLink]="['/', { outlets: { popup: 'company/'+ company.id + '/edit'} }]"修改为[routerLink]="['./', { outlets: { popup: 'company/'+ company.id + '/edit'} }]"
+ 3>将[routerLink]="['/', { outlets: { popup: 'company/'+ company.id + '/delete'} }]"修改为[routerLink]="['./', { outlets: { popup: 'company/'+ company.id + '/delete'} }]"
+在company-detail.component.html中：
+ 1>将[routerLink]="['/', { outlets: { popup: 'company/'+ company.id + '/edit'} }]"修改为[routerLink]="['../../', { outlets: { popup: 'company/'+ company.id + '/edit'} }]"
+
+3、实现功能键点击后返回原路径
+在company-delete-dialog.component.ts中：
+ 1>在clear()方法中增加 this.router.navigate(['pages/company']); 跳转路径
+ 2>在confirmDelete()方法中增加 this.router.navigate(['pages/company']); 跳转路径
+在company-dialog.component.ts中：
+ 1>在clear()方法中增加 this.router.navigate(['pages/company']); 跳转路径
+ 2>在onSaveSuccess()方法中增加 this.router.navigate(['pages/company']); 跳转路径
+
+4、实现表头各字段排序功能和分页功能
+在company.component.ts中：
+ 1>在transition()方法中，将this.router.navigate(['/company']修改为this.router.navigate(['/pages/company']
+ 2>在clear()方法中，将this.router.navigate(['/company',修改为this.router.navigate(['/pages/company',
+
+5、jhipster中国际化功能的引入
+在company.component.ts中：
+ 1>在constructor()方法中增加 private languageService: JhiLanguageService,
+在company-detail.component.ts中：
+ 1>在constructor()方法中增加 private languageService: JhiLanguageService,

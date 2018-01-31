@@ -1,0 +1,27 @@
+{
+    "emCloudWebApp": {
+        "compointstatus" : {
+            "home": {
+                "title": "Compointstatuses",
+                "createLabel": "创建新 Compointstatus",
+                "createOrEditLabel": "创建或编辑 Compointstatus"
+            },
+            "delete": {
+                "question": "你确定要删除 Compointstatus {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Compointstatus"
+            },
+            "comPointCode": "Com Point Code",
+            "communicationStatus": "Communication Status",
+            "recordTime": "Record Time"
+        }
+    },
+    "emCloudCpiApp": {
+        "compointstatus" : {
+            "created": "Compointstatus {{ param }} 创建成功",
+            "updated": "Compointstatus {{ param }} 更新成功",
+            "deleted": "Compointstatus {{ param }} 删除成功"
+        }
+    }
+}

@@ -1,0 +1,37 @@
+
+<div *ngIf="multiwaySwitch">
+    <h2><span jhiTranslate="emCloudWebApp.multiwaySwitch.detail.title">Multiway Switch</span> {{multiwaySwitch.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="emCloudWebApp.multiwaySwitch.meterCode">Meter Code</span></dt>
+        <dd>
+            <span>{{multiwaySwitch.meterCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.multiwaySwitch.switchCode">Switch Code</span></dt>
+        <dd>
+            <span>{{multiwaySwitch.switchCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.multiwaySwitch.switchStatus">Switch Status</span></dt>
+        <dd>
+            <span>{{multiwaySwitch.switchStatus}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.multiwaySwitch.recordTime">Record Time</span></dt>
+        <dd>
+            <span>{{multiwaySwitch.recordTime | date:'medium'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'multiway-switch/'+ multiwaySwitch.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

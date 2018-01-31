@@ -1,0 +1,29 @@
+@import '../../../@theme/styles/themes';
+
+@include nb-install-component() {
+  ngx-echarts-pie,
+  ngx-echarts-bar,
+  ngx-echarts-line,
+  ngx-echarts-multiple-xaxis,
+  ngx-echarts-area-stack,
+  ngx-echarts-bar-animation,
+
+  //添加
+  ngx-echarts-line-vol,
+  ngx-echarts-line-cur,
+  ngx-echarts-use-line,
+  ngx-echarts-useless-line,
+  ngx-echarts-ele-line,
+  ngx-echarts-less-line,
+
+  ngx-echarts-radar {
+    display: block;
+    height: nb-theme(card-height-medium);
+    width: 100%;
+  }
+
+  /deep/ .echart {
+    height: 100%;
+    width: 100%;
+  }
+}
