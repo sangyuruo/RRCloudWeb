@@ -24,23 +24,40 @@ export class DemoComponent implements OnDestroy {
         this._map = map;
 
 
-        map = new BMap.Map('container', {
-            mapStyle: {
-                styleJson:[{
-                    "featureType": "all",
-                    "elementType": "geometry",
-                    "stylers": {
-                        "hue": "#007fff",
-                        "saturation": 89
-                    }
-                }, {
-                    "featureType": "water",
-                    "elementType": "all",
-                    "stylers": {
-                        "color": "#ffffff"
-                    }
-                }]
-            }
+        // map = new BMap.Map('container', {
+        //     mapStyle: {
+        //         styleJson:[{
+        //             "featureType": "all",
+        //             "elementType": "geometry",
+        //             "stylers": {
+        //                 "hue": "#007fff",
+        //                 "saturation": 89
+        //             }
+        //         }, {
+        //             "featureType": "water",
+        //             "elementType": "all",
+        //             "stylers": {
+        //                 "color": "#ffffff"
+        //             }
+        //         }]
+        //     }
+        // });
+
+        map.setMapStyle({
+            styleJson: [{
+                "featureType": "all",
+                "elementType": "geometry",
+                "stylers": {
+                    "hue": "#007fff",
+                    "saturation": 89
+                }
+            }, {
+                "featureType": "water",
+                "elementType": "all",
+                "stylers": {
+                    "color": "#ffffff"
+                }
+            }],
         });
         map.centerAndZoom(new BMap.Point(112.407672, 28.549992), 11);
         map.addControl(new BMap.MapTypeControl());
