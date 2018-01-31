@@ -30,7 +30,7 @@ const routes: Routes = [{
           path: 'baidu-maps',
           component: BaiduMapsComponent,
       }
-      ,
+     ,
       {
           path: 'bdmaps',
           component: DemoComponent,
