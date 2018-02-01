@@ -2,7 +2,7 @@
     <div class="card-header">示例</div>
     <div class="card-body">
         <textarea highlight-js>&lt;abm-map #map [options]="options" (ready)="onReady($event)" style="height: 300px;"></abm-map></textarea>
-        <abm-map #map [options]="options" (ready)="onReady($event)" style="height: 300px;"></abm-map>
+        <map-baidu #map [options]="options" (ready)="onReady($event)" style="height: 300px;"></map-baidu>
         <p>{{status}}</p>
         <h5 style="border-bottom:1px solid #eee;" class="mt-3 mb-3 pb-3">操作</h5>
         <div class="mb-3">
@@ -17,6 +17,6 @@
 <div class="card mb-3">
     <div class="card-header">卫星地图</div>
     <div class="card-body">
-        <abm-map [options]="satelliteOptions" (ready)="onReadySatellite($event)" style="height: 300px;"></abm-map>
+        <map-baidu [options]="satelliteOptions" (ready)="onReadySatellite($event)" style="height: 300px;"></map-baidu>
     </div>
 </div>

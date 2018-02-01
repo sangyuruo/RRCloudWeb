@@ -31,7 +31,6 @@ export class MapHomeComponent implements OnDestroy {
     constructor(private el: ElementRef, private zone: NgZone,
                 private sidebarService: NbSidebarService,
 
-
                 //添加登录弹出窗口
     private loginModalService: LoginModalService,
     ) { }

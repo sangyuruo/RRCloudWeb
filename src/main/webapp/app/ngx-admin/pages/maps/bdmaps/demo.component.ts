@@ -22,27 +22,6 @@ export class DemoComponent implements OnDestroy {
     private _map: any;
     onReady(map: any) {
         this._map = map;
-
-
-        // map = new BMap.Map('container', {
-        //     mapStyle: {
-        //         styleJson:[{
-        //             "featureType": "all",
-        //             "elementType": "geometry",
-        //             "stylers": {
-        //                 "hue": "#007fff",
-        //                 "saturation": 89
-        //             }
-        //         }, {
-        //             "featureType": "water",
-        //             "elementType": "all",
-        //             "stylers": {
-        //                 "color": "#ffffff"
-        //             }
-        //         }]
-        //     }
-        // });
-
         map.setMapStyle({
             styleJson: [{
                 "featureType": "all",
@@ -86,16 +65,6 @@ export class DemoComponent implements OnDestroy {
     }
 
     infoWindow() {
-        // let infoWin = new BMap.InfoWindow("地址：北京市东城区王府井大街88号乐天银泰百货八层", {
-        //     width: 200,     // 信息窗口宽度
-        //     height: 100,     // 信息窗口高度
-        //     title: "海底捞王府井店", // 信息窗口标题
-        //     enableMessage: true,//设置允许信息窗发送短息
-        //     message: "亲耐滴，晚上一起吃个饭吧？戳下面的链接看下地址喔~"
-        // });
-        // this._map.openInfoWindow(infoWin, this._map.getCenter());
-
-        // var map = new BMap.Map('container');
         // 创建地图实例
         var point = new BMap.Point(112.407672, 28.549992);
         // 创建点坐标

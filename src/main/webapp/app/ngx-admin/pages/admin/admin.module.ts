@@ -33,6 +33,9 @@ import {
 import {EmCloudWebSharedModule} from "../../../shared/shared.module";
 import {customHttpProvider} from "../../../blocks/interceptor/http.provider";
 import {MapHomeComponent} from "./baidu-home/mapHome.component";
+import {AbmComponent} from "./baidu-home/core/abm.component";
+import {AbmConfig} from "./baidu-home/core/abm.config";
+import {LoaderService} from "./baidu-home/core/loader.service";
 
 
 @NgModule({
@@ -59,6 +62,7 @@ import {MapHomeComponent} from "./baidu-home/mapHome.component";
         JhiMetricsMonitoringComponent,
         JhiMetricsMonitoringModalComponent,
         MapHomeComponent,
+        AbmComponent
     ],
     entryComponents: [
 
@@ -82,6 +86,9 @@ import {MapHomeComponent} from "./baidu-home/mapHome.component";
         UserModalService,
 
         customHttpProvider(),
+
+        AbmConfig,
+        LoaderService
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
