@@ -11,8 +11,8 @@ declare const BMap: any;
 
 @Component({
     selector: 'demo',
-    templateUrl: './demo.component.html',
-    styleUrls: ['./demo.component.scss'],
+    templateUrl: './mapHome.component.html',
+    styleUrls: ['./mapHome.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
 export class DemoComponent implements OnDestroy {
