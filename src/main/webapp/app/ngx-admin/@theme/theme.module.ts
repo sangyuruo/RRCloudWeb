@@ -36,9 +36,9 @@ import {
 import { DEFAULT_THEME } from './styles/theme.default';
 import { COSMIC_THEME } from './styles/theme.cosmic';
 import {HomeComponent} from "./components/home/home.component";
-import {BaiduMapsComponent} from "../pages/maps/baidu-maps/baidu-maps.component";
+
 import {AbmComponent} from "./components/baidu-home/core/abm.component";
-import {DemoComponent} from "./components/baidu-home/demo.component";
+import {MapHomeComponent} from "./components/baidu-home/mapHome.component";
 import {AbmConfig} from "./components/baidu-home/core/abm.config";
 import {LoaderService} from "./components/baidu-home/core/loader.service";
 
@@ -76,7 +76,7 @@ const COMPONENTS = [
 
     //增加地图
     AbmComponent,
-    DemoComponent
+    MapHomeComponent
 
 
 ];

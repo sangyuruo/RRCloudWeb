@@ -5,7 +5,7 @@ import {RegisterComponent} from "../account/register/register.component";
 import {SettingsComponent} from "../account/settings/settings.component";
 import {PasswordComponent} from "../account/password/password.component";
 import {UserRouteAccessService} from "../shared/auth/user-route-access-service";
-import {DemoComponent} from "./@theme/components/baidu-home/demo.component";
+import {MapHomeComponent} from "./@theme/components/baidu-home/mapHome.component";
 
 
 const routes: Routes = [
@@ -20,7 +20,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: DemoComponent,
+        component: MapHomeComponent,
 
       },
       {

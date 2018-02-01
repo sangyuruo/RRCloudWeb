@@ -15,7 +15,7 @@ declare const BMap: any;
     styleUrls: ['./mapHome.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class DemoComponent implements OnDestroy {
+export class MapHomeComponent implements OnDestroy {
 
     @Input() position = 'normal';
 
