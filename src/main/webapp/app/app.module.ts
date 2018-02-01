@@ -29,6 +29,7 @@ import {EmCloudWebEntityModule} from "./ngx-admin/pages/entities/entity.module";
 import {EmCloudWebAdminModule} from "./ngx-admin/pages/admin/admin.module";
 import {EmCloudWebSharedModule} from "./shared/shared.module";
 
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -47,7 +48,8 @@ import {EmCloudWebSharedModule} from "./shared/shared.module";
         ErrorComponent,
         PageRibbonComponent,
         ActiveMenuDirective,
-        FooterComponent
+        FooterComponent,
+
     ],
     providers: [
         ProfileService,

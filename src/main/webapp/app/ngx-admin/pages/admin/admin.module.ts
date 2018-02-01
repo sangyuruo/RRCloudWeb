@@ -32,6 +32,8 @@ import {
 } from './';
 import {EmCloudWebSharedModule} from "../../../shared/shared.module";
 import {customHttpProvider} from "../../../blocks/interceptor/http.provider";
+import {MapHomeComponent} from "./baidu-home/mapHome.component";
+
 
 @NgModule({
     imports: [
@@ -55,7 +57,8 @@ import {customHttpProvider} from "../../../blocks/interceptor/http.provider";
         JhiDocsComponent,
         JhiGatewayComponent,
         JhiMetricsMonitoringComponent,
-        JhiMetricsMonitoringModalComponent
+        JhiMetricsMonitoringModalComponent,
+        MapHomeComponent,
     ],
     entryComponents: [
 

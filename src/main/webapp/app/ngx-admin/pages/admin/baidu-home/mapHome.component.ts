@@ -3,14 +3,15 @@ import {Input, NgZone, OnDestroy} from '@angular/core';
 import { Component, OnInit, ViewEncapsulation, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { AbmComponent } from 'angular-baidu-maps';
 import {NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
-import {LoginModalService} from "../../../../shared/login/login-modal.service";
+
 import {NbSidebarService} from "@nebular/theme";
-import {UserService} from "../../../@core/data/users.service";
+import {LoginModalService} from "../../../../shared/login/login-modal.service";
+
 
 declare const BMap: any;
 
 @Component({
-    selector: 'demo',
+    selector: 'mapHome',
     templateUrl: './mapHome.component.html',
     styleUrls: ['./mapHome.component.scss'],
     encapsulation: ViewEncapsulation.None
@@ -29,7 +30,7 @@ export class MapHomeComponent implements OnDestroy {
 
     constructor(private el: ElementRef, private zone: NgZone,
                 private sidebarService: NbSidebarService,
-                private userService: UserService,
+
 
                 //添加登录弹出窗口
     private loginModalService: LoginModalService,
