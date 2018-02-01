@@ -5,4 +5,6 @@ export * from './tiny-mce/tiny-mce.component';
 export * from './theme-settings/theme-settings.component';
 export * from './theme-switcher/theme-switcher.component';
 export * from './home/home.component';
-export * from './home/abm.component';
+export * from './baidu-home/core/abm.component';
+export * from './baidu-home/core/abm-panorama.component';
+export * from './baidu-home/demo.component';

@@ -1,10 +1,13 @@
-import { NgZone, OnDestroy } from '@angular/core';
+import {Input, NgZone, OnDestroy} from '@angular/core';
 /* tslint:disable */
 import { Component, OnInit, ViewEncapsulation, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { AbmComponent } from 'angular-baidu-maps';
+import {NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
+import {LoginModalService} from "../../../../shared/login/login-modal.service";
+import {NbSidebarService} from "@nebular/theme";
+import {UserService} from "../../../@core/data/users.service";
 
 declare const BMap: any;
-declare const BMAP_SATELLITE_MAP: any;
 
 @Component({
     selector: 'demo',
@@ -13,36 +16,28 @@ declare const BMAP_SATELLITE_MAP: any;
     encapsulation: ViewEncapsulation.None
 })
 export class DemoComponent implements OnDestroy {
+
+    @Input() position = 'normal';
+
+
+    //添加登录弹出窗口
+    modalRef: NgbModalRef;
+
     options: any = {}
     status: string = '';
     @ViewChild('map') mapComp: AbmComponent;
 
-    constructor(private el: ElementRef, private zone: NgZone) { }
+    constructor(private el: ElementRef, private zone: NgZone,
+                private sidebarService: NbSidebarService,
+                private userService: UserService,
+
+                //添加登录弹出窗口
+    private loginModalService: LoginModalService,
+    ) { }
 
     private _map: any;
     onReady(map: any) {
         this._map = map;
-
-
-        // map = new BMap.Map('container', {
-        //     mapStyle: {
-        //         styleJson:[{
-        //             "featureType": "all",
-        //             "elementType": "geometry",
-        //             "stylers": {
-        //                 "hue": "#007fff",
-        //                 "saturation": 89
-        //             }
-        //         }, {
-        //             "featureType": "water",
-        //             "elementType": "all",
-        //             "stylers": {
-        //                 "color": "#ffffff"
-        //             }
-        //         }]
-        //     }
-        // });
-
         map.setMapStyle({
             styleJson: [{
                 "featureType": "all",
@@ -68,7 +63,7 @@ export class DemoComponent implements OnDestroy {
         map.addEventListener('tilesloaded', () => {
             this.status = '地图加载完毕';
         });
-        map.addEventListener('click', this._click.bind(this));
+      //  map.addEventListener('click', this._click.bind(this));
 
         this.infoWindow();
     }
@@ -86,16 +81,7 @@ export class DemoComponent implements OnDestroy {
     }
 
     infoWindow() {
-        // let infoWin = new BMap.InfoWindow("地址：北京市东城区王府井大街88号乐天银泰百货八层", {
-        //     width: 200,     // 信息窗口宽度
-        //     height: 100,     // 信息窗口高度
-        //     title: "海底捞王府井店", // 信息窗口标题
-        //     enableMessage: true,//设置允许信息窗发送短息
-        //     message: "亲耐滴，晚上一起吃个饭吧？戳下面的链接看下地址喔~"
-        // });
-        // this._map.openInfoWindow(infoWin, this._map.getCenter());
 
-        // var map = new BMap.Map('container');
         // 创建地图实例
         var point = new BMap.Point(112.407672, 28.549992);
         // 创建点坐标
@@ -103,15 +89,13 @@ export class DemoComponent implements OnDestroy {
         // 初始化地图， 设置中心点坐标和地图级别
         var marker = new BMap.Marker(point);
         this._map.addOverlay(marker);
-    }
-
-    // 卫星
-    satelliteOptions: any;
-    private mapSatellite: any;
-    onReadySatellite(map: any) {
-        map.centerAndZoom(new BMap.Point(112.407672, 28.549992), 11);
-        map.setMapType(BMAP_SATELLITE_MAP);
-        this.mapSatellite = map;
+        // marker.addEventListener('click', function (evt) {
+        //     var point = evt.target.point;
+        //     var info  = '点击Marker坐标: ' + point.lng.toFixed(112.407672) + ', ' + point.lat.toFixed(28.549992);
+        //     alert(info);
+        // });
+        //添加登录弹出窗口
+        this.modalRef = this.loginModalService.open();
     }
 
     ngOnDestroy(): void {

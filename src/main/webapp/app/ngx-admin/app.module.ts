@@ -25,8 +25,8 @@ import {ApiService} from "./app.service";
 import {EmCloudWebAppModule} from "../app.module";
 
 import { AbmModule } from 'angular-baidu-maps';
-import {AbmConfig} from "./pages/maps/bdmaps/core/abm.config";
-import {LoaderService} from "./pages/maps/bdmaps/core/loader.service";
+import {AbmConfig} from "./@theme/components/baidu-home/core/abm.config";
+import {LoaderService} from "./@theme/components/baidu-home/core/loader.service";
 
 @NgModule({
   declarations: [AppComponent],
@@ -61,10 +61,7 @@ import {LoaderService} from "./pages/maps/bdmaps/core/loader.service";
       //添加charts服务
       ApiService,
       //添加日期服务
-      JhiDateUtils,
-
-      AbmConfig,
-      LoaderService
+      JhiDateUtils
 
   ],
 })
