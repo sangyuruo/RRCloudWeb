@@ -13,6 +13,7 @@ import { NbAuthService } from '../services/auth.service';
     <nb-layout>
       <nb-layout-column>
         <nb-card>
+            <nb-card-header>华翔翔能能效管理平台 </nb-card-header>
           <nb-card-body>
             <div class="col-md-12 col-sm-14">
               <router-outlet></router-outlet>
