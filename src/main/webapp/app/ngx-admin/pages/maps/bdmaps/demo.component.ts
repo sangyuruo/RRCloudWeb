@@ -1,7 +1,8 @@
 import { NgZone, OnDestroy } from '@angular/core';
 /* tslint:disable */
 import { Component, OnInit, ViewEncapsulation, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-import { AbmComponent } from 'angular-baidu-maps';
+import {AbmComponent} from "../../../@bdmap/core/abm.component";
+
 
 declare const BMap: any;
 declare const BMAP_SATELLITE_MAP: any;

@@ -4,11 +4,7 @@ import { AngularEchartsModule } from 'ngx-echarts';
 
 import { ThemeModule } from '../../@theme/theme.module';
 import { MapsRoutingModule, routedComponents } from './maps-routing.module';
-import {AbmConfig} from "./bdmaps/core/abm.config";
-import {LoaderService} from "./bdmaps/core/loader.service";
-/*
-import {AbmConfig} from 'angular-baidu-maps';
-*/
+
 
 
 @NgModule({
@@ -26,9 +22,7 @@ import {AbmConfig} from 'angular-baidu-maps';
 
     providers: [
 
-        //增加百度地图服务
-        AbmConfig,
-        LoaderService
+
 
 
 

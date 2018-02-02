@@ -38,7 +38,6 @@ import { COSMIC_THEME } from './styles/theme.cosmic';
 import {HomeComponent} from "./components/home/home.component";
 
 
-import {LoaderService} from 'angular-baidu-maps/core/loader.service';
 
 
 
@@ -108,7 +107,7 @@ export class ThemeModule {
       providers: [...NB_THEME_PROVIDERS,
           //增加百度地图
         // AbmConfig,
-          LoaderService
+         // LoaderService
       ],
     };
   }

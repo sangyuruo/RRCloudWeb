@@ -1,6 +1,7 @@
 /* tslint:disable */
 import { Component, OnInit, ViewEncapsulation, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-import { AbmPanoramaComponent } from 'angular-baidu-maps';
+import {AbmPanoramaComponent} from "../../../@bdmap/core/abm-panorama.component";
+
 
 declare const BMap: any;
 

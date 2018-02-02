@@ -13,6 +13,14 @@ eg $input-color: red;
 
 /* jhipster-needle-scss-add-vendor JHipster will add new css style */
 
+/* ==========================================================================
+PrimeNG and it's third-party dependencies resources
+========================================================================== */
+
+@import "~primeng/resources/primeng.min.css";
+@import "~primeng/resources/themes/darkness/theme.css";
+@import "~quill/dist/quill.core.css";
+@import "~quill/dist/quill.snow.css";
 
 
 // ngx-admin styles

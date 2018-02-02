@@ -1,11 +1,12 @@
 import {Input, NgZone, OnDestroy} from '@angular/core';
 /* tslint:disable */
 import { Component, OnInit, ViewEncapsulation, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-import { AbmComponent } from 'angular-baidu-maps';
+
 import {NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
 
 import {NbSidebarService} from "@nebular/theme";
 import {LoginModalService} from "../../../../shared/login/login-modal.service";
+import {AbmComponent} from "../../../@bdmap/core/abm.component";
 
 
 declare const BMap: any;
