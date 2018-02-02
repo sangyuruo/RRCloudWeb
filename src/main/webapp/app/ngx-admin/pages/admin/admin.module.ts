@@ -33,7 +33,8 @@ import {
 import {EmCloudWebSharedModule} from "../../../shared/shared.module";
 import {customHttpProvider} from "../../../blocks/interceptor/http.provider";
 import {MapHomeComponent} from "./baidu-home/mapHome.component";
-import {AbmModule} from "angular-baidu-maps";
+import {AbmModule} from "../../@bdmap/index";
+
 
 
 
