@@ -23,8 +23,8 @@ import {NbAuthModule} from "./@nebular/auth/auth.module";
 
 import {ApiService} from "./app.service";
 import {EmCloudWebAppModule} from "../app.module";
+import {AbmModule} from "./@bdmap/index";
 
-import {AbmModule} from 'angular-baidu-maps';
 
 
 @NgModule({

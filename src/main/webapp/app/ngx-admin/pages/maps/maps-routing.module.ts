@@ -8,8 +8,7 @@ import { BubbleMapComponent } from './bubble/bubble-map.component';
 import {BaiduMapsComponent} from "./baidu-maps/baidu-maps.component";
 import {DemoComponent} from "./bdmaps/demo.component";
 import {DemoPanoramaComponent} from "./bdmaps/panorama.component";
-import {AbmComponent} from "./bdmaps/core/abm.component";
-import {AbmPanoramaComponent} from "./bdmaps/core/abm-panorama.component";
+
 
 
 const routes: Routes = [{
@@ -59,7 +58,6 @@ export const routedComponents = [
     DemoComponent,
     DemoPanoramaComponent,
 
-    AbmComponent,
-    AbmPanoramaComponent
+
 
 ];
