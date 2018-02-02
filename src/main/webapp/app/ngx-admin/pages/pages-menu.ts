@@ -170,10 +170,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
                 title: '组织',
                 link: '/pages/ou/organization',
             },
-            {
-                title: '组织2',
-                link: '/pages/ou/orgtree',
-            },
         ],
     },
 
