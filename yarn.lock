@@ -435,6 +435,10 @@ amdefine@>=0.0.4, amdefine@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
+angular-baidu-maps@^1.0.1:
+  version "1.0.1"
+  resolved "http://registry.npm.taobao.org/angular-baidu-maps/download/angular-baidu-maps-1.0.1.tgz#000f206b1992336baca42cc7a4ae8575726a96b9"
+
 angular2-chartjs@^0.3.0:
   version "0.3.0"
   resolved "http://registry.npm.taobao.org/angular2-chartjs/download/angular2-chartjs-0.3.0.tgz#29503fa51f63e05a4900ed750aa30b11e4c1ee18"
