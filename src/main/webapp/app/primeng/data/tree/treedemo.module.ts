@@ -5,7 +5,7 @@ import {FormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {APP_BASE_HREF} from '@angular/common';
 
-import { EmPrimengSharedModule } from '../../../shared';
+import { EmCloudWebSharedModule } from '../../../shared';
 import {TreeModule} from 'primeng/components/tree/tree';
 import {TreeDragDropService} from 'primeng/components/common/api';
 import {ButtonModule} from 'primeng/components/button/button';
@@ -25,7 +25,7 @@ const primeng_STATES = [
 
 @NgModule({
     imports: [
-        EmPrimengSharedModule,
+        EmCloudWebSharedModule,
         BrowserModule,
         FormsModule,
         HttpModule,

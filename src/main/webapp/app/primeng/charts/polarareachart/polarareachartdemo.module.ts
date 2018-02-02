@@ -1,7 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { EmPrimengSharedModule } from '../../../shared';
+import { EmCloudWebSharedModule } from '../../../shared';
 import { ChartModule } from 'primeng/primeng';
 
 import {
@@ -15,7 +15,7 @@ const primeng_STATES = [
 
 @NgModule({
     imports: [
-        EmPrimengSharedModule,
+        EmCloudWebSharedModule,
         ChartModule,
         RouterModule.forRoot(primeng_STATES, { useHash: true })
     ],

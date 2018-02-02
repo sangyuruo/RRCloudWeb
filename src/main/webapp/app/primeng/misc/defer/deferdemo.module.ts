@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {CommonModule} from '@angular/common';
 import {APP_BASE_HREF} from '@angular/common';
 
-import { EmPrimengSharedModule } from '../../../shared';
+import { EmCloudWebSharedModule } from '../../../shared';
 import {GrowlModule} from 'primeng/components/growl/growl';
 import {DataTableModule} from 'primeng/components/datatable/datatable';
 import {DeferModule} from 'primeng/components/defer/defer';
@@ -24,7 +24,7 @@ const primeng_STATES = [
 
 @NgModule({
     imports: [
-        EmPrimengSharedModule,
+        EmCloudWebSharedModule,
         CommonModule,
         BrowserAnimationsModule,
         GrowlModule,

@@ -1,7 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { EmPrimengSharedModule } from '../../../shared';
+import { EmCloudWebSharedModule } from '../../../shared';
 import {FormsModule} from '@angular/forms';
 import {CheckboxModule} from 'primeng/components/checkbox/checkbox';
 import {TriStateCheckboxModule} from 'primeng/components/tristatecheckbox/tristatecheckbox';
@@ -19,7 +19,7 @@ const primeng_STATES = [
 
 @NgModule({
     imports: [
-        EmPrimengSharedModule,
+        EmCloudWebSharedModule,
         FormsModule,
         CheckboxModule,
         GrowlModule,

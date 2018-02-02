@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // import needed PrimeNG modules here
 
-import { EmPrimengSharedModule } from '../../../shared';
+import { EmCloudWebSharedModule } from '../../../shared';
 import {FormsModule} from '@angular/forms';
 import {PanelModule} from 'primeng/primeng';
 import {ButtonModule} from 'primeng/primeng';
@@ -23,7 +23,7 @@ const primeng_STATES = [
 
 @NgModule({
     imports: [
-        EmPrimengSharedModule,
+        EmCloudWebSharedModule,
         BrowserAnimationsModule,
         FormsModule,
         PanelModule,

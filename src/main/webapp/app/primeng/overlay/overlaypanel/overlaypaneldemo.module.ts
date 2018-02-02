@@ -2,7 +2,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import {APP_BASE_HREF} from '@angular/common';
 
-import { EmPrimengSharedModule } from '../../../shared';
+import { EmCloudWebSharedModule } from '../../../shared';
 import {OverlayPanelModule} from 'primeng/components/overlaypanel/overlaypanel';
 import {DataTableModule} from 'primeng/components/datatable/datatable';
 import {ButtonModule} from 'primeng/components/button/button';
@@ -22,7 +22,7 @@ const primeng_STATES = [
 
 @NgModule({
     imports: [
-        EmPrimengSharedModule,
+        EmCloudWebSharedModule,
         ButtonModule,
         OverlayPanelModule,
         DataTableModule,

@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {CheckboxModule} from 'primeng/components/checkbox/checkbox';
 import {SelectButtonModule} from 'primeng/components/selectbutton/selectbutton';
 
-import { EmPrimengSharedModule } from '../../../shared';
+import { EmCloudWebSharedModule } from '../../../shared';
 import {FormsModule} from '@angular/forms';
 import {AccordionModule} from 'primeng/components/accordion/accordion';
 import {ButtonModule} from 'primeng/components/button/button';
@@ -24,7 +24,7 @@ const primeng_STATES = [
 
 @NgModule({
     imports: [
-        EmPrimengSharedModule,
+        EmCloudWebSharedModule,
         BrowserAnimationsModule,
         FormsModule,
         AccordionModule,

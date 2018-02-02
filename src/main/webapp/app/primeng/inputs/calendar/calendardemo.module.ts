@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import {CheckboxModule} from 'primeng/components/checkbox/checkbox';
 import {SelectButtonModule} from 'primeng/components/selectbutton/selectbutton';
 
-import { EmPrimengSharedModule } from '../../../shared';
+import { EmCloudWebSharedModule } from '../../../shared';
 import {FormsModule} from '@angular/forms';
 import {CalendarModule} from 'primeng/components/calendar/calendar';
 import {ButtonModule} from 'primeng/components/button/button';
@@ -23,7 +23,7 @@ const primeng_STATES = [
 
 @NgModule({
     imports: [
-        EmPrimengSharedModule,
+        EmCloudWebSharedModule,
         FormsModule,
         CalendarModule,
         GrowlModule,

@@ -4,7 +4,7 @@ import {FormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {APP_BASE_HREF} from '@angular/common';
 
-import { EmPrimengSharedModule } from '../../../shared';
+import { EmCloudWebSharedModule } from '../../../shared';
 import {DataScrollerModule} from 'primeng/components/datascroller/datascroller';
 import {DialogModule} from 'primeng/components/dialog/dialog';
 import {ButtonModule} from 'primeng/components/button/button';
@@ -24,7 +24,7 @@ const primeng_STATES = [
 
 @NgModule({
     imports: [
-        EmPrimengSharedModule,
+        EmCloudWebSharedModule,
         FormsModule,
         DataScrollerModule,
         HttpModule,

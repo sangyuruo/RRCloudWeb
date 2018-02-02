@@ -5,7 +5,7 @@ import {FormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {APP_BASE_HREF} from '@angular/common';
 
-import { EmPrimengSharedModule } from '../../../shared';
+import { EmCloudWebSharedModule } from '../../../shared';
 import {PickListModule} from 'primeng/components/picklist/picklist';
 import {GrowlModule} from 'primeng/components/growl/growl';
 import {CountryService} from './service/country.service';
@@ -22,7 +22,7 @@ const primeng_STATES = [
 
 @NgModule({
     imports: [
-        EmPrimengSharedModule,
+        EmCloudWebSharedModule,
         FormsModule,
         HttpModule,
         PickListModule,

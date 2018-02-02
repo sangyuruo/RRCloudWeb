@@ -7,7 +7,7 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {APP_BASE_HREF} from '@angular/common';
 
-import { EmPrimengSharedModule } from '../../../shared';
+import { EmCloudWebSharedModule } from '../../../shared';
 import {ButtonModule} from 'primeng/components/button/button';
 import {PanelModule} from 'primeng/components/panel/panel';
 import {BlockUIModule} from 'primeng/components/blockui/blockui';
@@ -24,7 +24,7 @@ const primeng_STATES = [
 
 @NgModule({
     imports: [
-        EmPrimengSharedModule ,
+        EmCloudWebSharedModule ,
         BrowserModule,
         BrowserAnimationsModule,
         FormsModule,

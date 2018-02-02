@@ -1,7 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { EmPrimengSharedModule } from '../../../shared';
+import { EmCloudWebSharedModule } from '../../../shared';
 import {ButtonModule} from 'primeng/components/button/button';
 import {SidebarModule} from 'primeng/components/sidebar/sidebar';
 import {GrowlModule} from 'primeng/primeng';
@@ -20,7 +20,7 @@ const primeng_STATES = [
 
 @NgModule({
     imports: [
-        EmPrimengSharedModule,
+        EmCloudWebSharedModule,
         ButtonModule,
         SidebarModule,
         GrowlModule,

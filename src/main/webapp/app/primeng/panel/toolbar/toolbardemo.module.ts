@@ -7,7 +7,7 @@ import {FormsModule} from '@angular/forms';
 
 // import needed PrimeNG modules here
 
-import { EmPrimengSharedModule } from '../../../shared';
+import { EmCloudWebSharedModule } from '../../../shared';
 import {ToolbarModule} from 'primeng/components/toolbar/toolbar';
 import {InputTextModule} from 'primeng/components/inputtext/inputtext';
 import {SplitButtonModule} from 'primeng/components/splitbutton/splitbutton';
@@ -26,7 +26,7 @@ const primeng_STATES = [
 
 @NgModule({
     imports: [
-        EmPrimengSharedModule,
+        EmCloudWebSharedModule,
         BrowserModule,
         BrowserAnimationsModule,
         FormsModule,

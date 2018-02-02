@@ -1,7 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import {APP_BASE_HREF} from '@angular/common';
-import { EmPrimengSharedModule } from '../../../shared';
+import { EmCloudWebSharedModule } from '../../../shared';
 import {DragDropModule} from 'primeng/components/dragdrop/dragdrop';
 import {DataTableModule} from 'primeng/components/datatable/datatable';
 import {DataGridModule} from 'primeng/components/datagrid/datagrid';
@@ -20,7 +20,7 @@ const primeng_STATES = [
 
 @NgModule({
     imports: [
-        EmPrimengSharedModule,
+        EmCloudWebSharedModule,
         DragDropModule,
         DataTableModule,
         DataGridModule,
