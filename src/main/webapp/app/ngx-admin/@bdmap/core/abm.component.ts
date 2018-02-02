@@ -25,7 +25,7 @@ export class AbmComponent implements OnChanges, OnDestroy {
     private map: any = null;
 
     constructor(private el: ElementRef,
-                private COG: AbmConfig, 
+                private COG: AbmConfig,
                 private loader: LoaderService,
                 private zone: NgZone) { }
 

@@ -4,6 +4,8 @@ import { AngularEchartsModule } from 'ngx-echarts';
 
 import { ThemeModule } from '../../@theme/theme.module';
 import { MapsRoutingModule, routedComponents } from './maps-routing.module';
+import {AbmComponent} from "../../@bdmap/core/abm.component";
+import {AbmModule} from "angular-baidu-maps";
 
 
 
@@ -14,10 +16,14 @@ import { MapsRoutingModule, routedComponents } from './maps-routing.module';
     // LeafletModule.forRoot(),
     MapsRoutingModule,
     AngularEchartsModule,
+      AbmModule.forRoot({
+          apiKey: 'SSIGjdDybXdVt5wBDrnAjGbZ9hvwOgVp' // app key为必选项
+      })
   ],
   exports: [],
   declarations: [
     ...routedComponents,
+
   ],
 
     providers: [

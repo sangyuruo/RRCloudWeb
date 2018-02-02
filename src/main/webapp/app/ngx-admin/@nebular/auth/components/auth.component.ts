@@ -5,8 +5,7 @@
  */
 import { Component, OnDestroy } from '@angular/core';
 import { NbAuthService } from '../services/auth.service';
-import {NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
-import {LoginModalService} from "../../../../shared/login/login-modal.service";
+
 
 @Component({
   selector: 'nb-auth',
@@ -15,9 +14,7 @@ import {LoginModalService} from "../../../../shared/login/login-modal.service";
     <nb-layout>
       <nb-layout-column>
         <nb-card>
-            <nb-card-header>华翔翔能能效管理平台 
-            
-               <button class='btn btn-warning'(click)="openLogin()">点击</button>
+            <nb-card-header>华翔翔能能效管理平台
             </nb-card-header>
           <nb-card-body>
             <div class="col-md-12 col-sm-14">
@@ -36,12 +33,11 @@ export class NbAuthComponent implements OnDestroy {
   authenticated: boolean = false;
   token: string = '';
 
-    //添加登录弹出窗口
-    modalRef: NgbModalRef;
+
 
   // showcase of how to use the onAuthenticationChange method
   constructor(protected auth: NbAuthService,
-              private loginModalService: LoginModalService,) {
+             ) {
 
     this.subscription = auth.onAuthenticationChange()
       .subscribe((authenticated: boolean) => {
@@ -52,8 +48,5 @@ export class NbAuthComponent implements OnDestroy {
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
-    //添加登录弹出窗口
-    openLogin() {
-        this.modalRef = this.loginModalService.open();
-    }
+
 }

@@ -33,6 +33,7 @@ import {
 import {EmCloudWebSharedModule} from "../../../shared/shared.module";
 import {customHttpProvider} from "../../../blocks/interceptor/http.provider";
 import {MapHomeComponent} from "./baidu-home/mapHome.component";
+import {AbmModule} from "angular-baidu-maps";
 
 
 
@@ -42,6 +43,9 @@ import {MapHomeComponent} from "./baidu-home/mapHome.component";
         //RouterModule.forRoot(adminState, { useHash: true }),
         RouterModule.forChild(adminState),
         /* jhipster-needle-add-admin-module - JHipster will add admin modules here */
+        AbmModule.forRoot({
+            apiKey: 'SSIGjdDybXdVt5wBDrnAjGbZ9hvwOgVp' // app key为必选项
+        })
     ],
     declarations: [
         AuditsComponent,

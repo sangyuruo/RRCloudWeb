@@ -50,9 +50,9 @@ import {AbmModule} from "./@bdmap/index";
         //https://github.com/cipchk/angular-baidu-maps.git
         //百度API http://lbsyun.baidu.com/jsdemo.htm#f0_3
         //增加百度地图模块
-        AbmModule.forRoot({
+     /*   AbmModule.forRoot({
             apiKey: 'SSIGjdDybXdVt5wBDrnAjGbZ9hvwOgVp' // app key为必选项
-        })
+        })*/
     ],
     bootstrap: [AppComponent],
     providers: [
