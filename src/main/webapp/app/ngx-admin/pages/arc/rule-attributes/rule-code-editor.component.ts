@@ -5,7 +5,7 @@ import {Http} from "@angular/http";
 @Component({
     template: `
         <select class="form-control" [(ngModel)]="sure" (ngModelChange)="setInfo()" #name [name]="cell.getId()">
-        <option *ngFor="let ruleAttributes of ruleAttributess" [value]="ruleAttributes.ruleCode">{{ruleAttributes.ruleCode}}</option>
+        <option *ngFor="let ruleAttributes of ruleAttributess" [value]="ruleAttributes.ruleNsme">{{ruleAttributes.ruleNsme}}</option>
         </select>
      
   `,

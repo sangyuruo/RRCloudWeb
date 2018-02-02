@@ -25,6 +25,8 @@
                 "ruleAttributes": "Rule Attributes",
                 "meterRule": "Meter Rule",
                 "resource": "Resource",
+                "analysisEngine": "Analysis Engine",
+                "meterCategoryRule": "Meter Category Rule",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

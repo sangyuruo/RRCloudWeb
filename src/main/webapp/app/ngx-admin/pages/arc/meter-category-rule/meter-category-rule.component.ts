@@ -1,23 +1,20 @@
 import { Component } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
 import {Http} from "@angular/http";
 import {JhiDateUtils, JhiEventManager} from "ng-jhipster";
 import {ArcService} from "../arc.service";
 import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
-import {RuleCodeEditorComponent} from "../rule-attributes/rule-code-editor.component";
 import {RuleNameEditorComponent} from "./rule-name-editor.component";
-import {MeterNameEditorComponent} from "./meter-name-editor.component";
 
 @Component({
   selector: 'ngx-smart-table',
-  templateUrl: './meter-rule.component.html',
+  templateUrl: './meter-category-rule.component.html',
   styles: [`
     nb-card {
       transform: translate3d(0, 0, 0);
     }
   `],
 })
-export class MeterRuleComponent {
+export class MeterCategoryRuleComponent {
 
   settings = {
     add: {
@@ -37,69 +34,44 @@ export class MeterRuleComponent {
       confirmDelete: true,
     },
     columns: {
-        meterCode: {
-            title: '设备编码',
+        meterCategoryCode: {
+        title: '设备分类编码',
             type: 'html',
-        },
-        meterName: {
-            title: '设备名称',
+      },
+        meterCategoryName: {
+            title: '设备分类名称',
             type: 'html',
-            editor:{
-                type:'custom',
-                component: MeterNameEditorComponent,
-            }
         },
         ruleCode: {
             title: '规则编码',
-            type: 'html',
-          /*  editor:{
-                type:'custom',
-                component: RuleCodeEditorComponent,
-            }*/
         },
         ruleName: {
-            title: '规则名称',
-            type: 'html',
+        title: '规则名称',
             editor:{
                 type:'custom',
                 component: RuleNameEditorComponent,
             }
-        },
+      },
         analysis: {
             title: '分析器名',
-            type: 'html',
-        },
-        enable: {
-            title: '是否有效',
-            editor:{
-                type:'list',
-                config:{
-                    selectText:'Select...',
-                    list:[
-                        { value: true, title:'true'},
-                        { value: false, title:'false'},
 
-                    ],
-                }
-            }
         },
+
     },
   };
 
-  // source: LocalDataSource = new LocalDataSource();
     source: ServerDataSource;
+
     constructor(private service: ArcService,
                 private http:Http,
                 private dateUtils: JhiDateUtils) {
-        // this.service.getDataMeterRule().subscribe(data => (this.source.load(data)))
-        this.source = new ServerDataSource(http, { endPoint: '/emcloudarc/api/meter-rules' },
-            dateUtils
-        );
+        this.source = new ServerDataSource(http, { endPoint: '/emcloudarc/api/meter-category-rules' },
+            dateUtils);
     }
 
     onDeleteConfirm(event): void {
         if (window.confirm('Are you sure you want to delete?')) {
-            this.service.deleteMeterRule(event.data.id).subscribe((response) => {
+            this.service.deleteMeterCategoryRule(event.data.id).subscribe((response) => {
                 event.confirm.resolve(response);
                 console.log(response);
             })
@@ -110,8 +82,8 @@ export class MeterRuleComponent {
 
     onUpdateConfirm(event) {
         if (window.confirm('Are you sure you want to update?')) {
-            this.service.updateMeterRule(event.newData).subscribe((response) => {
-                this.service.getDataMeterRule().subscribe(data => (this.source.load(data)))
+            this.service.updateMeterCategoryRule(event.newData).subscribe((response) => {
+                this.service.getDataMeterCategoryRule().subscribe(data => (this.source.load(data)))
                 event.confirm.resolve(response)
                 console.log(response)
             });
@@ -121,7 +93,7 @@ export class MeterRuleComponent {
     }
     onCreateConfirm(event) {
         if (window.confirm('Are you sure you want to create?')) {
-            this.service.createMeterRule(event.newData).subscribe((response) => {
+            this.service.createMeterCategoryRule(event.newData).subscribe((response) => {
                 event.confirm.resolve(response)
                 console.log(response)
             });
