@@ -105,11 +105,13 @@
             <select class="form-control" multiple name="authority" [(ngModel)]="user.roles">
                 <option *ngFor="let authority of authorities" [value]="authority">{{authority}}</option>
             </select>-->
-            <p-pickList [source]="list1" [target]="list2">
-                <ng-template let-car pTemplate="item">
+            <p-pickList [source]="authorities" [target]="auth">
+                <ng-template let-authority pTemplate="item">
                     <div class="ui-helper-clearfix">
+<!--
                         <img src="" style="display:inline-block;margin:2px 0 2px 2px" width="48">
-                        <div style="font-size:14px;float:right;margin:15px 5px 0 0">{{car.brand}} - {{car.year}} - {{car.color}}</div>
+                        <div style="font-size:14px;float:right;margin:15px 5px 0 0">{{car.brand}} - {{car.year}} - {{car.color}}</div>-->
+                        <div style="font-size:14px;float:right;margin:15px 5px 0 0">{{authority}}</div>
                     </div>
                 </ng-template>
             </p-pickList>

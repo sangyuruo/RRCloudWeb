@@ -18,11 +18,10 @@ export class UserMgmtDialogComponent implements OnInit,AfterContentChecked{
     user: User;
     languages: any[];
     authorities: any[];
+    auth: any[];
     isSaving: Boolean;
 
-    list1: any[];
 
-    list2: any[];
 
     constructor(
         public activeModal: NgbActiveModal,
@@ -40,16 +39,20 @@ export class UserMgmtDialogComponent implements OnInit,AfterContentChecked{
     ngOnInit() {
         this.isSaving = false;
         this.authorities = [];
+        this.auth = [];
+
         this.userService.authorities().subscribe((authorities) => {
             this.authorities = authorities;
         });
+        this.auth = [];
+
+
         this.languageHelper.getAll().then((languages) => {
             this.languages = languages;
         });
 
 
-        this.list1 = []//initialize list 1
-        this.list2 = []//initialize list 2
+
     }
 
 
