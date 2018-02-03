@@ -4,8 +4,8 @@ import { AngularEchartsModule } from 'ngx-echarts';
 
 import { ThemeModule } from '../../@theme/theme.module';
 import { MapsRoutingModule, routedComponents } from './maps-routing.module';
-import {AbmComponent} from "../../@bdmap/core/abm.component";
-import {AbmModule} from "angular-baidu-maps";
+import {AbmModule} from "../../@bdmap/index";
+
 
 
 

@@ -1,0 +1,33 @@
+{
+    "emCloudWebApp": {
+        "meterCategoryRule" : {
+            "home": {
+                "title": "Meter Category Rules",
+                "createLabel": "Create a new Meter Category Rule",
+                "createOrEditLabel": "Create or edit a Meter Category Rule"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Meter Category Rule {{ id }}?"
+            },
+            "detail": {
+                "title": "Meter Category Rule"
+            },
+            "meterCategoryCode": "Meter Category Code",
+            "meterCategoryName": "Meter Category Name",
+            "ruleCode": "Rule Code",
+            "ruleName": "Rule Name",
+            "analysis": "Analysis",
+            "createdBy": "Created By",
+            "createTime": "Create Time",
+            "updatedBy": "Updated By",
+            "updateTime": "Update Time"
+        }
+    },
+    "emCloudArcApp": {
+        "meterCategoryRule" : {
+            "created": "A new Meter Category Rule is created with identifier {{ param }}",
+            "updated": "A Meter Category Rule is updated with identifier {{ param }}",
+            "deleted": "A Meter Category Rule is deleted with identifier {{ param }}"
+        }
+    }
+}

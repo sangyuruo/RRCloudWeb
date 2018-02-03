@@ -1,0 +1,32 @@
+{
+    "emCloudWebApp": {
+        "analysisEngine" : {
+            "home": {
+                "title": "Analysis Engines",
+                "createLabel": "创建新 Analysis Engine",
+                "createOrEditLabel": "创建或编辑 Analysis Engine"
+            },
+            "delete": {
+                "question": "你确定要删除 Analysis Engine {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Analysis Engine"
+            },
+            "name": "Name",
+            "analysis": "Analysis",
+            "enable": "Enable",
+            "createdBy": "Created By",
+            "createTime": "Create Time",
+            "updatedBy": "Updated By",
+            "updateTime": "Update Time",
+            "meterCategoryRule": "Meter Category Rule"
+        }
+    },
+    "emCloudArcApp": {
+        "analysisEngine" : {
+            "created": "Analysis Engine {{ param }} 创建成功",
+            "updated": "Analysis Engine {{ param }} 更新成功",
+            "deleted": "Analysis Engine {{ param }} 删除成功"
+        }
+    }
+}

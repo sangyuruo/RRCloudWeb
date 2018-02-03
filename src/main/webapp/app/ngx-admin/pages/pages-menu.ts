@@ -216,6 +216,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
                 title: '规则属性',
                 link: '/pages/arc/RuleAttributes',
             },
+            {
+                title: '设备分类规则表',
+                link: '/pages/arc/MeterCategoryRule',
+            },
 
         ],
     },

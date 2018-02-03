@@ -20,6 +20,8 @@ import { EmCloudWebRuleAttributesModule } from './rule-attributes/rule-attribute
 import { EmCloudWebMeterRuleModule } from './meter-rule/meter-rule.module';
 import { EmCloudWebResourceModule } from './resource/resource.module';
 
+import { EmCloudWebAnalysisEngineModule } from './analysis-engine/analysis-engine.module';
+import { EmCloudWebMeterCategoryRuleModule } from './meter-category-rule/meter-category-rule.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
@@ -45,6 +47,8 @@ import { EmCloudWebResourceModule } from './resource/resource.module';
         EmCloudWebRuleAttributesModule,
         EmCloudWebMeterRuleModule,
         EmCloudWebResourceModule,
+        EmCloudWebAnalysisEngineModule,
+        EmCloudWebMeterCategoryRuleModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],

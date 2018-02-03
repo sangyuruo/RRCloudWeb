@@ -34,22 +34,26 @@ export class RuleAttributesComponent {
       confirmDelete: true,
     },
     columns: {
-        ruleCode: {
-        title: '规则编码',
+       /* ruleCode: {
+            title: '规则编码',
             type: 'html',
-            editor:{
-                type:'custom',
-                component: RuleCodeEditorComponent,
-            }
-      },
-        attributeName: {
-            title: '属性名',
-            type: 'string',
+        },*/
+        ruleNsme: {
+            title: '规则名称',
+            type: 'html',
         },
-        attributeValue: {
-        title: '属性值',
-        type: 'string',
-      },
+        alarmLevel: {
+            title: '属性名',
+            type: 'Integer',
+        },
+        startValue: {
+            title: '起始值',
+            type: 'Double',
+        },
+        endValue: {
+            title: '结束值',
+            type: 'Double',
+        },
 
     },
   };
