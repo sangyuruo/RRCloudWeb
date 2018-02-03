@@ -8,7 +8,7 @@ import "tinymce/plugins/paste/plugin.min.js";
 import "tinymce/plugins/table/plugin.min.js";
 import "chart.js/dist/Chart.min.js";
 import 'quill/dist/quill.js';
-import '~/fullcalendar/dist/fullcalendar.js';
+import 'fullcalendar/dist/fullcalendar.js';
 import "./ngx-admin/assets/vendors/echarts.world.min.js";
 
 // jhipster-needle-add-element-to-vendor - JHipster will add new menu items here
