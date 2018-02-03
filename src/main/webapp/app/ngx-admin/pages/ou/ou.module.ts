@@ -15,7 +15,7 @@ import {OrgNameEditorComponent} from "./organization/orgname-editor.components";
 import {CpNameEditorComponent} from "./organization/companyname-editor.components";
 import { CityCodeEditorComponent} from "./company/citycode-editor.components";
 import {AreaNameEditorComponent} from "./company/areaname-editor.components";
-import {OrganizaitiontreeModule} from "./origanizationtree/organizaitiontree.module";
+
 
 
 
@@ -25,8 +25,7 @@ import {OrganizaitiontreeModule} from "./origanizationtree/organizaitiontree.mod
         TablesRoutingModule,
         Ng2SmartTableModule,
         OrgsModule,
-        //引入tree模块
-        OrganizaitiontreeModule
+
     ],
     declarations: [
         ...routedComponents,
