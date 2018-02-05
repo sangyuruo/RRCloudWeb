@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {Http,Response} from "@angular/http";
 
+import {TreeNode} from "primeng/primeng";
+
 
 @Injectable()
 export class OuService {
@@ -50,7 +52,11 @@ export class OuService {
         return this.http.put('/emcloudou/api/organizations', data)
             .map(res => res.json());
     }
-
+    getFiles(){
+        return this.http.get('/emcloudou/api/organizations/tree/7a7a87ff-fd7c-11e7-9994-0242ac110005')
+            .toPromise()
+            .then(res => <TreeNode[]> res.json());
+    }
 }
 
 
