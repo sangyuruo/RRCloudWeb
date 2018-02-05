@@ -18,12 +18,14 @@ import {AreaNameEditorComponent} from "./company/areaname-editor.components";
 
 
 
+
 @NgModule({
     imports: [
         ThemeModule,
         TablesRoutingModule,
         Ng2SmartTableModule,
-        OrgsModule
+        OrgsModule,
+
     ],
     declarations: [
         ...routedComponents,

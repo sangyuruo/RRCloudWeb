@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {Component, OnInit, OnDestroy, ChangeDetectorRef, AfterContentChecked} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 
 import { NgbActiveModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
@@ -13,12 +13,15 @@ import {UserService} from "../../../../shared/user/user.service";
     selector: 'jhi-user-mgmt-dialog',
     templateUrl: './user-management-dialog.component.html'
 })
-export class UserMgmtDialogComponent implements OnInit {
+export class UserMgmtDialogComponent implements OnInit,AfterContentChecked{
 
     user: User;
     languages: any[];
     authorities: any[];
+    auth: any[];
     isSaving: Boolean;
+
+
 
     constructor(
         public activeModal: NgbActiveModal,
@@ -28,18 +31,35 @@ export class UserMgmtDialogComponent implements OnInit {
 
         //添加国际化
         private languageService: JhiLanguageService,
-        private router: Router
+        private router: Router,
+
+        private cdref: ChangeDetectorRef
     ) {}
 
     ngOnInit() {
         this.isSaving = false;
         this.authorities = [];
+        this.auth = [];
+
         this.userService.authorities().subscribe((authorities) => {
             this.authorities = authorities;
         });
+        this.auth = [];
+
+
         this.languageHelper.getAll().then((languages) => {
             this.languages = languages;
         });
+
+
+
+    }
+
+
+    ngAfterContentChecked() {
+
+        this.cdref.detectChanges();
+
     }
 
     clear() {
