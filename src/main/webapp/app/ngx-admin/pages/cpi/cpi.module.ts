@@ -51,4 +51,4 @@ import {regNameEditorComponent} from "./com-point/regname-editor.components";
       CpiService,
   ],
 })
-export class TablesModule { }
+export class CpiModule { }

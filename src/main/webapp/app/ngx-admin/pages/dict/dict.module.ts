@@ -23,4 +23,4 @@ import {seqNoEditorComponent} from "./dictionary-classify/seqNo-editor.component
     DictService,
   ],
 })
-export class TablesModule { }
+export class DictModule { }
