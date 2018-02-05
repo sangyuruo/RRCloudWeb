@@ -4,9 +4,11 @@ import {NbAuthComponent,} from './@nebular/auth';
 import {RegisterComponent} from "../account/register/register.component";
 import {SettingsComponent} from "../account/settings/settings.component";
 import {PasswordComponent} from "../account/password/password.component";
-import {HomeComponent} from "./@theme/components/home/home.component";
 import {UserRouteAccessService} from "../shared/auth/user-route-access-service";
-import {JhiDocsComponent} from "../admin/docs/docs.component";
+import {MapHomeComponent} from "./pages/admin/baidu-home/mapHome.component";
+
+
+
 
 
 const routes: Routes = [
@@ -21,7 +23,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: HomeComponent,
+        component: MapHomeComponent,
 
       },
       {

@@ -16,6 +16,8 @@ import {CpNameEditorComponent} from "./organization/companyname-editor.component
 import { CityCodeEditorComponent} from "./company/citycode-editor.components";
 import {AreaNameEditorComponent} from "./company/areaname-editor.components";
 
+//引入树模块
+import {TreeModule} from "primeng/primeng";
 
 
 @NgModule({
@@ -23,7 +25,10 @@ import {AreaNameEditorComponent} from "./company/areaname-editor.components";
         ThemeModule,
         TablesRoutingModule,
         Ng2SmartTableModule,
-        OrgsModule
+        OrgsModule,
+        //引入树模块
+        TreeModule
+
     ],
     declarations: [
         ...routedComponents,

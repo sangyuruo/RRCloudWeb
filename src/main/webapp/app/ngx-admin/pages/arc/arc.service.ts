@@ -10,7 +10,7 @@ export class ArcService {
 
 
     getDataAlarmRule(){
-        return this.http.get('/emcloudarc/api/alarm-rules')
+        return this.http.get('/emcloudarc/api/analysis-engines')
             .map(res => res.json())
     }
     getDataRuleAttributes(){
@@ -21,9 +21,13 @@ export class ArcService {
         return this.http.get('/emcloudarc/api/meter-rules')
             .map(res => res.json())
     }
+    getDataMeterCategoryRule(){
+        return this.http.get('/emcloudarc/api/meter-category-rules')
+            .map(res => res.json())
+    }
 
     deleteAlarmRule(id: number): Observable<Response> {
-        return this.http.delete(`${'/emcloudarc/api/alarm-rules'}/${id}`);
+        return this.http.delete(`${'/emcloudarc/api/analysis-engines'}/${id}`);
     }
     deleteRuleAttributes(id: number): Observable<Response> {
         return this.http.delete(`${'/emcloudarc/api/rule-attributes'}/${id}`);
@@ -31,12 +35,15 @@ export class ArcService {
     deleteMeterRule(id: number): Observable<Response> {
         return this.http.delete(`${'/emcloudarc/api/meter-rules'}/${id}`);
     }
+    deleteMeterCategoryRule(id: number): Observable<Response> {
+        return this.http.delete(`${'/emcloudarc/api/meter-category-rules'}/${id}`);
+    }
 
     createAlarmRule(date) {
-        return this.http.post('/emcloudarc/api/alarm-rules',date).map( res =>res.json());
+        return this.http.post('/emcloudarc/api/analysis-engines',date).map( res =>res.json());
     }
     updateAlarmRule(date):  Observable<Response>{
-        return this.http.put('/emcloudarc/api/alarm-rules',date).map( res =>res.json());
+        return this.http.put('/emcloudarc/api/analysis-engines',date).map( res =>res.json());
     }
     createMeterRule(date) {
         return this.http.post('/emcloudarc/api/meter-rules',date).map( res =>res.json());
@@ -50,7 +57,12 @@ export class ArcService {
     updateRuleAttributes(date):  Observable<Response>{
         return this.http.put('/emcloudarc/api/rule-attributes',date).map( res =>res.json());
     }
-
+    createMeterCategoryRule(date) {
+        return this.http.post('/emcloudarc/api/meter-category-rules',date).map( res =>res.json());
+    }
+    updateMeterCategoryRule(date):  Observable<Response>{
+        return this.http.put('/emcloudarc/api/meter-category-rules',date).map( res =>res.json());
+    }
 
 }
 

@@ -32,6 +32,12 @@ import {
 } from './';
 import {EmCloudWebSharedModule} from "../../../shared/shared.module";
 import {customHttpProvider} from "../../../blocks/interceptor/http.provider";
+import {MapHomeComponent} from "./baidu-home/mapHome.component";
+import {AbmModule} from "../../@bdmap/index";
+import {PickListModule} from "primeng/primeng";
+
+
+
 
 @NgModule({
     imports: [
@@ -39,6 +45,13 @@ import {customHttpProvider} from "../../../blocks/interceptor/http.provider";
         //RouterModule.forRoot(adminState, { useHash: true }),
         RouterModule.forChild(adminState),
         /* jhipster-needle-add-admin-module - JHipster will add admin modules here */
+
+        //增加百度地图
+        AbmModule.forRoot({
+            apiKey: 'SSIGjdDybXdVt5wBDrnAjGbZ9hvwOgVp' // app key为必选项
+        }),
+
+        PickListModule
     ],
     declarations: [
         AuditsComponent,
@@ -55,7 +68,9 @@ import {customHttpProvider} from "../../../blocks/interceptor/http.provider";
         JhiDocsComponent,
         JhiGatewayComponent,
         JhiMetricsMonitoringComponent,
-        JhiMetricsMonitoringModalComponent
+        JhiMetricsMonitoringModalComponent,
+        MapHomeComponent,
+
     ],
     entryComponents: [
 
@@ -79,6 +94,8 @@ import {customHttpProvider} from "../../../blocks/interceptor/http.provider";
         UserModalService,
 
         customHttpProvider(),
+
+
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -1,0 +1,55 @@
+
+<div *ngIf="analysisEngine">
+    <h2><span jhiTranslate="emCloudWebApp.analysisEngine.detail.title">Analysis Engine</span> {{analysisEngine.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="emCloudWebApp.analysisEngine.name">Name</span></dt>
+        <dd>
+            <span>{{analysisEngine.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.analysisEngine.analysis">Analysis</span></dt>
+        <dd>
+            <span>{{analysisEngine.analysis}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.analysisEngine.enable">Enable</span></dt>
+        <dd>
+            <span>{{analysisEngine.enable}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.analysisEngine.createdBy">Created By</span></dt>
+        <dd>
+            <span>{{analysisEngine.createdBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.analysisEngine.createTime">Create Time</span></dt>
+        <dd>
+            <span>{{analysisEngine.createTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.analysisEngine.updatedBy">Updated By</span></dt>
+        <dd>
+            <span>{{analysisEngine.updatedBy}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.analysisEngine.updateTime">Update Time</span></dt>
+        <dd>
+            <span>{{analysisEngine.updateTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="emCloudWebApp.analysisEngine.meterCategoryRule">Meter Category Rule</span></dt>
+        <dd>
+            <div *ngIf="analysisEngine.meterCategoryRule">
+                <a [routerLink]="['/meter-category-rule', analysisEngine.meterCategoryRule?.id]">{{analysisEngine.meterCategoryRule?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'analysis-engine/'+ analysisEngine.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import {AlarmRuleComponent} from "./alarm-rule/alarm-rule.component";
 import {ArcComponent} from "./arc.component";
 import {MeterRuleComponent} from "./meter-rule/meter-rule.component";
 import {RuleAttributesComponent} from "./rule-attributes/rule-attributes.component";
+import {MeterCategoryRuleComponent} from "./meter-category-rule/meter-category-rule.component";
+import {AnalysisEngineComponent} from './analysis-engine/analysis-engine.component';
 
 const routes: Routes = [{
   path: '',
@@ -12,7 +13,7 @@ const routes: Routes = [{
   children: [
       {
     path: 'AlarmRule',
-    component: AlarmRuleComponent,
+    component: AnalysisEngineComponent,
   },
       {
           path: 'RuleAttributes',
@@ -22,6 +23,11 @@ const routes: Routes = [{
           path: 'MeterRule',
           component: MeterRuleComponent,
       },
+      {
+          path: 'MeterCategoryRule',
+          component: MeterCategoryRuleComponent,
+      },
+
   ],
 }];
 
@@ -33,7 +39,8 @@ export class TablesRoutingModule { }
 
 export const routedComponents = [
     ArcComponent,
-    AlarmRuleComponent,
+    AnalysisEngineComponent,
     RuleAttributesComponent,
     MeterRuleComponent,
+    MeterCategoryRuleComponent
 ];

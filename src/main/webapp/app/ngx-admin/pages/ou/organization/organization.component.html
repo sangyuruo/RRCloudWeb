@@ -4,6 +4,8 @@
   </nb-card-header>
 
   <nb-card-body>
+      <p-tree [value]="files" selectionMode="single" [(selection)]="selectedFiles" (onNodeSelect)="nodeSelect($event)"></p-tree>
+
       <ng2-smart-table
           [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)"
           (createConfirm)="onCreateConfirm($event)"

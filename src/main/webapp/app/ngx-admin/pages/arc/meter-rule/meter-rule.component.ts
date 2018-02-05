@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
 import {Http} from "@angular/http";
-import {JhiDateUtils, JhiEventManager} from "ng-jhipster";
+import {JhiDateUtils, } from "ng-jhipster";
 import {ArcService} from "../arc.service";
 import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
-import {RuleCodeEditorComponent} from "../rule-attributes/rule-code-editor.component";
 import {RuleNameEditorComponent} from "./rule-name-editor.component";
-import {MiMeterCodeEditorComponent} from "./meter-code-editor.component";
 import {MeterNameEditorComponent} from "./meter-name-editor.component";
 
 @Component({
@@ -39,13 +36,9 @@ export class MeterRuleComponent {
     },
     columns: {
         meterCode: {
-        title: '设备编码',
+            title: '设备编码',
             type: 'html',
-            editor:{
-                type:'custom',
-                component: MiMeterCodeEditorComponent,
-            }
-      },
+        },
         meterName: {
             title: '设备名称',
             type: 'html',
@@ -54,22 +47,18 @@ export class MeterRuleComponent {
                 component: MeterNameEditorComponent,
             }
         },
-        ruleCode: {
+     /*   ruleCode: {
             title: '规则编码',
             type: 'html',
-            editor:{
-                type:'custom',
-                component: RuleCodeEditorComponent,
-            }
-        },
+        },*/
         ruleName: {
-        title: '规则名称',
+            title: '规则名称',
             type: 'html',
-            editor:{
-                type:'custom',
-                component: RuleNameEditorComponent,
-            }
-      },
+        },
+        analysis: {
+            title: '分析器编码',
+            type: 'html',
+        },
         enable: {
             title: '是否有效',
             editor:{
@@ -83,10 +72,6 @@ export class MeterRuleComponent {
                     ],
                 }
             }
-        },
-        meterCategory: {
-            title: '设备分类id',
-            type: 'Integer',
         },
     },
   };

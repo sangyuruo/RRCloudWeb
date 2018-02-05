@@ -12,8 +12,10 @@ import {PaginationConfig} from "../../blocks/config/uib-pagination.config";
 import {UserRouteAccessService} from "../../shared/auth/user-route-access-service";
 
 
+
 const PAGES_COMPONENTS = [
     PagesComponent,
+
 
 ];
 

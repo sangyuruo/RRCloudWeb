@@ -1,0 +1,83 @@
+<div>
+    <h2>
+        <span jhiTranslate="emCloudWebApp.analysisEngine.home.title">Analysis Engines</span>
+        <button class="btn btn-primary float-right jh-create-entity create-analysis-engine" [routerLink]="['/', { outlets: { popup: ['analysis-engine-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="emCloudWebApp.analysisEngine.home.createLabel">
+            Create new Analysis Engine
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="analysisEngines">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="name"><span jhiTranslate="emCloudWebApp.analysisEngine.name">Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="analysis"><span jhiTranslate="emCloudWebApp.analysisEngine.analysis">Analysis</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="enable"><span jhiTranslate="emCloudWebApp.analysisEngine.enable">Enable</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="createdBy"><span jhiTranslate="emCloudWebApp.analysisEngine.createdBy">Created By</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="createTime"><span jhiTranslate="emCloudWebApp.analysisEngine.createTime">Create Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="updatedBy"><span jhiTranslate="emCloudWebApp.analysisEngine.updatedBy">Updated By</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="updateTime"><span jhiTranslate="emCloudWebApp.analysisEngine.updateTime">Update Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="meterCategoryRule.id"><span jhiTranslate="emCloudWebApp.analysisEngine.meterCategoryRule">Meter Category Rule</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let analysisEngine of analysisEngines ;trackBy: trackId">
+                <td><a [routerLink]="['../analysis-engine', analysisEngine.id ]">{{analysisEngine.id}}</a></td>
+                <td>{{analysisEngine.name}}</td>
+                <td>{{analysisEngine.analysis}}</td>
+                <td>{{analysisEngine.enable}}</td>
+                <td>{{analysisEngine.createdBy}}</td>
+                <td>{{analysisEngine.createTime | date:'medium'}}</td>
+                <td>{{analysisEngine.updatedBy}}</td>
+                <td>{{analysisEngine.updateTime | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="analysisEngine.meterCategoryRule">
+                        <a [routerLink]="['../meter-category-rule', analysisEngine.meterCategoryRule?.id ]" >{{analysisEngine.meterCategoryRule?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../analysis-engine', analysisEngine.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'analysis-engine/'+ analysisEngine.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'analysis-engine/'+ analysisEngine.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <!-- Pager is not implemented yet, so this is normal pagination instead -->
+        <div *ngIf="analysisEngines && analysisEngines.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [maxSize]="5" [(page)]="page"  (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+</div>

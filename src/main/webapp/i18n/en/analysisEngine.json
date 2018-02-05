@@ -1,0 +1,32 @@
+{
+    "emCloudWebApp": {
+        "analysisEngine" : {
+            "home": {
+                "title": "Analysis Engines",
+                "createLabel": "Create a new Analysis Engine",
+                "createOrEditLabel": "Create or edit a Analysis Engine"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Analysis Engine {{ id }}?"
+            },
+            "detail": {
+                "title": "Analysis Engine"
+            },
+            "name": "Name",
+            "analysis": "Analysis",
+            "enable": "Enable",
+            "createdBy": "Created By",
+            "createTime": "Create Time",
+            "updatedBy": "Updated By",
+            "updateTime": "Update Time",
+            "meterCategoryRule": "Meter Category Rule"
+        }
+    },
+    "emCloudArcApp": {
+        "analysisEngine" : {
+            "created": "A new Analysis Engine is created with identifier {{ param }}",
+            "updated": "A Analysis Engine is updated with identifier {{ param }}",
+            "deleted": "A Analysis Engine is deleted with identifier {{ param }}"
+        }
+    }
+}

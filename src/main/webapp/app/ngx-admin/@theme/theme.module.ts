@@ -37,6 +37,10 @@ import { DEFAULT_THEME } from './styles/theme.default';
 import { COSMIC_THEME } from './styles/theme.cosmic';
 import {HomeComponent} from "./components/home/home.component";
 
+
+
+
+
 const BASE_MODULES = [CommonModule, FormsModule, ReactiveFormsModule];
 
 const NB_MODULES = [
@@ -70,6 +74,7 @@ const COMPONENTS = [
     HomeComponent,
 
 
+
 ];
 
 const PIPES = [
@@ -99,7 +104,11 @@ export class ThemeModule {
   static forRoot(): ModuleWithProviders {
     return <ModuleWithProviders>{
       ngModule: ThemeModule,
-      providers: [...NB_THEME_PROVIDERS],
+      providers: [...NB_THEME_PROVIDERS,
+          //增加百度地图
+        // AbmConfig,
+         // LoaderService
+      ],
     };
   }
 }
