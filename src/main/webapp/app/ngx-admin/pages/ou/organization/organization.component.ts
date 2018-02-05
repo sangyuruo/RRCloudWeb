@@ -16,6 +16,7 @@ import {TreeNode} from "primeng/primeng";
     styles: [`
     nb-card {
       transform: translate3d(0, 0, 0);
+   
     }
   `],
 })
@@ -149,7 +150,7 @@ export class OrganizationComponent {
                     "children": [{"label": "Goodfellas", "icon": "fa-file-video-o", "data": "Goodfellas Movie"}, {"label": "Untouchables", "icon": "fa-file-video-o", "data": "Untouchables Movie"}]
                 }]
         }
-    ]
+    ];
 
     selectedFiles: TreeNode[];
 
