@@ -3,7 +3,6 @@ import {Http} from "@angular/http";
 import {JhiDateUtils, } from "ng-jhipster";
 import {ArcService} from "../arc.service";
 import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
-import {RuleNameEditorComponent} from "./rule-name-editor.component";
 import {MeterNameEditorComponent} from "./meter-name-editor.component";
 
 @Component({
@@ -56,7 +55,7 @@ export class MeterRuleComponent {
             type: 'html',
         },
         analysis: {
-            title: '分析器编码',
+            title: '分析器biNM',
             type: 'html',
         },
         enable: {

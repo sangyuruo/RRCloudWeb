@@ -111,14 +111,14 @@ const routes: Routes = [{
             path: 'mi',
             loadChildren: () => new Promise(resolve => {
                 (require as any).ensure([], require => {
-                    resolve(require('./mi/mi.module').TablesModule);
+                    resolve(require('./mi/mi.module').MiModule);
                 })
             })
         }, {
             path: 'arc',
             loadChildren: () => new Promise(resolve => {
                 (require as any).ensure([], require => {
-                    resolve(require('./arc/arc.module').arcTablesModule);
+                    resolve(require('./arc/arc.module').ArcModule);
                 })
             })
         }, {
