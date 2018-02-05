@@ -50,4 +50,4 @@ import {TreeModule} from "primeng/primeng";
         OuService,
     ],
 })
-export class TablesModule { }
+export class OuModule { }
