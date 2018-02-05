@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import {Http} from "@angular/http";
-import {JhiDateUtils, JhiEventManager} from "ng-jhipster";
+import {JhiDateUtils} from "ng-jhipster";
 import {ArcService} from "../arc.service";
 import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
-import {RuleNameEditorComponent} from "./rule-name-editor.component";
+import {McrRuleNameEditorComponent,} from "./rule-name-editor.component";
+import {MeterCategoryNameEditorComponent} from "./meter-category-name-editor.component";
 
 @Component({
   selector: 'ngx-smart-table',
@@ -41,20 +42,20 @@ export class MeterCategoryRuleComponent {
         meterCategoryName: {
             title: '设备分类名称',
             type: 'html',
-        },
-        ruleCode: {
-            title: '规则编码',
-        },
-        ruleName: {
-        title: '规则名称',
             editor:{
                 type:'custom',
-                component: RuleNameEditorComponent,
+                component:  MeterCategoryNameEditorComponent,
             }
+        },
+
+       /* ruleCode: {
+            title: '规则编码',
+        },*/
+        ruleName: {
+        title: '规则名称',
       },
         analysis: {
-            title: '分析器名',
-
+            title: '分析器编码',
         },
 
     },

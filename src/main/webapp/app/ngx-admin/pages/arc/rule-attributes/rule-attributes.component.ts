@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import {Http} from "@angular/http";
-import {JhiDateUtils, JhiEventManager} from "ng-jhipster";
+import {JhiDateUtils} from "ng-jhipster";
 import {ArcService} from "../arc.service";
 import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
-import {RuleCodeEditorComponent} from "./rule-code-editor.component";
+import {RuleNameEditorComponent} from "./rule-name-editor.component";
+import {MeterNameEditorComponent} from "../meter-rule/meter-name-editor.component";
 
 @Component({
   selector: 'ngx-smart-table',
@@ -34,13 +35,17 @@ export class RuleAttributesComponent {
       confirmDelete: true,
     },
     columns: {
-       /* ruleCode: {
+        ruleCode: {
             title: '规则编码',
             type: 'html',
-        },*/
-        ruleNsme: {
+        },
+        ruleName: {
             title: '规则名称',
             type: 'html',
+            editor:{
+                type:'custom',
+                component:  RuleNameEditorComponent
+            }
         },
         alarmLevel: {
             title: '属性名',
