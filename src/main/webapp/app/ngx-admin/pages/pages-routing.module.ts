@@ -80,7 +80,7 @@ const routes: Routes = [{
         path: 'ou',
         loadChildren: () => new Promise(resolve => {
             (require as any).ensure([], require => {
-                resolve(require('./ou/ou.module').TablesModule);
+                resolve(require('./ou/ou.module').OuModule);
             })
         })
 
@@ -88,7 +88,7 @@ const routes: Routes = [{
         path: 'dict',
         loadChildren: () => new Promise(resolve => {
             (require as any).ensure([], require => {
-                resolve(require('./dict/dict.module').TablesModule);
+                resolve(require('./dict/dict.module').DictModule);
             })
         })
     },
@@ -96,7 +96,7 @@ const routes: Routes = [{
             path: 'cpi',
             loadChildren: () => new Promise(resolve => {
                 (require as any).ensure([], require => {
-                    resolve(require('./cpi/cpi.module').TablesModule);
+                    resolve(require('./cpi/cpi.module').CpiModule);
                 })
             })
         },
@@ -104,7 +104,7 @@ const routes: Routes = [{
             path: 'loc',
             loadChildren: () => new Promise(resolve => {
                 (require as any).ensure([], require => {
-                    resolve(require('./loc/loc.module').TablesModule);
+                    resolve(require('./loc/loc.module').LocModule);
                 })
             })
         }, {
@@ -125,14 +125,14 @@ const routes: Routes = [{
             path: 'resource',
             loadChildren: () => new Promise(resolve => {
                 (require as any).ensure([], require => {
-                    resolve(require('./resource/resource.module').TablesModule);
+                    resolve(require('./resource/resource.module').ResourceModule);
                 })
             })
         }, {
             path: 'nfs',
             loadChildren: () => new Promise(resolve => {
                 (require as any).ensure([], require => {
-                    resolve(require('./nfs/nfs.module').TablesModule);
+                    resolve(require('./nfs/nfs.module').NfsModule);
                 })
             })
         }, {

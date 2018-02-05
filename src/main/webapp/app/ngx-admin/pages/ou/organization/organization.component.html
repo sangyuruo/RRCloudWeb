@@ -1,15 +1,53 @@
-<nb-card>
-  <nb-card-header>
-    组织
-  </nb-card-header>
+<!--<nb-card>-->
 
-  <nb-card-body>
+  <!--<nb-card-header>-->
+    <!--组织-->
+  <!--</nb-card-header>-->
 
-      <ng2-smart-table
-          [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)"
-          (createConfirm)="onCreateConfirm($event)"
-          (editConfirm)="onSaveConfirm($event)"
-      >
-      </ng2-smart-table>
-  </nb-card-body>
-</nb-card>
+  <!--<nb-card-body>-->
+
+      <!--<p-tree [value]="files" selectionMode="single" [(selection)]="selectedFiles" (onNodeSelect)="nodeSelect($event)"></p-tree>-->
+
+      <!--<ng2-smart-table-->
+          <!--[settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)"-->
+          <!--(createConfirm)="onCreateConfirm($event)"-->
+          <!--(editConfirm)="onSaveConfirm($event)"-->
+      <!--&gt;-->
+      <!--</ng2-smart-table>-->
+
+  <!--</nb-card-body>-->
+<!--</nb-card>-->
+
+
+
+<div class="row">
+    <div class="col-lg-3">
+        <nb-card>
+            <nb-card-header>组织树</nb-card-header>
+            <nb-card-body>
+                <p-tree [value]="files" selectionMode="single" [(selection)]="selectedFiles" (onNodeSelect)="nodeSelect($event)"></p-tree>
+            </nb-card-body>
+        </nb-card>
+
+
+    </div>
+
+    <div class="col-lg-9">
+        <nb-card>
+            <nb-card-header>组织</nb-card-header>
+            <nb-card-body>
+                <ng2-smart-table
+                [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)"
+                (createConfirm)="onCreateConfirm($event)"
+                (editConfirm)="onSaveConfirm($event)"
+                >
+                </ng2-smart-table>
+            </nb-card-body>
+        </nb-card>
+
+
+
+
+
+    </div>
+</div>

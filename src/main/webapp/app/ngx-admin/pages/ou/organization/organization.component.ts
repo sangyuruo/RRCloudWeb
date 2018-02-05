@@ -8,12 +8,15 @@ import {AddressNameEditorComponent} from '../company/addressname-editor.componen
 import {OrgNameEditorComponent} from "./orgname-editor.components";
 import {CpNameEditorComponent} from "./companyname-editor.components";
 
+import {TreeNode} from "primeng/primeng";
+
 @Component({
     selector: 'ngx-smart-table',
     templateUrl: './organization.component.html',
     styles: [`
     nb-card {
       transform: translate3d(0, 0, 0);
+   
     }
   `],
 })
@@ -91,7 +94,7 @@ export class OrganizationComponent {
             },
             orgCode: {
                 title: '组织代码',
-                type: 'html', 
+                type: 'html',
             },
 
             addressCode: {
@@ -99,7 +102,63 @@ export class OrganizationComponent {
             },
         },
     };
+    //树
+    files:TreeNode[]=[
+        {
+            "label": "Documents",
+            "data": "Documents Folder",
+            "expandedIcon": "fa-folder-open",
+            "collapsedIcon": "fa-folder",
+            "children": [{
+                "label": "Work",
+                "data": "Work Folder",
+                "expandedIcon": "fa-folder-open",
+                "collapsedIcon": "fa-folder",
+                "children": [{"label": "Expenses.doc", "icon": "fa-file-word-o", "data": "Expenses Document"}, {"label": "Resume.doc", "icon": "fa-file-word-o", "data": "Resume Document"}]
+            },
+                {
+                    "label": "Home",
+                    "data": "Home Folder",
+                    "expandedIcon": "fa-folder-open",
+                    "collapsedIcon": "fa-folder",
+                    "children": [{"label": "Invoices.txt", "icon": "fa-file-word-o", "data": "Invoices for this month"}]
+                }]
+        },
+        {
+            "label": "Pictures",
+            "data": "Pictures Folder",
+            "expandedIcon": "fa-folder-open",
+            "collapsedIcon": "fa-folder",
+            "children": [
+                {"label": "barcelona.jpg", "icon": "fa-file-image-o", "data": "Barcelona Photo"},
+                {"label": "logo.jpg", "icon": "fa-file-image-o", "data": "PrimeFaces Logo"},
+                {"label": "primeui.png", "icon": "fa-file-image-o", "data": "PrimeUI Logo"}]
+        },
+        {
+            "label": "Movies",
+            "data": "Movies Folder",
+            "expandedIcon": "fa-folder-open",
+            "collapsedIcon": "fa-folder",
+            "children": [{
+                "label": "Al Pacino",
+                "data": "Pacino Movies",
+                "children": [{"label": "Scarface", "icon": "fa-file-video-o", "data": "Scarface Movie"}, {"label": "Serpico", "icon": "fa-file-video-o", "data": "Serpico Movie"}]
+            },
+                {
+                    "label": "Robert De Niro",
+                    "data": "De Niro Movies",
+                    "children": [{"label": "Goodfellas", "icon": "fa-file-video-o", "data": "Goodfellas Movie"}, {"label": "Untouchables", "icon": "fa-file-video-o", "data": "Untouchables Movie"}]
+                }]
+        }
+    ];
 
+    selectedFiles: TreeNode[];
+
+
+
+    ngOnInit() {
+        this.service.getFiles().then(files => this.files=files);
+    }
     source: ServerDataSource;
 
     constructor(private service: OuService,
@@ -148,5 +207,12 @@ export class OrganizationComponent {
             event.confirm.reject();
         }
     }
+    nodeSelect(event) {
+        console.log(event.node.orgCode)
+    }
+
+
+    //添加
+
 
 }

@@ -24,4 +24,4 @@ import { AreaNameEditorComponent} from "./address/area-name-editor.components";
       LocService
   ],
 })
-export class TablesModule { }
+export class LocModule { }

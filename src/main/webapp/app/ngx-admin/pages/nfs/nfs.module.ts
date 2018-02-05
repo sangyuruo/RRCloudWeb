@@ -19,4 +19,4 @@ import {Ng2SmartTableModule} from "../../ng2-smart-table/ng2-smart-table.module"
    NfsService
   ],
 })
-export class TablesModule { }
+export class NfsModule { }
