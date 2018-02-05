@@ -208,7 +208,11 @@ export class OrganizationComponent {
         }
     }
     nodeSelect(event) {
-        console.log(event.node.label)
+        console.log(event.node.orgCode)
     }
+
+
+    //添加
+
 
 }
