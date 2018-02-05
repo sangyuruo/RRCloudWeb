@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
 import {Http} from "@angular/http";
-import {JhiDateUtils, JhiEventManager} from "ng-jhipster";
+import {JhiDateUtils, } from "ng-jhipster";
 import {ArcService} from "../arc.service";
 import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
-import {RuleCodeEditorComponent} from "../rule-attributes/rule-code-editor.component";
 import {RuleNameEditorComponent} from "./rule-name-editor.component";
 import {MeterNameEditorComponent} from "./meter-name-editor.component";
 
@@ -49,24 +47,16 @@ export class MeterRuleComponent {
                 component: MeterNameEditorComponent,
             }
         },
-        ruleCode: {
+     /*   ruleCode: {
             title: '规则编码',
             type: 'html',
-          /*  editor:{
-                type:'custom',
-                component: RuleCodeEditorComponent,
-            }*/
-        },
+        },*/
         ruleName: {
             title: '规则名称',
             type: 'html',
-            editor:{
-                type:'custom',
-                component: RuleNameEditorComponent,
-            }
         },
         analysis: {
-            title: '分析器名',
+            title: '分析器编码',
             type: 'html',
         },
         enable: {

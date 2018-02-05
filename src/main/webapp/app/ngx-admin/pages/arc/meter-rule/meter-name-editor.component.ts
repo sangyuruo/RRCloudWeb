@@ -1,7 +1,7 @@
 import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { Cell, DefaultEditor, Editor } from 'ng2-smart-table';
-
 import {Http} from "@angular/http";
+declare let $:any;
 @Component({
     template: `
         <select class="form-control" [(ngModel)]="sure" (ngModelChange)="setInfo()" #name [name]="cell.getId()">
@@ -28,6 +28,8 @@ export class MeterNameEditorComponent extends DefaultEditor implements AfterView
     }
     ngAfterViewInit() {}
     setInfo(){
+        let i = $('[ng-reflect-name=' + this.cell.getId() + '] option:selected').index();
+        this.cell.getRow().getCells()[0].newValue = this.meterInfos[i].meterCode;
         this.cell.newValue = this.sure
     }
 }

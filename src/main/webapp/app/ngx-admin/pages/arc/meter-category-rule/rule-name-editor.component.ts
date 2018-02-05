@@ -11,7 +11,7 @@ declare let $:any;
   `,
 
 })
-export class RuleNameEditorComponent extends DefaultEditor implements AfterViewInit {
+export class McrRuleNameEditorComponent extends DefaultEditor implements AfterViewInit {
 
     @ViewChild('name') name: ElementRef;
     @ViewChild('url') url: ElementRef;
@@ -20,7 +20,7 @@ export class RuleNameEditorComponent extends DefaultEditor implements AfterViewI
     sure ;
     constructor(private http: Http) {
         super();
-        this.http.get('/emcloudarc/api/alarm-rules?size=2000').map( res => res.json()).subscribe(
+        this.http.get('/emcloudarc/api/rule-attributes?size=2000').map( res => res.json()).subscribe(
             data =>{this.meterRules = data;
                 this.sure=this.cell.newValue
             }

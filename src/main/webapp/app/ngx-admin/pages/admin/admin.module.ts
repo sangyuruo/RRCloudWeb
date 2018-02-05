@@ -34,6 +34,7 @@ import {EmCloudWebSharedModule} from "../../../shared/shared.module";
 import {customHttpProvider} from "../../../blocks/interceptor/http.provider";
 import {MapHomeComponent} from "./baidu-home/mapHome.component";
 import {AbmModule} from "../../@bdmap/index";
+import {PickListModule} from "primeng/primeng";
 
 
 
@@ -44,9 +45,13 @@ import {AbmModule} from "../../@bdmap/index";
         //RouterModule.forRoot(adminState, { useHash: true }),
         RouterModule.forChild(adminState),
         /* jhipster-needle-add-admin-module - JHipster will add admin modules here */
+
+        //增加百度地图
         AbmModule.forRoot({
             apiKey: 'SSIGjdDybXdVt5wBDrnAjGbZ9hvwOgVp' // app key为必选项
-        })
+        }),
+
+        PickListModule
     ],
     declarations: [
         AuditsComponent,
