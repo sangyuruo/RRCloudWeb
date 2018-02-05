@@ -45,4 +45,4 @@ import {AreaNameEditorComponent} from "./company/areaname-editor.components";
         OuService,
     ],
 })
-export class TablesModule { }
+export class OuModule { }

@@ -127,7 +127,7 @@ export class MeterRuleComponent {
     onCreateConfirm(event) {
         if (window.confirm('Are you sure you want to create?')) {
             this.service.createMeterRule(event.newData).subscribe((response) => {
-                event.confirm.resolve(response)
+               event.confirm.resolve(response)
                 console.log(response)
             });
         } else {
