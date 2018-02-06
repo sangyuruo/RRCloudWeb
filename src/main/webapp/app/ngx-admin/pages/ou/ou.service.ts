@@ -57,6 +57,14 @@ export class OuService {
             .toPromise()
             .then(res => <TreeNode[]> res.json());
     }
+    getdataByParentCode(ParentCode:string){
+        return this.http.get(`/emcloudou/api/organizations/by-parent-org-code/?parentOrgCode=${ParentCode}`)
+            .map(res=>res.json());
+    }
+    getdataByOrgCode(OrgCode:string){
+        return this.http.get(`emcloudou/api/organizations/by-org-code/${OrgCode}`)
+            .map(res=>res.json());
+    }
 }
 
 

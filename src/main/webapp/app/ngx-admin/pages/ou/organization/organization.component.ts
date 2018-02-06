@@ -9,6 +9,7 @@ import {OrgNameEditorComponent} from "./orgname-editor.components";
 import {CpNameEditorComponent} from "./companyname-editor.components";
 
 import {TreeNode} from "primeng/primeng";
+import {LocalDataSource} from "ng2-smart-table";
 
 @Component({
     selector: 'ngx-smart-table',
@@ -157,9 +158,11 @@ export class OrganizationComponent {
 
 
     ngOnInit() {
-        this.service.getFiles().then(files => this.files=files);
+        this.service.getFiles().then(files => {this.files=files;
+        console.log(files)});
     }
     source: ServerDataSource;
+ /*   source: LocalDataSource;*/
 
     constructor(private service: OuService,
                 private  http  : Http,
@@ -170,7 +173,7 @@ export class OrganizationComponent {
         //this.service.getOrganization().subscribe(data => (this.source.load(data)))
         this.source = new ServerDataSource(http, { endPoint: '/emcloudou/api/organizations' },
             dateUtils);
-
+      this.source.getElements().then(data=>console.log(data))
     }
 
     onDeleteConfirm(event): void {
@@ -208,11 +211,12 @@ export class OrganizationComponent {
         }
     }
     nodeSelect(event) {
-      //  console.log(typeof event.node.orgCode);
-
-      //  console.log(typeof event.node);
-        console.log(event.node);
-       this.http.get('/emcloudou/api/organizations/by-parent-org-code?value=0').map(res=>res.json()).subscribe()
+        
+      if(event.node.children){
+          this.service.getdataByParentCode(event.node.orgCode).subscribe(data=>this.source=data);
+      }else{
+          this.service.getdataByOrgCode(event.node.orgCode).subscribe(data=>this.source=data);
+      }
 
 
 
