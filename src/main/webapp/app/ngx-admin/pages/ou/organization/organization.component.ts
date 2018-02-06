@@ -208,7 +208,16 @@ export class OrganizationComponent {
         }
     }
     nodeSelect(event) {
-        console.log(event.node.orgCode)
+      //  console.log(typeof event.node.orgCode);
+
+      //  console.log(typeof event.node);
+        console.log(event.node);
+       this.http.get('/emcloudou/api/organizations/by-parent-org-code?value=0').map(res=>res.json()).subscribe()
+
+
+
+        /*this.http.get('/emcloudou/api/organizations/by-org-code/'+event.node.orgCode).map(res=>res.json()).subscribe()*/
+
     }
 
 

@@ -53,7 +53,7 @@ export class OuService {
             .map(res => res.json());
     }
     getFiles(){
-        return this.http.get('/emcloudou/api/organizations/tree/7a7a87ff-fd7c-11e7-9994-0242ac110005')
+        return this.http.get('/emcloudou/api/organizations/tree')
             .toPromise()
             .then(res => <TreeNode[]> res.json());
     }
