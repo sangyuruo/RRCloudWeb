@@ -118,7 +118,7 @@ const routes: Routes = [{
             path: 'arc',
             loadChildren: () => new Promise(resolve => {
                 (require as any).ensure([], require => {
-                    resolve(require('./arc/arc.module').ArcTablesModule);
+                    resolve(require('./arc/arc.module').ArcModule);
                 })
             })
         }, {

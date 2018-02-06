@@ -49,4 +49,4 @@ import {FunctionCodeEditorComponent} from "./meter-category-info/function-code-e
     MiService,
   ],
 })
-export class TablesModule { }
+export class MiModule { }

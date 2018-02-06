@@ -3,7 +3,6 @@ import {Http} from "@angular/http";
 import {JhiDateUtils} from "ng-jhipster";
 import {ArcService} from "../arc.service";
 import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
-import {McrRuleNameEditorComponent,} from "./rule-name-editor.component";
 import {MeterCategoryNameEditorComponent} from "./meter-category-name-editor.component";
 
 @Component({
