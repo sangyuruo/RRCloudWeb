@@ -25,7 +25,7 @@
         <nb-card>
             <nb-card-header>组织树</nb-card-header>
             <nb-card-body>
-                <p-tree [value]="files" selectionMode="single" [(selection)]="selectedFiles" (onNodeSelect)="nodeSelect($event)"></p-tree>
+                <p-tree [value]="files" selectionMode="single" [(selection)]="selectedFiles" (onNodeSelect)="nodeSelect($event)" (onNodeExpand)="loadNode($event)"></p-tree>
             </nb-card-body>
         </nb-card>
 

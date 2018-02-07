@@ -55,15 +55,24 @@ export class OuService {
     getFiles(){
         return this.http.get('/emcloudou/api/organizations/tree')
             .toPromise()
-            .then(res => <TreeNode[]> res.json());
+            .then(res => <TreeNode[]> res.json());  //一次性取根节点
     }
-    getdataByParentCode(ParentCode:string){
+    getdataByParentOrgCode(ParentCode:string){
         return this.http.get(`/emcloudou/api/organizations/by-parent-org-code/?parentOrgCode=${ParentCode}`)
-            .map(res=>res.json());
+            .map(res=>res.json());           //取数据
     }
     getdataByOrgCode(OrgCode:string){
         return this.http.get(`emcloudou/api/organizations/by-org-code/${OrgCode}`)
-            .map(res=>res.json());
+            .map(res=>res.json());          //取数据
+    }
+    getTreeRoot(){
+        return this.http.get('/emcloudou/api/organizations/tree ')
+            .toPromise()
+            .then(res => <TreeNode[]> res.json()); //取根节点
+    }
+    LazyLodeNode(OrgCode:string){
+        return this.http.get(`emcloudou/api/organizations/nextTree/?parentOrgCode=${OrgCode}`)
+            .map(res=>res.json());  //懒加载节点
     }
 }
 
