@@ -1,61 +1,67 @@
-import { ExtraOptions, RouterModule, Routes } from '@angular/router';
-import { NgModule } from '@angular/core';
+import {ExtraOptions, RouterModule, Routes} from '@angular/router';
+import {NgModule} from '@angular/core';
 import {NbAuthComponent,} from './@nebular/auth';
 import {RegisterComponent} from "../account/register/register.component";
 import {SettingsComponent} from "../account/settings/settings.component";
 import {PasswordComponent} from "../account/password/password.component";
 import {UserRouteAccessService} from "../shared/auth/user-route-access-service";
 import {MapHomeComponent} from "./pages/admin/baidu-home/mapHome.component";
-import {CarouselfigureComponent} from "./carouselfigure/carouselfigure.component";
-
-
-
+import {CarouselHomeComponent} from "./pages/admin/carousel-home/carouselHome.component";
 
 
 const routes: Routes = [
-  {
-    path: 'pages',
-    loadChildren: () => new Promise(resolve => {(require as any).ensure([],
-            require => {resolve(require('./pages/pages.module').PagesModule); }) }),
-  },
-  {
-    path: '',
-    component: NbAuthComponent,
-    children: [
-      {
+    {
+        path: 'pages',
+        loadChildren: () => new Promise(resolve => {
+            (require as any).ensure([],
+                require => {
+                    resolve(require('./pages/pages.module').PagesModule);
+                })
+        }),
+    },
+    {
         path: '',
-        component: /*MapHomeComponent*/CarouselfigureComponent,
+        component: NbAuthComponent,
+        children: [
+            // {
+            //   path: '',
+            //   component: MapHomeComponent,
+            //
+            // },
+            {
+                path: '',
+                component: CarouselHomeComponent,
 
-      },
-      {
-        path: 'register',
-        component: RegisterComponent,
-          data: {
-              authorities: [],
-          }
-      },
-      {
-        path: 'password',
-        component: PasswordComponent,
-          data: {
-              authorities: ['ROLE_USER'],
-          },
-          canActivate: [UserRouteAccessService]
-      },
-      {
-        path: 'setting',
-        component: SettingsComponent,
-          data: {
-              authorities: ['ROLE_USER'],
-          },
-          canActivate: [UserRouteAccessService]
-      },
-    ],
-  },
+            },
+            {
+                path: 'register',
+                component: RegisterComponent,
+                data: {
+                    authorities: [],
+                }
+            },
+            {
+                path: 'password',
+                component: PasswordComponent,
+                data: {
+                    authorities: ['ROLE_USER'],
+                },
+                canActivate: [UserRouteAccessService]
+            },
+            {
+                path: 'setting',
+                component: SettingsComponent,
+                data: {
+                    authorities: ['ROLE_USER'],
+                },
+                canActivate: [UserRouteAccessService]
+            },
+        ],
+    },
 
 
-    { path: '', redirectTo: 'pages', pathMatch: 'full' },//浏览器页面加载后跳转到登入页面
-    { path: '**', redirectTo: 'pages' },
+    {path: '', redirectTo: 'pages', pathMatch: 'full'},//浏览器页面加载后跳转到登入页面
+    {path: '**', redirectTo: 'pages'},
 ];
 
 
@@ -65,13 +71,13 @@ const routes: Routes = [
 // initialNavigation ： 禁用初始导航，没用过。。
 // errorHandler ：使用自定义的错误处理，来抛出报错信息；
 const config: ExtraOptions = {
-  useHash: true,
-    enableTracing : true,
+    useHash: true,
+    enableTracing: true,
 };
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, config)],
-  exports: [RouterModule],
+    imports: [RouterModule.forRoot(routes, config)],
+    exports: [RouterModule],
 })
 export class AppRoutingModule {
 

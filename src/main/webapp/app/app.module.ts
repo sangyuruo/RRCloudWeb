@@ -29,7 +29,7 @@ import {EmCloudWebEntityModule} from "./ngx-admin/pages/entities/entity.module";
 import {EmCloudWebAdminModule} from "./ngx-admin/pages/admin/admin.module";
 import {EmCloudWebSharedModule} from "./shared/shared.module";
 import {GalleriaModule} from "primeng/primeng";
-import {CarouselfigureComponent} from './ngx-admin/carouselfigure/carouselfigure.component';
+
 
 
 @NgModule({
@@ -42,8 +42,7 @@ import {CarouselfigureComponent} from './ngx-admin/carouselfigure/carouselfigure
         EmCloudWebAdminModule,
         EmCloudWebAccountModule,
         EmCloudWebEntityModule,
-        //引入轮播图模块
-        GalleriaModule
+
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [
@@ -53,8 +52,7 @@ import {CarouselfigureComponent} from './ngx-admin/carouselfigure/carouselfigure
         PageRibbonComponent,
         ActiveMenuDirective,
         FooterComponent,
-        //引入轮播图组件
-        CarouselfigureComponent
+
 
     ],
     providers: [

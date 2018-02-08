@@ -1,11 +1,19 @@
-import {Component} from '@angular/core';
+
+import {Input, NgZone, OnDestroy} from '@angular/core';
+/* tslint:disable */
+import { Component, OnInit, ViewEncapsulation, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+
 import {NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
-import {LoginModalService} from "../../shared/login/login-modal.service";
+import {NbSidebarService} from "@nebular/theme";
+import {LoginModalService} from "../../../../shared/login/login-modal.service";
 
 @Component({
-    templateUrl: './carouselfigure.html',
+    selector: 'carouselHome',
+    templateUrl: './carouselHome.component.html',
+    styleUrls: ['./carouselHome.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
-export class CarouselfigureComponent{
+export class CarouselHomeComponent implements OnDestroy{
 
     images: any[];
     //添加登录弹出窗口
@@ -26,7 +34,14 @@ export class CarouselfigureComponent{
         this.images.push({source:'../../../content/primeng/assets/showcase/images/demo/galleria/galleria11.jpg', alt:'Description for Image 11', title:'Title 11'});
         this.images.push({source:'../../../content/primeng/assets/showcase/images/demo/galleria/galleria12.jpg', alt:'Description for Image 12', title:'Title 12'});
     }
-   login(){
-       this.modalRef = this.loginModalService.open();
-   }
+    login(){
+        this.modalRef = this.loginModalService.open();
+    }
+
+    ngOnDestroy(): void {
+        /*
+                this._map.removeEventListener('click', this._click.bind(this));
+        */
+    }
+
 }

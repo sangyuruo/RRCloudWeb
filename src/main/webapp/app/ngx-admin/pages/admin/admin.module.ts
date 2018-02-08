@@ -35,6 +35,7 @@ import {customHttpProvider} from "../../../blocks/interceptor/http.provider";
 import {MapHomeComponent} from "./baidu-home/mapHome.component";
 import {AbmModule} from "../../@bdmap/index";
 import { PickListModule} from "primeng/primeng";
+import {CarouselHomeComponent} from "./carousel-home/carouselHome.component";
 
 
 
@@ -69,6 +70,7 @@ import { PickListModule} from "primeng/primeng";
         JhiMetricsMonitoringComponent,
         JhiMetricsMonitoringModalComponent,
         MapHomeComponent,
+        CarouselHomeComponent,
 
     ],
     entryComponents: [
