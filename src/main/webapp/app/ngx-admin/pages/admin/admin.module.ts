@@ -34,9 +34,13 @@ import {EmCloudWebSharedModule} from "../../../shared/shared.module";
 import {customHttpProvider} from "../../../blocks/interceptor/http.provider";
 import {MapHomeComponent} from "./baidu-home/mapHome.component";
 import {AbmModule} from "../../@bdmap/index";
-import {GalleriaModule, PickListModule} from "primeng/primeng";
+import {PickListModule} from "primeng/primeng";
 import {CarouselHomeComponent} from "./carousel-home/carouselHome.component";
-;
+
+import {GalleriaModule} from "../../@primeng/components/galleria/galleria";
+
+
+
 
 
 @NgModule({
@@ -45,7 +49,7 @@ import {CarouselHomeComponent} from "./carousel-home/carouselHome.component";
         //RouterModule.forRoot(adminState, { useHash: true }),
         RouterModule.forChild(adminState),
         /* jhipster-needle-add-admin-module - JHipster will add admin modules here */
-
+        GalleriaModule,
         //增加百度地图
         AbmModule.forRoot({
             apiKey: 'SSIGjdDybXdVt5wBDrnAjGbZ9hvwOgVp' // app key为必选项
