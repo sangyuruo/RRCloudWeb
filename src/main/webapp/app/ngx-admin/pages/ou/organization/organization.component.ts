@@ -105,7 +105,7 @@ export class OrganizationComponent {
     };
     //树
     files:TreeNode[]=[
-        {
+       /* {
             "label": "Documents",
             "data": "Documents Folder",
             "expandedIcon": "fa-folder-open",
@@ -150,7 +150,30 @@ export class OrganizationComponent {
                     "data": "De Niro Movies",
                     "children": [{"label": "Goodfellas", "icon": "fa-file-video-o", "data": "Goodfellas Movie"}, {"label": "Untouchables", "icon": "fa-file-video-o", "data": "Untouchables Movie"}]
                 }]
+        }*/  {
+            "label": "Lazy Node 0",
+            "data": "Node 0",
+            "expandedIcon": "fa-folder-open",
+            "collapsedIcon": "fa-folder",
+            "leaf": false
+        },
+        {
+            "label": "Lazy Node 1",
+            "data": "Node 1",
+            "expandedIcon": "fa-folder-open",
+            "collapsedIcon": "fa-folder",
+            "leaf": false
+        },
+        {
+            "label": "Lazy Node 1",
+            "data": "Node 2",
+            "expandedIcon": "fa-folder-open",
+            "collapsedIcon": "fa-folder",
+            "leaf": false,
+
         }
+
+
     ];
 
     selectedFiles: TreeNode[];
@@ -158,11 +181,11 @@ export class OrganizationComponent {
 
 
     ngOnInit() {
-        this.service.getFiles().then(files => {this.files=files;
-        console.log(files)});
+        this.service.getTreeRoot().then(files => this.files=files);
+
     }
     source: ServerDataSource;
- /*   source: LocalDataSource;*/
+
 
     constructor(private service: OuService,
                 private  http  : Http,
@@ -173,7 +196,7 @@ export class OrganizationComponent {
         //this.service.getOrganization().subscribe(data => (this.source.load(data)))
         this.source = new ServerDataSource(http, { endPoint: '/emcloudou/api/organizations' },
             dateUtils);
-      this.source.getElements().then(data=>console.log(data))
+
     }
 
     onDeleteConfirm(event): void {
@@ -210,22 +233,24 @@ export class OrganizationComponent {
             event.confirm.reject();
         }
     }
+    // 节点点击事件
     nodeSelect(event) {
-        
       if(event.node.children){
-          this.service.getdataByParentCode(event.node.orgCode).subscribe(data=>this.source=data);
+          this.service.getdataByParentOrgCode(event.node.orgCode).subscribe(data=>this.source=data);
       }else{
           this.service.getdataByOrgCode(event.node.orgCode).subscribe(data=>this.source=data);
       }
-
-
-
-        /*this.http.get('/emcloudou/api/organizations/by-org-code/'+event.node.orgCode).map(res=>res.json()).subscribe()*/
+    }
+     //懒加载子节点
+    loadNode(event){
+        if(event.node.children){
+            this.service.LazyLodeNode(event.node.orgCode).subscribe(nodes =>
+            {
+            event.node.children = nodes;
+            console.log(event.node)}
+            );
+        }
 
     }
-
-
-    //添加
-
 
 }
