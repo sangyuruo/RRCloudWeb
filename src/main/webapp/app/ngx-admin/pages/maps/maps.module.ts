@@ -16,6 +16,7 @@ import {AbmModule} from "../../@bdmap/index";
     // LeafletModule.forRoot(),
     MapsRoutingModule,
     AngularEchartsModule,
+
       AbmModule.forRoot({
           apiKey: 'SSIGjdDybXdVt5wBDrnAjGbZ9hvwOgVp' // app key为必选项
       })
@@ -23,15 +24,9 @@ import {AbmModule} from "../../@bdmap/index";
   exports: [],
   declarations: [
     ...routedComponents,
-
   ],
 
     providers: [
-
-
-
-
-
     ],
 })
 export class MapsModule { }

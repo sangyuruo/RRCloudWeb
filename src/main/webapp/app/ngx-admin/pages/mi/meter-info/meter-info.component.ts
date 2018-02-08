@@ -9,6 +9,10 @@ import {OrganizationNameEditorComponent} from "./organization-name-editor.compon
 import {CompanyNameEditorComponent} from "./company-name-editor.component";
 import {CpiRegisterNameEditorComponent} from "./cpi-register-name-editor.component";
 import {AddressNameEditorComponent} from "./address-name-editor.component";
+import {LongitudeEditorComponent} from './longitude-editor.component';
+import {Router} from "@angular/router";
+import {LatiudeEditorComponent} from "./latitude-editor.component";
+
 declare let $:any;
 declare let Qrcode:any;
 
@@ -106,6 +110,22 @@ export class MeterInfoComponent {
                     component: MeterTypeEditorComponent,
                 }
             },
+            longitude: {
+                title: '经度',
+                type: 'html',
+                editor:{
+                    type:'custom',
+                    component: LongitudeEditorComponent,
+                }
+            },
+            latitude: {
+                title: '纬度',
+                type: 'Integer',
+                editor:{
+                    type:'custom',
+                    component:  LatiudeEditorComponent,
+                }
+            },
             startOffset: {
                 title: '起始偏移',
                 type: 'String',
@@ -156,7 +176,9 @@ export class MeterInfoComponent {
     constructor(private service: MiService,
                 private http:Http,
                 private http1:HttpClient,
-                private dateUtils: JhiDateUtils
+                private dateUtils: JhiDateUtils,
+                //路由跳轉
+                private router:Router,
     ) {
         // this.service.getDataMeterInfo().subscribe(data => (this.source.load(data)))
         this.source = new ServerDataSource(http, {endPoint: '/emcloudmi/api/meter-infos'},
@@ -207,7 +229,9 @@ export class MeterInfoComponent {
 
             this.service.createMeterInfo(event.newData).subscribe((response) => {
                 event.confirm.resolve(response)
-                console.log(response)
+                console.log(response);
+                //確定后跳轉路由
+                this.router.navigateByUrl('/pages/mi/MeterInfo');
             });
             /*  });*/
             /*this.service.createMeterInfo(event.newData).subscribe((response) => {
@@ -216,6 +240,8 @@ export class MeterInfoComponent {
             });*/
         } else {
             event.confirm.reject();
+            //取消后跳轉路由
+            this.router.navigateByUrl('/pages/mi/MeterInfo');
         }
     }
 }
