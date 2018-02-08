@@ -6,6 +6,7 @@ import {SettingsComponent} from "../account/settings/settings.component";
 import {PasswordComponent} from "../account/password/password.component";
 import {UserRouteAccessService} from "../shared/auth/user-route-access-service";
 import {MapHomeComponent} from "./pages/admin/baidu-home/mapHome.component";
+import {CarouselfigureComponent} from "./carouselfigure/carouselfigure.component";
 
 
 
@@ -23,7 +24,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: MapHomeComponent,
+        component: /*MapHomeComponent*/CarouselfigureComponent,
 
       },
       {
