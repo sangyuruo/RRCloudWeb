@@ -34,10 +34,9 @@ import {EmCloudWebSharedModule} from "../../../shared/shared.module";
 import {customHttpProvider} from "../../../blocks/interceptor/http.provider";
 import {MapHomeComponent} from "./baidu-home/mapHome.component";
 import {AbmModule} from "../../@bdmap/index";
-import { PickListModule} from "primeng/primeng";
+import {GalleriaModule, PickListModule} from "primeng/primeng";
 import {CarouselHomeComponent} from "./carousel-home/carouselHome.component";
-
-
+;
 
 
 @NgModule({
@@ -51,6 +50,8 @@ import {CarouselHomeComponent} from "./carousel-home/carouselHome.component";
         AbmModule.forRoot({
             apiKey: 'SSIGjdDybXdVt5wBDrnAjGbZ9hvwOgVp' // app key为必选项
         }),
+        //引入轮播图模块
+        GalleriaModule,
         PickListModule
     ],
     declarations: [
