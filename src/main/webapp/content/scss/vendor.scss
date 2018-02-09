@@ -18,9 +18,9 @@ PrimeNG and it's third-party dependencies resources
 ========================================================================== */
 
 @import "~primeng/resources/primeng.min.css";
-//@import "~primeng/resources/themes/darkness/theme.css";
-
-@import "../../content/primeng/components/themes/ngxadmin/theme.scss";
+/*@import "~primeng/resources/themes/darkness/theme.css";*/
+   //不导入primeng插件的样式，且不引用依赖包的模块，而是导入@primeng文件夹下的模块
+/*@import "../../content/primeng/components/themes/ngxadmin/theme.scss";*/
 @import "~quill/dist/quill.core.css";
 @import "~quill/dist/quill.snow.css";
 

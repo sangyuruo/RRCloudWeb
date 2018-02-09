@@ -1,8 +1,8 @@
-@import '../../../../../app/ngx-admin/@theme/styles/themes';
+/*@import '../../../../../app/ngx-admin/@theme/styles/themes';
 @import '~@nebular/theme/styles/global/bootstrap/breakpoints';
-@import '~bootstrap/scss/mixins/breakpoints';
+@import '~bootstrap/scss/mixins/breakpoints';*/
 
-/*  $fontFamily: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Segoe UI Symbol";
+  $fontFamily: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Segoe UI Symbol";
        $fontSize: 1em;
        $borderRadius: 2px;
        $disabledOpacity: 0.35;
@@ -18,7 +18,7 @@
        //Content
        $contentBorderWidth: 1px;
        $contentBorderColor: #30296b;
-       $contentBgColor: #383078;
+       $contentBgColor: white;
        $contentTextColor:#d4d4d4;
 
        //Default State
@@ -56,71 +56,22 @@
        $inputBgColor: #ffffff;
        $inputTextColor: #333333;
        $invalidInputBorderColor: #ec4e4e;
-       $inputGroupTextColor: #333333;*/
+       $inputGroupTextColor: #333333;
 
-@include nb-install-component() {
+/*@include nb-install-component() {
 
-    $padding: 1rem;
-
-    nb-card-body {
-        overflow: hidden;
-        padding: $padding;
-    }
-
-    .echart {
-        position: absolute;
-        height: calc(100% - 2 * #{$padding});
-        width: 40%;
-    }
-
-    .info {
-        margin-left: 45%;
-        padding-top: 1.5rem;
-        color: nb-theme(color-fg);
-    }
-
-    .value {
-        font-family: nb-theme(font-secondary);
-        font-size: 2rem;
-        font-weight: nb-theme(font-weight-bold);
-        color: nb-theme(color-fg-heading);
-    }
-
-    .details {
-        font-size: 1.25rem;
-        font-weight: nb-theme(font-weight-bolder);
-        line-height: 1;
-        span {
-            font-size: 1rem;
-            font-weight: nb-theme(font-weight-light);
-        }
-    }
-
-    .text-hint {
-        font-size: 1rem;
-    }
 
     @include nb-for-theme(cosmic) {
-        color: nb-theme(color-fg-heading);
 
-        .value {
-            color: nb-theme(color-fg-highlight);
-        }
+     }
 
 
-        .details span {
-            color: nb-theme(color-fg);
-        }
-
-    }
 
     @include media-breakpoint-down(xs) {
-        .value {
-            font-size: 1.75rem;
-        }
+
     }
-}
-/*@import '../_theme';*/
+}*/
+@import '../_theme';
 
 
 

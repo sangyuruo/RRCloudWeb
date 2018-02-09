@@ -80,7 +80,9 @@ import {BlockableUI} from '../common/blockableui';
                 </tbody>
             </table>
         </ng-template>
-    `
+    `,
+
+    styleUrls: ['./tree.scss']
 })
 export class UITreeNode implements OnInit {
 

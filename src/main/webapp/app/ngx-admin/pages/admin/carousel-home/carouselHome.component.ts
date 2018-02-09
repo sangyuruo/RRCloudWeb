@@ -39,9 +39,7 @@ export class CarouselHomeComponent implements OnDestroy{
     }
 
     ngOnDestroy(): void {
-        /*
-                this._map.removeEventListener('click', this._click.bind(this));
-        */
+
     }
 
 }
