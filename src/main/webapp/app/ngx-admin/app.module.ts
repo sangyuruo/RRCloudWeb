@@ -8,7 +8,7 @@ import './typings.d.ts';
 
 import {APP_BASE_HREF} from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 import {NgModule} from '@angular/core';
 import {HttpModule} from '@angular/http';
 import {CoreModule} from './@core/core.module';
@@ -24,6 +24,7 @@ import {NbAuthModule} from "./@nebular/auth/auth.module";
 import {ApiService} from "./app.service";
 import {EmCloudWebAppModule} from "../app.module";
 import {AbmModule} from "./@bdmap/index";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 
@@ -31,7 +32,6 @@ import {AbmModule} from "./@bdmap/index";
     declarations: [AppComponent],
     imports: [
         BrowserModule,
-
         BrowserAnimationsModule,
         HttpModule,
         AppRoutingModule,
