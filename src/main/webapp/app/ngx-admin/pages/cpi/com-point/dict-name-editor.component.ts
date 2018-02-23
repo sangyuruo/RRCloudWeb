@@ -41,7 +41,9 @@ export class DictNameEditorComponent extends DefaultEditor implements AfterViewI
 
     setInfo() {
         // let i = $('option:selected').index();
-        let i = $('[ng-reflect-name=' + this.cell.getId() + '] option:selected').index();
+       // let i = $('[ng-reflect-name=' + this.cell.getId() + '] option:selected').index();
+        let i = this.name.nativeElement.selectedIndex;
+
         this.cell.getRow().getCells()[15].newValue=this.dicts[i].dictClassifyCode;
         this.cell.newValue = this.sure
     }

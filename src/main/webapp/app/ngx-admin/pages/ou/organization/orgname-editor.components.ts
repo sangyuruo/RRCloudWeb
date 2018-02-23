@@ -49,7 +49,9 @@ export class OrgNameEditorComponent extends DefaultEditor implements AfterViewIn
         //             this.cell.getRow().getCells()[1].newValue = data[0].orgCode
         //
         //         )
-        let i = $('[ng-reflect-name=' + this.cell.getId() + '] option:selected').index();
+      //  let i = $('[ng-reflect-name=' + this.cell.getId() + '] option:selected').index();
+        let i = this.name.nativeElement.selectedIndex;
+
         this.cell.getRow().getCells()[1].newValue = this.organizations[i].parentCode;
         this.cell.newValue = this.sure;
     }

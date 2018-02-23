@@ -31,9 +31,8 @@ export class AddressNameEditorComponent extends DefaultEditor implements AfterVi
     }
     ngAfterViewInit() {}
     setInfo(){
-        let i = $('[ng-reflect-name=' + this.cell.getId() + '] option:selected').index();
-
-        // let i = $('option:selected').index();
+        // let i = $('[ng-reflect-name=' + this.cell.getId() + '] option:selected').index();
+        let i = this.name.nativeElement.selectedIndex;
         this.cell.getRow().getCells()[2].newValue = this.comPoints[i].addressCode;
         this.cell.newValue = this.sure
     }
