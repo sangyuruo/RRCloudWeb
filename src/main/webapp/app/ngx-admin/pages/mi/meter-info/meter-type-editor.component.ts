@@ -48,13 +48,13 @@ export class MeterTypeEditorComponent extends DefaultEditor implements AfterView
                     this.cell.getRow().getCells()[15].newValue = data[0].controlAddress;}
             )*/
 
-       // let i = $('[ng-reflect-name=' + this.cell.getId() + '] option:selected').index();
+       //let i = $('[ng-reflect-name=' + this.cell.getId() + '] option:selected').index();
         let i = this.name.nativeElement.selectedIndex;
         this.cell.getRow().getCells()[0].newValue =  this.meterInfos[i].meterType;
         this.cell.getRow().getCells()[7].newValue =  this.meterInfos[i].meterTypeCode;
-        this.cell.getRow().getCells()[9].newValue =  this.meterInfos[i].startOffset;
-        this.cell.getRow().getCells()[10].newValue =  this.meterInfos[i].numberOfRegisters;
-        this.cell.getRow().getCells()[11].newValue =  this.meterInfos[i].controlAddress;
+        this.cell.getRow().getCells()[11].newValue =  this.meterInfos[i].startOffset;//起始偏移
+        this.cell.getRow().getCells()[12].newValue =  this.meterInfos[i].numberOfRegisters;//寄存器数量
+        this.cell.getRow().getCells()[13].newValue =  this.meterInfos[i].controlAddress;//控制地址
         this.cell.newValue = this.sure;
         /* this.cell.getRow().getCells()[7].newValue = 1;
          this.cell.getRow().getCells()[9].newValue = 2;
