@@ -28,7 +28,8 @@ export class MeterNameEditorComponent extends DefaultEditor implements AfterView
     }
     ngAfterViewInit() {}
     setInfo(){
-        let i = $('[ng-reflect-name=' + this.cell.getId() + '] option:selected').index();
+       // let i = $('[ng-reflect-name=' + this.cell.getId() + '] option:selected').index();
+        let i = this.name.nativeElement.selectedIndex;
         this.cell.getRow().getCells()[0].newValue = this.meterInfos[i].meterCode;
         this.cell.newValue = this.sure
     }
