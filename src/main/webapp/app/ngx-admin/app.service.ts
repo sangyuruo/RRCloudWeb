@@ -12,20 +12,20 @@ export class ApiService {
     constructor(private http: Http) { }
 
     initOrganizationesDatas(){
-        this.http.get('/emcloudou/api/organizations?size=2000').map(res=>res.json()).subscribe(
-            data => {
-                this.organizationes = data;
-            })
+        // this.http.get('/emcloudou/api/organizations?size=2000').map(res=>res.json()).subscribe(
+        //     data => {
+        //         this.organizationes = data;
+        //     })
     }
     getOrganizationes(): any {
         return this.organizationes;
     }
 
     initAddressesDatas(){
-        this.http.get('/emcloudloc/api/addresses?size=2000').map(res=>res.json()).subscribe(
-            data => {
-                this.addresses = data;
-            })
+        // this.http.get('/emcloudloc/api/addresses?size=2000').map(res=>res.json()).subscribe(
+        //     data => {
+        //         this.addresses = data;
+        //     })
     }
     getAddresses(): any {
         return this.addresses;
@@ -34,10 +34,10 @@ export class ApiService {
 
 
     initCompaniesDatas(){
-        this.http.get('/emcloudou/api/companies?size=2000').map(res=>res.json()).subscribe(
-            data => {
-                this.companies = data;
-            })
+        // this.http.get('/emcloudou/api/companies?size=2000').map(res=>res.json()).subscribe(
+        //     data => {
+        //         this.companies = data;
+        //     })
     }
     getCompanies(): any {
         return this.companies;
@@ -45,10 +45,10 @@ export class ApiService {
 
 
     initCompointsDatas(){
-        this.http.get('/emcloudcpi/api/compoints?size=2000').map(res=>res.json()).subscribe(
-            data => {
-                this.compoints = data;
-            })
+        // this.http.get('/emcloudcpi/api/compoints?size=2000').map(res=>res.json()).subscribe(
+        //     data => {
+        //         this.compoints = data;
+        //     })
     }
     getCompoints(): any {
         return this.compoints;

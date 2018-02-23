@@ -1,0 +1,29 @@
+@import '../../../../../app/ngx-admin/@theme/styles/themes';
+@import '~@nebular/theme/styles/global/bootstrap/breakpoints';
+@import '~bootstrap/scss/mixins/breakpoints';
+
+
+
+@include nb-install-component() {
+    .ui-treenode-content-selected{
+        border-radius:10px;
+        border: 0.125rem solid rgba(0, 255, 170, 1.0);
+
+    }
+
+    @include nb-for-theme(cosmic) {
+        .ui-treenode-content-selected{
+            background-color: rgba(0, 255, 170, 0.25);
+            color: #ffffff;
+
+            border-radius:7px;
+            box-shadow: 0 2px 12px 0 rgba(0, 255, 170, 0.25);
+            border: 0.125rem solid rgba(0, 255, 170, 1.0);
+        }
+    }
+
+
+    @include media-breakpoint-down(xs) {
+
+    }
+}

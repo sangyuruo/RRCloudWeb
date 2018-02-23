@@ -4,7 +4,7 @@ import {JhiDateUtils} from "ng-jhipster";
 import {ArcService} from "../arc.service";
 import {ServerDataSource} from "../../../ng2-smart-table/lib/data-source/server/server.data-source";
 import {RuleNameEditorComponent} from "./rule-name-editor.component";
-import {MeterNameEditorComponent} from "../meter-rule/meter-name-editor.component";
+
 
 @Component({
   selector: 'ngx-smart-table',
@@ -44,7 +44,7 @@ export class RuleAttributesComponent {
             type: 'html',
             editor:{
                 type:'custom',
-                component:  RuleNameEditorComponent
+                component:  RuleNameEditorComponent,
             }
         },
         alarmLevel: {

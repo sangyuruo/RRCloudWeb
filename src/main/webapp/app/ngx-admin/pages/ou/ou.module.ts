@@ -15,9 +15,12 @@ import {OrgNameEditorComponent} from "./organization/orgname-editor.components";
 import {CpNameEditorComponent} from "./organization/companyname-editor.components";
 import { CityCodeEditorComponent} from "./company/citycode-editor.components";
 import {AreaNameEditorComponent} from "./company/areaname-editor.components";
+//引入外部源码树模块
+import {TreeModule} from "../../@primeng/components/tree/tree";
 
-//引入树模块
-import {TreeModule} from "primeng/primeng";
+//引入依赖包树模块
+// /*import {TreeModule} from "primeng/primeng";*/
+
 
 
 @NgModule({

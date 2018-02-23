@@ -6,6 +6,7 @@ import {MeterInfoComponent} from "./meter-info/meter-info.component";
 import {MeterStatusComponent} from "./meter-status/meter-status.component";
 import {MultiwaySwitchInfoComponent} from "./multiway-switch-info/multiway-switch-info.component";
 import {MiComponent} from "./mi.component";
+import {MibaidumapComponent} from "./mibaidumap/mibaidumap.component";
 
 
 const routes: Routes = [{
@@ -32,6 +33,11 @@ const routes: Routes = [{
             path: 'MultiwaySwitch',
             component: MultiwaySwitchComponent,
         },
+
+        {
+            path: 'MibaiduMap',
+            component: MibaidumapComponent,
+        }
     ],
 }]
 
@@ -49,4 +55,7 @@ export const routedComponents = [
     MeterStatusComponent,
     MultiwaySwitchInfoComponent,
     MultiwaySwitchComponent,
+
+    MibaidumapComponent
+
 ];

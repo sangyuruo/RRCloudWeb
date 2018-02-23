@@ -1,0 +1,15 @@
+@import '../../../@theme/styles/themes';
+
+@include nb-install-component() {
+
+    nb-card-body {
+        padding: 0;
+    }
+
+    .p-galleria {
+        panelWidth: 100%;
+        panelHeight: nb-theme(card-height-large);
+    }
+
+}
+

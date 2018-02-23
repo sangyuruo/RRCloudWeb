@@ -2,7 +2,7 @@ import './vendor.ts';
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { Ng2Webstorage } from 'ng2-webstorage';
+import { Ng2Webstorage } from 'ngx-webstorage';
 
 import { UserRouteAccessService } from './shared';
 import { EmCloudWebHomeModule } from './home/home.module';
@@ -28,6 +28,8 @@ import {
 import {EmCloudWebEntityModule} from "./ngx-admin/pages/entities/entity.module";
 import {EmCloudWebAdminModule} from "./ngx-admin/pages/admin/admin.module";
 import {EmCloudWebSharedModule} from "./shared/shared.module";
+import {GalleriaModule} from "primeng/primeng";
+
 
 
 @NgModule({
@@ -40,6 +42,7 @@ import {EmCloudWebSharedModule} from "./shared/shared.module";
         EmCloudWebAdminModule,
         EmCloudWebAccountModule,
         EmCloudWebEntityModule,
+
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [
@@ -49,6 +52,7 @@ import {EmCloudWebSharedModule} from "./shared/shared.module";
         PageRibbonComponent,
         ActiveMenuDirective,
         FooterComponent,
+
 
     ],
     providers: [

@@ -13,11 +13,19 @@ import {CompanyNameEditorComponent} from "./meter-info/company-name-editor.compo
 import {CpiRegisterNameEditorComponent} from "./meter-info/cpi-register-name-editor.component";
 import {AddressNameEditorComponent} from "./meter-info/address-name-editor.component";
 import {FunctionCodeEditorComponent} from "./meter-category-info/function-code-editor.component";
+import {AbmModule} from "../../@bdmap/index";
+import {LongitudeEditorComponent} from "./meter-info/longitude-editor.component";
+import {MibaidumapComponent} from "./mibaidumap/mibaidumap.component";
+import {LatiudeEditorComponent} from "./meter-info/latitude-editor.component";
 @NgModule({
   imports: [
     ThemeModule,
     TablesRoutingModule,
     Ng2SmartTableModule,
+
+      AbmModule.forRoot({
+          apiKey: 'SSIGjdDybXdVt5wBDrnAjGbZ9hvwOgVp' // app key为必选项
+      })
   ],
   declarations: [
     ...routedComponents,
@@ -30,7 +38,11 @@ import {FunctionCodeEditorComponent} from "./meter-category-info/function-code-e
       MsiMeterCodeEditorComponent,
       MsiSwitchCodeEditorComponent,
       DictClassifyValueEditorComponent,
-      FunctionCodeEditorComponent
+      FunctionCodeEditorComponent,
+      LongitudeEditorComponent,
+      LatiudeEditorComponent,
+      MibaidumapComponent
+
   ],
 
     entryComponents:[CompanyNameEditorComponent,
@@ -42,11 +54,14 @@ import {FunctionCodeEditorComponent} from "./meter-category-info/function-code-e
         MsiMeterCodeEditorComponent,
         MsiSwitchCodeEditorComponent,
         DictClassifyValueEditorComponent,
-        FunctionCodeEditorComponent
+        FunctionCodeEditorComponent,
+        LongitudeEditorComponent,
+        LatiudeEditorComponent,
+        MibaidumapComponent
     ],
 
   providers: [
     MiService,
   ],
 })
-export class TablesModule { }
+export class MiModule { }

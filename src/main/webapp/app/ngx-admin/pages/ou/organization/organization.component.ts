@@ -9,6 +9,7 @@ import {OrgNameEditorComponent} from "./orgname-editor.components";
 import {CpNameEditorComponent} from "./companyname-editor.components";
 
 import {TreeNode} from "primeng/primeng";
+import {LocalDataSource} from "ng2-smart-table";
 
 @Component({
     selector: 'ngx-smart-table',
@@ -16,6 +17,7 @@ import {TreeNode} from "primeng/primeng";
     styles: [`
     nb-card {
       transform: translate3d(0, 0, 0);
+   
     }
   `],
 })
@@ -103,7 +105,7 @@ export class OrganizationComponent {
     };
     //树
     files:TreeNode[]=[
-        {
+       /* {
             "label": "Documents",
             "data": "Documents Folder",
             "expandedIcon": "fa-folder-open",
@@ -148,17 +150,42 @@ export class OrganizationComponent {
                     "data": "De Niro Movies",
                     "children": [{"label": "Goodfellas", "icon": "fa-file-video-o", "data": "Goodfellas Movie"}, {"label": "Untouchables", "icon": "fa-file-video-o", "data": "Untouchables Movie"}]
                 }]
+        }*/  {
+            "label": "Lazy Node 0",
+            "data": "Node 0",
+            "expandedIcon": "fa-folder-open",
+            "collapsedIcon": "fa-folder",
+            "leaf": false
+        },
+        {
+            "label": "Lazy Node 1",
+            "data": "Node 1",
+            "expandedIcon": "fa-folder-open",
+            "collapsedIcon": "fa-folder",
+            "leaf": false
+        },
+        {
+            "label": "Lazy Node 1",
+            "data": "Node 2",
+            "expandedIcon": "fa-folder-open",
+            "collapsedIcon": "fa-folder",
+            "leaf": false,
+
         }
-    ]
+
+
+    ];
 
     selectedFiles: TreeNode[];
 
 
 
     ngOnInit() {
-        this.service.getFiles().then(files => this.files=files);
+        this.service.getTreeRoot().then(files => this.files=files);
+
     }
     source: ServerDataSource;
+
 
     constructor(private service: OuService,
                 private  http  : Http,
@@ -206,8 +233,24 @@ export class OrganizationComponent {
             event.confirm.reject();
         }
     }
+    // 节点点击事件
     nodeSelect(event) {
-        console.log(event.node.label)
+      if(event.node.children){
+          this.service.getdataByParentOrgCode(event.node.orgCode).subscribe(data=>this.source=data);
+      }else{
+          this.service.getdataByOrgCode(event.node.orgCode).subscribe(data=>this.source=data);
+      }
+    }
+     //懒加载子节点
+    loadNode(event){
+        if(event.node.children){
+            this.service.LazyLodeNode(event.node.orgCode).subscribe(nodes =>
+            {
+            event.node.children = nodes;
+            console.log(event.node)}
+            );
+        }
+
     }
 
 }

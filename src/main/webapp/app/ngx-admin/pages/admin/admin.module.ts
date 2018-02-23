@@ -35,6 +35,10 @@ import {customHttpProvider} from "../../../blocks/interceptor/http.provider";
 import {MapHomeComponent} from "./baidu-home/mapHome.component";
 import {AbmModule} from "../../@bdmap/index";
 import {PickListModule} from "primeng/primeng";
+import {CarouselHomeComponent} from "./carousel-home/carouselHome.component";
+
+import {GalleriaModule} from "../../@primeng/components/galleria/galleria";
+
 
 
 
@@ -45,12 +49,13 @@ import {PickListModule} from "primeng/primeng";
         //RouterModule.forRoot(adminState, { useHash: true }),
         RouterModule.forChild(adminState),
         /* jhipster-needle-add-admin-module - JHipster will add admin modules here */
-
+        GalleriaModule,
         //增加百度地图
         AbmModule.forRoot({
             apiKey: 'SSIGjdDybXdVt5wBDrnAjGbZ9hvwOgVp' // app key为必选项
         }),
-
+        //引入轮播图模块
+        GalleriaModule,
         PickListModule
     ],
     declarations: [
@@ -70,6 +75,7 @@ import {PickListModule} from "primeng/primeng";
         JhiMetricsMonitoringComponent,
         JhiMetricsMonitoringModalComponent,
         MapHomeComponent,
+        CarouselHomeComponent,
 
     ],
     entryComponents: [
